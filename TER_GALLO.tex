@@ -9,9 +9,8 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{color}
+\usepackage{pgfornament}
 \usepackage[frenchb]{babel}
-
-
 \newtheorem*{definition}{Défintion}
 \newtheorem*{lemme}{Lemme}
 \newtheorem*{defft}{Définition \& Théorème}
@@ -24,8 +23,8 @@
 \newcommand{\deff}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{definition}#1\end{definition}\end{minipage}}\medskip}
 \newcommand{\deffthm}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{defft}#1\end{defft}\end{minipage}}\medskip}
 \titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{10pt}{\Huge}
-\titleformat{\section}[display] {\normalfont}{}{10pt}{\LARGE}
+{\normalfont\bfseries}{}{10pt}{\pgfornament[width=3em,ydelta=-5pt]{67} \space \LARGE}
+\titleformat{\section}[display] { \normalfont\bfseries}{}{10pt}{\Large }
 \titlespacing{\section}{5pt}{20pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
 \titlespacing{\chapter}{5pt}{12pt plus 4pt minus 2pt}{25pt plus 2pt minus 2pt}
 \begin{document}
@@ -63,7 +62,7 @@
 	\end{center}
 \end{titlepage}
 
-\section*{Partie 1}
+\chapter{Partie 1}
 La genèse du théorème de Dvoretzky provient d'une conjecture proposé par Grothendieck en 1956, inspiré par le théorème de Dvoretzky-Rogers (1950). Dvoretzky répondra positivement a la conjecture en 1960, aboutissant au résultat suivant : 
 \newline\theorem{
 	Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
@@ -129,7 +128,8 @@ V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisa
 	\color{blue} je n'ai pas encore réussi a conclure ici\color{black}
 \end{enumerate}
 \newpage
-\section*{Partie 2}
+\chapter*{Partie 2}
+\section{Mesures de Haar}
 \deffthm{\textit{(Mesures de Haar)} Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
 	\begin{equation}\tag{$\star$}
 	 \forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
@@ -246,7 +246,7 @@ Dans cette partie on s'intéresse a démontrer le résultat suivant :
 
 
 \newpage
-\section*{Partie 3}
+\chapter{Partie 3}
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 \newline\deff{
 	Un ellipsoïde $D$ de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
