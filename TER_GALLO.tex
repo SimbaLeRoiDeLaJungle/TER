@@ -1,0 +1,310 @@
+\documentclass{report}
+\author{Mathieu GALLO}
+\title{Travaux d'étude et de recherche}
+\setlength{\hoffset}{-70pt}
+\setlength{\textwidth}{481pt}
+\usepackage{amsmath}
+\usepackage{fourier}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[frenchb]{babel}
+
+
+\newtheorem*{definition}{Défintion}
+\newtheorem*{lemme}{Lemme}
+\newtheorem*{defft}{Définition \& Théorème}
+\newtheorem{theoreme}{Théorème}
+\newtheorem*{proposition}{Proposition}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\theorem}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{theoreme}#1\end{theoreme}\end{minipage}}\medskip}
+\newcommand{\lemma}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{lemme}#1\end{lemme}\end{minipage}}\medskip}
+\newcommand{\prop}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{proposition}#1\end{proposition}\end{minipage}}\medskip}
+\newcommand{\deff}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{definition}#1\end{definition}\end{minipage}}\medskip}
+\newcommand{\deffthm}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{defft}#1\end{defft}\end{minipage}}\medskip}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{10pt}{\Huge}
+\titleformat{\section}[display] {\normalfont}{}{10pt}{\LARGE}
+\titlespacing{\section}{5pt}{20pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
+\titlespacing{\chapter}{5pt}{12pt plus 4pt minus 2pt}{25pt plus 2pt minus 2pt}
+\begin{document}
+	
+\begin{titlepage}
+
+	\begin{center}
+		
+		\textsc{\LARGE Sorbonne Université}\\[2cm]
+		
+		\textsc{\Large Travaux d'étude et de recherche}\\[1.5cm]
+		
+
+		\HRule \\[0.4cm]
+		{ \huge \bfseries Autour du théorème de Dvoretzky\\[0.4cm] }
+		
+		\HRule \\[2cm]
+		
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushleft} \large
+				Mathieu GALLO \\
+			\end{flushleft}
+		\end{minipage}
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+				\emph{Enseignant :} Omer Friedland\\
+			\end{flushright}
+		\end{minipage}
+		
+		\vfill
+		% Bottom of the page
+		{\large date}
+		
+	\end{center}
+\end{titlepage}
+
+\section*{Partie 1}
+La genèse du théorème de Dvoretzky provient d'une conjecture proposé par Grothendieck en 1956, inspiré par le théorème de Dvoretzky-Rogers (1950). Dvoretzky répondra positivement a la conjecture en 1960, aboutissant au résultat suivant : 
+\newline\theorem{
+	Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+	\begin{enumerate}
+		\item[(i)] $\dim V =k(\varepsilon,n)$
+		\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\epsilon)r.(V\cap B^n_2) $
+	\end{enumerate}
+}
+V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\epsilon,n)\geq c(\epsilon).\log(n)$.
+\newline\theorem{
+	Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous corps convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+	\begin{enumerate}
+		\item[(i)] $\dim V \geq c.\log(n)$
+		\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\epsilon)r.(V\cap B^n_2) $
+	\end{enumerate}
+}
+\noindent Il existe une reformulation du théorème en terme de norme.
+\newline\theorem{
+	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour toute $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\mathbb{R}^n$ alors  $l^k_2$ est $(1+\varepsilon)$-isomorphe à $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+}
+\noindent Nous allons montrer que ses deux derniers théorème sont équivalent.
+\begin{enumerate}[leftmargin=\labelsep]
+	\item[(2)$\Rightarrow$(3)]
+	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in  \mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
+	Donnons nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
+	\begin{equation*}
+	\phi :\begin{array}{ccc}
+	(V,||.||) & \mapsto &(\mathbb{R}^k,|.|_k) \\
+	\sum_{i=1}^{k}x_i v_i & \to & \sum_{i=1}^{k}x_i e_i
+	\end{array}
+	\end{equation*}
+	Soit $v\in V\cap K$ tel que $||v||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
+	\begin{equation*}
+	r \leq |v|_n \leq (1+\varepsilon)r
+	\end{equation*}
+	La borne supérieur est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieur il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenue dans $V\cap K$.\\
+	Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
+	\begin{equation*}
+	r \leq \sqrt{\sum_{i=1}^{k}x_i^2} \leq (1+\varepsilon)r
+	\end{equation*}
+	Mais comme $|\phi(v)|_k = \big|\sum_{i=1}^{k}x_i e_i \big| = \sqrt{\sum_{i=1}^{k}x_i^2}$, on a que :
+	\begin{equation*}
+	r \leq |\phi(v)|_k \leq (1+\varepsilon)r
+	\end{equation*}
+	Pour tous $x\in  V\backslash\{0\}$ on peut appliqué ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
+	\begin{equation*}
+	r||x||  \leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
+	\end{equation*}
+	\item[(3)$\Rightarrow$(2)]
+	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $l_2^k$ est ($1+\varepsilon$)-isomorphe à ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :l^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+	\begin{equation*}
+	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
+	\end{equation*}
+	ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction a $V$ de $T$ est bijective.
+	Soit $y\in \partial(K\cap V)$, c'est à dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
+	\begin{equation*}
+	|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
+	\end{equation*}
+	la convexité et la symétrie centrale de $K\cap V$ nous permet de conclure que  :
+	\begin{equation}
+		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
+	\end{equation}
+	\color{blue} je n'ai pas encore réussi a conclure ici\color{black}
+\end{enumerate}
+\newpage
+\section*{Partie 2}
+\deffthm{\textit{(Mesures de Haar)} Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
+	\begin{equation}\tag{$\star$}
+	 \forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
+	\end{equation} 
+	alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
+}
+Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle pour $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriété qui serons utile par la suite.
+\newline\lemma{
+Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
+\begin{equation*}
+	\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+\end{equation*}}
+\begin{proof}
+	Par unicité de la mesure de Haar , il nous suffit de montrer que pour tous $M\in O(n)$ et $f\in C(S^{n-1})$ :
+	\begin{equation*}
+		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+	\end{equation*}
+	Posons $Z = \frac{Y}{|Y|}$ et $\rho_Z$ la densité de $Z$ alors :
+	\begin{equation*}
+		`
+	\end{equation*} 
+	\begin{equation*}
+		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big)\det M \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
+	\end{equation*}
+	comme $\det M=1$ et $|M^{-1}y|=|y|$, on a : 
+	\begin{equation*}
+	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+	\end{equation*}
+\end{proof}
+\lemma{
+	Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
+	\begin{equation*}
+		\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
+	\end{equation*}
+}
+\begin{proof}
+	Soit $M \in O(n)$ alors la mesure définis pas $\omega(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)$ vérifie 
+	\begin{equation*}
+		\omega(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega(A)
+	\end{equation*}
+	L'unicité de la mesure de Haar nous permet de conclure que $\omega = \nu$ car $\omega(S^{n-1})=1$.
+\end{proof}
+\theorem{
+		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
+	\begin{equation*}
+	\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
+	\end{equation*}}
+Dans cette partie on s'intéresse a démontrer le résultat suivant :
+\newline\theorem{
+	Pour tous $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$ il existe un sous-espace $V\subset \mathbb{R}^n$ tel que :
+	\begin{enumerate}
+		\item[(i)] $\dim V \geq c.\big(\frac{E}{b}\big)^2n$
+		\item[(ii)] Pour tous $x\in V$ : $(1-\varepsilon)E|x|\leq ||x|| \leq (1+\varepsilon)E |x|$
+	\end{enumerate} 
+	où $E = \int_{S^{n-1}} ||y|| d\mu(y)$ et $b>0$ est le plus petit réel positif tel que $||.||\leq b|.|$.
+}
+\begin{proof}
+	Soit $1>\delta,\theta>0$ tel que
+	\begin{equation*}
+		\frac{1}{1-\theta}<1+\varepsilon/2 \; \text{ et }\; \frac{1-2\theta}{1-\theta}>1-\varepsilon/2
+	\end{equation*}
+	
+	\begin{equation*}
+		\frac{1+\delta}{1-\theta}<1+\varepsilon \; \text{ et } \; \frac{1-2\theta -\delta}{1-\theta}>1-\varepsilon
+	\end{equation*}
+	Posons $\eta = \frac{\delta E}{b}$ et fixons $V_0\subset \mathbb{R}^n$ un sous-espace et $M\subset V_0\cap S^{n-1}$ un $\theta$-net, où $\dim V_0 = k$ \color{red}avec $|M|< \frac{1}{2}e^{\frac{\eta^2n}{2}}< (\frac{3}{\theta})^k$. \color{black} (on justifira l'existence d'un tel ensemble dans lemme qui suit cette démonstration)
+	\begin{equation*}
+		\nu\Big(\cap_{x\in M}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1-|M|\nu\Big(\big\{T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big\}\Big) \text{,  pour un $y\in M$.}
+	\end{equation*} 
+	\begin{equation*}
+		\nu\Big(\cap_{x\in M}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1-|M|2 e^{-\frac{\eta^2 n}{2}}>0
+	\end{equation*} 
+	Il existe donc $T\in O(n)$ tel que pour tous $x\in M$ on ait $\big|||Tx||-E \big|\leq b \eta$, comme $T$ est une isométrie on a que $N=: TM$ est un $\theta$-net sur $V\cap S^{n-1}$ avec $V=:TV_0$.\\
+	Si $x\in V\cap S^{n-1}$ , \color{red}il existe $\{y_i\}\subset N$ et $\{\beta_i\}$ une suite avec $|\beta_i|\leq \theta^i $  tel que $x = y_1 + \sum_{i=2}^{\infty} \beta_i y_i$,
+	\color{black} 
+	on a donc 
+	\begin{equation*}
+		||x||\leq ||y_1|| + \sum_{i=2}^{\infty} \theta ^{i} ||y_i||\leq \sum_{i=0}^{\infty}\theta^i (b\eta+E)=\frac{1}{1-\theta}(b\eta + E)
+	\end{equation*}
+	Trouvons maintenant une minoration de $||x||$, on a $||x-y_1||=\Big|\Big|\sum_{i=2}^{\infty}\beta^i y_i \Big|\Big|\leq \sum_{i=1}^{\infty}\theta^i || y_i|| \leq \frac{\theta}{1-\theta}(b\eta + E)$
+	et donc 
+	\begin{equation*}
+		||x||\geq ||y_1|| - ||x-y_1|| \geq (b\eta + E) - \frac{\theta}{1-\theta}(E+b\eta)=E\frac{1-2\theta}{1-\theta}-b\eta\frac{1}{1-\theta}
+	\end{equation*}
+	\begin{equation*}
+		E\frac{1-2\theta}{1-\theta}-b\eta\frac{1}{1-\theta} \leq ||x|| \leq \frac{1}{1-\theta}(b\eta + E)
+	\end{equation*}
+	Or on a $E\frac{1-2\theta}{1-\theta}-b\eta\frac{1}{1-\theta}= E \frac{1-2\theta-\delta}{1-\theta}>E(1-\varepsilon)$ et  $\frac{1}{1-\theta}(b\eta + E)= E\frac{1+\delta}{1-\theta}<E(1+\varepsilon)$ et donc 
+	\begin{equation*}
+		E(1-\varepsilon) \leq ||x|| \leq E (1+\varepsilon)
+	\end{equation*}
+	Pour $y\in V$ il suffit de prendre $x = \frac{y}{|y|}$ et l'on a :
+	\begin{equation*}
+		E(1-\varepsilon)|y|\leq ||y|| \leq E (1+\varepsilon)|y|
+	\end{equation*}
+	Il ne nous reste plus qu'as discuté de la minoration de $k$, en prenant le logarithme dans $\frac{1}{2}e^{\frac{\eta^2n}{2}}< (\frac{3}{\theta})^k$, on obtient :
+	\begin{equation*}
+		k> \frac{1}{log(3/\theta)}\Big(\frac{\delta^2 E^2}{2 b^2}n-log(2)\Big)
+	\end{equation*}
+	\color{blue}\textit{Je n'arrive pas a conclure pour la dimension, par rapport au livre de Gideon et Milman j'ai remplacer dans les notations $\varepsilon$ par $\eta$, $\varepsilon'$ par $\delta$, $\delta$ par $\varepsilon$} \color{black}
+\end{proof}
+
+\lemma{
+	Pour tous $0<\varepsilon<1$ il existe un $\varepsilon$-net sur $S^{k-1}$ de cardinal inférieur à $\big(\frac{3}{\varepsilon}\big)^{k}$.}
+\begin{proof}
+	Soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $S^{k-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \varepsilon$, c'est à dire pour tous $x\in S^{k-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\varepsilon$, donc $N$ est un $\varepsilon$-net. Les boules de centre $x_i$ et de rayon $\varepsilon/2$ sont donc disjointe deux à deux et toute contenue dans $B(0,1+\frac{\varepsilon}{2})$ d'ou : 
+	\begin{equation*}
+	m \text{Vol}(B(x_1,\frac{\varepsilon}{2}))= \sum_{i=1}^{m}\text{Vol}(B(x_i,\frac{\varepsilon}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B(x_i,\frac{\varepsilon}{2}))\leq \text{Vol}(B(0,1+\frac{\varepsilon}{2}))
+	\end{equation*}
+	\begin{equation*}
+	m\leq \frac{\text{Vol}(B(0,1+\frac{\varepsilon}{2}))}{\text{Vol}(B(x_1,\frac{\varepsilon}{2}))} =\Bigg(\frac{1+\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}\Bigg)^k=\Bigg(1+\frac{2}{\varepsilon}\Bigg)^k\leq \big(\frac{3}{\varepsilon}\big)^k
+	\end{equation*}
+\end{proof}
+
+
+\newpage
+\section*{Partie 3}
+Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
+\newline\deff{
+	Un ellipsoïde $D$ de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
+}
+Admettons le théorème suivant de Fritz John (1910-1994):
+\newline\theorem{\textit{(Ellipsoïde de John)}
+	Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
+}
+
+\lemma{\textit{(Dvoretzky-Rogers)} Il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que 
+\begin{equation*}
+	\text{$\forall 1\leq i\leq n$} \, , \;\; e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
+\end{equation*}
+}
+\begin{proof}
+	$S^{n-1}$ est compact et $||.||$ continue, on peux donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est à dire $||x_1||=1$, supposons que l'on ai $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\cap_{j< i}{x_j}\neq \emptyset$ car les $\{x_i\}_{i=1,...,k-1}$ sont orthogonaux deux à deux et est compact, on peut donc répéter le procéder pour trouver $x_{k}$ qui maximise $S^{n-1}\cap_{j< k}{x_j}$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b\in\mathbb{R}^{*}$ et définissons :
+	\begin{equation*}
+		\mathcal{E} = \Big\{\sum_{i=1}^{n}a_ix_i\; ; \; \sum_{i=1}^{k-1}\big(\frac{a_i}{a}\big)^2+ \sum_{i=k}^{n}\big(\frac{b_i}{b}\big)^2\leq 1 \Big\}
+	\end{equation*}
+	Supposons $\sum_{i=1}^{n}a_ix_i\in \mathcal{E}$, alors $\sum_{i=1}^{k-1}a_ix_i\in aB_2^n$ et donc $||\sum_{i=1}^{k-1}a_ix_i||\leq a$.
+	Si $x\in \text{Vect}(x_k,...,x_n)\cap B^2_n$ on a $||x||\leq ||x_k||$ par construction, et donc $\sum_{i=k}^{n}a_ix_i\in bB_2^n \; \Rightarrow \; ||\sum_{i=k}^{n}a_ix_i ||\leq b||x_k||$ , ce qui nous donne la majoration suivante 
+	\begin{equation*}
+		||\sum_{i=1}^{n}a_ix_i||\leq ||\sum_{i=1}^{k-1}a_ix_i||+||\sum_{i=k}^{n}a_ix_i||\leq a + b||x_k||
+	\end{equation*}
+	Posons $\phi\in GL(n)$ définit par $\phi(\sum_{i=1}^{n}a_ix_i)=\sum_{i=1}^{k-1}aa_ix_i+\sum_{i=k}^{n}ba_ix_i$ on a $\phi = \text{diag}\big(\overbrace{a,...,a}^{(k-1)\times},\overbrace{b,...,b}^{(n-k+1) \times}\big)$ et donc $\det \phi = a^{k-1}b^{n-k+1}$ d'où :
+	\begin{equation*}
+		\int_{\mathcal{E}} dx_1...dx_n = \int_{B_2^n} \det \phi dx_1...dx_n= a^{k-1}b^{n-k-1}\int_{B_2^n}dx_1...dx_n
+	\end{equation*}
+	On prend $a+b||x_k||= 1$ de sorte que $\mathcal{E}\subset K$, comme $B_2^n$ est l'ellipsoïde de volume maximale inclue dans $K$, on a que  
+	\begin{equation*}
+		1\geq\frac{\int_{\mathcal{E}} dx_1...dx_n}{\int_{B_2^n}dx_1...dx_n}=a^{k-1}b^{n-k+1}
+	\end{equation*}
+	Fixons donc pour $k\geq 2$ , $b=\frac{1-a}{||x_k||}$ et $a=\frac{k-1}{n}$, en remplaçant dans l'inégalité on obtient :
+	\begin{equation*}
+		1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) = \Big(\frac{k-1}{n}\Big)^{\frac{k-1}{n-k+1}}\Big(1-\frac{k-1}{n}\Big)
+	\end{equation*}
+	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)$\color{red} $>-1$.\color{black}
+\end{proof}
+\prop{\textit{(Estimation de $E$ )} Il existe $c=c(\varepsilon)>0$ tel que $E \geq c \sqrt{\frac{\log n}{n}}$.
+}
+\begin{proof}
+	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq [n/2]$, $||x_i||\geq e^{-1}\Big(1-\frac{n/2 -1}{n}\Big)=e^{-1}\Big(\frac{1}{2}+\frac{1}{n}\Big)\geq (2e)^{-1} $. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
+	\begin{equation*}
+		\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n|| d\mu(a)
+	\end{equation*}
+	et donc 
+	\begin{equation*}
+		\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n|| d\mu(a)	
+	\end{equation*}
+	\begin{equation*}
+	\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) 	
+	\end{equation*}
+	\begin{equation*}
+	\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a) \geq \int_{S^{n-1}} \max_{1\leq i \leq [n/2]}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq [n/2]}|a_i| d\mu(a)	
+	\end{equation*}
+	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
+	\begin{equation*}
+		\int_{S^{n-1}} \max_{1\leq i \leq [n/2]}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq [n/2]}|g_i|\Big]
+	\end{equation*}
+\end{proof}
+\end{document}
