@@ -172,6 +172,7 @@ Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ so
 	\end{equation*}
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega = \nu$ car $\omega(S^{n-1})=1$.
 \end{proof}
+\section{Début de la démonstration du théorème de Dvoretzky}
 \theorem{
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
 	\begin{equation*}
@@ -197,8 +198,9 @@ Dans cette partie on s'intéresse a démontrer le résultat suivant :
 	\end{equation*}
 	Posons $\eta = \frac{\delta E}{b}$ et fixons $V_0\subset \mathbb{R}^n$ un sous-espace et $M\subset V_0\cap S^{n-1}$ un $\theta$-net, où $\dim V_0 = k$ \color{red}avec $|M|< \frac{1}{2}e^{\frac{\eta^2n}{2}}< (\frac{3}{\theta})^k$. \color{black} (on justifira l'existence d'un tel ensemble dans lemme qui suit cette démonstration)
 	\begin{equation*}
-		\nu\Big(\cap_{x\in M}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1-|M|\nu\Big(\big\{T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big\}\Big) \text{,  pour un $y\in M$.}
+		\nu\Big(\cap_{x\in M}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq`  b\eta\big\}\Big)= 1-|M|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big) \text{,  pour un $y\in M$.}
 	\end{equation*} 
+	or $\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big) = \mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big)\leq 2e^{-\frac{\eta^2n}{2}}$, donc :
 	\begin{equation*}
 		\nu\Big(\cap_{x\in M}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1-|M|2 e^{-\frac{\eta^2 n}{2}}>0
 	\end{equation*} 
