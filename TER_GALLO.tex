@@ -23,10 +23,10 @@
 \newcommand{\deff}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{definition}#1\end{definition}\end{minipage}}\medskip}
 \newcommand{\deffthm}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{defft}#1\end{defft}\end{minipage}}\medskip}
 \titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{10pt}{\pgfornament[width=3em,ydelta=-5pt]{67} \space \LARGE}
+{\normalfont\bfseries}{}{10pt}{\vspace{-3 cm}\pgfornament[width=3em,ydelta=-5pt]{67} \space \LARGE}
 \titleformat{\section}[display] { \normalfont\bfseries}{}{10pt}{\Large }
-\titlespacing{\section}{5pt}{20pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
-\titlespacing{\chapter}{5pt}{12pt plus 4pt minus 2pt}{25pt plus 2pt minus 2pt}
+\titlespacing{\section}{5pt}{7pt plus 4pt minus 2pt}{10pt plus 2pt minus 2pt}
+\titlespacing{\chapter}{5pt}{12pt plus 4pt minus 2pt}{10pt plus 2pt minus 2pt}
 \begin{document}
 	
 \begin{titlepage}
@@ -166,11 +166,11 @@ Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ so
 	\end{equation*}
 }
 \begin{proof}
-	Soit $M \in O(n)$ alors la mesure définis pas $\omega(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)$ vérifie 
+	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis pas $\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)$ vérifie 
 	\begin{equation*}
-		\omega(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega(A)
+		\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
-	L'unicité de la mesure de Haar nous permet de conclure que $\omega = \nu$ car $\omega(S^{n-1})=1$.
+	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$ car $\omega_x(S^{n-1})=1$ et en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
 \section{Début de la démonstration du théorème de Dvoretzky}
 \theorem{
@@ -308,5 +308,31 @@ Admettons le théorème suivant de Fritz John (1910-1994):
 	\begin{equation*}
 		\int_{S^{n-1}} \max_{1\leq i \leq [n/2]}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq [n/2]}|g_i|\Big]
 	\end{equation*}
+	\begin{lemme}
+		$\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}(g_1,...,g_n)$ et $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}$ sont indépendants.
+	\end{lemme}
+	\begin{proof}[\color{red}Démonstration du lemme]
+	\end{proof}
+	\color{black}
+	Par le lemme on à donc 
+	\begin{equation*}
+		\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq [n/2]}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq [n/2]}|g_i|\big]
+	\end{equation*}
+	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
+	\begin{equation*}
+		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
+	\end{equation*}`
+	\begin{lemme}
+		pour $k\leq n$ on a $\mathbb{E}\big[\max_{1\leq i \leq k}|g_i|\big]\leq 2\sqrt{2\log(k)}$
+	\end{lemme}
+	\begin{proof}
+		Notions $Z=\max_{1\leq i \leq k}|g_i|$ alors \begin{equation*}
+		\exp(t\mathbb{E}[Z])\leq \mathbb{E}[\exp(tZ)]=\mathbb{E}\big[\max_{1\leq i \leq k}\exp(t|g_i|)\big]\leq \sum_{i=0}^{k}\mathbb{E}[\exp(t|g_i|)]=k\mathbb{E}[\exp(t|g_1|)]
+		\end{equation*}
+		\begin{equation*}
+		\mathbb{E}[\exp(t|g_1|)] = \int_{\mathbb{R}^{+}} e^{tx-x^2/2}dx+\int_{\mathbb{R}^{-}} e^{-tx-x^2/2}dx = 2 \int_{\mathbb{R}^{+}} e^{tx-x^2/2}dx
+		\end{equation*}
+	\end{proof}
 \end{proof}
+
 \end{document}
