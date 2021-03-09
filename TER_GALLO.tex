@@ -147,14 +147,10 @@ Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ so
 	\begin{equation*}
 		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
-	Posons $Z = \frac{Y}{|Y|}$ et $\rho_Z$ la densité de $Z$ alors :
 	\begin{equation*}
-		`
-	\end{equation*} 
-	\begin{equation*}
-		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big)\det M \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
+		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big) \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
 	\end{equation*}
-	comme $\det M=1$ et $|M^{-1}y|=|y|$, on a : 
+	comme $|\det M|=1$ et $|M^{-1}y|=|y|$, on a : 
 	\begin{equation*}
 	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
