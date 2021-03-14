@@ -122,10 +122,9 @@ V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisa
 	|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
 	\end{equation*}
 	la convexité et la symétrie centrale de $K\cap V$ nous permet de conclure que  :
-	\begin{equation}
+	\begin{equation*}
 		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
-	\end{equation}
-	\color{blue} je n'ai pas encore réussi a conclure ici\color{black}
+	\end{equation*}
 \end{enumerate}
 \newpage
 \chapter*{Partie 2}
@@ -136,7 +135,7 @@ V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisa
 	\end{equation} 
 	alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
 }
-Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle pour $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriété qui serons utile par la suite.
+Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriété qui serons utile par la suite.
 \newline\lemma{
 Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
 \begin{equation*}
@@ -227,7 +226,7 @@ Dans cette partie on s'intéresse a démontrer le résultat suivant :
 	\begin{equation*}
 		k> \frac{1}{log(3/\theta)}\Big(\frac{\delta^2 E^2}{2 b^2}n-log(2)\Big)
 	\end{equation*}
-	\color{blue}\textit{Je n'arrive pas a conclure pour la dimension, par rapport au livre de Gideon et Milman j'ai remplacer dans les notations $\varepsilon$ par $\eta$, $\varepsilon'$ par $\delta$, $\delta$ par $\varepsilon$} \color{black}
+	\color{red}\textit{Je n'arrive pas a conclure pour la dimension, par rapport au livre de Gideon et Milman j'ai remplacer dans les notations $\varepsilon$ par $\eta$, $\varepsilon'$ par $\delta$, $\delta$ par $\varepsilon$} \color{black}
 \end{proof}
 
 \lemma{
@@ -240,11 +239,128 @@ Dans cette partie on s'intéresse a démontrer le résultat suivant :
 	\begin{equation*}
 	m\leq \frac{\text{Vol}(B(0,1+\frac{\varepsilon}{2}))}{\text{Vol}(B(x_1,\frac{\varepsilon}{2}))} =\Bigg(\frac{1+\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}\Bigg)^k=\Bigg(1+\frac{2}{\varepsilon}\Bigg)^k\leq \big(\frac{3}{\varepsilon}\big)^k
 	\end{equation*}
+
 \end{proof}
 
 
 \newpage
 \chapter{Partie 3}
+\section{Estimation de la borne inférieur du maximum d'un vecteur gaussien}
+\color{blue}
+Dans la suite pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $g_i$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans cette section.  
+\newline\lemma{\textit(ratio de Mill) Soit $g$ une variable aléatoire suivant une loi $\mathcal{N}(0,1)$, alors \begin{equation*}
+	\mathbb{P}(g>t) \geq \exp\big(-\frac{t^2}{2}\big)\frac{1}{\sqrt{2\pi}t+2}
+	\end{equation*}}
+\color{red}\begin{proof}
+	
+\end{proof}\color{black}\color{blue}
+\theorem{ $\exists A,B>0$ tel que pour tout $N>1$, et $(g_1,...,g_N)$ des variables aléatoires i.i.d suivant une loi $\mathcal{N}(0,1)$, on est  :
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq A\sqrt{\log N}- B
+	\end{equation*}	
+}
+\begin{proof}
+	Fixons ces notations :
+	\begin{enumerate}
+		\item[(i)] $C(N) = \sqrt{2-\frac{2 \log\log N}{\log N}}$
+		\item[(ii)] $\beta_N = C(N)\sqrt{\log N}$
+		\item[(iii)] $A= \cup_{i \leq N}\Big\{X_i\geq \beta_N \Big\}$
+	\end{enumerate}
+	La démonstration va reposer sur l'égalité suivante :
+	\begin{equation}
+	\tag{$\star$}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] = \mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A\Big] \mathbb{P}(A)+\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big] \mathbb{P}(A^{c})
+	\end{equation}
+	Dans un premier temps, on s'intéresse à minoré la partie $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]$.
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \mathbb{E}\Big[g_1 \big| A^{c}\Big]=\frac{1}{\mathbb{P}(A^c)} \int_{\mathbb{R}^N} x_1 \mathbb{1}_{A^c}(x_1,...,x_N) \prod_{i=1}^{N} \frac{\exp\big(-\frac{1}{2}x_i^2\big)}{\sqrt{2\pi}} dx_1 ... dx_N
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \frac{1}{\mathbb{P}\big(g_1\leq \beta_N\big)^{N}} \Big(\int_{\mathbb{R}} \frac{\exp\big(-\frac{1}{2}x^2\big)}{\sqrt{2\pi}}\mathbb{1}_{\{g_1\leq \beta_N\}} dx\Big)^{N-1}\int_{-\infty}^{\beta_N}x \exp\big(-\frac{1}{2}x^2\big) \frac{dx}{\sqrt{2\pi}} 
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \frac{1}{\mathbb{P}\big(g_1\leq 0\big)} \int_{-\infty}^{0}x \exp\big(-\frac{1}{2}x^2\big) \frac{dx}{\sqrt{2\pi}} = -\sqrt{\frac{2}{\pi}}
+	\end{equation*}
+	En substituant dans $(\star)$:
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \beta_N \mathbb{P}(A)-\sqrt{\frac{2}{\pi}}(1-\mathbb{P}(A))=\big(\beta_N+\sqrt{\frac{2}{\pi}}\big)\mathbb{P}(A)-\sqrt{\frac{2}{\pi}}
+	\end{equation*}
+	On s'intéresse maintenant a minoré $ \mathbb{P}(A)$.
+	\begin{equation*}
+	\mathbb{P}(A) = 1-\mathbb{P}(A^c)=1-\big(1-\mathbb{P}(g_1> \beta_N)\big)^N
+	\end{equation*}
+	avec $1-x \leq \exp (-x)$ on a :
+	\begin{equation*}
+	\mathbb{P}(A) \geq 1-\exp\big(-N\mathbb{P}(g_1> \beta_N)\big)
+	\end{equation*}
+	avec le ratio de Mill on obtient :
+	\begin{equation*}
+	\mathbb{P}(A) \geq 1-\exp\Big(-N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2}\Big)
+	\end{equation*}
+	On peut simplifier a l'intérieur de l'exponentielle :
+	\begin{equation*}
+	N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2} =  N^{1-\frac{C(N)^2}{2}}\frac{1}{\sqrt{2\pi}C(N)\sqrt{\log N}+2}
+	\end{equation*}
+	\begin{equation*}
+	1-\frac{C(N)^2}{2} = 1 - 1+\frac{ \log\log N}{\log N}= \frac{ \log\log N}{\log N}
+	\end{equation*}
+	\begin{equation*}
+	N^{\frac{ \log\log N}{\log N}}=\exp \Big( \log\log N\Big) = \log N
+	\end{equation*}
+	\begin{equation*}
+	N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2} =  \frac{\log N}{\sqrt{2\pi}C(N)\sqrt{\log N}+2}\geq \frac{\sqrt{\log N}}{\sqrt{2\pi}C(N)+2}
+	\end{equation*}
+	d'où 
+	\begin{equation*}
+	\mathbb{P}(A) \geq 1-\exp\big(-\frac{\sqrt{\log N}}{\sqrt{2\pi}C(N)+2}\big)
+	\end{equation*}
+	\begin{lemme}
+		Pour $N\geq 2 $ on a $C(N)\leq C=:C(2) \approx 1,749$  
+	\end{lemme} 
+	
+	\begin{proof}
+		$C'(x) = \frac{1-\log\log x}{2xC(x)\log(x)^2}$, donc $C'(x)= 0$ si et seulement si $x=e^e$, si $x< e^e$ alors $C'(x)<0$ et si $ x>e^e$ alors $C'(x)>0$, de plus
+		\begin{equation*}
+		\lim_{x\to +\infty} C(x)= \lim_{x\to \infty}\sqrt{2-\frac{2 \log\log x}{\log x}}=\sqrt{2}
+		\end{equation*} 
+		Comme $C>\sqrt{2}$ on a $C(x)\leq C$ pour tous $x\geq 2$.
+	\end{proof}
+	Par le lemme on a donc 
+	\begin{equation*}
+	\mathbb{P}(A) \geq 1-\exp\big(-K\sqrt{\log N}\big)\text{  ,  avec $K = \frac{1}{\sqrt{2\pi}C+2}\approx 0.157$.}
+	\end{equation*}
+	On injecte finalement dans $\mathbb{E}\big[\max_{i\leq N} g_i\big]$
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\beta_N+\sqrt{\frac{2}{\pi}}\big)(1-\exp\big(-K\sqrt{\log N}\big))-\sqrt{\frac{2}{\pi}}
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\sqrt{2\log N-2 \log\log N}+\sqrt{\frac{2}{\pi}}\big)(1-\exp\big(-K\sqrt{\log N}\big))-\sqrt{\frac{2}{\pi}}
+	\end{equation*}
+	
+	Pour $x\geq 2 $ on a $\exp(-K\sqrt{\log x })\leq \exp(-K\sqrt{\log 2}) $, en effet comme
+	\begin{equation*}
+	\big(\exp(-K\sqrt{\log x })\big)'=-\frac{K}{2\sqrt{\log x}}\exp(-K\sqrt{\log x } )<0
+	\end{equation*} 
+	par la suite posons $a =: 1 - \exp(-K\sqrt{\log 2})\approx 0,123$
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\sqrt{2\log N-2 \log\log N}+\sqrt{\frac{2}{\pi}}\big)a-\sqrt{\frac{2}{\pi}}
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a \sqrt{2\log N-2 \log\log N}- \sqrt{\frac{2}{\pi}}(1-a)
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a C(N)\sqrt{\log N}- \sqrt{\frac{2}{\pi}}(1-a)
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a C(e^e)\sqrt{\log N}- \sqrt{\frac{2}{\pi}}(1-a)
+	\end{equation*}
+	posons finalement $A = a C(e^e) \approx 0.138$ et $B = \sqrt{\frac{2}{\pi}}(1-a)\approx 0,699$ alors on a :
+	\begin{equation*}
+	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq A\sqrt{\log N}-B
+	\end{equation*}
+\end{proof}
+\color{black}
+\section{Estimation de E}
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 \newline\deff{
 	Un ellipsoïde $D$ de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
@@ -288,7 +404,7 @@ Admettons le théorème suivant de Fritz John (1910-1994):
 \begin{proof}
 	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq [n/2]$, $||x_i||\geq e^{-1}\Big(1-\frac{n/2 -1}{n}\Big)=e^{-1}\Big(\frac{1}{2}+\frac{1}{n}\Big)\geq (2e)^{-1} $. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
-		\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n|| d\mu(a)
+		E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n|| d\mu(a)
 	\end{equation*}
 	et donc 
 	\begin{equation*}
@@ -317,18 +433,14 @@ Admettons le théorème suivant de Fritz John (1910-1994):
 	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
 	\begin{equation*}
 		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
-	\end{equation*}`
-	\begin{lemme}
-		pour $k\leq n$ on a $\mathbb{E}\big[\max_{1\leq i \leq k}|g_i|\big]\leq 2\sqrt{2\log(k)}$
-	\end{lemme}
-	\begin{proof}
-		Notions $Z=\max_{1\leq i \leq k}|g_i|$ alors \begin{equation*}
-		\exp(t\mathbb{E}[Z])\leq \mathbb{E}[\exp(tZ)]=\mathbb{E}\big[\max_{1\leq i \leq k}\exp(t|g_i|)\big]\leq \sum_{i=0}^{k}\mathbb{E}[\exp(t|g_i|)]=k\mathbb{E}[\exp(t|g_1|)]
-		\end{equation*}
-		\begin{equation*}
-		\mathbb{E}[\exp(t|g_1|)] = \int_{\mathbb{R}^{+}} e^{tx-x^2/2}dx+\int_{\mathbb{R}^{-}} e^{-tx-x^2/2}dx = 2 \int_{\mathbb{R}^{+}} e^{tx-x^2/2}dx 
-		\end{equation*}
-	\end{proof}
+	\end{equation*}
+	\color{blue}
+	Et finalement par le théorème 6 :
+	\begin{equation*}
+		E\geq (2e\sqrt{n})^{-1} \mathbb{E}\big[\max_{1\leq i \leq [n/2]}|g_i|\big]\geq \frac{(2e\sqrt{n})^{-1}}{A\sqrt{\log(n/2)}-B}
+	\end{equation*}
+	\color{black}
 \end{proof}
+
 
 \end{document}
