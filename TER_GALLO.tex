@@ -12,18 +12,16 @@
 \usepackage{pgfornament}
 \usepackage[frenchb]{babel}
 \newtheorem*{definition}{Défintion}
-\newtheorem*{lemme}{Lemme}
+\newtheorem{lemme}{Lemme}
 \newtheorem*{defft}{Définition \& Théorème}
 \newtheorem{theoreme}{Théorème}
+\newtheorem*{fait}{Fait}
 \newtheorem*{proposition}{Proposition}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\newcommand{\theorem}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{theoreme}#1\end{theoreme}\end{minipage}}\medskip}
-\newcommand{\lemma}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{lemme}#1\end{lemme}\end{minipage}}\medskip}
-\newcommand{\prop}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{proposition}#1\end{proposition}\end{minipage}}\medskip}
-\newcommand{\deff}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{definition}#1\end{definition}\end{minipage}}\medskip}
-\newcommand{\deffthm}[1]{\smallskip\noindent\fbox{\begin{minipage}{\textwidth}\begin{defft}#1\end{defft}\end{minipage}}\medskip}
+\newcommand{\boxXx}[1]{\medskip\noindent\fbox{\begin{minipage}{\textwidth}\vspace{2pt}#1\vspace{2pt}\end{minipage}}\medskip}
 \titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{10pt}{\vspace{-3 cm}\pgfornament[width=3em,ydelta=-5pt]{67} \space \LARGE}
+{\normalfont\bfseries}{}{}{\vspace{-3 cm}\pgfornament[width=3em,ydelta=-5pt]{84} \space \LARGE }[\vspace{1em}]
+
 \titleformat{\section}[display] { \normalfont\bfseries}{}{10pt}{\Large }
 \titlespacing{\section}{5pt}{7pt plus 4pt minus 2pt}{10pt plus 2pt minus 2pt}
 \titlespacing{\chapter}{5pt}{12pt plus 4pt minus 2pt}{10pt plus 2pt minus 2pt}
@@ -41,8 +39,17 @@
 		\HRule \\[0.4cm]
 		{ \huge \bfseries Autour du théorème de Dvoretzky\\[0.4cm] }
 		
+
 		\HRule \\[2cm]
 		
+		\vspace{1.5cm}
+		\begin{center}
+			\large\textit{"It soon became clear that an outstanding breakthrough in Geometric Functional Analysis had been achieved."}  \\
+			\normalsize Vitali Milman à propos du théorème de Dvoretzky dans \textit{Dvoretzky theorem - thirty years later}
+		\end{center}
+
+		
+		\vfill 
 		
 		\begin{minipage}{0.4\textwidth}
 			\begin{flushleft} \large
@@ -55,35 +62,40 @@
 			\end{flushright}
 		\end{minipage}
 		
-		\vfill
-		% Bottom of the page
+		\vspace{5mm}		
 		{\large date}
 		
 	\end{center}
 \end{titlepage}
 
-\chapter{Partie 1}
-La genèse du théorème de Dvoretzky provient d'une conjecture proposé par Grothendieck en 1956, inspiré par le théorème de Dvoretzky-Rogers (1950). Dvoretzky répondra positivement a la conjecture en 1960, aboutissant au résultat suivant : 
-\newline\theorem{
-	Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
-	\begin{enumerate}
-		\item[(i)] $\dim V =k(\varepsilon,n)$
-		\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\epsilon)r.(V\cap B^n_2) $
-	\end{enumerate}
+\chapter*{Introduction \hspace{1ex}\titlerule}
+Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers}", inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture, a la quelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant : 
+\newline\boxXx{
+	\begin{theoreme}[A. Dvoretzky, 1961]
+		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+		\begin{enumerate}
+			\item[(i)] $\dim V =k(\varepsilon,n)$
+			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
+		\end{enumerate}
+	\end{theoreme}
 }
-V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\epsilon,n)\geq c(\epsilon).\log(n)$.
-\newline\theorem{
-	Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous corps convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
-	\begin{enumerate}
-		\item[(i)] $\dim V \geq c.\log(n)$
-		\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\epsilon)r.(V\cap B^n_2) $
-	\end{enumerate}
+V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
+\newline\boxXx{
+	\begin{theoreme}[V. Milman, 1971]
+		Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous corps convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+		\begin{enumerate}
+			\item[(i)] $\dim V \geq c.\log(n)$
+			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
+		\end{enumerate}
+	\end{theoreme}
 }
 \noindent Il existe une reformulation du théorème en terme de norme.
-\newline\theorem{
+\newline\boxXx{
+	\begin{theoreme}
 	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour toute $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\mathbb{R}^n$ alors  $l^k_2$ est $(1+\varepsilon)$-isomorphe à $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	\end{theoreme}
 }
-\noindent Nous allons montrer que ses deux derniers théorème sont équivalent.
+\noindent Montrons que ses deux théorème sont équivalents.
 \begin{enumerate}[leftmargin=\labelsep]
 	\item[(2)$\Rightarrow$(3)]
 	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in  \mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
@@ -127,20 +139,26 @@ V.Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisa
 	\end{equation*}
 \end{enumerate}
 \newpage
-\chapter*{Partie 2}
+\chapter*{Existence du sous-espace \hspace{1ex}\titlerule}
 \section{Mesures de Haar}
-\deffthm{\textit{(Mesures de Haar)} Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
-	\begin{equation}\tag{$\star$}
-	 \forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
-	\end{equation} 
-	alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
+\boxXx{
+	\begin{defft}[Mesures de Haar]
+		Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
+		\begin{equation}\tag{$\star$}
+			\forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
+		\end{equation} 
+		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
+	\end{defft}
 }
-Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriété qui serons utile par la suite.
-\newline\lemma{
-Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
-\begin{equation*}
-	\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
-\end{equation*}}
+Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriétés qui serons utile par la suite.
+\newline\boxXx{
+	\begin{lemme}
+		Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
+		\begin{equation*}
+			\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+		\end{equation*}
+	\end{lemme}
+}
 \begin{proof}
 	Par unicité de la mesure de Haar , il nous suffit de montrer que pour tous $M\in O(n)$ et $f\in C(S^{n-1})$ :
 	\begin{equation*}
@@ -154,33 +172,58 @@ Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ so
 	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
 \end{proof}
-\lemma{
+\boxXx{
+	\begin{lemme}
 	Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
 	\begin{equation*}
 		\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
 	\end{equation*}
+\end{lemme}
 }
 \begin{proof}
 	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis pas $\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)$ vérifie 
 	\begin{equation*}
 		\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
-	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$ car $\omega_x(S^{n-1})=1$ et en particulier $\omega_x$ ne dépend pas de $x$.
+	\begin{equation*}
+		\omega_x(\emptyset)=0 \;\text{ et }\; \omega_x(S^{n-1})=1
+	\end{equation*}
+	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
 \section{Début de la démonstration du théorème de Dvoretzky}
-\theorem{
+\boxXx{
+	\begin{theoreme}[Concentration de la mesure]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
+		\begin{equation*}
+			\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
+		\end{equation*}
+	\end{theoreme}
+}
+\boxXx{
+	\begin{lemme}
+		Pour tous $0<\varepsilon<1$ il existe un $\varepsilon$-net sur $S^{k-1}$ de cardinal inférieur à $\big(\frac{3}{\varepsilon}\big)^{k}$.
+	\end{lemme}
+}
+\begin{proof}
+	Soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $S^{k-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \varepsilon$, c'est à dire pour tous $x\in S^{k-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\varepsilon$, donc $N$ est un $\varepsilon$-net. Les boules de centre $x_i$ et de rayon $\varepsilon/2$ sont donc disjointe deux à deux et toute contenue dans $B(0,1+\frac{\varepsilon}{2})$ d'ou : 
 	\begin{equation*}
-	\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
-	\end{equation*}}
-Dans cette partie on s'intéresse a démontrer le résultat suivant :
-\newline\theorem{
-	Pour tous $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$ il existe un sous-espace $V\subset \mathbb{R}^n$ tel que :
-	\begin{enumerate}
-		\item[(i)] $\dim V \geq c.\big(\frac{E}{b}\big)^2n$
-		\item[(ii)] Pour tous $x\in V$ : $(1-\varepsilon)E|x|\leq ||x|| \leq (1+\varepsilon)E |x|$
-	\end{enumerate} 
-	où $E = \int_{S^{n-1}} ||y|| d\mu(y)$ et $b>0$ est le plus petit réel positif tel que $||.||\leq b|.|$.
+	m \text{Vol}(B(x_1,\frac{\varepsilon}{2}))= \sum_{i=1}^{m}\text{Vol}(B(x_i,\frac{\varepsilon}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B(x_i,\frac{\varepsilon}{2}))\leq \text{Vol}(B(0,1+\frac{\varepsilon}{2}))
+	\end{equation*}
+	\begin{equation*}
+	m\leq \frac{\text{Vol}(B(0,1+\frac{\varepsilon}{2}))}{\text{Vol}(B(x_1,\frac{\varepsilon}{2}))} =\Bigg(\frac{1+\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}\Bigg)^k=\Bigg(1+\frac{2}{\varepsilon}\Bigg)^k\leq \big(\frac{3}{\varepsilon}\big)^k
+	\end{equation*}
+	
+\end{proof}
+
+\boxXx{
+	\begin{theoreme}
+		Pour tous $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$ il existe un sous-espace $V\subset \mathbb{R}^n$ tel que :
+		\begin{enumerate}
+			\item[(i)] $\dim V \geq c.\big(\frac{E}{b}\big)^2n$
+			\item[(ii)] Pour tous $x\in V$ : $(1-\varepsilon)E|x|\leq ||x|| \leq (1+\varepsilon)E |x|$
+		\end{enumerate} 
+		où $E = \int_{S^{n-1}} ||y|| d\mu(y)$ et $b>0$ est le plus petit réel positif tel que $||.||\leq b|.|$.
+	\end{theoreme}
 }
 \begin{proof}
 	Soit $1>\delta,\theta>0$ tel que
@@ -229,151 +272,69 @@ Dans cette partie on s'intéresse a démontrer le résultat suivant :
 	\color{red}\textit{Je n'arrive pas a conclure pour la dimension, par rapport au livre de Gideon et Milman j'ai remplacer dans les notations $\varepsilon$ par $\eta$, $\varepsilon'$ par $\delta$, $\delta$ par $\varepsilon$} \color{black}
 \end{proof}
 
-\lemma{
-	Pour tous $0<\varepsilon<1$ il existe un $\varepsilon$-net sur $S^{k-1}$ de cardinal inférieur à $\big(\frac{3}{\varepsilon}\big)^{k}$.}
-\begin{proof}
-	Soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $S^{k-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \varepsilon$, c'est à dire pour tous $x\in S^{k-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\varepsilon$, donc $N$ est un $\varepsilon$-net. Les boules de centre $x_i$ et de rayon $\varepsilon/2$ sont donc disjointe deux à deux et toute contenue dans $B(0,1+\frac{\varepsilon}{2})$ d'ou : 
-	\begin{equation*}
-	m \text{Vol}(B(x_1,\frac{\varepsilon}{2}))= \sum_{i=1}^{m}\text{Vol}(B(x_i,\frac{\varepsilon}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B(x_i,\frac{\varepsilon}{2}))\leq \text{Vol}(B(0,1+\frac{\varepsilon}{2}))
-	\end{equation*}
-	\begin{equation*}
-	m\leq \frac{\text{Vol}(B(0,1+\frac{\varepsilon}{2}))}{\text{Vol}(B(x_1,\frac{\varepsilon}{2}))} =\Bigg(\frac{1+\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}\Bigg)^k=\Bigg(1+\frac{2}{\varepsilon}\Bigg)^k\leq \big(\frac{3}{\varepsilon}\big)^k
-	\end{equation*}
 
-\end{proof}
 
 
 \newpage
-\chapter{Partie 3}
-\section{Estimation de la borne inférieur du maximum d'un vecteur gaussien}
-\color{blue}
-Dans la suite pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $g_i$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans cette section.  
-\newline\lemma{\textit(ratio de Mill) Soit $g$ une variable aléatoire suivant une loi $\mathcal{N}(0,1)$, alors \begin{equation*}
-	\mathbb{P}(g>t) \geq \exp\big(-\frac{t^2}{2}\big)\frac{1}{\sqrt{2\pi}t+2}
-	\end{equation*}}
-\color{red}\begin{proof}
-	
-\end{proof}\color{black}\color{blue}
-\theorem{ $\exists A,B>0$ tel que pour tout $N>1$, et $(g_1,...,g_N)$ des variables aléatoires i.i.d suivant une loi $\mathcal{N}(0,1)$, on est  :
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq A\sqrt{\log N}- B
-	\end{equation*}	
-}
-\begin{proof}
-	Fixons ces notations :
-	\begin{enumerate}
-		\item[(i)] $C(N) = \sqrt{2-\frac{2 \log\log N}{\log N}}$
-		\item[(ii)] $\beta_N = C(N)\sqrt{\log N}$
-		\item[(iii)] $A= \cup_{i \leq N}\Big\{X_i\geq \beta_N \Big\}$
-	\end{enumerate}
-	La démonstration va reposer sur l'égalité suivante :
-	\begin{equation}
-	\tag{$\star$}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] = \mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A\Big] \mathbb{P}(A)+\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big] \mathbb{P}(A^{c})
-	\end{equation}
-	Dans un premier temps, on s'intéresse à minoré la partie $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]$.
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \mathbb{E}\Big[g_1 \big| A^{c}\Big]=\frac{1}{\mathbb{P}(A^c)} \int_{\mathbb{R}^N} x_1 \mathbb{1}_{A^c}(x_1,...,x_N) \prod_{i=1}^{N} \frac{\exp\big(-\frac{1}{2}x_i^2\big)}{\sqrt{2\pi}} dx_1 ... dx_N
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \frac{1}{\mathbb{P}\big(g_1\leq \beta_N\big)^{N}} \Big(\int_{\mathbb{R}} \frac{\exp\big(-\frac{1}{2}x^2\big)}{\sqrt{2\pi}}\mathbb{1}_{\{g_1\leq \beta_N\}} dx\Big)^{N-1}\int_{-\infty}^{\beta_N}x \exp\big(-\frac{1}{2}x^2\big) \frac{dx}{\sqrt{2\pi}} 
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i \big| A^{c}\Big]\geq \frac{1}{\mathbb{P}\big(g_1\leq 0\big)} \int_{-\infty}^{0}x \exp\big(-\frac{1}{2}x^2\big) \frac{dx}{\sqrt{2\pi}} = -\sqrt{\frac{2}{\pi}}
-	\end{equation*}
-	En substituant dans $(\star)$:
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \beta_N \mathbb{P}(A)-\sqrt{\frac{2}{\pi}}(1-\mathbb{P}(A))=\big(\beta_N+\sqrt{\frac{2}{\pi}}\big)\mathbb{P}(A)-\sqrt{\frac{2}{\pi}}
-	\end{equation*}
-	On s'intéresse maintenant a minoré $ \mathbb{P}(A)$.
-	\begin{equation*}
-	\mathbb{P}(A) = 1-\mathbb{P}(A^c)=1-\big(1-\mathbb{P}(g_1> \beta_N)\big)^N
-	\end{equation*}
-	avec $1-x \leq \exp (-x)$ on a :
-	\begin{equation*}
-	\mathbb{P}(A) \geq 1-\exp\big(-N\mathbb{P}(g_1> \beta_N)\big)
-	\end{equation*}
-	avec le ratio de Mill on obtient :
-	\begin{equation*}
-	\mathbb{P}(A) \geq 1-\exp\Big(-N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2}\Big)
-	\end{equation*}
-	On peut simplifier a l'intérieur de l'exponentielle :
-	\begin{equation*}
-	N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2} =  N^{1-\frac{C(N)^2}{2}}\frac{1}{\sqrt{2\pi}C(N)\sqrt{\log N}+2}
-	\end{equation*}
-	\begin{equation*}
-	1-\frac{C(N)^2}{2} = 1 - 1+\frac{ \log\log N}{\log N}= \frac{ \log\log N}{\log N}
-	\end{equation*}
-	\begin{equation*}
-	N^{\frac{ \log\log N}{\log N}}=\exp \Big( \log\log N\Big) = \log N
-	\end{equation*}
-	\begin{equation*}
-	N\exp\big(-\frac{\beta_N^2}{2}\big)\frac{1}{\sqrt{2\pi}\beta_N+2} =  \frac{\log N}{\sqrt{2\pi}C(N)\sqrt{\log N}+2}\geq \frac{\sqrt{\log N}}{\sqrt{2\pi}C(N)+2}
-	\end{equation*}
-	d'où 
-	\begin{equation*}
-	\mathbb{P}(A) \geq 1-\exp\big(-\frac{\sqrt{\log N}}{\sqrt{2\pi}C(N)+2}\big)
-	\end{equation*}
-	\begin{lemme}
-		Pour $N\geq 2 $ on a $C(N)\leq C=:C(2) \approx 1,749$  
-	\end{lemme} 
-	
-	\begin{proof}
-		$C'(x) = \frac{1-\log\log x}{2xC(x)\log(x)^2}$, donc $C'(x)= 0$ si et seulement si $x=e^e$, si $x< e^e$ alors $C'(x)<0$ et si $ x>e^e$ alors $C'(x)>0$, de plus
-		\begin{equation*}
-		\lim_{x\to +\infty} C(x)= \lim_{x\to \infty}\sqrt{2-\frac{2 \log\log x}{\log x}}=\sqrt{2}
-		\end{equation*} 
-		Comme $C>\sqrt{2}$ on a $C(x)\leq C$ pour tous $x\geq 2$.
-	\end{proof}
-	Par le lemme on a donc 
-	\begin{equation*}
-	\mathbb{P}(A) \geq 1-\exp\big(-K\sqrt{\log N}\big)\text{  ,  avec $K = \frac{1}{\sqrt{2\pi}C+2}\approx 0.157$.}
-	\end{equation*}
-	On injecte finalement dans $\mathbb{E}\big[\max_{i\leq N} g_i\big]$
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\beta_N+\sqrt{\frac{2}{\pi}}\big)(1-\exp\big(-K\sqrt{\log N}\big))-\sqrt{\frac{2}{\pi}}
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\sqrt{2\log N-2 \log\log N}+\sqrt{\frac{2}{\pi}}\big)(1-\exp\big(-K\sqrt{\log N}\big))-\sqrt{\frac{2}{\pi}}
-	\end{equation*}
-	
-	Pour $x\geq 2 $ on a $\exp(-K\sqrt{\log x })\leq \exp(-K\sqrt{\log 2}) $, en effet comme
-	\begin{equation*}
-	\big(\exp(-K\sqrt{\log x })\big)'=-\frac{K}{2\sqrt{\log x}}\exp(-K\sqrt{\log x } )<0
-	\end{equation*} 
-	par la suite posons $a =: 1 - \exp(-K\sqrt{\log 2})\approx 0,123$
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq \big(\sqrt{2\log N-2 \log\log N}+\sqrt{\frac{2}{\pi}}\big)a-\sqrt{\frac{2}{\pi}}
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a \sqrt{2\log N-2 \log\log N}- \sqrt{\frac{2}{\pi}}(1-a)
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a C(N)\sqrt{\log N}- \sqrt{\frac{2}{\pi}}(1-a)
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq a C(e^e)\sqrt{\log N}- \sqrt{\frac{2}{\pi}}(1-a)
-	\end{equation*}
-	posons finalement $A = a C(e^e) \approx 0.138$ et $B = \sqrt{\frac{2}{\pi}}(1-a)\approx 0,699$ alors on a :
-	\begin{equation*}
-	\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big] \geq A\sqrt{\log N}-B
-	\end{equation*}
-\end{proof}
-\color{black}
-\section{Estimation de E}
+\chapter*{Minoration de la dimension du sous-espace \hspace{1ex}\titlerule}
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
-\newline\deff{
-	Un ellipsoïde $D$ de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
+\newline\boxXx{
+	\begin{definition}
+		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
+	\end{definition}
 }
 Admettons le théorème suivant de Fritz John (1910-1994):
-\newline\theorem{\textit{(Ellipsoïde de John)}
-	Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
+\newline\boxXx{
+	\begin{theoreme}[Ellipsoïde de John]
+		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
+	\end{theoreme}
 }
 
-\lemma{\textit{(Dvoretzky-Rogers)} Il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que 
-\begin{equation*}
-	\text{$\forall 1\leq i\leq n$} \, , \;\; e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
-\end{equation*}
+Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
+\newline\boxXx{
+	\begin{lemme}
+		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
+		\begin{equation*}
+			c \sqrt{\log N} \leq \mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]
+		\end{equation*}
+		où $\tilde{N} = \Bigg[\frac{\sqrt{N}}{16\sqrt{2}}\Bigg]$
+	\end{lemme}
+}
+\begin{proof}
+	Commençons par montrer que pour $n>1$, $\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) \geq \frac{1}{n}$, on a :
+	\begin{equation*}
+		\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) = 2 \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}dx\geq \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx  \qquad \text{ pour $x>\sqrt{\log(2)}>1$}
+	\end{equation*}
+	\begin{equation*}
+		\int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx = \Big[-\frac{ e^{-\frac{t^2}{2}}}{t}\Big]_{\sqrt{\log n}}^{+\infty}=\frac{1}{\sqrt{n\log n}}>\frac{1}{n}
+	\end{equation*}
+	On à $\mathbb{P}\big(|g_1|> \sqrt{\log \sqrt{N}}\big)\geq \frac{1}{\sqrt{N}}$, et donc 
+	\begin{equation*}
+		 \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log \sqrt{N}}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log \sqrt{N}}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log \sqrt{N}}\Big)\Bigg)^{\tilde{N}}
+	\end{equation*}
+	\begin{equation*}
+		\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log \sqrt{N}}\Big)\leq \Bigg(1-\frac{1}{\sqrt{N}}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{\sqrt{N}}} \leq e^{-\frac{1}{16\sqrt{2}}}
+	\end{equation*}
+	Ce qui équivaut a 
+	\begin{equation*}
+		\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log \sqrt{N}}\Big)\geq 1- e^{-\frac{1}{16\sqrt{2}}}
+	\end{equation*}
+	Par l'inégalité de Markov on a finalement :
+	\begin{equation*}
+		\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log \sqrt{N}}\Big) \sqrt{\log \sqrt{N}}\geq \frac{1- e^{-\frac{1}{16\sqrt{2}}}}{\sqrt{2}}\sqrt{\log N}
+	\end{equation*}
+	avec $c =: \frac{1- e^{-\frac{1}{16\sqrt{2}}}}{\sqrt{2}}\approx 0.3235 $ 
+\end{proof}
+
+
+
+\boxXx{
+	\begin{lemme}[Dvoretzky-Rogers]
+ 		Il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
+		\begin{equation*}
+			e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
+		\end{equation*}
+	\end{lemme}
 }
 \begin{proof}
 	$S^{n-1}$ est compact et $||.||$ continue, on peux donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est à dire $||x_1||=1$, supposons que l'on ai $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\cap_{j< i}{x_j}\neq \emptyset$ car les $\{x_i\}_{i=1,...,k-1}$ sont orthogonaux deux à deux et est compact, on peut donc répéter le procéder pour trouver $x_{k}$ qui maximise $S^{n-1}\cap_{j< k}{x_j}$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b\in\mathbb{R}^{*}$ et définissons :
@@ -399,10 +360,14 @@ Admettons le théorème suivant de Fritz John (1910-1994):
 	\end{equation*}
 	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)$\color{red} $>-1$.\color{black}
 \end{proof}
-\prop{\textit{(Estimation de $E$ )} Il existe $c=c(\varepsilon)>0$ tel que $E \geq c \sqrt{\frac{\log n}{n}}$.
+
+\boxXx{
+	\begin{proposition}[Estimation de $E$]
+		Il existe $c>0$ tel que $E \geq c \sqrt{\frac{\log n}{n}}$.
+	\end{proposition}
 }
 \begin{proof}
-	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq [n/2]$, $||x_i||\geq e^{-1}\Big(1-\frac{n/2 -1}{n}\Big)=e^{-1}\Big(\frac{1}{2}+\frac{1}{n}\Big)\geq (2e)^{-1} $. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
+	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big[\frac{\sqrt{n}}{16\sqrt{2}}\big](\leq n)$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1+\frac{1}{n}-\frac{1}{16\sqrt{2n}}\Big)\geq (2e)^{-1} $. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
 		E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n|| d\mu(a)
 	\end{equation*}
@@ -414,33 +379,44 @@ Admettons le théorème suivant de Fritz John (1910-1994):
 	\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a)\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) 	
 	\end{equation*}
 	\begin{equation*}
-	\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a) \geq \int_{S^{n-1}} \max_{1\leq i \leq [n/2]}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq [n/2]}|a_i| d\mu(a)	
+	\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i|| d\mu(a) \geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
 	\end{equation*}
 	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
-		\int_{S^{n-1}} \max_{1\leq i \leq [n/2]}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq [n/2]}|g_i|\Big]
+		\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
 	\begin{lemme}
-		$\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}(g_1,...,g_n)$ et $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}$ sont indépendants.
+		$\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont indépendants.
 	\end{lemme}
 	\begin{proof}[\color{red}Démonstration du lemme]
 	\end{proof}
 	\color{black}
 	Par le lemme on à donc 
 	\begin{equation*}
-		\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq [n/2]}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq [n/2]}|g_i|\big]
+		\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
 	\end{equation*}
 	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
 	\begin{equation*}
 		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
-	\color{blue}
-	Et finalement par le théorème 6 :
+
+	Et finalement par le lemme 4, il existe $K>0$ tel que :
 	\begin{equation*}
-		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq [n/2]}|g_i|\big]\geq \frac{A\sqrt{\log(n/2)}-B}{2e\sqrt{n}}
+		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
-	\color{black}
+	Pour finir il suffit de poser $c=: \frac{K}{2e}$
 \end{proof}
+
+
+\newpage
+
+\section{Sources}
+
+- Euclidean sections of convex bodies , Gideon Schechtman (2008)
+
+- "SUR CERTAINS CLASSES DE SUITES DANS LES ESPACES DE BANACH, ET LE THÉORÈME DE DVORETSKY-ROGERS" , ALEXANDRE GROTHENDIECK (1956) 
+
+-DVORETZKY'S THEOREM- THIRTY YEARS LATER , Vitali Milman (1992)
 
 
 \end{document}
