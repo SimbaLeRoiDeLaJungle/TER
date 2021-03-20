@@ -107,7 +107,7 @@ Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de
 }
 V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
-	\begin{theoreme}[V. Milman, 1971]
+	\begin{theoreme}[V. Milman, 1971]\label{thmMil}
 		Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
 		\begin{enumerate}
 			\item[(i)] $\dim V \geq c.\log(n)$
@@ -179,7 +179,18 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\begin{equation*}
 		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 	\end{equation*}
+	Soit $r=\sup\big\{\lambda>0 \; ; \; \lambda(V\cap B^n_2)\subset K\cap V\big\}$, alors :
+	\begin{equation*}
+		\frac{1}{1+\varepsilon}T(B_2^k)\subset r(V\cap B^n_2) \subset K\cap V
+	\end{equation*}
+	d'où $T(B_2^k)\subset (1+\varepsilon)r(V\cap B^n_2) $ et finalement :
+	\begin{equation*}
+		r(V\cap B^n_2) \subset K\cap V \subset (1+\varepsilon)r(V\cap B^n_2) 
+	\end{equation*}
 \end{enumerate}
+\newpage
+\section{Préliminaire}
+
 \newpage
 \section{Existence du sous-espace}
 \subsection{Mesures de Haar }
@@ -187,7 +198,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\begin{defft}[Mesures de Haar]
 		Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
 		\begin{equation}\tag{$\star$}
-			\forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
+		\forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
 		\end{equation} 
 		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
@@ -201,17 +212,17 @@ Montrons quelques propriétés qui serons utile par la suite.
 	\begin{lemme}
 		Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
 		\begin{equation*}
-			\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+		\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 		\end{equation*}
 	\end{lemme}
 }
 \begin{proof}
 	Par unicité de la mesure de Haar , il nous suffit de montrer que pour tous $M\in O(n)$ et $f\in C(S^{n-1})$ :
 	\begin{equation*}
-		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
+	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
 	\begin{equation*}
-		\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big) \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
+	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big) \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
 	\end{equation*}
 	comme $|\det M|=1$ et $|M^{-1}y|=|y|$, on a : 
 	\begin{equation*}
@@ -221,27 +232,27 @@ Montrons quelques propriétés qui serons utile par la suite.
 
 \boxXx{
 	\begin{lemme}
-	Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
-	\begin{equation*}
+		Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
+		\begin{equation*}
 		\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
-	\end{equation*}
-\end{lemme}
+		\end{equation*}
+	\end{lemme}
 }
 \begin{proof}
 	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis par
 	\begin{equation*}
-		\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
+	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
 	\end{equation*}
 	$\omega_x$ vérifie les propriétés suivantes :
 	\begin{equation*}
-		\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
+	\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
 	\begin{equation*}
-		\omega_x(\emptyset)=0
+	\omega_x(\emptyset)=0
 	\end{equation*}
 	\begin{align*}
-		\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
-		& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
+	\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
+	& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
 	\end{align*}
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
@@ -250,8 +261,8 @@ Montrons quelques propriétés qui serons utile par la suite.
 	Si il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on noteras :
 	\begin{enumerate}
 		\item[-] $E=\int_{S^{n-1}}||x||d\mu(x)$
-		\item[-] $b$ le plus petit réel positif tel que $||.||\leq b |.|$
- 	\end{enumerate}
+		\item[-] $b$ le plus petit réel tel que $||.||\leq b |.|$
+	\end{enumerate} 
 
 \end{notation}
 \boxXx{
@@ -437,18 +448,34 @@ Montrons quelques propriétés qui serons utile par la suite.
 
 \newpage
 \section{Minoration de la dimension du sous-espace }
-Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
+\subsection{Invariance pour des compositions par des applications linéaire}
+Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété d'être l'ellipsoïde de John, c'est à dire l'ellipsoïde de volume maximal incluse dans $K$, nous donnons la définition d'une ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maxime qui seras admis.  
 \newline\boxXx{
 	\begin{definition}
 		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
 	\end{definition}
 }
-Admettons le théorème suivant de Fritz John (1910-1994):
-\newline\boxXx{
+\boxXx{
 	\begin{theoreme}[Ellipsoïde de John]
 		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
 	\end{theoreme}
 }
+Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $T\in GL(n)$ tel que $S^{n-1}$ est l'ellipsoïde de volume maximale inscrite dans $TK$ alors si l'on montre le théorème 1.2 pour $TK$, c'est à dire que l'on montre qu'il existe $V$ avec $\dim V> c.\log(n) $ et 
+\begin{equation*}
+(V\cap B^n_2) \subset TK\cap V \subset (1+\varepsilon)(V\cap B^n_2) 
+\end{equation*}
+alors $W=T^{-1}V$ vérifie $\dim W = \dim V$ et 
+\begin{equation*}
+(W\cap T^{-1}(B^n_2)) \subset K\cap W \subset (1+\varepsilon)(W\cap T^{-1}(B^n_2)) 
+\end{equation*}
+Soit $r=\inf\big\{\lambda>0 \; ; \; \lambda(W\cap B^n_2)\subset K\cap W\big\}$, alors 
+\begin{equation*}
+r(W\cap B^n_2)\subset K\cap W \subset r(1+\varepsilon)(W\cap B^n_2)
+\end{equation*}
+Donc $K$ vérifie aussi le \ref{thmMil}.
+
+\subsection{Estimation de $E$}
+Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 
 Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
 \newline\boxXx{
