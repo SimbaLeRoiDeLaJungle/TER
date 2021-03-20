@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt]{article}
 \author{Mathieu GALLO}
 \title{Travaux d'étude et de recherche}
 \setlength{\hoffset}{-70pt}
@@ -14,28 +14,39 @@
 \usepackage{color}
 \usepackage{pgfornament}
 \usepackage[french]{babel}
-
+\usepackage{varioref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
-\newtheorem{definition}{Défintion}
-\newtheorem{lemme}{Lemme}
-\newtheorem{defft}{Définition \& Théorème}
-\newtheoremstyle{stm}{1mm}{1mm}{Ubuntu}{0pt}{Ubuntu}{-}{2mm}{} 
-\newtheorem{theoreme}{Théorème}
-\newtheorem{fait}{Fait}
-\newtheorem{proposition}{Proposition}
+\newtheorem*{notation}{Notation}
+\newtheorem*{definition}{Défintion}
+\newtheorem{lemme}{Lemme}[section]
+\newtheorem*{defft}{Définition \& Théorème}
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem*{fait}{Fait}
+\newtheorem{proposition}{Proposition}[section]
+\labelformat{theoreme}{\textbf{théorème~#1}}
+\labelformat{lemme}{\textbf{lemme~#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \newcommand{\boxXx}[1]{\medskip\noindent\fbox{\begin{minipage}{\textwidth}\vspace{2pt}#1\vspace{2pt}\end{minipage}}\medskip}
 
-\titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{}{\vspace{-3 cm}\pgfornament[width=3em,ydelta=-5pt]{84} \space \LARGE }
+\newcommand{\titleBar}{\hspace{0.6em}\titlerule}
+\titleformat{\section}  
+{\normalfont\large\bfseries}% format
+{}% label
+{0pt}% sep
+{ \arabic{section}.~ }
+[\titlerule]
 
-\titleformat{\section}[display] { \normalfont\bfseries}{}{10pt}{\Large }
 
-\titlespacing{\chapter}{5pt}{5pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+\titleformat{\subsection}  
+{\normalfont\normalsize\bfseries}% format
+{}
+{0pt}% sep
+{ \arabic{section}.\arabic{subsection}.~ }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -83,7 +94,7 @@
 	\end{center}
 \end{titlepage}
 
-\chapter*{Introduction \hspace{1ex}\titlerule}
+\section{Introduction} 
 Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers}", inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture, a la quelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant : 
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
@@ -97,21 +108,37 @@ Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de
 V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
 	\begin{theoreme}[V. Milman, 1971]
-		Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous corps convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+		Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
 		\begin{enumerate}
 			\item[(i)] $\dim V \geq c.\log(n)$
 			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
 		\end{enumerate}
 	\end{theoreme}
 }
-\noindent Il existe une reformulation du théorème en terme de norme.
+
+\boxXx{
+\begin{definition}
+	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dis que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tous $x\in X$
+	\begin{equation*}
+		||x||_X\leq ||Tx||_Y\leq C||x||_X
+	\end{equation*}  
+\end{definition}
+}
+\noindent Il existe une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
 	\begin{theoreme}
-	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour toute $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\mathbb{R}^n$ alors  $l^k_2$ est $(1+\varepsilon)$-isomorphe à $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour toute $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\mathbb{R}^n$ ,  $l^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
 	\end{theoreme}
 }
-\noindent Montrons que ses deux théorème sont équivalents.
-\begin{enumerate}[leftmargin=\labelsep]
+\begin{notation}
+	Pour la suite on utiliseras les notations : 
+	\begin{enumerate}
+		\item[-] $|.|_n$ la norme euclidienne sur $\mathbb{R}^n$, ou simplement $|.|$ si il n'y a pas d'ambiguïté sur la dimension.
+		\item[-] $S^{n-1} = \big\{x\in \mathbb{R}^n\; ;\; |x|=1\big\}$, la $(n-1)$-sphère euclidienne. 
+	\end{enumerate}
+\end{notation}
+\noindent Montrons que ses deux derniers théorèmes sont équivalents.
+\begin{enumerate}
 	\item[(2)$\Rightarrow$(3)]
 	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
 	Donnons nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
@@ -136,10 +163,10 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\end{equation*}
 	Pour tous $x\in  V\backslash\{0\}$ on peut appliqué ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
 	\begin{equation*}
-	r||x||  \leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
+	r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
 	\end{equation*}
 	\item[(3)$\Rightarrow$(2)]
-	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $l_2^k$ est ($1+\varepsilon$)-isomorphe à ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :l^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $l_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :l^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 	\begin{equation*}
 	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 	\end{equation*}
@@ -154,8 +181,8 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\end{equation*}
 \end{enumerate}
 \newpage
-\chapter*{Existence du sous-espace \hspace{1ex}\titlerule}
-\section{Mesures de Haar}
+\section{Existence du sous-espace}
+\subsection{Mesures de Haar }
 \boxXx{
 	\begin{defft}[Mesures de Haar]
 		Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
@@ -165,7 +192,11 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
-Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$, par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$. Montrons quelques propriétés qui serons utile par la suite.
+Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$.
+\begin{notation}
+	Par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$.
+\end{notation}
+Montrons quelques propriétés qui serons utile par la suite.
 \newline\boxXx{
 	\begin{lemme}
 		Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
@@ -197,7 +228,11 @@ Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme 
 \end{lemme}
 }
 \begin{proof}
-	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis pas $\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)$ vérifie 
+	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis par
+	\begin{equation*}
+		\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
+	\end{equation*}
+	$\omega_x$ vérifie les propriétés suivantes :
 	\begin{equation*}
 		\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
@@ -210,9 +245,17 @@ Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme 
 	\end{align*}
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
-\section{Début de la démonstration du théorème de Dvoretzky}
+\subsection{Début de la démonstration du théorème de Dvoretzky}
+\begin{notation}
+	Si il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on noteras :
+	\begin{enumerate}
+		\item[-] $E=\int_{S^{n-1}}||x||d\mu(x)$
+		\item[-] $b$ le plus petit réel positif tel que $||.||\leq b |.|$
+ 	\end{enumerate}
+
+\end{notation}
 \boxXx{
-	\begin{theoreme}[Concentration de la mesure]
+	\begin{theoreme}[Concentration de la mesure sur la sphère]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
 		\begin{equation*}
 			\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
@@ -220,88 +263,101 @@ Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme 
 	\end{theoreme}
 }
 \boxXx{
-	\begin{lemme}
-		Pour tous $0<\varepsilon<1$ il existe un $\varepsilon$-net sur $S^{k-1}$ de cardinal inférieur à $\big(\frac{3}{\varepsilon}\big)^{k}$.
+	\begin{lemme}\label{lns}
+		Pour tous $0<\theta<1$ , $V\subset\mathbb{R}^n$ un sous espace de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
 	\end{lemme}
 }
 \begin{proof}
-	Soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $S^{k-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \varepsilon$, c'est à dire pour tous $x\in S^{k-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\varepsilon$, donc $N$ est un $\varepsilon$-net. Les boules de centre $x_i$ et de rayon $\varepsilon/2$ sont donc disjointe deux à deux et toute contenue dans $B(0,1+\frac{\varepsilon}{2})$ d'ou : 
+	 Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boules de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est à dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjointes deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
 	\begin{equation*}
-	m \text{Vol}(B(x_1,\frac{\varepsilon}{2}))= \sum_{i=1}^{m}\text{Vol}(B(x_i,\frac{\varepsilon}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B(x_i,\frac{\varepsilon}{2}))\leq \text{Vol}(B(0,1+\frac{\varepsilon}{2}))
+	m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
 	\end{equation*}
 	\begin{equation*}
-	m\leq \frac{\text{Vol}(B(0,1+\frac{\varepsilon}{2}))}{\text{Vol}(B(x_1,\frac{\varepsilon}{2}))} =\Bigg(\frac{1+\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}\Bigg)^k=\Bigg(1+\frac{2}{\varepsilon}\Bigg)^k\leq \big(\frac{3}{\varepsilon}\big)^k
+	m\leq \frac{\text{Vol}(B_V(0,1+\frac{\theta}{2}))}{\text{Vol}(B_V(x_1,\frac{\theta}{2}))} 
 	\end{equation*}
-	
+	Par homogénéité de la mesure de Lebesgue :
+	\begin{equation*}
+		m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
+	\end{equation*}
 \end{proof}
 \boxXx{
-	\begin{lemme}
-		Soient $\alpha\in S^{n-1}$ , A un $\delta$-net pour un $1>\delta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+	\begin{lemme}\label{lap}
+		Soient $\alpha\in S^{n-1}$ , A un $\theta$-net pour un $1>\theta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
 		\begin{equation*}
-			\alpha = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \delta^i
+			\alpha = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
 		\end{equation*}
 	\end{lemme}
 }
 \begin{proof}
-	Comme $A$ est un $\delta$-net alors il existe $y_0\in A$ tel que $|\alpha-y_0|<\delta$, et donc
+	Comme $A$ est un $\theta$-net alors il existe $y_0\in A$ tel que $|\alpha-y_0|<\theta$, et donc
 	\begin{equation*}
 		\alpha = y_0 + \lambda_1 \alpha'
 	\end{equation*}
-	avec $\lambda_1= |\alpha-y_0|\leq \delta$ et $\alpha' = \frac{\alpha-y_0}{\lambda_1}\in S^{n-1}$, on peut donc itéré le même procédé sur $\alpha'$ et réitéré indéfiniment : 
+	avec $\lambda_1= |\alpha-y_0|\leq \theta$ et $\alpha' = \frac{\alpha-y_0}{\lambda_1}\in S^{n-1}$, on peut donc itéré le même procédé sur $\alpha'$ et réitéré indéfiniment : 
 	\begin{equation*}
 	\begin{array}{ccc}
-		\alpha = y_0 + \lambda_1 (y_1+\lambda_2\alpha'')=y_0+\lambda_1y_1+\lambda_1\lambda_2\alpha'' &\text{\hspace{4mm} avec \hspace{2mm}}&  \lambda_2\leq \delta, \; y_1\in A \text{\hspace{2mm}et\hspace{2mm}} \alpha''\in S^{n-1}\\
+		\alpha = y_0 + \lambda_1 (y_1+\lambda_2\alpha'')=y_0+\lambda_1y_1+\lambda_1\lambda_2\alpha'' &\text{\hspace{4mm} avec \hspace{2mm}}&  \lambda_2\leq \theta, \; y_1\in A \text{\hspace{2mm}et\hspace{2mm}} \alpha''\in S^{n-1}\\
 		\vdots&\vdots&\vdots\\
-		\alpha = y_0 + \sum_{i=1}^{N-1}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{\alpha}\prod_{1\leq k\leq N}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N$\hspace{1mm}} \lambda_i\leq \delta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{\alpha}\in S^{n-1}\\
+		\alpha = y_0 + \sum_{i=1}^{N-1}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{\alpha}\prod_{1\leq k\leq N}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N$\hspace{1mm}} \lambda_i\leq \theta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{\alpha}\in S^{n-1}\\
 		\vdots & \vdots & \vdots
 	\end{array}
 	\end{equation*} 
 	Si l'on pose $S_N = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)$, alors il existe $\tilde{\alpha}\in S^{n-1}$ tel que :
 	\begin{equation*}
-		|\alpha-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{\alpha}-y_N|\leq \delta^{N+1} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
+		|\alpha-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{\alpha}-y_N|\leq \theta^{N+1} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
 	\end{equation*}
-	il ne reste plus qu'as poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \delta^i$ et l'on a :
+	il ne reste plus qu'as poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et l'on a :
 	\begin{equation*}
 		\alpha = \sum_{i=0}^{+\infty} \beta_i y_i
 	\end{equation*}
 \end{proof}
 
 \boxXx{
-	\begin{lemme}
-		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in N$ , si l'on a $A$ un $\theta$-net sur $S^{n-1}$ et $||.||$ une norme sur $\mathbb{R}^n$, tel que:
+	\begin{lemme}\label{lsB}
+		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in\mathcal{L}(l^k_2,\mathbb{R}^n)$, tel que:
 		\begin{equation*}
-			\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|x \big|\big|\leq (1+\theta)E
+			\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|Tx \big|\big|\leq (1+\theta)E
 		\end{equation*}
 		alors ,
 		\begin{equation*}
-			\forall  x \in \mathbb{R}^n, \hspace{5mm} (1-\varepsilon)|x|E\leq \big|\big|x\big|\big|\leq (1+\varepsilon)|x|E
+			\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}E|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}E|x|
 		\end{equation*}
 		de plus si $\varepsilon\leq \frac{1}{9}$, on peu prendre $\theta=\frac{\varepsilon}{9}$
 	\end{lemme}
 }
 \begin{proof} 
-	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S^{n-1}$ et $x\in S^{n-1}$ par le lemme 4,  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \ref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
 	\begin{equation*}
 	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
 	\end{equation*}
-	
+	Notons $T=(a_1,...,a_k)$
 	\begin{align*}
-		||x|| &= \big|\big| \sum_{i=0}^{+\infty}y_i \beta_i\big|\big|\\
-		&\leq \sum_{i=0}^{+\infty}\theta^i ||y_i||\\
+		||Tx|| &= \big|\big| T\sum_{i=0}^{+\infty}y_i \beta_i\big|\big|\\
+		&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{k}y_{i,p}a_p \big|\big|\\
+		&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{k}y_{i,p}a_p||\\
+		&\leq \sum_{i=0}^{+\infty}\theta^i ||Ty_i||\\
 		& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)E=\frac{1+\theta}{1-\theta}E
 	\end{align*}
 	de même :
 	\begin{align*}
-		||x|| &\geq||y_0||- ||x-y_0||\\
-		&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||y_i||\\
+		||Tx|| &\geq||Ty_0||- ||Tx-Ty_0||\\
+		&= E(1-\theta) - ||\sum_{p=1}^{k}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
+		&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
 		&\geq E\big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)= E \frac{1-3\theta}{1-\theta}
 	\end{align*}
 	Il suffit donc de prendre $\theta$ tel que
 	\begin{equation*}
 	\begin{array}{cc}
-		1+\varepsilon\geq \sqrt{1+\varepsilon}\geq \frac{1+\theta}{1-\theta}\\
-		1-\varepsilon\leq\frac{1}{\sqrt{1+\varepsilon}}\leq \frac{1-3\theta}{1-\theta}
+		\sqrt{1+\varepsilon}\geq \frac{1+\theta}{1-\theta}\\
+		\frac{1}{\sqrt{1+\varepsilon}}\leq \frac{1-3\theta}{1-\theta}
 	\end{array}
+	\end{equation*}
+	et pour tous $y\in V \backslash\{0\}$ on a 
+	\begin{equation*}
+		\begin{array}{cc}
+			E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|\frac{y}{|y|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
+			E\frac{1}{\sqrt{1+\varepsilon}}|y|\leq||y||\leq E|y|\sqrt{1+\varepsilon}
+ 		\end{array}
 	\end{equation*}
 	Ce qui fini la première partie de la preuve, dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, supposons $\theta\leq \frac{1}{3}$ alors
 	\begin{equation*}
@@ -323,61 +379,64 @@ Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme 
 \end{proof}
 \boxXx{
 	\begin{theoreme}
-		Pour tous $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$ il existe un sous-espace $V\subset \mathbb{R}^n$ tel que :
-		\begin{enumerate}
-			\item[(i)] $\dim V \geq c.\big(\frac{E}{b}\big)^2n$
-			\item[(ii)] Pour tous $x\in V$ : $(1-\varepsilon)E|x|\leq ||x|| \leq (1+\varepsilon)E |x|$
-		\end{enumerate} 
-		où $E = \int_{S^{n-1}} ||y|| d\mu(y)$ et $b>0$ est le plus petit réel positif tel que $||.||\leq b|.|$.
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $l_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le lemme 5 et
+	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \ref{lsB} et on note
 	\begin{enumerate}
-		\item[-] $V_0\subset \mathbb{R}^n$ un sous espace avec $\dim V_0 = k$
-		\item[-]$A$ un $\theta$-net sur $V_0\cap S^{n-1}$, avec $|A|<\big(\frac{3}{\theta}\big)^{k}$ par le lemme *
+		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
+		\item[-] $V\subset \mathbb{R}^n$ un sous espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
+		\item[-] $f(\theta)=2(3/\theta)^{c(\theta)(E/b)^2n}e^{-\eta^2 n /2}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
-	où $k$ est choisi tel que $|A|< \frac{1}{2}e^{\frac{\eta^2n}{2}}< (\frac{3}{\theta})^k$.
-	Dans un premier temps nous allons montrer qu'il existe $T\in O(n)$ tel que pour tous $x\in A$ 
-	\begin{equation*}
+	
+	Distinguons deux cas 
+	\begin{enumerate}[leftmargin=\labelsep]
+		\item[$\circ$] {$f(\theta)\geq1$}\newline on a alors :
+		\begin{equation*}
+		\frac{\eta^2n}{4}\leq \log(2)
+		\end{equation*}
+		\begin{equation*}
+		k\leq \frac{\eta^2}{4\log(3/\theta)}n\leq \frac{\log(2)}{\log(3/\theta)}<1
+		\end{equation*}
+		Donc $k=0$, dans ce cas il n'y a rien a montrer.
+		\item[$\circ$] $f(\theta)<1$\newline Soit $A$ un $\theta$-net sur $V\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$ nous allons montrer qu'il existe $T\in O(n)$ tel que pour tous $x\in A$ 
+		\begin{equation*}
 		(1-\theta) E \leq ||Tx|| \leq (1+ \theta)
-	\end{equation*}
-	On a l'inégalité suivante : 
-	\begin{align*}
-	\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big\}\big)& \text{pour un $y\in A$}\\
-	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)\\
-	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big)
-	\end{align*} 
-	En appliquant la concentration de la mesure
-	\begin{equation*}
+		\end{equation*}
+		Tous d'abord remarquons ceci :
+		\begin{align*}
+		1&>f(\theta)\geq 2(\frac{3}{\theta})^ke^{-\frac{\eta^2}{2}n} \\
+		&> 2|A|e^{-\frac{\eta^2}{2}n}
+		\end{align*}
+		On a l'inégalité suivante : 
+		\begin{align*}
+		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
+		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
+		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big)
+		\end{align*} 
+		En appliquant la concentration de la mesure
+		\begin{equation*}
 		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1 - |A|2e^{-\frac{\eta^2n}{2}} >0
-	\end{equation*}	
-	Il existe donc $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-E \big|\leq b \eta$, c'est à dire 
-	\begin{equation*}
-	E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
-	\end{equation*}
-	Par le lemme 5 appliqué au $\theta$-net $TA$, pour tous $x\in \mathbb{R}^n$
-	\begin{equation*}
-	(1-\varepsilon)|x| E\leq ||x||\leq (1+\varepsilon)|x| E
-	\end{equation*}
-	
-	
-	
-
-	Il ne nous reste plus qu'as discuté de la minoration de $k$, en prenant le logarithme dans $\frac{1}{2}e^{\frac{\eta^2n}{2}}< (\frac{3}{\theta})^k$, on obtient :
-	\begin{align*}
-		k> \frac{1}{log(\frac{3}{\theta})}\Big(\frac{\theta^2 E^2}{2 b^2}n-log(2)\Big)
-	\end{align*}
-	
-	\color{red}\textit{toujours pas réussi a conclure !} \color{black}
+		\end{equation*}	
+		Il existe donc $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-E \big|\leq b \eta$, c'est à dire 
+		\begin{equation*}
+		E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
+		\end{equation*}
+		Par le \ref{lsB} pour tous $x\in V$
+		\begin{equation*}
+		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
+		\end{equation*}
+	\end{enumerate}
+	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $.\\ 
 \end{proof}
 
 
 
 
 \newpage
-\chapter*{Minoration de la dimension du sous-espace \hspace{1ex}\titlerule}
+\section{Minoration de la dimension du sous-espace }
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 \newline\boxXx{
 	\begin{definition}
@@ -507,13 +566,14 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 
 \newpage
 
-\section{Sources}
+\section*{Sources}
 
 - Euclidean sections of convex bodies , Gideon Schechtman (2008)
 
 - Sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers, Alexandre Grothendieck (1956) 
 
 -Dvoretzky theorem - thirty years later , Vitali Milman (1992)
+
 
 
 \end{document}
