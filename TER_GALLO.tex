@@ -26,6 +26,7 @@
 \newtheorem{proposition}{Proposition}[section]
 \labelformat{theoreme}{\textbf{théorème~#1}}
 \labelformat{lemme}{\textbf{lemme~#1}}
+\labelformat{proposition}{\textbf{proposition~#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -95,10 +96,10 @@
 \end{titlepage}
 
 \section{Introduction} 
-Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers}", inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture, a la quelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant : 
+Alexandre Grothendieck en 1956 dans son article "textit{sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}", inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
-		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V =k(\varepsilon,n)$
 			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
@@ -108,7 +109,7 @@ Alexandre Grothendieck en 1956 dans son article "\textit{sur certains classes de
 V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
 	\begin{theoreme}[V. Milman, 1971]\label{thmMil}
-		Pour toute $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tous compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tel que :
+		Pour tout $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V \geq c.\log(n)$
 			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
@@ -118,7 +119,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 
 \boxXx{
 \begin{definition}
-	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dis que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tous $x\in X$
+	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
 	\begin{equation*}
 		||x||_X\leq ||Tx||_Y\leq C||x||_X
 	\end{equation*}  
@@ -127,7 +128,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 \noindent Il existe une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
 	\begin{theoreme}
-	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour toute $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\mathbb{R}^n$ ,  $l^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $l^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
 	\end{theoreme}
 }
 \begin{notation}
@@ -140,8 +141,8 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 \noindent Montrons que ses deux derniers théorèmes sont équivalents.
 \begin{enumerate}
 	\item[(2)$\Rightarrow$(3)]
-	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
-	Donnons nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
+	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui-ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
+	Donnons-nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
 	\begin{equation*}
 	\phi :\begin{array}{ccc}
 	(V,||.||) & \mapsto &(\mathbb{R}^k,|.|_k) \\
@@ -152,8 +153,8 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\begin{equation*}
 	r \leq |v|_n \leq (1+\varepsilon)r
 	\end{equation*}
-	La borne supérieur est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieur il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenue dans $V\cap K$.\\
-	Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
+	La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$.\\
+	Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on n'a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
 	\begin{equation*}
 	r \leq \sqrt{\sum_{i=1}^{k}x_i^2} \leq (1+\varepsilon)r
 	\end{equation*}
@@ -161,7 +162,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\begin{equation*}
 	r \leq |\phi(v)|_k \leq (1+\varepsilon)r
 	\end{equation*}
-	Pour tous $x\in  V\backslash\{0\}$ on peut appliqué ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
+	Pour tous $x\in  V\backslash\{0\}$ on peut appliquer ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
 	\begin{equation*}
 	r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
 	\end{equation*}
@@ -171,7 +172,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 	\end{equation*}
 	ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction a $V$ de $T$ est bijective.
-	Soit $y\in \partial(K\cap V)$, c'est à dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
+	Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
 	\begin{equation*}
 	|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
 	\end{equation*}
@@ -179,7 +180,7 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\begin{equation*}
 		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 	\end{equation*}
-
+\begin{center}\huge\color{red}...\color{black}\end{center}
 \end{enumerate}
 \newpage
 
@@ -191,14 +192,14 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 		\begin{equation}\tag{$\star$}
 		\forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
 		\end{equation} 
-		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définit sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appeler mesure de Haar de $X$ (où $G$ est sous-entendu).
+		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
 Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$.
 \begin{notation}
 	Par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$.
 \end{notation}
-Montrons quelques propriétés qui serons utile par la suite.
+Montrons quelques propriétés qui seront utiles par la suite.
 \newline\boxXx{
 	\begin{lemme}
 		Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
@@ -230,7 +231,7 @@ Montrons quelques propriétés qui serons utile par la suite.
 	\end{lemme}
 }
 \begin{proof}
-	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définis par
+	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
 	\begin{equation*}
 	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
 	\end{equation*}
@@ -249,7 +250,7 @@ Montrons quelques propriétés qui serons utile par la suite.
 \end{proof}
 \subsection{Début de la démonstration du théorème de Dvoretzky}
 \begin{notation}
-	Si il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on noteras :
+	S'il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on notera :
 	\begin{enumerate}
 		\item[-] $E=\int_{S^{n-1}}||x||d\mu(x)$
 		\item[-] $b$ le plus petit réel tel que $||.||\leq b |.|$
@@ -265,12 +266,20 @@ Montrons quelques propriétés qui serons utile par la suite.
 	\end{theoreme}
 }
 \boxXx{
+	\begin{definition}
+		Soit $(X,d)$ un espace métrique pré-compact et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
+			\item[(i)] $A$ est de cardinal fini.
+			\item[(ii)] $\forall x \in X$ , $\exists y\in A$ tel que $d(x,y)\leq\theta$ 
+		\end{enumerate}
+	\end{definition}
+}
+\boxXx{
 	\begin{lemme}\label{lns}
 		Pour tous $0<\theta<1$ , $V\subset\mathbb{R}^n$ un sous espace de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
 	\end{lemme}
 }
 \begin{proof}
-	 Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boules de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est à dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjointes deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
+	 Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
 	\begin{equation*}
 	m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
 	\end{equation*}
@@ -300,13 +309,13 @@ Montrons quelques propriétés qui serons utile par la suite.
 	\begin{array}{ccc}
 		\alpha = y_0 + \lambda_1 (y_1+\lambda_2\alpha'')=y_0+\lambda_1y_1+\lambda_1\lambda_2\alpha'' &\text{\hspace{4mm} avec \hspace{2mm}}&  \lambda_2\leq \theta, \; y_1\in A \text{\hspace{2mm}et\hspace{2mm}} \alpha''\in S^{n-1}\\
 		\vdots&\vdots&\vdots\\
-		\alpha = y_0 + \sum_{i=1}^{N-1}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{\alpha}\prod_{1\leq k\leq N}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N$\hspace{1mm}} \lambda_i\leq \theta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{\alpha}\in S^{n-1}\\
+		\alpha = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{\alpha}\prod_{1\leq k\leq N+1}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N+1$\hspace{1mm}} \lambda_i\leq \theta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{\alpha}\in S^{n-1}\\
 		\vdots & \vdots & \vdots
 	\end{array}
 	\end{equation*} 
-	Si l'on pose $S_N = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)$, alors il existe $\tilde{\alpha}\in S^{n-1}$ tel que :
+	Si l'on pose $S_N = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)$, alors :
 	\begin{equation*}
-		|\alpha-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{\alpha}-y_N|\leq \theta^{N+1} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
+		|\alpha-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{\alpha}|\leq \theta^{N} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
 	\end{equation*}
 	il ne reste plus qu'as poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et l'on a :
 	\begin{equation*}
@@ -354,11 +363,11 @@ Montrons quelques propriétés qui serons utile par la suite.
 		\frac{1}{\sqrt{1+\varepsilon}}\leq \frac{1-3\theta}{1-\theta}
 	\end{array}
 	\end{equation*}
-	et pour tous $y\in V \backslash\{0\}$ on a 
+	et pour tous $x\in V \backslash\{0\}$ on a 
 	\begin{equation*}
 		\begin{array}{cc}
-			E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|\frac{y}{|y|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
-			E\frac{1}{\sqrt{1+\varepsilon}}|y|\leq||y||\leq E|y|\sqrt{1+\varepsilon}
+			E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|T\frac{x}{|x|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
+			E\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq E|x|\sqrt{1+\varepsilon}
  		\end{array}
 	\end{equation*}
 	Ce qui fini la première partie de la preuve, dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, supposons $\theta\leq \frac{1}{3}$ alors
@@ -380,7 +389,7 @@ Montrons quelques propriétés qui serons utile par la suite.
 	donc pour $\varepsilon\in]0,9^{-1}[$ on peu prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$.
 \end{proof}
 \boxXx{
-	\begin{theoreme}
+	\begin{theoreme}\label{mtool}
 		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $l_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
 	\end{theoreme}
 }
@@ -390,7 +399,7 @@ Montrons quelques propriétés qui serons utile par la suite.
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
 		\item[-] $V\subset \mathbb{R}^n$ un sous espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
-		\item[-] $f(\theta)=2(3/\theta)^{c(\theta)(E/b)^2n}e^{-\eta^2 n /2}=2\exp\big(-\frac{\eta^2n}{4}\big)$
+		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
 	
 	Distinguons deux cas 
@@ -405,7 +414,7 @@ Montrons quelques propriétés qui serons utile par la suite.
 		Donc $k=0$, dans ce cas il n'y a rien a montrer.
 		\item[$\circ$] $f(\theta)<1$\newline Soit $A$ un $\theta$-net sur $V\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$ nous allons montrer qu'il existe $T\in O(n)$ tel que pour tous $x\in A$ 
 		\begin{equation*}
-		(1-\theta) E \leq ||Tx|| \leq (1+ \theta)
+		(1-\theta) E \leq ||Tx|| \leq (1+ \theta)E
 		\end{equation*}
 		Tous d'abord remarquons ceci :
 		\begin{align*}
@@ -452,7 +461,7 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\end{theoreme}
 }
 
-
+\begin{center}\huge\color{red}...\color{black}\end{center}
 \subsection{Estimation de $E$}
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 
@@ -525,15 +534,16 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 		1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) = \Big(\frac{k-1}{n}\Big)^{\frac{k-1}{n-k+1}}\Big(1-\frac{k-1}{n}\Big)
 	\end{equation*}
 	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)$\color{red} $>-1$.\color{black}
+
 \end{proof}
 
 \boxXx{
-	\begin{proposition}[Estimation de $E$]
+	\begin{proposition}[Estimation de $E$]\label{esE}
 		Il existe $c>0$ tel que $E \geq c \sqrt{\frac{\log n}{n}}$.
 	\end{proposition}
 }
 \begin{proof}
-	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big[\frac{\sqrt{n}}{16\sqrt{2}}\big](\leq n)$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1+\frac{1}{n}-\frac{1}{16\sqrt{2n}}\Big)\geq (2e)^{-1} $. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
+	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big[\frac{\sqrt{n}}{16\sqrt{2}}\big](\leq n)$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1+\frac{1}{n}-\frac{1}{16\sqrt{2n}}\Big)\geq e^{-1}\big(1-\frac{1}{16\sqrt(2)}\big) $, posons donc $C=:e^{-1}\big(1-\frac{1}{16\sqrt(2)}\big)\approx0,3516$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
 		E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
 	\end{equation*}
@@ -541,7 +551,7 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 	\begin{align*}
 		E&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
 		&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
-		&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
+		&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq C\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
 	\end{align*}
 	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
@@ -564,12 +574,16 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 
 	Et finalement par le lemme 4, il existe $K>0$ tel que :
 	\begin{equation*}
-		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
+		E\geq \frac{C}{\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq KC\sqrt{\frac{\log n}{n}}
 	\end{equation*}
-	Pour finir il suffit de poser $c=: \frac{K}{2e}$
+	Pour finir il suffit de poser $c=: KC \approx 0.1137$
 \end{proof}
 
-
+On peut donc réunir les résultats \ref{esE} et \ref{mtool} pour obtenir :
+\begin{equation*}
+	k \geq \big[c(\varepsilon)\log(n)\big]
+\end{equation*}
+avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$.
 \newpage
 
 \section*{Sources}
@@ -579,7 +593,14 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 - Sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers, Alexandre Grothendieck (1956) 
 
 -Dvoretzky theorem - thirty years later , Vitali Milman (1992)
-
-
+\\
+$T=(a_1,...,a_n)$ où $(a_1,...,a_n)$ est une base de $V$, en utilisant gram-Schimt on peut extraire une base $(v_1,...,v_n)$ orthonormée.
+\begin{equation*}
+	T(B^k_2)= \big\{\sum_{i=1}^{k}a_i x_i \ \; ; \; \sum_{i=1}^{k}x_i^2<1\big\}
+\end{equation*}
+et pour tous $x\in R^k$ il existe $\lambda_1,...,\lambda_k>0$ tel que :
+\begin{equation*}
+	|Tx|^2 = \sum_{i=1}^{k} \lambda_i^2 x_i^2
+\end{equation*}
 
 \end{document}
