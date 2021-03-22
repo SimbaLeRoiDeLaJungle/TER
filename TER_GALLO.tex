@@ -325,7 +325,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 
 \boxXx{
 	\begin{lemme}\label{lsB}
-		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in\mathcal{L}(l^k_2,\mathbb{R}^n)$, tel que:
+		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in GL(n)$, tel que:
 		\begin{equation*}
 			\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|Tx \big|\big|\leq (1+\theta)E
 		\end{equation*}
@@ -341,18 +341,18 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\begin{equation*}
 	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
 	\end{equation*}
-	Notons $T=(a_1,...,a_k)$
+	Notons $T=(a_1,...,a_n)$
 	\begin{align*}
 		||Tx|| &= \big|\big| T\sum_{i=0}^{+\infty}y_i \beta_i\big|\big|\\
-		&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{k}y_{i,p}a_p \big|\big|\\
-		&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{k}y_{i,p}a_p||\\
+		&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{n}y_{i,p}a_p \big|\big|\\
+		&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{n}y_{i,p}a_p||\\
 		&\leq \sum_{i=0}^{+\infty}\theta^i ||Ty_i||\\
 		& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)E=\frac{1+\theta}{1-\theta}E
 	\end{align*}
 	de même :
 	\begin{align*}
 		||Tx|| &\geq||Ty_0||- ||Tx-Ty_0||\\
-		&= E(1-\theta) - ||\sum_{p=1}^{k}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
+		&= E(1-\theta) - ||\sum_{p=1}^{n}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
 		&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
 		&\geq E\big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)= E \frac{1-3\theta}{1-\theta}
 	\end{align*}
