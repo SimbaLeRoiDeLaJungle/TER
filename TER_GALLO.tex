@@ -30,17 +30,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-
 \newcommand{\boxXx}[1]{\medskip\noindent\fbox{\begin{minipage}{\textwidth}\vspace{2pt}#1\vspace{2pt}\end{minipage}}\medskip}
 
 \newcommand{\titleBar}{\hspace{0.6em}\titlerule}
-\titleformat{\section}  
+
+\titleformat{name=\section,numberless}  
 {\normalfont\large\bfseries}% format
 {}% label
 {0pt}% sep
-{ \arabic{section}.~ }
+{\MakeUppercase}
 [\titlerule]
-
+\titleformat{name=\section}  
+{\normalfont\large\bfseries}% format
+{}% label
+{0pt}% sep
+{\thesection~\MakeUppercase}
+[\titlerule]
 
 \titleformat{\subsection}  
 {\normalfont\normalsize\bfseries}% format
@@ -49,8 +54,8 @@
 { \arabic{section}.\arabic{subsection}.~ }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\usepackage[backend=bibtex,style=ieee,dashed=false]{biblatex}
+\addbibresource{bibliographie.bib}
 
 
 \begin{document}
@@ -95,8 +100,9 @@
 	\end{center}
 \end{titlepage}
 
-\section{Introduction} 
-Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}", inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
+\section*{Introduction}
+Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS}.\\
+Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
 		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
@@ -106,7 +112,11 @@ Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes d
 		\end{enumerate}
 	\end{theoreme}
 }
-V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure, il a de plus amélioré le théorème en donnant une estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
+Dans le papier original de Dvortezky l'estimation de $k$ était :
+\begin{equation*}
+k(\varepsilon,n)\geq c(\varepsilon)\sqrt{\frac{\log n}{\log \log n}} \hspace{1cm} \text{pour un $c(\varepsilon)>0$}
+\end{equation*} 
+Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure \cite{VM1}, il a de plus amélioré le théorème en donnant l'estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
 	\begin{theoreme}[V. Milman, 1971]\label{thmMil}
 		Pour tout $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
@@ -182,8 +192,6 @@ V. Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilis
 	\end{equation*}
 \begin{center}\huge\color{red}...\color{black}\end{center}
 \end{enumerate}
-\newpage
-
 \section{Existence du sous-espace}
 \subsection{Mesures de Haar }
 \boxXx{
@@ -201,7 +209,7 @@ Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme 
 \end{notation}
 Montrons quelques propriétés qui seront utiles par la suite.
 \newline\boxXx{
-	\begin{lemme}
+	\begin{lemme}\label{lhg}
 		Soit $f\in C(S^{n-1})$ et $Y=(g_1,...,g_n)$ où les $\{g_i\}_{1\leq i\leq n}$ sont i.i.d suivant une loi normale $\mathcal{N}(0,1)$, alors 
 		\begin{equation*}
 		\int_{S^{n-1}}fd\mu = \mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
@@ -214,7 +222,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
 	\begin{equation*}
-	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{y}{|y|}\big) \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
+	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg] = \int_{\mathbb{R}^n\backslash\{0\}} f\big(\frac{My}{|y|}\big)\exp\Big\{-\frac{1}{2}|y|^2\Big\}dy_1...dy_n=\int_{\mathbb{R}^n\backslash\{0\}} \frac{1}{|\det M|}f\big(\frac{y}{|y|}\big) \exp\Big\{-\frac{1}{2}|M^{-1}y|^2\Big\}dy_1...dy_n
 	\end{equation*}
 	comme $|\det M|=1$ et $|M^{-1}y|=|y|$, on a : 
 	\begin{equation*}
@@ -223,7 +231,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 \end{proof}
 
 \boxXx{
-	\begin{lemme}
+	\begin{lemme}\label{lhso}
 		Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
 		\begin{equation*}
 		\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
@@ -248,31 +256,130 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{align*}
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
-\subsection{Début de la démonstration du théorème de Dvoretzky}
+\boxXx{
+	\begin{theoreme}[Concentration de la mesure sur la sphère]
+		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
+		\begin{equation*}
+		\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
+		\end{equation*}
+	\end{theoreme}
+}
+\subsection{Lemmes d'approximations}
 \begin{notation}
 	S'il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on notera :
 	\begin{enumerate}
 		\item[-] $E=\int_{S^{n-1}}||x||d\mu(x)$
 		\item[-] $b$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{enumerate} 
-
+	
 \end{notation}
 \boxXx{
-	\begin{theoreme}[Concentration de la mesure sur la sphère]
-		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
-		\begin{equation*}
-			\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
-		\end{equation*}
-	\end{theoreme}
-}
-\boxXx{
 	\begin{definition}
-		Soit $(X,d)$ un espace métrique pré-compact et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
+		Soit $(X,d)$ un espace métrique et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
 			\item[(i)] $A$ est de cardinal fini.
 			\item[(ii)] $\forall x \in X$ , $\exists y\in A$ tel que $d(x,y)\leq\theta$ 
 		\end{enumerate}
 	\end{definition}
 }
+\boxXx{
+	\begin{lemme}\label{lap}
+		Soient $x\in S^{n-1}$ , A un $\theta$-net pour un $1>\theta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+		\begin{equation*}
+		x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
+		\end{equation*}
+	\end{lemme}
+}
+\begin{proof}
+	Comme $A$ est un $\theta$-net alors il existe $y_0\in A$ tel que $|x-y_0|<\theta$, et donc
+	\begin{equation*}
+	x = y_0 + \lambda_1 x'
+	\end{equation*}
+	avec $\lambda_1= |x-y_0|\leq \theta$ et $x' = \frac{x-y_0}{\lambda_1}\in S^{n-1}$, on peut donc itéré le même procédé sur $x'$ et réitéré indéfiniment : 
+	\begin{equation*}
+	\begin{array}{ccc}
+	x = y_0 + \lambda_1 (y_1+\lambda_2x'')=y_0+\lambda_1y_1+\lambda_1\lambda_2x'' &\text{\hspace{4mm} avec \hspace{2mm}}&  \lambda_2\leq \theta, \; y_1\in A \text{\hspace{2mm}et\hspace{2mm}} x''\in S^{n-1}\\
+	\vdots&\vdots&\vdots\\
+	x = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{x}\prod_{1\leq k\leq N+1}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N+1$\hspace{1mm}} \lambda_i\leq \theta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{x}\in S^{n-1}\\
+	\vdots & \vdots & \vdots
+	\end{array}
+	\end{equation*} 
+	Si l'on pose $S_N = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)$, alors :
+	\begin{equation*}
+	|x-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{x}|\leq \theta^{N} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
+	\end{equation*}
+	il ne reste plus qu'as poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et l'on a :
+	\begin{equation*}
+	x = \sum_{i=0}^{+\infty} \beta_i y_i
+	\end{equation*}
+\end{proof}
+
+\boxXx{
+	\begin{lemme}\label{lsB}
+		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in GL(n)$, tel que:
+		\begin{equation*}
+		\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|Tx \big|\big|\leq (1+\theta)E
+		\end{equation*}
+		alors ,
+		\begin{equation*}
+		\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}E|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}E|x|
+		\end{equation*}
+		de plus si $\varepsilon\leq \frac{1}{9}$, on peu prendre $\theta=\frac{\varepsilon}{9}$
+	\end{lemme}
+}
+\begin{proof} 
+	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \ref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+	\begin{equation*}
+	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
+	\end{equation*}
+	Notons $T=(a_1,...,a_n)$
+	\begin{align*}
+	||Tx|| &= \big|\big| T\sum_{i=0}^{+\infty}y_i \beta_i\big|\big|\\
+	&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{n}y_{i,p}a_p \big|\big|\\
+	&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{n}y_{i,p}a_p||\\
+	&\leq \sum_{i=0}^{+\infty}\theta^i ||Ty_i||\\
+	& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)E=\frac{1+\theta}{1-\theta}E
+	\end{align*}
+	de même :
+	\begin{align*}
+	||Tx|| &\geq||Ty_0||- ||Tx-Ty_0||\\
+	&= E(1-\theta) - ||\sum_{p=1}^{n}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
+	&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
+	&\geq E\big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)= E \frac{1-3\theta}{1-\theta}
+	\end{align*}
+	Il suffit donc de prendre $\theta$ tel que
+	\begin{equation*}
+	\begin{array}{cc}
+	\sqrt{1+\varepsilon}\geq \frac{1+\theta}{1-\theta}\\
+	\frac{1}{\sqrt{1+\varepsilon}}\leq \frac{1-3\theta}{1-\theta}
+	\end{array}
+	\end{equation*}
+	et pour tous $x\in V \backslash\{0\}$ on a 
+	\begin{equation*}
+	\begin{array}{cc}
+	E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|T\frac{x}{|x|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
+	E\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq E|x|\sqrt{1+\varepsilon}
+	\end{array}
+	\end{equation*}
+	Ce qui fini la première partie de la preuve, dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, supposons $\theta\leq \frac{1}{3}$ alors
+	\begin{equation*}
+	\frac{1-\theta}{1-3\theta}-\frac{1+\theta}{1-\theta} = \frac{4\theta^2}{(1-3\theta) (1-\theta)}>0
+	\end{equation*}
+	Donc $\sqrt{1+\varepsilon}\geq \frac{1-\theta}{1-3\theta}$
+	\begin{equation*}
+	\begin{array}{ccc}
+	1+\varepsilon \geq  \big(\frac{1-\theta}{1-3\theta}\big)^2\\
+	(9\varepsilon+8)\theta^2 - 2(3\varepsilon+2)\theta +\varepsilon \geq 0\\
+	\end{array}
+	\end{equation*}
+	les deux racines de ce polynôme sont 0<$\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}<\frac{3\varepsilon+2+2\sqrt{1+\varepsilon}}{8+9\varepsilon}$, on cherche donc un $\theta$ dans $]0,\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}]$. Pour finir 
+	\begin{align*}
+	\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}&\geq \frac{3\varepsilon+2-2-2\varepsilon}{8+9\varepsilon}=\frac{\varepsilon}{8+9\varepsilon}\\
+	&\geq \frac{\varepsilon}{9}
+	\end{align*}
+	donc pour $\varepsilon\in]0,9^{-1}[$ on peu prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$.
+\end{proof}
+\subsection{Début de la démonstration du théorème de Dvoretzky}
+
 \boxXx{
 	\begin{lemme}\label{lns}
 		Pour tous $0<\theta<1$ , $V\subset\mathbb{R}^n$ un sous espace de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
@@ -291,103 +398,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 		m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
 	\end{equation*}
 \end{proof}
-\boxXx{
-	\begin{lemme}\label{lap}
-		Soient $\alpha\in S^{n-1}$ , A un $\theta$-net pour un $1>\theta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
-		\begin{equation*}
-			\alpha = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
-		\end{equation*}
-	\end{lemme}
-}
-\begin{proof}
-	Comme $A$ est un $\theta$-net alors il existe $y_0\in A$ tel que $|\alpha-y_0|<\theta$, et donc
-	\begin{equation*}
-		\alpha = y_0 + \lambda_1 \alpha'
-	\end{equation*}
-	avec $\lambda_1= |\alpha-y_0|\leq \theta$ et $\alpha' = \frac{\alpha-y_0}{\lambda_1}\in S^{n-1}$, on peut donc itéré le même procédé sur $\alpha'$ et réitéré indéfiniment : 
-	\begin{equation*}
-	\begin{array}{ccc}
-		\alpha = y_0 + \lambda_1 (y_1+\lambda_2\alpha'')=y_0+\lambda_1y_1+\lambda_1\lambda_2\alpha'' &\text{\hspace{4mm} avec \hspace{2mm}}&  \lambda_2\leq \theta, \; y_1\in A \text{\hspace{2mm}et\hspace{2mm}} \alpha''\in S^{n-1}\\
-		\vdots&\vdots&\vdots\\
-		\alpha = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)+\tilde{\alpha}\prod_{1\leq k\leq N+1}\lambda_k &\text{\hspace{4mm} avec \hspace{2mm}}&  \text{$\forall i\leq N+1$\hspace{1mm}} \lambda_i\leq \theta, y_i\in A \text{\hspace{2mm}et\hspace{2mm}} \tilde{\alpha}\in S^{n-1}\\
-		\vdots & \vdots & \vdots
-	\end{array}
-	\end{equation*} 
-	Si l'on pose $S_N = y_0 + \sum_{i=1}^{N}y_i\Big(\prod_{1\leq k\leq i}\lambda_k\Big)$, alors :
-	\begin{equation*}
-		|\alpha-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{\alpha}|\leq \theta^{N} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
-	\end{equation*}
-	il ne reste plus qu'as poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et l'on a :
-	\begin{equation*}
-		\alpha = \sum_{i=0}^{+\infty} \beta_i y_i
-	\end{equation*}
-\end{proof}
 
-\boxXx{
-	\begin{lemme}\label{lsB}
-		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in GL(n)$, tel que:
-		\begin{equation*}
-			\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|Tx \big|\big|\leq (1+\theta)E
-		\end{equation*}
-		alors ,
-		\begin{equation*}
-			\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}E|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}E|x|
-		\end{equation*}
-		de plus si $\varepsilon\leq \frac{1}{9}$, on peu prendre $\theta=\frac{\varepsilon}{9}$
-	\end{lemme}
-}
-\begin{proof} 
-	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \ref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
-	\begin{equation*}
-	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
-	\end{equation*}
-	Notons $T=(a_1,...,a_n)$
-	\begin{align*}
-		||Tx|| &= \big|\big| T\sum_{i=0}^{+\infty}y_i \beta_i\big|\big|\\
-		&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{n}y_{i,p}a_p \big|\big|\\
-		&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{n}y_{i,p}a_p||\\
-		&\leq \sum_{i=0}^{+\infty}\theta^i ||Ty_i||\\
-		& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)E=\frac{1+\theta}{1-\theta}E
-	\end{align*}
-	de même :
-	\begin{align*}
-		||Tx|| &\geq||Ty_0||- ||Tx-Ty_0||\\
-		&= E(1-\theta) - ||\sum_{p=1}^{n}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
-		&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
-		&\geq E\big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)= E \frac{1-3\theta}{1-\theta}
-	\end{align*}
-	Il suffit donc de prendre $\theta$ tel que
-	\begin{equation*}
-	\begin{array}{cc}
-		\sqrt{1+\varepsilon}\geq \frac{1+\theta}{1-\theta}\\
-		\frac{1}{\sqrt{1+\varepsilon}}\leq \frac{1-3\theta}{1-\theta}
-	\end{array}
-	\end{equation*}
-	et pour tous $x\in V \backslash\{0\}$ on a 
-	\begin{equation*}
-		\begin{array}{cc}
-			E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|T\frac{x}{|x|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
-			E\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq E|x|\sqrt{1+\varepsilon}
- 		\end{array}
-	\end{equation*}
-	Ce qui fini la première partie de la preuve, dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, supposons $\theta\leq \frac{1}{3}$ alors
-	\begin{equation*}
-		\frac{1-\theta}{1-3\theta}-\frac{1+\theta}{1-\theta} = \frac{4\theta^2}{(1-3\theta) (1-\theta)}>0
-	\end{equation*}
-	Donc $\sqrt{1+\varepsilon}\geq \frac{1-\theta}{1-3\theta}$
-	\begin{equation*}
-	\begin{array}{ccc}
-		1+\varepsilon \geq  \big(\frac{1-\theta}{1-3\theta}\big)^2\\
-		(9\varepsilon+8)\theta^2 - 2(3\varepsilon+2)\theta +\varepsilon \geq 0\\
-	\end{array}
-	\end{equation*}
-	les deux racines de ce polynôme sont 0<$\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}<\frac{3\varepsilon+2+2\sqrt{1+\varepsilon}}{8+9\varepsilon}$, on cherche donc un $\theta$ dans $]0,\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}]$. Pour finir 
-	\begin{align*}
-		\frac{3\varepsilon+2-2\sqrt{1+\varepsilon}}{8+9\varepsilon}&\geq \frac{3\varepsilon+2-2-2\varepsilon}{8+9\varepsilon}=\frac{\varepsilon}{8+9\varepsilon}\\
-		&\geq \frac{\varepsilon}{9}
-	\end{align*}
-	donc pour $\varepsilon\in]0,9^{-1}[$ on peu prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$.
-\end{proof}
 \boxXx{
 	\begin{theoreme}\label{mtool}
 		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $l_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
@@ -397,7 +408,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \ref{lsB} et on note
 	\begin{enumerate}
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V\subset \mathbb{R}^n$ un sous espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
+		\item[-] $V\subset \mathbb{R}^n$ un sous-espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
 		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
@@ -425,7 +436,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 		\begin{align*}
 		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
 		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
-		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big)
+		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \ref{lhso}}
 		\end{align*} 
 		En appliquant la concentration de la mesure
 		\begin{equation*}
@@ -443,10 +454,6 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $.\\ 
 \end{proof}
 
-
-
-
-\newpage
 \section{Minoration de la dimension du sous-espace }
 \subsection{Invariance pour des compositions par des applications linéaire}
 Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété d'être l'ellipsoïde de John, c'est à dire l'ellipsoïde de volume maximal incluse dans $K$, nous donnons la définition d'une ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maxime qui seras admis.  
@@ -467,38 +474,38 @@ Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{
 
 Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
 \newline\boxXx{
-	\begin{lemme}
+	\begin{lemme}\label{ming}
 		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
 		\begin{equation*}
-			c \sqrt{\log N} \leq \mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]
+		c \sqrt{\log N} \leq \mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]
 		\end{equation*}
-		où $\tilde{N} = \Bigg[\frac{\sqrt{N}}{16\sqrt{2}}\Bigg]$
+		où $\tilde{N} = \Bigg\lceil\frac{N}{2}\Bigg\rceil$ est la partie entière supérieure de $\frac{N}{2}$.
 	\end{lemme}
 }
 \begin{proof}
 	Commençons par montrer que pour $n>1$, $\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) \geq \frac{1}{n}$, on a :
 	\begin{equation*}
-		\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) = 2 \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}dx\geq \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx  \qquad \text{ pour $x>\sqrt{\log(2)}>1$}
+	\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) = 2 \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}dx\geq \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx  \qquad \text{ pour $x>\sqrt{\log(2)}>1$}
 	\end{equation*}
 	\begin{equation*}
-		\int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx = \Big[-\frac{ e^{-\frac{t^2}{2}}}{t}\Big]_{\sqrt{\log n}}^{+\infty}=\frac{1}{\sqrt{n\log n}}>\frac{1}{n}
+	\int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx = \Big[-\frac{ e^{-\frac{t^2}{2}}}{t}\Big]_{\sqrt{\log n}}^{+\infty}=\frac{1}{\sqrt{n\log n}}>\frac{1}{n}
 	\end{equation*}
-	On à $\mathbb{P}\big(|g_1|> \sqrt{\log \sqrt{N}}\big)\geq \frac{1}{\sqrt{N}}$, et donc 
+	Donc 
 	\begin{equation*}
-		 \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log \sqrt{N}}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log \sqrt{N}}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log \sqrt{N}}\Big)\Bigg)^{\tilde{N}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log N}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log N}\Big)\Bigg)^{\tilde{N}}
 	\end{equation*}
 	\begin{equation*}
-		\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log \sqrt{N}}\Big)\leq \Bigg(1-\frac{1}{\sqrt{N}}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{\sqrt{N}}} \leq e^{-\frac{1}{16\sqrt{2}}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\leq \Bigg(1-\frac{1}{N}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{N}} \leq e^{-\frac{1}{2}}
 	\end{equation*}
 	Ce qui équivaut a 
 	\begin{equation*}
-		\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log \sqrt{N}}\Big)\geq 1- e^{-\frac{1}{16\sqrt{2}}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\geq 1- e^{-\frac{1}{2}}
 	\end{equation*}
 	Par l'inégalité de Markov on a finalement :
 	\begin{equation*}
-		\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log \sqrt{N}}\Big) \sqrt{\log \sqrt{N}}\geq \frac{1- e^{-\frac{1}{16\sqrt{2}}}}{\sqrt{2}}\sqrt{\log N}
+	\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
 	\end{equation*}
-	avec $c =: \frac{1- e^{-\frac{1}{16\sqrt{2}}}}{\sqrt{2}}\approx 0.3235 $ 
+	avec $c =: 1-e^{-\frac{1}{2}}$ 
 \end{proof}
 
 
@@ -543,15 +550,15 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 	\end{proposition}
 }
 \begin{proof}
-	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big[\frac{\sqrt{n}}{16\sqrt{2}}\big](\leq n)$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1+\frac{1}{n}-\frac{1}{16\sqrt{2n}}\Big)\geq e^{-1}\big(1-\frac{1}{16\sqrt(2)}\big) $, posons donc $C=:e^{-1}\big(1-\frac{1}{16\sqrt(2)}\big)\approx0,3516$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
+	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big\lceil\frac{n}{2}\big\rceil$ la partie entière supérieure de $\frac{n}{2}$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1-\frac{\frac{n}{2}+1 -1}{n}\Big)= (2e)^{-1}$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
 		E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
 	\end{equation*}
 	et donc 
 	\begin{align*}
 		E&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
-		&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
-		&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq C\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
+		&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
+		&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
 	\end{align*}
 	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
@@ -572,27 +579,27 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
 
-	Et finalement par le lemme 4, il existe $K>0$ tel que :
+	Et finalement par le \ref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
-		E\geq \frac{C}{\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq KC\sqrt{\frac{\log n}{n}}
+		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
-	Pour finir il suffit de poser $c=: KC \approx 0.1137$
+	Pour finir il suffit de poser $c=: \frac{K}{2e}$
 \end{proof}
 
 On peut donc réunir les résultats \ref{esE} et \ref{mtool} pour obtenir :
 \begin{equation*}
 	k \geq \big[c(\varepsilon)\log(n)\big]
 \end{equation*}
-avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$.
-\newpage
+avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
 
-\section*{Sources}
+\nocite{GP}
+\nocite{VM2}
 
-- Euclidean sections of convex bodies , Gideon Schechtman (2008)
+\nocite{VMGS}
+\printbibliography
 
-- Sur certains classes de suites dans les espaces de Banach, et le théorème de Dvoretzky-Rogers, Alexandre Grothendieck (1956) 
 
--Dvoretzky theorem - thirty years later , Vitali Milman (1992)
+
 
 
 \end{document}
