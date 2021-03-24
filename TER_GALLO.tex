@@ -30,10 +30,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
 \newcommand{\boxXx}[1]{\medskip\noindent\fbox{\begin{minipage}{\textwidth}\vspace{2pt}#1\vspace{2pt}\end{minipage}}\medskip}
 
 \newcommand{\titleBar}{\hspace{0.6em}\titlerule}
 
+\newcommand{\sev}{\underset{\text{s.e.v}}{\subset}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{name=\section,numberless}  
 {\normalfont\large\bfseries}% format
 {}% label
@@ -53,6 +57,7 @@
 {0pt}% sep
 { \arabic{section}.\arabic{subsection}.~ \MakeUppercase}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[backend=bibtex,style=ieee,dashed=false]{biblatex}
 \addbibresource{bibliographie.bib}
@@ -105,7 +110,7 @@ Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{E
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
-		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
+		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe $V \sev \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V =k(\varepsilon,n)$
 			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
@@ -119,7 +124,7 @@ k(\varepsilon,n)\geq c(\varepsilon)\sqrt{\frac{\log n}{\log \log n}} \hspace{1cm
 Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure \cite{VM1}, il a de plus amélioré le théorème en donnant l'estimation de la dépendance en $n$ pour la dimension de $V$,  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
 	\begin{theoreme}[V. Milman, 1971]\label{thmMil}
-		Pour tout $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe un sous espace $V\subset  \mathbb{R}^n$ tels que :
+		Pour tout $\varepsilon>0$, il existe une constante $c>0$ tel que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe  $V\sev  \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V \geq c.\log(n)$
 			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
@@ -190,8 +195,8 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	\begin{equation*}
 		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 	\end{equation*}
-	Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne.  
-\begin{center}\huge\color{red}...\color{black}\end{center}
+	Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne.  
+
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,8 +216,8 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Existence du sous-espace}
 
+\section{Préliminaire}
 \subsection{Mesures de Haar }
 \boxXx{
 	\begin{defft}[Mesures de Haar]
@@ -276,7 +281,8 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{align*}
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
-\boxXx{
+Le théorème suivant seras admis, c'est une application du théorèmes de concentration de la mesure de \textit{Paul Lévy}, il est un outil cruciale dans la preuve du théorème de Dvoretzy donné par \textit{Vitali Milman} \cite{VM1}.
+\newline\boxXx{
 	\begin{theoreme}[Concentration de la mesure sur la sphère]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
 		\begin{equation*}
@@ -284,15 +290,57 @@ Montrons quelques propriétés qui seront utiles par la suite.
 		\end{equation*}
 	\end{theoreme}
 }
+
+\subsection{Ellipsoïdes}
+Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}(0,1)$, c'est à dire l'ellipsoïde de volume maximal incluse dans $B_{||.||}(0,1)$, nous donnons la définition d'un ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maximale qui seras admis.  
+\newline\boxXx{
+	\begin{definition}
+		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
+	\end{definition}
+}
+\boxXx{
+	\begin{theoreme}[Ellipsoïde de John]
+		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
+	\end{theoreme}
+}
+
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$, sont ellipsoïde de John est $B_2^k$, supposons que
+\begin{equation*}
+	r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
+\end{equation*}
+alors 
+\begin{equation*}
+u^{-1}\big(r(D\cap uW)\big)\subset u^{-1}(K\cap uW)\subset u^{-1}\big(r(1+\varepsilon)(D\cap uW)\big)
+\end{equation*}
+\begin{equation*}
+	r(D\cap uW)\subset K\cap uW \subset r(1+\varepsilon)(D\cap uW)
+\end{equation*}
+Le lemme qui suit, déjà utiliser dans l'introduction nous permet de conclure que quitte a diviser la dimension du sous-espace par deux, montrer le théorème de Dvoretky peut être montrer pour des compact dont la boule euclidienne est l'ellipsoide de John sans perte de généralité. 
+\newline\boxXx{
+	\begin{lemme}\label{eleb}
+		Soit $\mathcal{E}$ un ellipsoïde de $\mathbb{R}^n$, alors $\exists \lambda >0$ et $V\sev\mathbb{R}^n$ de dimension $\big\lceil\frac{n}{2}\big\rceil$ tel que :
+		\begin{equation*}
+		\mathcal{E}\cap V = \lambda B^n_2\cap V
+		\end{equation*}
+\end{lemme}}
+\begin{proof}
+	Quitte a effectuer une rotation on peut supposer que $\mathcal{E} = \big\{x\in\mathbb{R}^n \hspace{1mm}; \hspace{1mm} \sum_{i=1}^{n}a_i x_i^2< 1 \big\}$ pour $0\leq a_1 \leq ... \leq a_n$. Posons $\lambda = \text{Mediane}(a_1,...,a_n)$ et 
+	\begin{equation*}
+	F = \big\{x\in\mathbb{R}^n \hspace{1mm};\hspace{1mm} \forall i\leq \big\lfloor\frac{n}{2}\big\rfloor , \; \sqrt{\lambda-a_i}x_i=\sqrt{a_{n+1-i}-\lambda}x_{n+1-i}\big\}
+	\end{equation*}
+	Alors pour tous $x\in F$ nous avons $\forall i\leq \big\lfloor\frac{n}{2}\big\rfloor$:
+	\begin{equation*}
+	a_ix_i^2+a_{n+1-i}x_{n+1-i}^2 = \lambda (x_i^2+x_{n+1-i}^2)
+	\end{equation*}
+	d'où
+	\begin{equation*}
+	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
+	\end{equation*}
+\end{proof}
+
+\section{Démonstration du théorème de Dvoretzky}
 \subsection{Lemmes d'approximations}
-\begin{notation}
-	S'il n'y a pas d'ambiguïté sur la norme $||.||$ de $\mathbb{R}^n$ utilisé on notera :
-	\begin{enumerate}
-		\item[-] $E=\int_{S^{n-1}}||x||d\mu(x)$
-		\item[-] $b$ le plus petit réel tel que $||.||\leq b |.|$
-	\end{enumerate} 
-	
-\end{notation}
+
 \boxXx{
 	\begin{definition}
 		Soit $(X,d)$ un espace métrique et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
@@ -337,11 +385,11 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\begin{lemme}\label{lsB}
 		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in GL(n)$, tel que:
 		\begin{equation*}
-		\forall  x \in A, \hspace{5mm} (1-\theta)E\leq \big|\big|Tx \big|\big|\leq (1+\theta)E
+		\forall  x \in A, \hspace{5mm} (1-\theta)\leq \big|\big|Tx \big|\big|\leq (1+\theta)
 		\end{equation*}
 		alors ,
 		\begin{equation*}
-		\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}E|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}E|x|
+		\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}|x|
 		\end{equation*}
 		de plus si $\varepsilon\leq \frac{1}{9}$, on peu prendre $\theta=\frac{\varepsilon}{9}$
 	\end{lemme}
@@ -357,14 +405,14 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	&=  \big|\big| \sum_{i=0}^{+\infty}\beta_i \sum_{p=1}^{n}y_{i,p}a_p \big|\big|\\
 	&\leq \sum_{i=0}^{+\infty}\theta^i ||\sum_{p=1}^{n}y_{i,p}a_p||\\
 	&\leq \sum_{i=0}^{+\infty}\theta^i ||Ty_i||\\
-	& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)E=\frac{1+\theta}{1-\theta}E
+	& \leq  \sum_{i=0}^{+\infty}\theta^i (1+\theta)=\frac{1+\theta}{1-\theta}
 	\end{align*}
 	de même :
 	\begin{align*}
 	||Tx|| &\geq||Ty_0||- ||Tx-Ty_0||\\
-	&= E(1-\theta) - ||\sum_{p=1}^{n}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
-	&\geq E(1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
-	&\geq E\big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)= E \frac{1-3\theta}{1-\theta}
+	&= (1-\theta) - ||\sum_{p=1}^{n}a_p\sum_{i=1}^{+\infty}\beta_i y_{i,p}||\\
+	&\geq (1-\theta)- \sum_{i=1}^{+\infty}\theta^i ||Ty_i||\\
+	&\geq \big((1-\theta)- \theta\frac{1+\theta}{1-\theta}\big)=  \frac{1-3\theta}{1-\theta}
 	\end{align*}
 	Il suffit donc de prendre $\theta$ tel que
 	\begin{equation*}
@@ -376,8 +424,8 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	et pour tous $x\in V \backslash\{0\}$ on a 
 	\begin{equation*}
 	\begin{array}{cc}
-	E\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|T\frac{x}{|x|}\big|\big|\leq E \sqrt{1+\varepsilon}\\
-	E\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq E|x|\sqrt{1+\varepsilon}
+	\frac{1}{\sqrt{1+\varepsilon}}\leq\big|\big|T\frac{x}{|x|}\big|\big|\leq  \sqrt{1+\varepsilon}\\
+	\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq |x|\sqrt{1+\varepsilon}
 	\end{array}
 	\end{equation*}
 	Ce qui fini la première partie de la preuve, dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, supposons $\theta\leq \frac{1}{3}$ alors
@@ -398,15 +446,13 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{align*}
 	donc pour $\varepsilon\in]0,9^{-1}[$ on peu prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$.
 \end{proof}
-\subsection{Début de la démonstration du théorème de Dvoretzky}
-
 \boxXx{
 	\begin{lemme}\label{lns}
-		Pour tous $0<\theta<1$ , $V\subset\mathbb{R}^n$ un sous espace de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
+		Pour tous $0<\theta<1$ , $V\sev\mathbb{R}^n$ de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
 	\end{lemme}
 }
 \begin{proof}
-	 Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
+	Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
 	\begin{equation*}
 	m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
 	\end{equation*}
@@ -415,20 +461,24 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{equation*}
 	Par homogénéité de la mesure de Lebesgue :
 	\begin{equation*}
-		m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
+	m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
 	\end{equation*}
 \end{proof}
 
+\subsection{Début de la démonstration du théorème de Dvoretzky}
+Dans cette partie nous allons montrer un théorème qui seras l'outils principal de la démonstration du théorème de Dvoretzky.
+
 \boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
+		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{theoreme}
 }
 \begin{proof}
 	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
 	\begin{enumerate}
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V\subset \mathbb{R}^n$ un sous-espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
+		\item[-] $V\sev \mathbb{R}^n$ avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
 		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
@@ -473,46 +523,8 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{enumerate}
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$ pour un $c_0>0$.\\ 
 \end{proof}
-
-\section{Minoration de la dimension du sous-espace }
-\subsection{Ellipsoïdes}
-Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété d'être l'ellipsoïde de John, c'est à dire l'ellipsoïde de volume maximal incluse dans $K$, nous donnons la définition d'une ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maxime qui seras admis.  
-\newline\boxXx{
-	\begin{definition}
-		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
-	\end{definition}
-}
-\boxXx{
-	\begin{theoreme}[Ellipsoïde de John]
-		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
-	\end{theoreme}
-}
-
-\boxXx{
-\begin{lemme}\label{eleb}
-	Soit $\mathcal{E}$ un ellipsoïde de $\mathbb{R}^n$, alors $\exists \lambda >0$ et $V\subset\mathbb{R}^n$ un sous espace de dimension $\big\lceil\frac{n}{2}\big\rceil$ tel que :
-	\begin{equation*}
-		\mathcal{E}\cap V = \lambda B^n_2\cap V
-	\end{equation*}
-\end{lemme}}
-\begin{proof}
-	Quitte a effectuer une rotation on peut supposer que $\mathcal{E} = \big\{x\in\mathbb{R}^n \hspace{1mm}; \hspace{1mm} \sum_{i=1}^{n}a_i x_i^2< 1 \big\}$ pour $0\leq a_1 \leq ... \leq a_n$. Posons $\lambda = \text{Mediane}(a_1,...,a_n)$ et 
-	\begin{equation*}
-		F = \big\{x\in\mathbb{R}^n \hspace{1mm};\hspace{1mm} \forall i\leq \big\lfloor\frac{n}{2}\big\rfloor , \; \sqrt{\lambda-a_i}x_i=\sqrt{a_{n+1-i}-\lambda}x_{n+1-i}\big\}
-	\end{equation*}
-	Alors pour tous $x\in F$ nous avons $\forall i\leq \big\lfloor\frac{n}{2}\big\rfloor$:
-	\begin{equation*}
-		a_ix_i^2+a_{n+1-i}x_{n+1-i}^2 = \lambda (x_i^2+x_{n+1-i}^2)
-	\end{equation*}
-	d'où
-	\begin{equation*}
-	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
-	\end{equation*}
-\end{proof}
 \subsection{Estimation de $E$}
-Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
-
-Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
+Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\mu(x)$, pour cela nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
 \newline\boxXx{
 	\begin{lemme}\label{ming}
 		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
@@ -552,57 +564,57 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 
 \boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
- 		Il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
+		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
 		\begin{equation*}
-			e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
+		e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
 		\end{equation*}
 	\end{lemme}
 }
 \begin{proof}
 	$S^{n-1}$ est compact et $||.||$ continue, on peux donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est à dire $||x_1||=1$, supposons que l'on ai $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})\neq \emptyset$ car les $\{x_i\}_{i=1,...,k-1}$ sont orthogonaux deux à deux. On peut donc répéter le procéder pour trouver $x_{k}$ qui maximise $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b\in\mathbb{R}^{*}$ et définissons :
 	\begin{equation*}
-		\mathcal{E} = \Big\{\sum_{i=1}^{n}a_ix_i\; ; \; \sum_{i=1}^{k-1}\big(\frac{a_i}{a}\big)^2+ \sum_{i=k}^{n}\big(\frac{b_i}{b}\big)^2\leq 1 \Big\}
+	\mathcal{E} = \Big\{\sum_{i=1}^{n}a_ix_i\; ; \; \sum_{i=1}^{k-1}\big(\frac{a_i}{a}\big)^2+ \sum_{i=k}^{n}\big(\frac{b_i}{b}\big)^2\leq 1 \Big\}
 	\end{equation*}
 	Supposons $\sum_{i=1}^{n}a_ix_i\in \mathcal{E}$, alors $\sum_{i=1}^{k-1}a_ix_i\in aB_2^n$ et donc $||\sum_{i=1}^{k-1}a_ix_i||\leq a$.
 	Si $x\in \text{Vect}(x_k,...,x_n)\cap B^n_2$ on a $||x||\leq ||x_k||$ par construction, et donc $\sum_{i=k}^{n}a_ix_i\in bB_2^n \; \Rightarrow \; ||\sum_{i=k}^{n}a_ix_i ||\leq b||x_k||$ , ce qui nous donne la majoration suivante 
 	\begin{equation*}
-		||\sum_{i=1}^{n}a_ix_i||\leq ||\sum_{i=1}^{k-1}a_ix_i||+||\sum_{i=k}^{n}a_ix_i||\leq a + b||x_k||
+	||\sum_{i=1}^{n}a_ix_i||\leq ||\sum_{i=1}^{k-1}a_ix_i||+||\sum_{i=k}^{n}a_ix_i||\leq a + b||x_k||
 	\end{equation*}
 	Posons $\phi\in GL(n)$ définit par $\phi(\sum_{i=1}^{n}a_ix_i)=\sum_{i=1}^{k-1}aa_ix_i+\sum_{i=k}^{n}ba_ix_i$ on a $\phi = \text{diag}\big(\overbrace{a,...,a}^{(k-1)\times},\overbrace{b,...,b}^{(n-k+1) \times}\big)$ et donc $\det \phi = a^{k-1}b^{n-k+1}$ d'où :
 	\begin{equation*}
-		\int_{\mathcal{E}} dx_1...dx_n = \int_{B_2^n} \det \phi dx_1...dx_n= a^{k-1}b^{n-k-1}\int_{B_2^n}dx_1...dx_n
+	\int_{\mathcal{E}} dx_1...dx_n = \int_{B_2^n} \det \phi dx_1...dx_n= a^{k-1}b^{n-k-1}\int_{B_2^n}dx_1...dx_n
 	\end{equation*}
 	On prend $a+b||x_k||= 1$ de sorte que $\mathcal{E}\subset K$, comme $B_2^n$ est l'ellipsoïde de volume maximale inclue dans $K$, on a que  
 	\begin{equation*}
-		1\geq\frac{\int_{\mathcal{E}} dx_1...dx_n}{\int_{B_2^n}dx_1...dx_n}=a^{k-1}b^{n-k+1}
+	1\geq\frac{\int_{\mathcal{E}} dx_1...dx_n}{\int_{B_2^n}dx_1...dx_n}=a^{k-1}b^{n-k+1}
 	\end{equation*}
 	Fixons donc pour $k\geq 2$ , $b=\frac{1-a}{||x_k||}$ et $a=\frac{k-1}{n}$, en remplaçant dans l'inégalité on obtient :
 	\begin{equation*}
-		1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) = \Big(\frac{k-1}{n}\Big)^{\frac{k-1}{n-k+1}}\Big(1-\frac{k-1}{n}\Big)
+	1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) = \Big(\frac{k-1}{n}\Big)^{\frac{k-1}{n-k+1}}\Big(1-\frac{k-1}{n}\Big)
 	\end{equation*}
 	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)$\color{red} $>-1$.\color{black}
-
+	
 \end{proof}
 
 \boxXx{
 	\begin{proposition}[Estimation de $E$]\label{esE}
-		Il existe $c>0$ tel que $E \geq c \sqrt{\frac{\log n}{n}}$.
+		Sous les conditions du \cref{mtool} et en supposant que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, il existe $c>0$ tel que $E=:\int_{S^{n-1}} ||x||d\mu(x) \geq c \sqrt{\frac{\log n}{n}}$.
 	\end{proposition}
 }
 \begin{proof}
 	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big\lceil\frac{n}{2}\big\rceil$ la partie entière supérieure de $\frac{n}{2}$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1-\frac{\frac{n}{2}+1 -1}{n}\Big)= (2e)^{-1}$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
-		E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
+	E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
 	\end{equation*}
 	et donc 
 	\begin{align*}
-		E&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
-		&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
-		&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
+	E&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
+	&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
+	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
 	\end{align*}
 	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
-		\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
+	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
 	\begin{lemme}
 		$\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont indépendants.
@@ -612,23 +624,23 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 	\color{black}
 	Par le lemme on à donc 
 	\begin{equation*}
-		\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
+	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
 	\end{equation*}
 	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
 	\begin{equation*}
-		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
+	\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
-
+	
 	Et finalement par le \cref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
-		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
+	E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
 	Pour finir il suffit de poser $c=: \frac{K}{2e}$
 \end{proof}
 
 On peut donc réunir les résultats \cref{esE} et \cref{mtool} pour obtenir :
 \begin{equation*}
-	k \geq \big[c(\varepsilon)\log(n)\big]
+k \geq \big[c(\varepsilon)\log(n)\big]
 \end{equation*}
 avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
 \section{Applications}
@@ -638,7 +650,7 @@ Montrons la proposition suivante qui n'est en réalité qu'un coralliaire du \cr
 		Soit $1\leq p < \infty$ alors, pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
 		\begin{equation*}
 			k\geq \left\{\begin{array}{ll} 
-			c(\varepsilon)n & \hspace{5mm}\text{si } \; 1\leq p \leq 2\\
+			c(\varepsilon)n & \hspace{5mm}\text{si } \; 1\leq p <2\\
 			c(\varepsilon)n^{\frac{2}{p}} & \hspace{5mm}\text{si } \; p>2 \\
 			\end{array} \right.
 		\end{equation*}
