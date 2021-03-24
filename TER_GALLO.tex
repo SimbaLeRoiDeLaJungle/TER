@@ -105,7 +105,8 @@
 	\end{center}
 \end{titlepage}
 
-\section*{Introduction}
+\tableofcontents\newpage
+\section*{Introduction}\addcontentsline{toc}{section}{Introduction}
 Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS}.\\
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
@@ -202,7 +203,6 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\numberwithin{theoreme}{section}
 \newaliascnt{lemme}{theoreme}
 \newtheorem{lemme}[lemme]{Lemme}
 \aliascntresetthe{lemme}
@@ -470,7 +470,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 
 \boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
 		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{theoreme}
 }
@@ -478,7 +478,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
 	\begin{enumerate}
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V\sev \mathbb{R}^n$ avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
+		\item[-] $V\sev \mathbb{R}^n$ avec $\dim V := k \leq \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
 		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
@@ -521,7 +521,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
 		\end{equation*}
 	\end{enumerate}
-	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$ pour un $c_0>0$.\\ 
+	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$.\\ 
 \end{proof}
 \subsection{Estimation de $E$}
 Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\mu(x)$, pour cela nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
@@ -642,7 +642,7 @@ On peut donc réunir les résultats \cref{esE} et \cref{mtool} pour obtenir :
 \begin{equation*}
 k \geq \big[c(\varepsilon)\log(n)\big]
 \end{equation*}
-avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
+avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
 \section{Applications}
 \subsection{espace $\ell_p$}
 Montrons la proposition suivante qui n'est en réalité qu'un coralliaire du \cref{mtool}.
