@@ -14,19 +14,19 @@
 \usepackage{color}
 \usepackage{pgfornament}
 \usepackage[french]{babel}
-\usepackage{varioref}
+\usepackage{aliascnt}
+\usepackage{cleveref}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
+\theoremstyle{definition}
 \newtheorem*{notation}{Notation}
 \newtheorem*{definition}{Défintion}
-\newtheorem{lemme}{Lemme}[section]
-\newtheorem*{defft}{Définition \& Théorème}
-\newtheorem{theoreme}{Théorème}[section]
 \newtheorem*{fait}{Fait}
-\newtheorem{proposition}{Proposition}[section]
-\labelformat{theoreme}{\textbf{théorème~#1}}
-\labelformat{lemme}{\textbf{lemme~#1}}
-\labelformat{proposition}{\textbf{proposition~#1}}
+\newtheorem*{defft}{Définition \& Théorème}
+\newtheorem{theoreme}{Théorème}
+\crefformat{theoreme}{\textbf{théorème #1~}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -138,7 +138,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 \noindent Il existe une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
 	\begin{theoreme}
-	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $l^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
 	\end{theoreme}
 }
 \begin{notation}
@@ -177,7 +177,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
 	\end{equation*}
 	\item[(3)$\Rightarrow$(2)]
-	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $l_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :l^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 	\begin{equation*}
 	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 	\end{equation*}
@@ -190,9 +190,29 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	\begin{equation*}
 		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 	\end{equation*}
+	Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne.  
 \begin{center}\huge\color{red}...\color{black}\end{center}
 \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{theoreme}{section}
+\newaliascnt{lemme}{theoreme}
+\newtheorem{lemme}[lemme]{Lemme}
+\aliascntresetthe{lemme}
+\crefname{lemme}{lemme}{lemmes}
+\crefformat{lemme}{\textbf{lemme #1~}}
+\newaliascnt{proposition}{theoreme}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\crefname{proposition}{proposition}{proposition}´
+\crefformat{proposition}{\textbf{proposition #1~}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Existence du sous-espace}
+
 \subsection{Mesures de Haar }
 \boxXx{
 	\begin{defft}[Mesures de Haar]
@@ -327,7 +347,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{lemme}
 }
 \begin{proof} 
-	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \ref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \cref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
 	\begin{equation*}
 	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
 	\end{equation*}
@@ -401,11 +421,11 @@ Montrons quelques propriétés qui seront utiles par la suite.
 
 \boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $l_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour $k=: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \ref{lsB} et on note
+	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
 	\begin{enumerate}
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
 		\item[-] $V\subset \mathbb{R}^n$ un sous-espace avec $\dim V := k = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
@@ -436,7 +456,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 		\begin{align*}
 		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
 		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
-		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \ref{lhso}}
+		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \cref{lhso}}
 		\end{align*} 
 		En appliquant la concentration de la mesure
 		\begin{equation*}
@@ -446,16 +466,16 @@ Montrons quelques propriétés qui seront utiles par la suite.
 		\begin{equation*}
 		E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
 		\end{equation*}
-		Par le \ref{lsB} pour tous $x\in V$
+		Par le \cref{lsB} pour tous $x\in V$
 		\begin{equation*}
 		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
 		\end{equation*}
 	\end{enumerate}
-	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $.\\ 
+	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$ pour un $c_0>0$.\\ 
 \end{proof}
 
 \section{Minoration de la dimension du sous-espace }
-\subsection{Invariance}
+\subsection{Ellipsoïdes}
 Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété d'être l'ellipsoïde de John, c'est à dire l'ellipsoïde de volume maximal incluse dans $K$, nous donnons la définition d'une ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maxime qui seras admis.  
 \newline\boxXx{
 	\begin{definition}
@@ -468,7 +488,27 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\end{theoreme}
 }
 
-\begin{center}\huge\color{red}...\color{black}\end{center}
+\boxXx{
+\begin{lemme}\label{eleb}
+	Soit $\mathcal{E}$ un ellipsoïde de $\mathbb{R}^n$, alors $\exists \lambda >0$ et $V\subset\mathbb{R}^n$ un sous espace de dimension $\big\lceil\frac{n}{2}\big\rceil$ tel que :
+	\begin{equation*}
+		\mathcal{E}\cap V = \lambda B^n_2\cap V
+	\end{equation*}
+\end{lemme}}
+\begin{proof}
+	Quitte a effectuer une rotation on peut supposer que $\mathcal{E} = \big\{x\in\mathbb{R}^n \hspace{1mm}; \hspace{1mm} \sum_{i=1}^{n}a_i x_i^2< 1 \big\}$ pour $0\leq a_1 \leq ... \leq a_n$. Posons $\lambda = \text{Mediane}(a_1,...,a_n)$ et 
+	\begin{equation*}
+		F = \big\{x\in\mathbb{R}^n \hspace{1mm};\hspace{1mm} \forall i\leq \big\lfloor\frac{n}{2}\big\rfloor , \; \sqrt{\lambda-a_i}x_i=\sqrt{a_{n+1-i}-\lambda}x_{n+1-i}\big\}
+	\end{equation*}
+	Alors pour tous $x\in F$ nous avons $\forall i\leq \big\lfloor\frac{n}{2}\big\rfloor$:
+	\begin{equation*}
+		a_ix_i^2+a_{n+1-i}x_{n+1-i}^2 = \lambda (x_i^2+x_{n+1-i}^2)
+	\end{equation*}
+	d'où
+	\begin{equation*}
+	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
+	\end{equation*}
+\end{proof}
 \subsection{Estimation de $E$}
 Par la suite on fixe $||.||$ une norme sur $\mathbb{R}^n$, $K=\text{Adh}\big(B_{||.||}\big)$ tel que $B_2^n$ soit l'ellipsoïde de volume maximale incluse dans $K$, on a donc $b=1$. Dans cette partie nous allons donner une estimation de $E$.
 
@@ -579,18 +619,51 @@ Pour estimer $E$ nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\
 		\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
 
-	Et finalement par le \ref{ming}, il existe $K>0$ tel que :
+	Et finalement par le \cref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
 		E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
 	Pour finir il suffit de poser $c=: \frac{K}{2e}$
 \end{proof}
 
-On peut donc réunir les résultats \ref{esE} et \ref{mtool} pour obtenir :
+On peut donc réunir les résultats \cref{esE} et \cref{mtool} pour obtenir :
 \begin{equation*}
 	k \geq \big[c(\varepsilon)\log(n)\big]
 \end{equation*}
 avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{21}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
+\section{Applications}
+\subsection{espace $\ell_p$}
+Montrons la proposition suivante qui n'est en réalité qu'un coralliaire du \cref{mtool}.
+\boxXx{\begin{proposition}
+		Soit $1\leq p < \infty$ alors, pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
+		\begin{equation*}
+			k\geq \left\{\begin{array}{ll} 
+			c(\varepsilon)n & \hspace{5mm}\text{si } \; 1\leq p \leq 2\\
+			c(\varepsilon)n^{\frac{2}{p}} & \hspace{5mm}\text{si } \; p>2 \\
+			\end{array} \right.
+		\end{equation*}
+\end{proposition}}
+\begin{proof}
+L'existence de l'injection seras prouvé par le \cref{mtool}, il suffit donc de minoré $\frac{E}{b}$ avec les notations de la partie précédente.
+\begin{equation*}
+	E =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
+\end{equation*}
+Comme les normes sont des applications convexes, par l'inégalité de Jensen :
+\begin{equation*}
+	\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
+\end{equation*}
+Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas :
+\begin{enumerate}
+	\item[$1<p<2$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$ et donc par le \cref{mtool}, on a 
+	\begin{equation*}
+	k(\varepsilon,n)\geq c(\varepsilon)(\frac{E}{b})^2 n \geq c(\varepsilon)\frac{\pi}{2}n^{\frac{2}{p}-1}n=\tilde{c}(\varepsilon)n^{\frac{2}{p}} 
+	\end{equation*}
+	\item[$2<p<\infty$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
+	\begin{equation*}
+		k(\varepsilon,n)\geq c(\varepsilon) \frac{\pi}{2}n=\tilde{c}(\varepsilon)n
+	\end{equation*}
+\end{enumerate}
+\end{proof}
 
 \nocite{GP}
 \nocite{VM2}
