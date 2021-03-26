@@ -244,6 +244,12 @@ r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \aliascntresetthe{lemme}
 \crefname{lemme}{lemme}{lemmes}
 \crefformat{lemme}{\textbf{lemme #1~}}
+
+\newaliascnt{rem}{theoreme}
+\newtheorem{rem}[rem]{Remarque}
+\aliascntresetthe{rem}
+\crefname{rem}{remarque}{remarques}
+\crefformat{rem}{\textbf{remarque #1~}}
 \newaliascnt{proposition}{theoreme}
 \newtheorem{proposition}[proposition]{Proposition}
 \aliascntresetthe{proposition}
@@ -362,14 +368,14 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\end{theoreme}
 }
 
-Donnons une définition alternative d'une l'ellipsoïde.
+\noindent Donnons une définition alternative d'une l'ellipsoïde.
 \newline\boxXx{
-\begin{lemme}
+\begin{proposition}
 	Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
 	\begin{equation*}
 		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{<x,v_i>^2}{\alpha_i^2}< 1\big\}
 	\end{equation*}
-\end{lemme}
+\end{proposition}
 }
 \begin{proof}
 	Donnons nous $A\in GL(n)$ tel que $AB_2^n=\mathcal{E}$
@@ -380,27 +386,31 @@ Donnons une définition alternative d'une l'ellipsoïde.
 	\begin{equation*}
 		0< |Av|^2 = v^T \lambda v = \lambda |v|^2
 	\end{equation*}
-	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$.
-	\color{red}Soit $x = \sum_{i=1}^{n}x_i v_i$  
+	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$ et définissons les quantités suivante :
+	\begin{enumerate}
+		\item[-] $P$ la matrice définie par $Pv_j = \lambda_j v_j$
+		\item[-] $u_j=\lambda_j^{-1}Av_j$
+	\end{enumerate}
+	Montrons que les $u_j$ forment une base orthonormée: 
+	\begin{align*}
+		<u_i,u_j> &= \lambda_j^{-1}v_j^TA^T \lambda_i^{-1}Av_i\\
+		&=\lambda_j^{-1}\lambda_i^{-1}v_j^T(A^T Av_i) \\
+		&= \lambda_j^{-1}\lambda_i^{-1}v_j^T \lambda_i^2 v_i\\
+		&=\frac{\lambda_i}{\lambda_j} <v_j,v_i> = \left\{ \begin{array}{ll} 0 \hspace{1mm}\text{si $i\neq j$} \\ 1 \hspace{1mm}\text{sinon} \end{array} \right.
+	\end{align*}
+	Soit $x = \sum_{i=1}^{n}x_i v_i\in S^{n-1}$  
+	\begin{align*}
+		y=: Ax&= x_1Av_1+...+x_nAv_n \\ 
+		&= x_1 \lambda_1 u_1 + ... + x_n \lambda_n u_n
+	\end{align*}
+	Les composante de $y$ dans la base $\{u_j\}_{j\leq n}$ sont $<y,u_j> = x_j\lambda_j$, donc :
 	\begin{equation*}
-		|Ax|^2= x_1^2\lambda_1^2+...+x_n^2\lambda_n^2
+		\frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = x_1^2+...+x_n^2 =1
 	\end{equation*}
-	donc $\partial \mathcal{E} = \big\{x_1v_1+...+x_nv_n \; ; \; \frac{x_1^2}{\lambda_1^2}+ ... \frac{x_n^2}{\lambda_n^2} = 1\big\} $.
+	 Et finalement $\partial \mathcal{E} = \big\{y_1u_1+...+y_nu_n \; ; \; \frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = 1\big\} $.
 	\color{black}
 \end{proof}
-
-Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
-\begin{equation*}
-	r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
-\end{equation*}
-alors 
-\begin{equation*}
-u^{-1}\big(r(D\cap uW)\big)\subset u^{-1}(K\cap uW)\subset u^{-1}\big(r(1+\varepsilon)(D\cap uW)\big)
-\end{equation*}
-\begin{equation*}
-	r(D\cap uW)\subset K\cap uW \subset r(1+\varepsilon)(D\cap uW)
-\end{equation*}
-Le lemme qui suit, déjà utiliser dans l'introduction nous permet de conclure que quitte a diviser la dimension du sous-espace par deux, on peut se restreindre à montrer le théorème de Dvoretzky pour des compacts dont la boule euclidienne est l'ellipsoïde de John sans perte de généralité. 
+\noindent Démontrons maintenant ce lemme que nous avons utiliser dans l'introduction :
 \newline\boxXx{
 	\begin{lemme}\label{eleb}
 		Soit $\mathcal{E}$ un ellipsoïde de $\mathbb{R}^n$, alors $\exists \lambda >0$ et $V\sev\mathbb{R}^n$ de dimension $\big\lceil\frac{n}{2}\big\rceil$ tel que :
@@ -422,7 +432,20 @@ Le lemme qui suit, déjà utiliser dans l'introduction nous permet de conclure q
 	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
 	\end{equation*}
 \end{proof}
-
+\begin{rem}
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
+\begin{equation*}
+r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
+\end{equation*}
+alors 
+\begin{equation*}
+u^{-1}\big(r(D\cap uW)\big)\subset u^{-1}(K\cap uW)\subset u^{-1}\big(r(1+\varepsilon)(D\cap uW)\big)
+\end{equation*}
+\begin{equation*}
+r(D\cap uW)\subset K\cap uW \subset r(1+\varepsilon)(D\cap uW)
+\end{equation*}
+Le \cref{eleb} nous permet de conclure que quitte a diviser la dimension du sous-espace $W$ par deux, on peut se restreindre à montrer le théorème de Dvoretzky pour des compacts dont la boule euclidienne est l'ellipsoïde de John sans perte de généralité. 
+\end{rem}
 \section{Démonstration du théorème de Dvoretzky}
 \subsection{Lemmes d'approximations}
 
