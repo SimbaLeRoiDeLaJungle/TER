@@ -150,25 +150,26 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	\includegraphics[scale=0.4]{figure_1.png}
 \end{wrapfigure}
 
-Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généraliser cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ au point $e_1\in \partial B_\infty^n\cap S^{n-1}$ pour former un triangle on a alors :
-
-
+Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généraliser cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
+\begin{equation*}
+|A-e_j|= \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2} 
+\end{equation*}
+\begin{equation*}
+|e_i-e_j|= \sqrt{2} \text{\hspace{2mm} pour $i\neq j$}
+\end{equation*}
 \begin{equation*}
 |A-B|= \sqrt{n}-1 \underset{n\to\infty}{\to} \infty
 \end{equation*} 
 \begin{equation*}
-|A-e_1|= \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2}
+|B-e_j|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
 \end{equation*}
-\begin{equation*}
-|B-e_1|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
-\end{equation*}
-Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme
+Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme\par
 \begin{wrapfigure}{l}{5cm}
 	\centering
 	%\vspace{-3mm}
 	\includegraphics[scale=0.4]{figure_2.png}
 \end{wrapfigure}
- qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
+\noindent qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
 \begin{equation*}
 r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
@@ -564,12 +565,12 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
 	\begin{enumerate}
 		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V\sev \mathbb{R}^n$ avec $\dim V := k \leq \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
+		\item[-] $V=\text{Vect}(e_1,..,e_k)$ avec $k \leq \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
 		\item[-] $\eta = \frac{\theta E}{b}$
 		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
 	\end{enumerate}
 	
-	Distinguons deux cas 
+	\noindent Distinguons deux cas 
 	\begin{enumerate}[leftmargin=\labelsep]
 		\item[$\circ$] {$f(\theta)\geq1$}\newline on a alors :
 		\begin{equation*}
