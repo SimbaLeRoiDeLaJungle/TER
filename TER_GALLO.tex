@@ -18,6 +18,7 @@
 \usepackage{cleveref}
 \usepackage{subcaption,graphicx}
 \usepackage{wrapfig}
+\usepackage[toc,page]{appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -142,11 +143,11 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 \end{notation}
 \begin{wrapfigure}{r}{5cm}
 	\centering
-	%\vspace{-3mm}
+	\vspace{-3mm}
 	\includegraphics[scale=0.4]{figure_1.png}
 \end{wrapfigure}
 
-Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généraliser cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$,et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ au point $e_1\in \partial B_\infty^n\cap S^{n-1}$ pour former un triangle on a alors :
+Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généraliser cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ au point $e_1\in \partial B_\infty^n\cap S^{n-1}$ pour former un triangle on a alors :
 
 
 \begin{equation*}
@@ -158,11 +159,15 @@ Commençons par donner une légère interprétation géométrique du théorème,
 \begin{equation*}
 |B-e_1|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
 \end{equation*}
-
-
-Donc lorsque $n$ est grand, si l'on se place sur la $n-1$-sphère $B_\infty^n$ semble être formé de $2^n$ \textit{"pique"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que 
+Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère $B_\infty^n$ semble être formé de $2^n$ \textit{"pique"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme
+\begin{wrapfigure}{l}{5cm}
+	\centering
+	%\vspace{-3mm}
+	\includegraphics[scale=0.4]{figure_2.png}
+\end{wrapfigure}
+ qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
 \begin{equation*}
-r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)\hspace{5mm} \text{pour un certain $r>0$}
+r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
 \noindent Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
@@ -670,7 +675,7 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\begin{equation*}
 	1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) = \Big(\frac{k-1}{n}\Big)^{\frac{k-1}{n-k+1}}\Big(1-\frac{k-1}{n}\Big)
 	\end{equation*}
-	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)$\color{red} $>-1$.\color{black}
+	et $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)>-1$.
 	
 \end{proof}
 
@@ -694,9 +699,7 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\begin{equation*}
 	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
-	\begin{lemme}
-		$\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont indépendants.
-	\end{lemme}
+
 	\begin{proof}[\color{red}Démonstration du lemme]
 	\end{proof}
 	\color{black}
@@ -816,5 +819,39 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$.\\ 
 \end{proof}
 \fi
+\newpage
+\begin{appendices}
+	\section{- Vecteur Gaussiens}
+\boxXx{
+\begin{lemme}
+	Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
+\end{lemme}
+}
+\begin{proof}
+	posons $Y =\frac{g}{|g|}$ et $R = |g|$ alors
+	\begin{equation*}
+		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
+	\end{equation*}
 
+en passant en coordonnées sphériques
+\begin{align*}
+	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
+	x_2 = & r\sin \theta_1 ...r\sin \theta_{n-2}\cos \theta_{n-1}\\
+	x_3 = & r\sin \theta_1 ...r\sin \theta_{n-3}\cos \theta_{n-2}\\
+	\vdots\\
+	x_n = & r \cos \theta_1
+\end{align*}
+On a le déterminant suivant : 
+\begin{equation*}
+	dx_1 ... dx_n = r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
+\end{equation*}
+d'où :
+\begin{equation*}
+		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\sin \theta_1 ... \sin \theta_{n-1},...,\cos \theta_1\big)g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
+\end{equation*}
+\begin{equation*}
+\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{\mathbb{R}^{n-1}}f\big(\sin \theta_1 ... \sin \theta_{n-1},...,\cos \theta_1\big)\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} d\theta_1 ... d\theta_{n-1}
+\end{equation*}
+\end{proof}
+\end{appendices}
 \end{document}
