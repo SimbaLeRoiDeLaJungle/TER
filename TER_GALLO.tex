@@ -16,7 +16,8 @@
 \usepackage[french]{babel}
 \usepackage{aliascnt}
 \usepackage{cleveref}
-
+\usepackage{subcaption,graphicx}
+\usepackage{wrapfig}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -132,21 +133,6 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\end{enumerate}
 	\end{theoreme}
 }
-
-\boxXx{
-\begin{definition}
-	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
-	\begin{equation*}
-		||x||_X\leq ||Tx||_Y\leq C||x||_X
-	\end{equation*}  
-\end{definition}
-}
-\noindent Il existe une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
-\newline\boxXx{
-	\begin{theoreme}
-	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
-	\end{theoreme}
-}
 \begin{notation}
 	Pour la suite on utiliseras les notations : 
 	\begin{enumerate}
@@ -154,6 +140,46 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\item[-] $S^{n-1} = \big\{x\in \mathbb{R}^n\; ;\; |x|=1\big\}$, la $(n-1)$-sphère euclidienne. 
 	\end{enumerate}
 \end{notation}
+\begin{wrapfigure}{r}{5cm}
+	\centering
+	%\vspace{-3mm}
+	\includegraphics[scale=0.4]{figure_1.png}
+\end{wrapfigure}
+
+Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généralisé cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$,et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ au point $e_1\in \partial B_\infty^n\cap S^{n-1}$ pour formé un triangle on a alors :
+
+
+\begin{equation*}
+|A-B|= \sqrt{n}-1 \underset{n\to\infty}{\to} \infty
+\end{equation*} 
+\begin{equation*}
+|A-e_1|= \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2}
+\end{equation*}
+\begin{equation*}
+|B-e_1|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
+\end{equation*}
+
+
+Donc lorsque $n$ est grand, si l'on se place sur la $n-1$-sphère $B_\infty^n$ semble être former de $2^n$ \textit{"pique"} qui sont de plus en plus grand avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieur à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est à dire une section sur la quelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tous $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que 
+\begin{equation*}
+r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)\hspace{5mm} \text{pour un certain $r>0$}
+\end{equation*}
+\noindent Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
+\newline\boxXx{
+\begin{definition}
+	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
+	\begin{equation*}
+		||x||_X\leq ||Tx||_Y\leq C||x||_X
+	\end{equation*}  
+\end{definition}
+}
+
+\boxXx{
+	\begin{theoreme}
+	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	\end{theoreme}
+}
+
 \noindent Montrons que ses deux derniers théorèmes sont équivalents.
 \begin{enumerate}
 	\item[(2)$\Rightarrow$(3)]
@@ -200,9 +226,10 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 
 \end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{theoreme}{section}
 \newaliascnt{lemme}{theoreme}
 \newtheorem{lemme}[lemme]{Lemme}
 \aliascntresetthe{lemme}
@@ -228,9 +255,18 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
-Considérons $X=S^{n-1}$ avec la distance euclidienne et $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$ alors $G=O(n)$ le groupe des isométries vérifie $(\star)$ pour la multiplication matricielle sur $S^{n-1}$ et $O(n)$.
+Les 3 exemples suivant d'espace métrique vérifie ($\star$) pour $G=O(n)$,
+\begin{enumerate}
+	\item[(i)] $X=S^{n-1}$ muni de la distance euclidienne
+	\item[(ii)] $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$
+	\item[(iii)] $X=G_{n,k}$ l'ensemble des sous espace de $\mathbb{R}^n$ de dimension $k$ muni de la distance \begin{equation*}
+						d(E,F)=\underset{\begin{subarray}{l}
+						x\in E\cap S^{n-1}\\ y \in F\cap S^{n-1}
+						\end{subarray}}{\sup}|x-y|
+					\end{equation*}
+\end{enumerate}
 \begin{notation}
-	Par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$.
+	Par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$,$\sigma$ les mesures de Haar normalisés respectivement sur $S^{n-1}$, $O(n)$ et $G_{n,k}$.
 \end{notation}
 Montrons quelques propriétés qui seront utiles par la suite.
 \newline\boxXx{
@@ -256,30 +292,43 @@ Montrons quelques propriétés qui seront utiles par la suite.
 \end{proof}
 
 \boxXx{
-	\begin{lemme}\label{lhso}
-		Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
-		\begin{equation*}
-		\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
-		\end{equation*}
+	\begin{lemme}\label{lhso} \vphantom{s} \newline
+		\begin{enumerate}
+			\item[(i)]
+					Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
+					\begin{equation*}
+					\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
+			\end{equation*}
+			\item[(ii)] Soit $\mathcal{A}\subset G_{n,k}$ un borélien alors pour tous $V\in G_{n,k}$
+			\begin{equation*}
+				\nu\Big( T\in O(n) \;;\; TV\in \mathcal{A}\Big) = \sigma\big(\mathcal{A} \big)
+			\end{equation*}
+		\end{enumerate}
+
 	\end{lemme}
 }
 \begin{proof}
-	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
-	\begin{equation*}
-	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
-	\end{equation*}
-	$\omega_x$ vérifie les propriétés suivantes :
-	\begin{equation*}
-	\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
-	\end{equation*}
-	\begin{equation*}
-	\omega_x(\emptyset)=0
-	\end{equation*}
-	\begin{align*}
-	\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
-	& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
-	\end{align*}
-	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
+	\begin{enumerate}
+		\item[(i)]
+			Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
+			\begin{equation*}
+			\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
+			\end{equation*}
+			$\omega_x$ vérifie les propriétés suivantes :
+			\begin{equation*}
+			\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
+			\end{equation*}
+			\begin{equation*}
+			\omega_x(\emptyset)=0
+			\end{equation*}
+			\begin{align*}
+			\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
+			& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
+			\end{align*}
+			L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
+		\item[(ii)] La démonstration de (ii) est exactement la même que celle de (i).
+	\end{enumerate}
+
 \end{proof}
 Le théorème suivant seras admis, c'est une application du théorèmes de concentration de la mesure de \textit{Paul Lévy}, il est un outil cruciale dans la preuve du théorème de Dvoretzy donné par \textit{Vitali Milman} \cite{VM1}.
 \newline\boxXx{
@@ -298,6 +347,35 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
 	\end{definition}
 }
+Donnons une définition alternative d'une l'ellipsoïde.
+\newline\boxXx{
+\begin{lemme}
+	Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
+	\begin{equation*}
+		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{<x,v_i>^2}{\alpha_i^2}< 1\big\}
+	\end{equation*}
+\end{lemme}
+}
+\begin{proof}
+	Donnons nous $A\in GL(n)$ tel que $AB_2^n=\mathcal{E}$
+	\begin{equation*}
+		|Ax|^2 = x^T A^TAx 
+	\end{equation*}
+	$A^T A$ est symétrique, soit $\lambda$ une de ses valeur propre et $v$ un vecteur propre associé, alors  
+	\begin{equation*}
+		0< |Av|^2 = v^T \lambda v = \lambda |v|^2
+	\end{equation*}
+	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$.
+	Soit $x = \sum_{i=1}^{n}x_i v_i$  
+	\begin{equation*}
+		y = Ax = x_1Av_1+...+x_nAv_n= x_1\lambda_1v_1+...+x_n\lambda_nv_n
+	\end{equation*}
+	\begin{equation*}
+		|y|^2 = x_1^2\lambda_1^2+...+x_n^2\lambda_n^2
+	\end{equation*}
+	donc $\partial \mathcal{E} = \big\{x_1v_1+...+x_nv_n \; ; \; \frac{x_1^2}{\lambda_1^2}+ ... \frac{x_n^2}{\lambda_n^2} = 1\big\} $.
+
+\end{proof}
 \boxXx{
 	\begin{theoreme}[Ellipsoïde de John]
 		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
@@ -470,7 +548,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 
 \boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq: \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
 		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{theoreme}
 }
@@ -666,11 +744,11 @@ Comme les normes sont des applications convexes, par l'inégalité de Jensen :
 \end{equation*}
 Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas :
 \begin{enumerate}
-	\item[$1<p<2$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$ et donc par le \cref{mtool}, on a 
+	\item[$2<p<\infty$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$ et donc par le \cref{mtool}, on a 
 	\begin{equation*}
 	k(\varepsilon,n)\geq c(\varepsilon)(\frac{E}{b})^2 n \geq c(\varepsilon)\frac{\pi}{2}n^{\frac{2}{p}-1}n=\tilde{c}(\varepsilon)n^{\frac{2}{p}} 
 	\end{equation*}
-	\item[$2<p<\infty$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
+	\item[$1\leq p<2$:] Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
 	\begin{equation*}
 		k(\varepsilon,n)\geq c(\varepsilon) \frac{\pi}{2}n=\tilde{c}(\varepsilon)n
 	\end{equation*}
@@ -683,8 +761,60 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 \nocite{VMGS}
 \printbibliography
 
-
-
-
+\iffalse 
+\boxXx{
+	\begin{theoreme}\label{mtool}
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
+		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
+	\end{theoreme}
+}
+\begin{proof}
+	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
+	\begin{enumerate}
+		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
+		\item[-] $V_k=\text{Vect}(e_1,...,e_{k})$ 
+		
+		\item[-] $k_0 = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
+		\item[-] $\eta = \frac{\theta E}{b}$
+		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
+	\end{enumerate}
+	
+	Distinguons deux cas 
+	\begin{enumerate}[leftmargin=\labelsep]
+		\item[$\circ$] {$f(\theta)\geq1$}\newline on a alors :
+		\begin{equation*}
+		\frac{\eta^2n}{4}\leq \log(2)
+		\end{equation*}
+		\begin{equation*}
+		k_0\leq \frac{\eta^2}{4\log(3/\theta)}n\leq \frac{\log(2)}{\log(3/\theta)}<1
+		\end{equation*}
+		Donc $k=1$ convient, car tout espace normé de dimension 1 est euclidien.
+		\item[$\circ$] $f(\theta)<1$\newline Soit $A$ un $\theta$-net sur $V_{k_0}\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^{k_0}$. Remarquons ceci :
+		\begin{align*}
+		1&>f(\theta)\geq 2(\frac{3}{\theta})^{k_0}e^{-\frac{\eta^2}{2}n} \\
+		&> 2|A|e^{-\frac{\eta^2}{2}n}
+		\end{align*}
+		On a l'inégalité suivante : 
+		\begin{align*}
+		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
+		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
+		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \cref{lhso}}
+		\end{align*} 
+		En appliquant la concentration de la mesure
+		\begin{equation*}
+		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1 - |A|2e^{-\frac{\eta^2n}{2}} >0
+		\end{equation*}	
+		Il existe donc $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-E \big|\leq b \eta$, c'est à dire 
+		\begin{equation*}
+		E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
+		\end{equation*}
+		Par le \cref{lsB} pour tous $x\in V$
+		\begin{equation*}
+		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
+		\end{equation*}
+	\end{enumerate}
+	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$.\\ 
+\end{proof}
+\fi
 
 \end{document}
