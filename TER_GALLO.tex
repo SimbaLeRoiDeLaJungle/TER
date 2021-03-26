@@ -112,7 +112,7 @@
 
 \tableofcontents\newpage
 \section*{Introduction}\addcontentsline{toc}{section}{Introduction}
-Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS}.\\
+Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS}.\par
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
@@ -144,9 +144,9 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\item[-] $S^{n-1} = \big\{x\in \mathbb{R}^n\; ;\; |x|=1\big\}$, la $(n-1)$-sphère euclidienne. 
 	\end{enumerate}
 \end{notation}
-\begin{wrapfigure}{r}{5cm}
+\begin{wrapfigure}{r}{0.33\textwidth}
 	\centering
-	\vspace{-3mm}
+	%\vspace{-3mm}
 	\includegraphics[scale=0.4]{figure_1.png}
 \end{wrapfigure}
 
@@ -164,7 +164,7 @@ Commençons par donner une légère interprétation géométrique du théorème,
 |B-e_j|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
 \end{equation*}
 Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme\par
-\begin{wrapfigure}{l}{5cm}
+\begin{wrapfigure}{l}{0.33\textwidth}
 	\centering
 	%\vspace{-3mm}
 	\includegraphics[scale=0.4]{figure_2.png}
@@ -356,6 +356,12 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
 	\end{definition}
 }
+\boxXx{
+	\begin{theoreme}[Ellipsoïde de John]
+		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
+	\end{theoreme}
+}
+
 Donnons une définition alternative d'une l'ellipsoïde.
 \newline\boxXx{
 \begin{lemme}
@@ -375,23 +381,15 @@ Donnons une définition alternative d'une l'ellipsoïde.
 		0< |Av|^2 = v^T \lambda v = \lambda |v|^2
 	\end{equation*}
 	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$.
-	Soit $x = \sum_{i=1}^{n}x_i v_i$  
+	\color{red}Soit $x = \sum_{i=1}^{n}x_i v_i$  
 	\begin{equation*}
-		y = Ax = x_1Av_1+...+x_nAv_n= x_1\lambda_1v_1+...+x_n\lambda_nv_n
-	\end{equation*}
-	\begin{equation*}
-		|y|^2 = x_1^2\lambda_1^2+...+x_n^2\lambda_n^2
+		|Ax|^2= x_1^2\lambda_1^2+...+x_n^2\lambda_n^2
 	\end{equation*}
 	donc $\partial \mathcal{E} = \big\{x_1v_1+...+x_nv_n \; ; \; \frac{x_1^2}{\lambda_1^2}+ ... \frac{x_n^2}{\lambda_n^2} = 1\big\} $.
-
+	\color{black}
 \end{proof}
-\boxXx{
-	\begin{theoreme}[Ellipsoïde de John]
-		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
-	\end{theoreme}
-}
 
-Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$, sont ellipsoïde de John est $B_2^k$, supposons que
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
 \begin{equation*}
 	r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
 \end{equation*}
@@ -759,77 +757,16 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 \end{enumerate}
 \end{proof}
 
-\nocite{GP}
-\nocite{VM2}
-
-\nocite{VMGS}
-\printbibliography
-
-\iffalse 
-\boxXx{
-	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
-		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
-	\end{theoreme}
-}
-\begin{proof}
-	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
-	\begin{enumerate}
-		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V_k=\text{Vect}(e_1,...,e_{k})$ 
-		
-		\item[-] $k_0 = \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
-		\item[-] $\eta = \frac{\theta E}{b}$
-		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
-	\end{enumerate}
-	
-	Distinguons deux cas 
-	\begin{enumerate}[leftmargin=\labelsep]
-		\item[$\circ$] {$f(\theta)\geq1$}\newline on a alors :
-		\begin{equation*}
-		\frac{\eta^2n}{4}\leq \log(2)
-		\end{equation*}
-		\begin{equation*}
-		k_0\leq \frac{\eta^2}{4\log(3/\theta)}n\leq \frac{\log(2)}{\log(3/\theta)}<1
-		\end{equation*}
-		Donc $k=1$ convient, car tout espace normé de dimension 1 est euclidien.
-		\item[$\circ$] $f(\theta)<1$\newline Soit $A$ un $\theta$-net sur $V_{k_0}\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^{k_0}$. Remarquons ceci :
-		\begin{align*}
-		1&>f(\theta)\geq 2(\frac{3}{\theta})^{k_0}e^{-\frac{\eta^2}{2}n} \\
-		&> 2|A|e^{-\frac{\eta^2}{2}n}
-		\end{align*}
-		On a l'inégalité suivante : 
-		\begin{align*}
-		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
-		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
-		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \cref{lhso}}
-		\end{align*} 
-		En appliquant la concentration de la mesure
-		\begin{equation*}
-		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1 - |A|2e^{-\frac{\eta^2n}{2}} >0
-		\end{equation*}	
-		Il existe donc $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-E \big|\leq b \eta$, c'est à dire 
-		\begin{equation*}
-		E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
-		\end{equation*}
-		Par le \cref{lsB} pour tous $x\in V$
-		\begin{equation*}
-		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
-		\end{equation*}
-	\end{enumerate}
-	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$.\\ 
-\end{proof}
-\fi
 \newpage
 \begin{appendices}
-	\section{- Vecteur Gaussiens}
+	\section{- Vecteurs Gaussiens}
 \boxXx{
 \begin{lemme}\label{gaussind}
 	Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
 \end{lemme}
 }
 \begin{proof}
-	posons $Y =\frac{g}{|g|}$ et $R = |g|$ alors
+	Posons $Y =\frac{g}{|g|}$ et $R = |g|$ alors
 	\begin{equation*}
 		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
 	\end{equation*}
@@ -837,8 +774,8 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 en passant en coordonnées sphériques
 \begin{align*}
 	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
-	x_2 = & r\sin \theta_1 ...r\sin \theta_{n-2}\cos \theta_{n-1}\\
-	x_3 = & r\sin \theta_1 ...r\sin \theta_{n-3}\cos \theta_{n-2}\\
+	x_2 = & r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
+	x_3 = & r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
 	\vdots\\
 	x_n = & r \cos \theta_1
 \end{align*}
@@ -855,4 +792,11 @@ d'où :
 \end{equation*}
 \end{proof}
 \end{appendices}
+\nocite{GP}
+\nocite{VM2}
+
+\nocite{VMGS}
+\printbibliography
 \end{document}
+
+
