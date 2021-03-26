@@ -38,6 +38,9 @@
 \newcommand{\titleBar}{\hspace{0.6em}\titlerule}
 
 \newcommand{\sev}{\underset{\text{s.e.v}}{\subset}}
+
+\renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\appendixpagename}{Annexes} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{name=\section,numberless}  
@@ -699,11 +702,8 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\begin{equation*}
 	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
-
-	\begin{proof}[\color{red}Démonstration du lemme]
-	\end{proof}
-	\color{black}
-	Par le lemme on à donc 
+	
+	Par le \cref{gaussind} (voir annexe) $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
 	\begin{equation*}
 	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
 	\end{equation*}
@@ -823,7 +823,7 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 \begin{appendices}
 	\section{- Vecteur Gaussiens}
 \boxXx{
-\begin{lemme}
+\begin{lemme}\label{gaussind}
 	Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
 \end{lemme}
 }
