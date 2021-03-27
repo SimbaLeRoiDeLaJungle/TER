@@ -27,7 +27,7 @@
 \newtheorem*{fait}{Fait}
 \newtheorem*{defft}{Définition \& Théorème}
 \newtheorem{theoreme}{Théorème}
-\crefformat{theoreme}{\textbf{théorème #1~}}
+\crefformat{theoreme}{\textbf{théorème #1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,18 +243,18 @@ r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \newtheorem{lemme}[lemme]{Lemme}
 \aliascntresetthe{lemme}
 \crefname{lemme}{lemme}{lemmes}
-\crefformat{lemme}{\textbf{lemme #1~}}
+\crefformat{lemme}{\textbf{lemme #1}}
 
 \newaliascnt{rem}{theoreme}
 \newtheorem{rem}[rem]{Remarque}
 \aliascntresetthe{rem}
 \crefname{rem}{remarque}{remarques}
-\crefformat{rem}{\textbf{remarque #1~}}
+\crefformat{rem}{\textbf{remarque #1}}
 \newaliascnt{proposition}{theoreme}
 \newtheorem{proposition}[proposition]{Proposition}
 \aliascntresetthe{proposition}
 \crefname{proposition}{proposition}{proposition}´
-\crefformat{proposition}{\textbf{proposition #1~}}
+\crefformat{proposition}{\textbf{proposition #1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -410,7 +410,7 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	 Et finalement $\partial \mathcal{E} = \big\{y_1u_1+...+y_nu_n \; ; \; \frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = 1\big\} $.
 	\color{black}
 \end{proof}
-\noindent Démontrons maintenant ce lemme que nous avons utiliser dans l'introduction :
+\noindent Démontrons maintenant le lemme que nous avons utiliser dans l'introduction :
 \newline\boxXx{
 	\begin{lemme}\label{eleb}
 		Soit $\mathcal{E}$ un ellipsoïde de $\mathbb{R}^n$, alors $\exists \lambda >0$ et $V\sev\mathbb{R}^n$ de dimension $\big\lceil\frac{n}{2}\big\rceil$ tel que :
@@ -432,7 +432,7 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
 	\end{equation*}
 \end{proof}
-\begin{rem}
+\begin{rem}\label{rem0}
 Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
 \begin{equation*}
 r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
@@ -725,7 +725,7 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
 	
-	Par le \cref{gaussind} (voir annexe) $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
+	Par le \cref{gaussind} (voir annexes) $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
 	\begin{equation*}
 	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
 	\end{equation*}
@@ -738,10 +738,9 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\begin{equation*}
 	E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
-	Pour finir il suffit de poser $c=: \frac{K}{2e}$
 \end{proof}
 
-On peut donc réunir les résultats \cref{esE} et \cref{mtool} pour obtenir :
+On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir :
 \begin{equation*}
 k \geq \big[c(\varepsilon)\log(n)\big]
 \end{equation*}
