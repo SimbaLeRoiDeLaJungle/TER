@@ -19,6 +19,8 @@
 \usepackage{subcaption,graphicx}
 \usepackage{wrapfig}
 \usepackage[toc,page]{appendix}
+\usepackage{framed}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -39,6 +41,10 @@
 
 \newcommand{\sev}{\underset{\text{s.e.v}}{\subset}}
 
+\renewenvironment{leftbar}{%
+	\def\FrameCommand{\vrule width 0.4pt \hspace{10pt}}%
+	\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
 \renewcommand{\appendixtocname}{Annexes}
 \renewcommand{\appendixpagename}{Annexes} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,7 +156,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	\includegraphics[scale=0.4]{figure_1.png}
 \end{wrapfigure}
 
-Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, et nous pouvons facilement généraliser cela à $n>2$, prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
+Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, nous pouvons facilement généraliser cela pour $n>2$. Prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
 \begin{equation*}
 |A-e_j|= \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2} 
 \end{equation*}
@@ -218,11 +224,11 @@ r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 	r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
 	\end{equation*}
 	\item[(3)$\Rightarrow$(2)]
-	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ tel que $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 	\begin{equation*}
 	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 	\end{equation*}
-	ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction a $V$ de $T$ est bijective.
+	ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
 	Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
 	\begin{equation*}
 	|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
@@ -352,6 +358,7 @@ Le théorème suivant seras admis, c'est une application du théorèmes de conce
 		\begin{equation*}
 		\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
 		\end{equation*}
+		Où $\mathbb{E}[f]=:\int_{S^{n-1}}fd\mu$
 	\end{theoreme}
 }
 
@@ -359,16 +366,16 @@ Le théorème suivant seras admis, c'est une application du théorèmes de conce
 Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}(0,1)$, c'est à dire l'ellipsoïde de volume maximal incluse dans $B_{||.||}(0,1)$, nous donnons la définition d'un ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maximale qui seras admis.  
 \newline\boxXx{
 	\begin{definition}
-		Un ellipsoïde de $\mathbb{R}^n$ est l'image de la boule unité euclidienne par un élément de $GL(n)$. 
+		On appelle ellipsoïde de $\mathbb{R}^n$ l'image de la boule unité euclidienne par un élément de $GL(n)$. 
 	\end{definition}
 }
 \boxXx{
-	\begin{theoreme}[Ellipsoïde de John]
-		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale.
-	\end{theoreme}
+	\begin{defft}[Ellipsoïde de John]
+		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, elle est appelée ellipsoïde de John.
+	\end{defft}
 }
 
-\noindent Donnons une définition alternative d'une l'ellipsoïde.
+\noindent Donnons une définition alternative d'un l'ellipsoïde.
 \newline\boxXx{
 \begin{proposition}
 	Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
@@ -432,6 +439,7 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
 	\end{equation*}
 \end{proof}
+\begin{leftbar}
 \begin{rem}\label{rem0}
 Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
 \begin{equation*}
@@ -444,8 +452,8 @@ u^{-1}\big(r(D\cap uW)\big)\subset u^{-1}(K\cap uW)\subset u^{-1}\big(r(1+\varep
 \begin{equation*}
 r(D\cap uW)\subset K\cap uW \subset r(1+\varepsilon)(D\cap uW)
 \end{equation*}
-Le \cref{eleb} nous permet de conclure que quitte a diviser la dimension du sous-espace $W$ par deux, on peut se restreindre à montrer le théorème de Dvoretzky pour des compacts dont la boule euclidienne est l'ellipsoïde de John sans perte de généralité. 
-\end{rem}
+Le \cref{eleb} nous permet de conclure que quitte à diviser la dimension du sous-espace $W$ par deux, on peut se restreindre à montrer le théorème de Dvoretzky pour des compacts dont la boule euclidienne est l'ellipsoïde de John sans perte de généralité.
+\end{rem}\end{leftbar}
 \section{Démonstration du théorème de Dvoretzky}
 \subsection{Lemmes d'approximations}
 
@@ -751,9 +759,10 @@ Montrons la proposition suivante qui n'est en réalité qu'un coralliaire du \cr
 \boxXx{\begin{proposition}
 		Soit $1\leq p < \infty$ alors, pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
 		\begin{equation*}
-			k\geq \left\{\begin{array}{ll} 
+			k\geq \left\{\begin{array}{lll} 
 			c(\varepsilon)n & \hspace{5mm}\text{si } \; 1\leq p <2\\
-			c(\varepsilon)n^{\frac{2}{p}} & \hspace{5mm}\text{si } \; p>2 \\
+			c_p(\varepsilon)n^{\frac{2}{p}} & \hspace{5mm}\text{si } \; 2\leq p < \log n \\
+			c(\varepsilon)\log n & \hspace{5mm}\text{si } \; \log n \leq p < \infty 
 			\end{array} \right.
 		\end{equation*}
 \end{proposition}}
@@ -762,23 +771,29 @@ L'existence de l'injection seras prouvé par le \cref{mtool}, il suffit donc de 
 \begin{equation*}
 	E =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
 \end{equation*}
-Comme les normes sont des applications convexes, par l'inégalité de Jensen :
-\begin{equation*}
-	\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
-\end{equation*}
-Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas :
+
 \begin{enumerate}
-	\item[$2<p<\infty$ :] Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$ et donc par le \cref{mtool}, on a 
-	\begin{equation*}
-	k(\varepsilon,n)\geq c(\varepsilon)(\frac{E}{b})^2 n \geq c(\varepsilon)\frac{\pi}{2}n^{\frac{2}{p}-1}n=\tilde{c}(\varepsilon)n^{\frac{2}{p}} 
-	\end{equation*}
-	\item[$1\leq p<2$:] Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
+	\item[-]$2\leq p<\log n$ : Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Divisons $\{1,...,n\}$ en $N=\lceil\frac{n}{m}\rceil$ parties de taille supérieurs ou égale à $m=:\lceil\frac{e^p}{2}\rceil$, on a 
+	\begin{align*}
+		\mathbb{E}\Big[\Big(\sum_{i=1}^{n}|g_i|^p\Big)^{\frac{1}{p}}\Big]&= \mathbb{E}\Big[\Big(\sum_{j\leq N}\sum_{i\in I_j}|g_i|^p\Big)^{\frac{1}{p}}\Big]\\
+		&\geq\mathbb{E}\Big[\Big(\sum_{j\leq N}(\underset{i\in I_j}{\max|g_i|})^p\Big)^{\frac{1}{p}}\Big]\\
+		&\geq \Big(\sum_{j\leq N}\big(\underset{i\in I_j}{\mathbb{E}[\max|g_i|]}\big)^p\Big)^{\frac{1}{p}}\\
+		&\geq n^{\frac{1}{p}}m^{-\frac{1}{p}}c_0\sqrt{\log(e^p)}\\
+		&\geq n^{\frac{1}{p}}\big\lceil 2^{-1} e ^p\big\rceil^{-\frac{1}{p}}c_0\sqrt{p}
+	\end{align*}
+	Par le \cref{mtool} : $k(\varepsilon,n)\geq c_p(\varepsilon) n^{\frac{1}{p}}$ où $c_p$ dépendant de $p$ comme $\sqrt{p}\big\lceil \frac{e ^p}{2}\big\rceil^{-\frac{1}{p}} \underset{p\to\infty}{\sim} \frac{\sqrt{p}}{2}$ 
+	
+	\item[-]$1\leq p<2$ : Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
 	\begin{equation*}
 		k(\varepsilon,n)\geq c(\varepsilon) \frac{\pi}{2}n=\tilde{c}(\varepsilon)n
 	\end{equation*}
 \end{enumerate}
 \end{proof}
-
+Comme les normes sont des applications convexes, par l'inégalité de Jensen :
+\begin{equation*}
+\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
+\end{equation*}
+Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas :
 \newpage
 \begin{appendices}
 	\section{- Vecteurs Gaussiens}
