@@ -788,20 +788,19 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 		&\geq \Big(\sum_{j\leq N}\big(\underset{i\in I_j}{\mathbb{E}[\max|g_i|]}\big)^p\Big)^{\frac{1}{p}}\\
 		&\geq(N-1)^{\frac{1}{p}}c\sqrt{\log 2m} \hspace{2mm} \text{par le \cref{ming}}
 	\end{align*}
-	Où $c>0$ est une constante universelle. Montrons qu'il existe $\alpha_p>0$ tel que $(N-1)^{\frac{1}{p}}\geq \alpha_p N^{\frac{1}{p}}$
+	Où $c>0$ est une constante universelle, de plus :
 	\begin{align*}
 	\frac{(N-1)^{\frac{1}{p}}}{N^{\frac{1}{p}}}&=\big(\frac{N-1}{N}\big)^{\frac{1}{p}}\\
 	&= \big(1-\frac{1}{N}\big)^{\frac{1}{p}}\\
-	&\geq \big(1-\frac{1}{2}\big)^{\frac{1}{p}}=2^{-\frac{1}{p}}:=\alpha_p
+	&\geq \big(1-\frac{1}{2}\big)^{\frac{1}{p}}=2^{-\frac{1}{p}}
 	\end{align*}
 	\noindent Car $N\geq 2$ par hypothèse, et finalement :
 	\begin{align*}
 		E &\geq N^{\frac{1}{p}}2^{-\frac{1}{p}} c\sqrt{\log 2\lfloor e^p\rfloor} n^{-\frac{1}{2}}\\
 		& \geq n^{\frac{1}{p}-\frac{1}{2}}C_p
 	\end{align*}
-	Où $C_p =(2\lfloor e^p\rfloor)^{-\frac{1}{p}} c\sqrt{\log 2\lfloor e^p\rfloor}$
-
-	\noindent Par le \cref{mtool} $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour \begin{align*}
+	Où $C_p =(2\lfloor e^p\rfloor)^{-\frac{1}{p}} c\sqrt{\log 2\lfloor e^p\rfloor}\underset{p\to\infty}{\sim} c\sqrt{p}$, par le \cref{mtool} $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour un
+	\begin{align*}
 		k &\geq c(\varepsilon)\big(\frac{E}{b}\big)^2n\\
 		&\geq c_p(\varepsilon)n^{\frac{2}{p}}, \hspace{3mm} \text{avec $c_p(\varepsilon) = c(\varepsilon)C_p^2$}
 	\end{align*}
