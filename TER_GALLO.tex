@@ -3,6 +3,9 @@
 \title{Travaux d'étude et de recherche}
 \setlength{\hoffset}{-70pt}
 \setlength{\textwidth}{481pt}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
 \renewcommand{\baselinestretch}{1.3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,7 +23,9 @@
 \usepackage{wrapfig}
 \usepackage[toc,page]{appendix}
 \usepackage{framed}
+\usepackage[A4]{vmargin}
 
+\setmarginsrb{1.3cm}{1cm}{1.3cm}{1cm}{1cm}{1cm}{0cm}{1cm} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -118,7 +123,7 @@
 
 \tableofcontents\newpage
 \section*{Introduction}\addcontentsline{toc}{section}{Introduction}
-Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS}.\par
+Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS1}.\par
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
 	\begin{theoreme}[A. Dvoretzky, 1961]
@@ -143,6 +148,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\end{enumerate}
 	\end{theoreme}
 }
+La dépendance de $c$ par rapport à $\varepsilon$ donné par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serras démontrée dans ce mémoire. Y.Gordon à montrer en 1988 l'on pouvais prendre $c\sim \varepsilon^2$ avec les même outils \cite{YG}, plus récemment en 2006, G.Schechtman à montrer que l'on pouvais prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$ \cite{GS2}  en construisant de manière plus précise le $\theta$-net (voir preuve de \textbf{théorème \ref{mtool}}) .
 \begin{notation}
 	Pour la suite on utiliseras les notations : 
 	\begin{enumerate}
@@ -150,6 +156,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\item[-] $S^{n-1} = \big\{x\in \mathbb{R}^n\; ;\; |x|=1\big\}$, la $(n-1)$-sphère euclidienne. 
 	\end{enumerate}
 \end{notation}
+
 \begin{wrapfigure}{r}{0.33\textwidth}
 	\centering
 	%\vspace{-3mm}
@@ -157,29 +164,23 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 \end{wrapfigure}
 
 Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, nous pouvons facilement généraliser cela pour $n>2$. Prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
-\begin{equation*}
-|A-e_j|= \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2} 
-\end{equation*}
-\begin{equation*}
-|e_i-e_j|= \sqrt{2} \text{\hspace{2mm} pour $i\neq j$}
-\end{equation*}
-\begin{equation*}
-|A-B|= \sqrt{n}-1 \underset{n\to\infty}{\to} \infty
-\end{equation*} 
-\begin{equation*}
-|B-e_j|= \sqrt{n-1} \underset{n\to\infty}{\to} \infty
-\end{equation*}
-Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous \par
+\begin{align*}
+|A-e_j|=& \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2} \\
+|e_i-e_j|=& \sqrt{2} \text{\hspace{2mm} pour $i\neq j$}\\
+|A-B|=& \sqrt{n}-1 \underset{n\to\infty}{\to} \infty\\
+|e_j-B|=& \sqrt{n-1} \underset{n\to\infty}{\to} \infty
+\end{align*}
+Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il\par
 \begin{wrapfigure}{l}{0.33\textwidth}
 	\centering
 	%\vspace{-3mm}
 	\includegraphics[scale=0.4]{figure_2.png}
 \end{wrapfigure}
-\noindent affirme qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
+\noindent existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
 \begin{equation*}
 r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
-\noindent Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
+\par Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
 \begin{definition}
 	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
@@ -196,51 +197,47 @@ r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 }
 
 \noindent Montrons que ses deux derniers théorèmes sont équivalents.
-\begin{enumerate}
-	\item[(2)$\Rightarrow$(3)]
-	Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui-ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$.\\
-	Donnons-nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
-	\begin{equation*}
-	\phi :\begin{array}{ccc}
-	(V,||.||) & \mapsto &(\mathbb{R}^k,|.|_k) \\
-	\sum_{i=1}^{k}x_i v_i & \to & \sum_{i=1}^{k}x_i e_i
-	\end{array}
-	\end{equation*}
-	Soit $v\in V\cap K$ tel que $||v||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
-	\begin{equation*}
-	r \leq |v|_n \leq (1+\varepsilon)r
-	\end{equation*}
-	La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$.\\
-	Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on n'a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
-	\begin{equation*}
-	r \leq \sqrt{\sum_{i=1}^{k}x_i^2} \leq (1+\varepsilon)r
-	\end{equation*}
-	Mais comme $|\phi(v)|_k = \big|\sum_{i=1}^{k}x_i e_i \big| = \sqrt{\sum_{i=1}^{k}x_i^2}$, on a que :
-	\begin{equation*}
-	r \leq |\phi(v)|_k \leq (1+\varepsilon)r
-	\end{equation*}
-	Pour tous $x\in  V\backslash\{0\}$ on peut appliquer ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
-	\begin{equation*}
-	r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
-	\end{equation*}
-	\item[(3)$\Rightarrow$(2)]
-	Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
-	\begin{equation*}
-	\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
-	\end{equation*}
-	ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
-	Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
-	\begin{equation*}
-	|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
-	\end{equation*}
-	la convexité et la symétrie centrale de $K\cap V$ nous permet de conclure que  :
-	\begin{equation*}
-		\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
-	\end{equation*}
-	Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne.  
 
-\end{enumerate}
-
+\noindent(2)$\Rightarrow$(3)\\
+Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui-ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$. Donnons-nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
+\begin{equation*}
+\phi :\begin{array}{ccc}
+(V,||.||) & \mapsto &(\mathbb{R}^k,|.|_k) \\
+\sum_{i=1}^{k}x_i v_i & \to & \sum_{i=1}^{k}x_i e_i
+\end{array}
+\end{equation*}
+Soit $v\in V\cap K$ tel que $||v||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
+\begin{equation*}
+r \leq |v|_n \leq (1+\varepsilon)r
+\end{equation*}
+La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$.\\
+Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on n'a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
+\begin{equation*}
+r \leq \sqrt{\sum_{i=1}^{k}x_i^2} \leq (1+\varepsilon)r
+\end{equation*}
+Mais comme $|\phi(v)|_k = \big|\sum_{i=1}^{k}x_i e_i \big| = \sqrt{\sum_{i=1}^{k}x_i^2}$, on a que :
+\begin{equation*}
+r \leq |\phi(v)|_k \leq (1+\varepsilon)r
+\end{equation*}
+Pour tous $x\in  V\backslash\{0\}$ on peut appliquer ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
+\begin{equation*}
+r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
+\end{equation*}
+(3)$\Rightarrow$(2)\\
+Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+\begin{equation*}
+\forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
+\end{equation*}
+ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
+Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un unique $x\in\mathbb{R}^k$ tel que $Tx=y$, on en déduit donc 
+\begin{equation*}
+|x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
+\end{equation*}
+la convexité et la symétrie centrale de $K\cap V$ nous permet de conclure que  :
+\begin{equation*}
+	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
+\end{equation*}
+Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -713,8 +710,11 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 \end{proof}
 
 \boxXx{
-	\begin{proposition}[Estimation de $E$]\label{esE}
-		Sous les conditions du \cref{mtool} et en supposant que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, il existe $c>0$ tel que $E=:\int_{S^{n-1}} ||x||d\mu(x) \geq c \sqrt{\frac{\log n}{n}}$.
+	\begin{proposition}\label{esE}
+		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe $c>0$ tel que 
+		\begin{equation*}
+			E=:\int_{S^{n-1}} ||x||d\mu(x) \geq c \sqrt{\frac{\log n}{n}}
+		\end{equation*}
 	\end{proposition}
 }
 \begin{proof}
@@ -733,7 +733,7 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
 	\end{equation*}
 	
-	Par le \cref{gaussind} (voir annexes) $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
+	\noindent Par le \cref{gaussind} $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
 	\begin{equation*}
 	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
 	\end{equation*}
@@ -742,7 +742,7 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
 	
-	Et finalement par le \cref{ming}, il existe $K>0$ tel que :
+	\noindent Et finalement par le \cref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
 	E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
@@ -750,50 +750,60 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 
 On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir :
 \begin{equation*}
-k \geq \big[c(\varepsilon)\log(n)\big]
+k \geq \big[c(\varepsilon)\log n\big]
 \end{equation*}
-avec $c(\varepsilon)= c_0 \frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$ pour $\varepsilon\leq \frac{1}{9}$, en réalité Y. Gordon en 1988 \cite{YG} à prouvé que l'on pouvait prendre $c(\varepsilon)=c_0 \varepsilon^2$ .
-\section{Applications}
-\subsection{espace $\ell_p$}
-Montrons la proposition suivante qui n'est en réalité qu'un coralliaire du \cref{mtool}.
+\section{Sections presque euclidiennes de $\ell_p^n$}
+\boxXx{
+\begin{proposition}
+	Soit $1\leq p < 2$, pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tous $n\in\mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)n$
+\end{proposition}
+}
+\begin{proof}
+	Par l'inégalité de Hölder $||x||_p \leq n^{\frac{1}{p}-\frac{1}{2}}|x|$, c'est-à-dire $b\leq n^{\frac{1}{p}-\frac{1}{2}}$. Comme les normes sont des applications convexes, par l'inégalité de Jensen :
+	\begin{equation*}
+	\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
+	\end{equation*}
+	Et donc 
+	\begin{align*}
+		E&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
+		&=\mathbb{E}\Bigg[\frac{||x||_p}{|x|}\Bigg]\\
+		&=\frac{\mathbb{E}\big[||x||_p\big]}{\mathbb{E}\big[|x|\big]}\geq n^{\frac{1}{p}-\frac{1}{2}}\sqrt{\frac{\pi}{2}}\\
+	\end{align*}
+	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{E}{b})^2n=\tilde{c}(\varepsilon)n$. 
+\end{proof}
+
 \boxXx{\begin{proposition}
-		Soit $1\leq p < \infty$ alors, pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
-		\begin{equation*}
-			k\geq \left\{\begin{array}{lll} 
-			c(\varepsilon)n & \hspace{5mm}\text{si } \; 1\leq p <2\\
-			c_p(\varepsilon)n^{\frac{2}{p}} & \hspace{5mm}\text{si } \; 2\leq p < \log n \\
-			c(\varepsilon)\log n & \hspace{5mm}\text{si } \; \log n \leq p < \infty 
-			\end{array} \right.
-		\end{equation*}
+		Soit $2\leq p < \log (n)$ alors, pour tout $\varepsilon>0$ il existe $c_p(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour $k\geq c_p(\varepsilon)n^{\frac{2}{p}}$.
 \end{proposition}}
 \begin{proof}
-L'existence de l'injection seras prouvé par le \cref{mtool}, il suffit donc de minoré $\frac{E}{b}$ avec les notations de la partie précédente.
 \begin{equation*}
 	E =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
 \end{equation*}
-
-\begin{enumerate}
-	\item[-]$2\leq p<\log n$ : Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Divisons $\{1,...,n\}$ en $N=\lceil\frac{n}{m}\rceil$ parties de taille supérieurs ou égale à $m=:\lceil\frac{e^p}{2}\rceil$, on a 
+Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\lfloor e^p\rfloor$ et divisons $\{1,...,n\}$ en $N=\lceil\frac{n}{m}\rceil$ parties disjointes $I_1,...,I_N$ tel que pour $j<N$, $\text{card}(I_j)=m$, on a 
 	\begin{align*}
 		\mathbb{E}\Big[\Big(\sum_{i=1}^{n}|g_i|^p\Big)^{\frac{1}{p}}\Big]&= \mathbb{E}\Big[\Big(\sum_{j\leq N}\sum_{i\in I_j}|g_i|^p\Big)^{\frac{1}{p}}\Big]\\
 		&\geq\mathbb{E}\Big[\Big(\sum_{j\leq N}(\underset{i\in I_j}{\max|g_i|})^p\Big)^{\frac{1}{p}}\Big]\\
 		&\geq \Big(\sum_{j\leq N}\big(\underset{i\in I_j}{\mathbb{E}[\max|g_i|]}\big)^p\Big)^{\frac{1}{p}}\\
-		&\geq n^{\frac{1}{p}}m^{-\frac{1}{p}}c_0\sqrt{\log(e^p)}\\
-		&\geq n^{\frac{1}{p}}\big\lceil 2^{-1} e ^p\big\rceil^{-\frac{1}{p}}c_0\sqrt{p}
+		&\geq(N-1)^{\frac{1}{p}}c\sqrt{\log 2m} \hspace{2mm} \text{par le \cref{ming}}
 	\end{align*}
-	Par le \cref{mtool} : $k(\varepsilon,n)\geq c_p(\varepsilon) n^{\frac{1}{p}}$ où $c_p$ dépendant de $p$ comme $\sqrt{p}\big\lceil \frac{e ^p}{2}\big\rceil^{-\frac{1}{p}} \underset{p\to\infty}{\sim} \frac{\sqrt{p}}{2}$ 
-	
-	\item[-]$1\leq p<2$ : Par l'inégalité de Hölder on a $||x||_p\leq |x|n^{\frac{1}{p}-\frac{1}{2}}$, donc $b\leq n^{\frac{1}{p}-\frac{1}{2}}$ et donc par le \cref{mtool}, on a 
-	\begin{equation*}
-		k(\varepsilon,n)\geq c(\varepsilon) \frac{\pi}{2}n=\tilde{c}(\varepsilon)n
-	\end{equation*}
-\end{enumerate}
+	Où $c>0$ est une constante universelle. Montrons qu'il existe $\alpha_p>0$ tel que $(N-1)^{\frac{1}{p}}\geq \alpha_p N^{\frac{1}{p}}$
+	\begin{align*}
+	\frac{(N-1)^{\frac{1}{p}}}{N^{\frac{1}{p}}}&=\big(\frac{N-1}{N}\big)^{\frac{1}{p}}\\
+	&= \big(1-\frac{1}{N}\big)^{\frac{1}{p}}\\
+	&\geq \big(1-\frac{1}{2}\big)^{\frac{1}{p}}=2^{-\frac{1}{p}}:=\alpha_p
+	\end{align*}
+	\noindent Car $N\geq 2$ par hypothèse, et finalement :
+	\begin{align*}
+		E &\geq N^{\frac{1}{p}}2^{-\frac{1}{p}} c\sqrt{\log 2\lfloor e^p\rfloor} n^{-\frac{1}{2}}\\
+		& \geq n^{\frac{1}{p}-\frac{1}{2}}C_p
+	\end{align*}
+	Où $C_p =(2\lfloor e^p\rfloor)^{-\frac{1}{p}} c\sqrt{\log 2\lfloor e^p\rfloor}$
+
+	\noindent Par le \cref{mtool} $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour \begin{align*}
+		k &\geq c(\varepsilon)\big(\frac{E}{b}\big)^2n\\
+		&\geq c_p(\varepsilon)n^{\frac{2}{p}}, \hspace{3mm} \text{avec $c_p(\varepsilon) = c(\varepsilon)C_p^2$}
+	\end{align*}
 \end{proof}
-Comme les normes sont des applications convexes, par l'inégalité de Jensen :
-\begin{equation*}
-\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
-\end{equation*}
-Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas :
 \newpage
 \begin{appendices}
 	\section{- Vecteurs Gaussiens}
@@ -807,7 +817,6 @@ Donc $E\geq \sqrt{\frac{\pi}{2}}n^{\frac{1}{p}-\frac{1}{2}}$, séparons deux cas
 	\begin{equation*}
 		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
 	\end{equation*}
-
 en passant en coordonnées sphériques
 \begin{align*}
 	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
@@ -831,7 +840,6 @@ d'où :
 \end{appendices}
 \nocite{GP}
 \nocite{VM2}
-
 \nocite{VMGS}
 \printbibliography
 \end{document}
