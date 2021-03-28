@@ -126,7 +126,7 @@
 Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS1}.\par
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
-	\begin{theoreme}[A. Dvoretzky, 1961]
+	\begin{theoreme}[A. Dvoretzky, 1961]\label{Dvo}
 		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, tel que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe $V \sev \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V =k(\varepsilon,n)$
@@ -148,7 +148,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 		\end{enumerate}
 	\end{theoreme}
 }
-La dépendance de $c$ par rapport à $\varepsilon$ donné par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serras démontrée dans ce mémoire. Y.Gordon à montrer en 1988 l'on pouvais prendre $c\sim \varepsilon^2$ avec les même outils \cite{YG}, plus récemment en 2006, G.Schechtman à montrer que l'on pouvais prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$ \cite{GS2}  en construisant de manière plus précise le $\theta$-net (voir preuve de \textbf{théorème \ref{mtool}}) .
+La dépendance de $c$ par rapport à $\varepsilon$ donné par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serras démontrée dans ce mémoire. Y.Gordon à montrer en 1988 l'on pouvais prendre $c\sim \varepsilon^2$ avec les même outils dans \cite{YG}, plus récemment en 2006, G.Schechtman à montrer que l'on pouvais prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$  en construisant de manière plus précise le $\theta$-net \cite{GS2} (voir preuve de \textbf{théorème \ref{mtool}}) .
 \begin{notation}
 	Pour la suite on utiliseras les notations : 
 	\begin{enumerate}
@@ -191,38 +191,40 @@ r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 }
 
 \boxXx{
-	\begin{theoreme}
+	\begin{theoreme}\label{thmr}
 	Pour tout $\varepsilon>0$ il existe $c>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
 	\end{theoreme}
 }
 
-\noindent Montrons que ses deux derniers théorèmes sont équivalents.
+\noindent Montrons que le \cref{thmMil} et le \cref{thmr} sont équivalents.
 
 \noindent(2)$\Rightarrow$(3)\\
 Posons $K=\text{Adh}(B_{||.||}(0,1))=\{x\in\mathbb{R}^n \; | \; ||x||\leq 1 \}$ et appliquons le théorème 2, celui-ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$. Donnons-nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
 \begin{equation*}
-\phi :\begin{array}{ccc}
-(V,||.||) & \mapsto &(\mathbb{R}^k,|.|_k) \\
-\sum_{i=1}^{k}x_i v_i & \to & \sum_{i=1}^{k}x_i e_i
+T :\begin{array}{ccc}
+ (\mathbb{R}^k,|.|_k)& \mapsto &(V,||.||) \\
+\sum_{i=1}^{k}x_i e_i & \to & \sum_{i=1}^{k}x_i v_i
 \end{array}
 \end{equation*}
-Soit $v\in V\cap K$ tel que $||v||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
+Soit $x\in \mathbb{R}^k$ tel que $||Tx||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
 \begin{equation*}
-r \leq |v|_n \leq (1+\varepsilon)r
+r \leq |Tx|_n \leq (1+\varepsilon)r, \hspace{2mm}\text{pour un $r>0$}
 \end{equation*}
-La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $v$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$.\\
-Fixons des coordonnées à $v$ dans la base $\{v_j\}_{1\leq j \leq k}$, $v = \sum_{i=1}^{k}x_iv_i$, on n'a que $|v|_n = \sqrt{\sum_{i=1}^{k}x_i^2}$ et donc :
+La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $Tx$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$. Remarquons que $|Tx|_n=|x|_k$, donc
 \begin{equation*}
-r \leq \sqrt{\sum_{i=1}^{k}x_i^2} \leq (1+\varepsilon)r
+	r \leq |x|_k \leq (1+\varepsilon)r
 \end{equation*}
-Mais comme $|\phi(v)|_k = \big|\sum_{i=1}^{k}x_i e_i \big| = \sqrt{\sum_{i=1}^{k}x_i^2}$, on a que :
+Il suffit d'appliqué cela à $\frac{x}{||Tx||}$ pour $x\neq 0$ 
 \begin{equation*}
-r \leq |\phi(v)|_k \leq (1+\varepsilon)r
+	r||Tx|| \leq |x|_k \leq (1+\varepsilon)r||Tx||
 \end{equation*}
-Pour tous $x\in  V\backslash\{0\}$ on peut appliquer ce qui précède à $\frac{x}{||x||}$, en utilisant la linéarité de $\phi$ on obtient:
 \begin{equation*}
-r||x||\leq |\phi(x)|_k \leq (1+\varepsilon)r ||x||
+	\frac{1}{(1+\varepsilon)r}|x|_k \leq ||Tx|| \leq \frac{1}{r} |x|_k
 \end{equation*}
+\begin{equation*}
+r|x|_k \leq ||\tilde{T}x|| \leq (1+\varepsilon)r|x|_k
+\end{equation*}
+avec $\tilde{T} = r(1+\varepsilon)T$, remarquons que la quantité importante est $||T||.||T^{-1}||=||\tilde{T}||.||\tilde{T}^{-1}||\leq 1+\varepsilon$.\\ 
 (3)$\Rightarrow$(2)\\
 Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ tel que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 \begin{equation*}
