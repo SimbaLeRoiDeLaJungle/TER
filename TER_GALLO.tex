@@ -24,8 +24,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{framed}
 \usepackage[A4]{vmargin}
-
-\setmarginsrb{1.3cm}{1cm}{1.3cm}{1cm}{1cm}{1cm}{0cm}{1cm} 
+\setmarginsrb{2cm}{1.2cm}{2cm}{1.5cm}{0.5cm}{0.5cm}{0cm}{1cm} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -235,7 +234,7 @@ Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un 
 \begin{equation*}
 |x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
 \end{equation*}
-la convexité et la symétrie centrale de $K\cap V$ nous permet de conclure que  :
+la convexité et la symétrie centrale de $K\cap V$ implique :
 \begin{equation*}
 	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 \end{equation*}
@@ -255,11 +254,18 @@ Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui se
 \aliascntresetthe{rem}
 \crefname{rem}{remarque}{remarques}
 \crefformat{rem}{\textbf{remarque #1}}
+
 \newaliascnt{proposition}{theoreme}
 \newtheorem{proposition}[proposition]{Proposition}
 \aliascntresetthe{proposition}
-\crefname{proposition}{proposition}{proposition}´
+\crefname{proposition}{proposition}{proposition}
 \crefformat{proposition}{\textbf{proposition #1}}
+
+\newaliascnt{cor}{theoreme}
+\newtheorem{cor}[cor]{Corollaire}
+\aliascntresetthe{cor}
+\crefname{cor}{corollaire}{corollaires}
+\crefformat{cor}{\textbf{corollaire #1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -275,18 +281,13 @@ Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui se
 		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
-Les 3 exemples suivant d'espace métrique vérifie ($\star$) pour $G=O(n)$,
+Les 2 exemples suivant d'espace métrique vérifie ($\star$) pour $G=O(n)$,
 \begin{enumerate}
 	\item[(i)] $X=S^{n-1}$ muni de la distance euclidienne
-	\item[(ii)] $X=O(n)$ avec la norme $||M||=\sup_{|x|=1}|Mx|$
-	\item[(iii)] $X=G_{n,k}$ l'ensemble des sous espace de $\mathbb{R}^n$ de dimension $k$ muni de la distance \begin{equation*}
-						d(E,F)=\underset{\begin{subarray}{l}
-						x\in E\cap S^{n-1}\\ y \in F\cap S^{n-1}
-						\end{subarray}}{\sup}|x-y|
-					\end{equation*}
+	\item[(ii)] $X=O(n)$ avec la norme $||T||=\sup_{|x|=1}|Tx|$
 \end{enumerate}
 \begin{notation}
-	Par le théorème précédent on peut définir sans ambiguïté $\mu$,$\nu$,$\sigma$ les mesures de Haar normalisés respectivement sur $S^{n-1}$, $O(n)$ et $G_{n,k}$.
+	Par le théorème précédent on peut définir sans ambiguïté $\mu$ et $\nu$ les mesures de Haar normalisés respectivement sur $S^{n-1}$ et $O(n)$.
 \end{notation}
 Montrons quelques propriétés qui seront utiles par la suite.
 \newline\boxXx{
@@ -312,45 +313,65 @@ Montrons quelques propriétés qui seront utiles par la suite.
 \end{proof}
 
 \boxXx{
-	\begin{lemme}\label{lhso} \vphantom{s} \newline
-		\begin{enumerate}
-			\item[(i)]
-					Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
-					\begin{equation*}
-					\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
-			\end{equation*}
-			\item[(ii)] Soit $\mathcal{A}\subset G_{n,k}$ un borélien alors pour tous $V\in G_{n,k}$
-			\begin{equation*}
-				\nu\Big( T\in O(n) \;;\; TV\in \mathcal{A}\Big) = \sigma\big(\mathcal{A} \big)
-			\end{equation*}
-		\end{enumerate}
-
+	\begin{lemme}\label{lhso}
+		Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
+		\begin{equation*}
+			\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
+		\end{equation*}
 	\end{lemme}
 }
 \begin{proof}
-	\begin{enumerate}
-		\item[(i)]
-			Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
-			\begin{equation*}
-			\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
-			\end{equation*}
-			$\omega_x$ vérifie les propriétés suivantes :
-			\begin{equation*}
-			\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
-			\end{equation*}
-			\begin{equation*}
-			\omega_x(\emptyset)=0
-			\end{equation*}
-			\begin{align*}
-			\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
-			& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
-			\end{align*}
-			L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
-		\item[(ii)] La démonstration de (ii) est exactement la même que celle de (i).
-	\end{enumerate}
-
+	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
+	\begin{equation*}
+	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
+	\end{equation*}
+	$\omega_x$ vérifie les propriétés suivantes :
+	\begin{equation*}
+	\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
+	\end{equation*}
+	\begin{equation*}
+	\omega_x(\emptyset)=0
+	\end{equation*}
+	\begin{align*}
+	\omega_x\big(\bigsqcup_{i\in \mathbb{N}}A_i\big)&= \nu\Big( T\in O(n) \;;\; Tx\in \bigsqcup_{i\in \mathbb{N}}A_i\Big)=\nu\Big(\bigsqcup_{i\in\mathbb{N}}\big\{T\in O(n) \;;\;  Tx\in A_i \big\}\Big)\\
+	& =\sum_{i\in\mathbb{N}}\nu\Big(T\in O(n) \;;\;  Tx\in A_i \Big)=\sum_{i\in\mathbb{N}}\omega_x(A_i)
+	\end{align*}
+	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
-Le théorème suivant seras admis, c'est une application du théorèmes de concentration de la mesure de \textit{Paul Lévy}, il est un outil cruciale dans la preuve du théorème de Dvoretzy donné par \textit{Vitali Milman} \cite{VM1}.
+\subsection{Concentration de la mesure}
+Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonctions $1$-Lipschitzienne de $X$ dans $\mathbb{R}$ et notons $m_f$ sa médiane, c'est a dire le réel tel que \begin{equation*}
+	P(f\geq m_f)\geq \frac{1}{2} \hspace{5mm} \& \hspace{5mm} P(f\leq m_f)\geq \frac{1}{2}
+\end{equation*}
+L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à 
+\begin{equation*}
+P\big(|f-m_f|\geq t\big)
+\end{equation*}
+pour $t\geq 0$ .\\
+Posons $A=\big\{ f\leq m_f \big\}$, il est assez naturelle de s'intéresser à l'ensemble suivant 
+\begin{equation*}\tag{$\star$}
+	A_t =\big\{x\in X \; ; \; d(x,A)\leq t\big\}
+\end{equation*}
+On appelle $A_t$ le $t$-élargissement de $A$, il suit cela : 
+\begin{equation*}
+	x\in A_t \Rightarrow f(x)\leq t+m_f\hspace{5mm}\iff\hspace{5mm} A_t \subset \Bigg\{x\in S^{n-1} \; ; \; f(x)\leq t+m_f\Bigg\}
+\end{equation*}
+\begin{align*}
+	P(f>t+m_f)&= 1 - P(f\leq t+m_f)\\
+	&\leq 1 - P(A_t)
+\end{align*}
+Cette observation a permis a Milman et Gromov de se ramener a une étude ensembliste du problème, Il introduisent $\alpha$ une fonction dite de concentration, définit comme le plus petit réel tel que:
+\begin{equation*}
+\forall A\subset X , \; P(A)\geq \frac{1}{2}\hspace{3mm} \Rightarrow\hspace{3mm} 1-P(A_t)\leq \alpha(t,P)
+\end{equation*}
+Appliquant ceci au ensemble  $\Big\{f\geq m_f\Big\}$ et $\Big\{f\leq m_f\Big\}$, on trouve facilement :
+\begin{equation*}
+	P(|f-m_f|>t)\leq 2 \alpha(t,P)
+\end{equation*}
+Considérons maintenant que $f$ est $L$-Lipschitzienne, alors la médiane de $\frac{f}{L}$ est $\frac{m_f}{L}$, donc par homogénéité 
+\begin{equation*}
+	P(|f-m_f|>t)\leq 2 \alpha(\frac{t}{L},P)
+\end{equation*}
+L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $t$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple a calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
 \newline\boxXx{
 	\begin{theoreme}[Concentration de la mesure sur la sphère]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
@@ -360,37 +381,30 @@ Le théorème suivant seras admis, c'est une application du théorèmes de conce
 		Où $\mathbb{E}[f]=:\int_{S^{n-1}}fd\mu$
 	\end{theoreme}
 }
-
 \subsection{Ellipsoïdes}
-Pour simplifier un peu les calculs nous allons montrer que l'on peut se restreindre aux normes qui vérifies $||.||\leq |.|$ et qui ont de plus la propriété que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}(0,1)$, c'est à dire l'ellipsoïde de volume maximal incluse dans $B_{||.||}(0,1)$, nous donnons la définition d'un ellipsoïde et un théorème de Fritz John sur l'unicité de l'ellipsoïde de volume maximale qui seras admis.  
+Dans cette partie nous montrons plusieurs propriétés sur les ellipsoïdes, commençons par les définir :
 \newline\boxXx{
 	\begin{definition}
 		On appelle ellipsoïde de $\mathbb{R}^n$ l'image de la boule unité euclidienne par un élément de $GL(n)$. 
 	\end{definition}
 }
-\boxXx{
-	\begin{defft}[Ellipsoïde de John]
-		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, elle est appelée ellipsoïde de John.
-	\end{defft}
-}
-
 \noindent Donnons une définition alternative d'un l'ellipsoïde.
 \newline\boxXx{
-\begin{proposition}
-	Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
-	\begin{equation*}
+	\begin{proposition}
+		Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
+		\begin{equation*}
 		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{<x,v_i>^2}{\alpha_i^2}< 1\big\}
-	\end{equation*}
-\end{proposition}
+		\end{equation*}
+	\end{proposition}
 }
 \begin{proof}
 	Donnons nous $A\in GL(n)$ tel que $AB_2^n=\mathcal{E}$
 	\begin{equation*}
-		|Ax|^2 = x^T A^TAx 
+	|Ax|^2 = x^T A^TAx 
 	\end{equation*}
 	$A^T A$ est symétrique, soit $\lambda$ une de ses valeur propre et $v$ un vecteur propre associé, alors  
 	\begin{equation*}
-		0< |Av|^2 = v^T \lambda v = \lambda |v|^2
+	0< |Av|^2 = v^T \lambda v = \lambda |v|^2
 	\end{equation*}
 	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$ et définissons les quantités suivante :
 	\begin{enumerate}
@@ -399,23 +413,23 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\end{enumerate}
 	Montrons que les $u_j$ forment une base orthonormée: 
 	\begin{align*}
-		<u_i,u_j> &= \lambda_j^{-1}v_j^TA^T \lambda_i^{-1}Av_i\\
-		&=\lambda_j^{-1}\lambda_i^{-1}v_j^T(A^T Av_i) \\
-		&= \lambda_j^{-1}\lambda_i^{-1}v_j^T \lambda_i^2 v_i\\
-		&=\frac{\lambda_i}{\lambda_j} <v_j,v_i> = \left\{ \begin{array}{ll} 0 \hspace{1mm}\text{si $i\neq j$} \\ 1 \hspace{1mm}\text{sinon} \end{array} \right.
+	<u_i,u_j> &= \lambda_j^{-1}v_j^TA^T \lambda_i^{-1}Av_i\\
+	&=\lambda_j^{-1}\lambda_i^{-1}v_j^T(A^T Av_i) \\
+	&= \lambda_j^{-1}\lambda_i^{-1}v_j^T \lambda_i^2 v_i\\
+	&=\frac{\lambda_i}{\lambda_j} <v_j,v_i> = \left\{ \begin{array}{ll} 0 \hspace{1mm}\text{si $i\neq j$} \\ 1 \hspace{1mm}\text{sinon} \end{array} \right.
 	\end{align*}
 	Soit $x = \sum_{i=1}^{n}x_i v_i\in S^{n-1}$  
 	\begin{align*}
-		y=: Ax&= x_1Av_1+...+x_nAv_n \\ 
-		&= x_1 \lambda_1 u_1 + ... + x_n \lambda_n u_n
+	y=: Ax&= x_1Av_1+...+x_nAv_n \\ 
+	&= x_1 \lambda_1 u_1 + ... + x_n \lambda_n u_n
 	\end{align*}
 	Les composante de $y$ dans la base $\{u_j\}_{j\leq n}$ sont $<y,u_j> = x_j\lambda_j$, donc :
 	\begin{equation*}
-		\frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = x_1^2+...+x_n^2 =1
+	\frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = x_1^2+...+x_n^2 =1
 	\end{equation*}
-	 Et finalement $\partial \mathcal{E} = \big\{y_1u_1+...+y_nu_n \; ; \; \frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = 1\big\} $.
-	\color{black}
+	Et finalement $\partial \mathcal{E} = \big\{y\in\mathbb{R}^n \; ; \; \frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = 1\big\} $.
 \end{proof}
+
 \noindent Démontrons maintenant le lemme que nous avons utiliser dans l'introduction :
 \newline\boxXx{
 	\begin{lemme}\label{eleb}
@@ -438,9 +452,15 @@ Pour simplifier un peu les calculs nous allons montrer que l'on peut se restrein
 	\sum_{i=1}^{n}a_ix_i^2 = \lambda \sum_{i=1}^{n}x_i^2 
 	\end{equation*}
 \end{proof}
+Nous admettons le résultat de F.John : 
+\newline\boxXx{
+	\begin{defft}[Ellipsoïde de John]
+		Tous compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, elle est appelée ellipsoïde de John.
+	\end{defft}
+}
 \begin{leftbar}
 \begin{rem}\label{rem0}
-Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^k)$ (avec $u\in GL(n)$) sont ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^k$, supposons que
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^n)$ (avec $u\in GL(n)$) son ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^n$, supposons que
 \begin{equation*}
 r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
 \end{equation*}
@@ -453,10 +473,79 @@ r(D\cap uW)\subset K\cap uW \subset r(1+\varepsilon)(D\cap uW)
 \end{equation*}
 Le \cref{eleb} nous permet de conclure que quitte à diviser la dimension du sous-espace $W$ par deux, on peut se restreindre à montrer le théorème de Dvoretzky pour des compacts dont la boule euclidienne est l'ellipsoïde de John sans perte de généralité.
 \end{rem}\end{leftbar}
+\subsection{Loi gaussienne}
+Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat sur les variables aléatoires gaussiennes, ce premier combiner avec \cref{lhso} nous seras utile pour calculer des intégrales par rapport à la mesure de Haar sur la $(n-1)$-sphère.
+\newline\boxXx{
+	\begin{lemme}\label{gaussind}
+		Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
+	\end{lemme}
+}
+\begin{proof}
+	Posons $Y =\frac{g}{|g|}$ et $R = |g|$ alors
+	\begin{equation*}
+	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
+	\end{equation*}
+	en passant en coordonnées sphériques
+	\begin{align*}
+	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
+	x_2 = & r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
+	x_3 = & r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
+	\vdots\\
+	x_n = & r \cos \theta_1
+	\end{align*}
+	On a le déterminant suivant : 
+	\begin{equation*}
+	dx_1 ... dx_n = r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
+	\end{equation*}
+	d'où :
+	\begin{equation*}
+	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}(\sin\theta_i)^{n-1-i}dr d\theta_1 ... d\theta_{n-1}
+	\end{equation*}
+	\begin{equation*}
+		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{\mathbb{R}^{n-1}} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}(\sin\theta_i)^{n-1-i}d\theta_1 ... d\theta_{n-1}
+	\end{equation*}
+	où $\varphi(\theta)=(\sin \theta_1 ... \sin \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2},\dots,\cos \theta_1)$.
+\end{proof} 
+Nous aurons besoins de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ pour une norme $||.||$ sur $\mathbb{R}^n$ et pour cela nous aurons besoin du lemme suivant :
+\newline\boxXx{
+	\begin{lemme}\label{ming}
+		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
+		\begin{equation*}
+		c \sqrt{\log N} \leq \mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]
+		\end{equation*}
+		où $\tilde{N} = \Bigg\lceil\frac{N}{2}\Bigg\rceil$ est la partie entière supérieure de $\frac{N}{2}$.
+	\end{lemme}
+}
+\begin{proof}
+	Commençons par montrer que pour $n>1$, $\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) \geq \frac{1}{n}$, on a :
+	\begin{equation*}
+	\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) = 2 \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}dx\geq \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx  \qquad \text{ pour $x>\sqrt{\log(2)}$}
+	\end{equation*}
+	\begin{equation*}
+	\int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx = \Big[-\frac{ e^{-\frac{t^2}{2}}}{t}\Big]_{\sqrt{\log n}}^{+\infty}=\frac{1}{\sqrt{n\log n}}>\frac{1}{n}
+	\end{equation*}
+	Donc 
+	\begin{equation*}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log N}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log N}\Big)\Bigg)^{\tilde{N}}
+	\end{equation*}
+	\begin{equation*}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\leq \Bigg(1-\frac{1}{N}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{N}} \leq e^{-\frac{1}{2}}
+	\end{equation*}
+	Ce qui équivaut a 
+	\begin{equation*}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|>\sqrt{\log N}\Big)\geq 1- e^{-\frac{1}{2}}
+	\end{equation*}
+	Par l'inégalité de Markov on a finalement :
+	\begin{equation*}
+	\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
+	\end{equation*}
+	avec $c =: 1-e^{-\frac{1}{2}}$ 
+\end{proof}
+
 \section{Démonstration du théorème de Dvoretzky}
 \subsection{Lemmes d'approximations}
-
-\boxXx{
+Avant de débuter la démonstration du théorème de Dvoretzky, nous allons avoir besoins de plusieurs lemmes, et de la définition suivante :
+\newline\boxXx{
 	\begin{definition}
 		Soit $(X,d)$ un espace métrique et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
 			\item[(i)] $A$ est de cardinal fini.
@@ -464,7 +553,8 @@ Le \cref{eleb} nous permet de conclure que quitte à diviser la dimension du sou
 		\end{enumerate}
 	\end{definition}
 }
-\boxXx{
+Le petit lemme qui suit nous permet d'approcher les points de la $(n-1)$-sphère par des points tous situé sur un $\theta$-net.
+\newline\boxXx{
 	\begin{lemme}\label{lap}
 		Soient $x\in S^{n-1}$ , A un $\theta$-net pour un $1>\theta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
 		\begin{equation*}
@@ -495,8 +585,8 @@ Le \cref{eleb} nous permet de conclure que quitte à diviser la dimension du sou
 	x = \sum_{i=0}^{+\infty} \beta_i y_i
 	\end{equation*}
 \end{proof}
-
-\boxXx{
+Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande $\mu$-mesure a un grand sous-espace au sens des dimensions. 
+\newline\boxXx{
 	\begin{lemme}\label{lsB}
 		$\forall \varepsilon >0$ , il existe $1>\theta>0$ tel que pour tous $n\in \mathbb{N}$ , si l'on a $A$ un $\theta$-net sur $V\cap S^{n-1}$ pour $V\underset{\text{sev}}{\subset}\mathbb{R}^n$ de dimension $k$, $||.||$ une norme sur $\mathbb{R}^{n}$ et $T\in GL(n)$, tel que:
 		\begin{equation*}
@@ -585,99 +675,44 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 
 \boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour tous $k\leq \big[c(\varepsilon).\big(\frac{E}{b}\big)^2n\big]$.\\
-		Où  $E=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour un $k\geq c(\varepsilon).\big(\frac{M}{b}\big)^2n$.\\
+		Où  $M=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$ , on se donne un $1>\theta>0$ donné par le \cref{lsB} et on note
+	Soit $\varepsilon>0$ et $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} nous allons montrer que le $c(\varepsilon)$ rechercher est $c(\theta(\varepsilon)) =: \frac{\theta^2}{8\log(\frac{3}{\theta})} $, pour alléger les notations on note 
 	\begin{enumerate}
-		\item[-] $c(\theta) = \frac{\theta^2}{4\log(\frac{3}{\theta})} $
-		\item[-] $V=\text{Vect}(e_1,..,e_k)$ avec $k \leq \big[c(\theta)\big(\frac{E}{b}\big)^2n\big] $
-		\item[-] $\eta = \frac{\theta E}{b}$
-		\item[-] $f(\theta)=2\big(\frac{3}{\theta}\big)^{c(\theta)\big(\frac{E}{b}\big)^2n}e^{-\frac{\eta^2 n}{2}}=2\exp\big(-\frac{\eta^2n}{4}\big)$
+		\item[-] $\eta =: \frac{\theta M}{b}$
+		\item[-] $\kappa(\theta)=:c(\theta)\big(\frac{M}{b}\big)^2n$
 	\end{enumerate}
-	
-	\noindent Distinguons deux cas 
-	\begin{enumerate}[leftmargin=\labelsep]
-		\item[$\circ$] {$f(\theta)\geq1$}\newline on a alors :
-		\begin{equation*}
-		\frac{\eta^2n}{4}\leq \log(2)
-		\end{equation*}
-		\begin{equation*}
-		k\leq \frac{\eta^2}{4\log(3/\theta)}n\leq \frac{\log(2)}{\log(3/\theta)}<1
-		\end{equation*}
-		Donc $k=0$, dans ce cas il n'y a rien a montrer.
-		\item[$\circ$] $f(\theta)<1$\newline Soit $A$ un $\theta$-net sur $V\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$ nous allons montrer qu'il existe $T\in O(n)$ tel que pour tous $x\in A$ 
-		\begin{equation*}
-		(1-\theta) E \leq ||Tx|| \leq (1+ \theta)E
-		\end{equation*}
-		Tous d'abord remarquons ceci :
-		\begin{align*}
-		1&>f(\theta)\geq 2(\frac{3}{\theta})^ke^{-\frac{\eta^2}{2}n} \\
-		&> 2|A|e^{-\frac{\eta^2}{2}n}
-		\end{align*}
-		On a l'inégalité suivante : 
-		\begin{align*}
-		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\cup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-E \big|>b\eta\big\}\big)& \\
-		& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-E \big|>b\eta\big)& \text{pour un $y\in A$}\\
-		& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-E \big|>b\eta\Big) & \text{par le \cref{lhso}}
-		\end{align*} 
-		En appliquant la concentration de la mesure
-		\begin{equation*}
-		\nu\Big(\cap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-E \big|\leq b\eta\big\}\Big)\geq 1 - |A|2e^{-\frac{\eta^2n}{2}} >0
-		\end{equation*}	
-		Il existe donc $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-E \big|\leq b \eta$, c'est à dire 
-		\begin{equation*}
-		E(1-\theta)=E-b\eta\leq ||Tx||\leq E+b\eta=E(1+\theta)
-		\end{equation*}
-		Par le \cref{lsB} pour tous $x\in V$
-		\begin{equation*}
-		\frac{1}{\sqrt{1+\varepsilon}}|x| E\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| E
-		\end{equation*}
-	\end{enumerate}
-	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=\frac{\varepsilon^2}{4\times 81\log(\frac{3\times9}{\varepsilon})} $ de l'ordre $\frac{\varepsilon^2}{\log(\frac{1}{\varepsilon})}$.\\ 
+	Évacuons un cas trivial, si $\kappa(\theta)<1$ alors $k=1$ convient car toute $1$-section est euclidienne, pour la suite on suppose donc $\kappa(\theta)\geq 1 \iff \frac{\eta^2n}{8}\geq \log(\frac{3}{\theta})$.\\
+	Fixons un $k$ entier tel que $\kappa(\theta)\leq k < 2\kappa(\theta)$ possible car $\kappa(\theta)\geq 1$ et on se donne $A$ un $\theta$-net sur $\text{Vect}(e_1,...,e_k)\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$. On alors :
+	\begin{align*}
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>b\eta\big\}\big)& \\
+	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>b\eta\big)& \text{pour un $y\in A$}\\
+	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-M \big|>b\eta\Big) & \text{par le \cref{lhso}}
+	\end{align*} 
+	En appliquant la concentration de la mesure
+	\begin{align*}
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq b\eta\big\}\Big)&\geq 1 - |A|2e^{-\frac{\eta^2n}{2}}\\
+	& > 1 - 2 \big(\frac{3}{\theta}\big)^k e^{-\frac{\eta^2n}{2}}\\
+	& > 1 - 2 \exp\big(2\kappa(\theta)\log(\frac{3}{\theta})-\frac{\eta^2n}{2}\big)\\
+	& > 1 -  2 e^{-\frac{\eta^2n}{4}}\\
+	&> 1 - \frac{2}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\eta^2n}{4}\geq 2\log(\frac{3}{\theta})$}
+	\end{align*}	
+	Donc il existe $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-M \big|\leq b \eta$, c'est à dire 
+	\begin{equation*}
+	M(1-\theta)=M-b\eta\leq ||Tx||\leq M+b\eta=M(1+\theta)
+	\end{equation*}
+	Par le \cref{lsB} pour tous $x\in \text{Vect}(e_1,...,e_k)$
+	\begin{equation*}
+	\frac{1}{\sqrt{1+\varepsilon}}|x| M\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| M
+	\end{equation*}
+	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.\\ 
 \end{proof}
-\subsection{Estimation de $E$}
-Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\mu(x)$, pour cela nous aurons besoin d'une minoration de $\mathbb{E}\Big[\max_{1\leq i \leq N}g_i\Big]$ pour des $\{g_i\}$ i.i.d suivant $\mathcal{N}(0,1)$, nous démontrons une telle borne dans le lemme suivant.  
+\subsection{Estimation de $M$}
+Dans cette partie nous allons donner une estimation de $M=:\int_{S^{n-1}}||x||d\mu(x)$, mais avant cela nous avons besoin du lemme suivant :
 \newline\boxXx{
-	\begin{lemme}\label{ming}
-		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
-		\begin{equation*}
-		c \sqrt{\log N} \leq \mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]
-		\end{equation*}
-		où $\tilde{N} = \Bigg\lceil\frac{N}{2}\Bigg\rceil$ est la partie entière supérieure de $\frac{N}{2}$.
-	\end{lemme}
-}
-\begin{proof}
-	Commençons par montrer que pour $n>1$, $\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) \geq \frac{1}{n}$, on a :
-	\begin{equation*}
-	\mathbb{P}\big(|g_1|> \sqrt{\log n}\big) = 2 \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}dx\geq \int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx  \qquad \text{ pour $x>\sqrt{\log(2)}>1$}
-	\end{equation*}
-	\begin{equation*}
-	\int_{\sqrt{\log n}}^{+\infty}e^{-\frac{x^2}{2}}(1+\frac{1}{x^2})dx = \Big[-\frac{ e^{-\frac{t^2}{2}}}{t}\Big]_{\sqrt{\log n}}^{+\infty}=\frac{1}{\sqrt{n\log n}}>\frac{1}{n}
-	\end{equation*}
-	Donc 
-	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log N}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log N}\Big)\Bigg)^{\tilde{N}}
-	\end{equation*}
-	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\leq \Bigg(1-\frac{1}{N}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{N}} \leq e^{-\frac{1}{2}}
-	\end{equation*}
-	Ce qui équivaut a 
-	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\geq 1- e^{-\frac{1}{2}}
-	\end{equation*}
-	Par l'inégalité de Markov on a finalement :
-	\begin{equation*}
-	\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
-	\end{equation*}
-	avec $c =: 1-e^{-\frac{1}{2}}$ 
-\end{proof}
-
-
-
-\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
 		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
 		\begin{equation*}
@@ -715,18 +750,18 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	\begin{proposition}\label{esE}
 		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe $c>0$ tel que 
 		\begin{equation*}
-			E=:\int_{S^{n-1}} ||x||d\mu(x) \geq c \sqrt{\frac{\log n}{n}}
+			M=:\int_{S^{n-1}} ||x||d\mu(x) \geq c \sqrt{\frac{\log n}{n}}
 		\end{equation*}
 	\end{proposition}
 }
 \begin{proof}
 	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big\lceil\frac{n}{2}\big\rceil$ la partie entière supérieure de $\frac{n}{2}$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1-\frac{\frac{n}{2}+1 -1}{n}\Big)= (2e)^{-1}$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
-	E=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
+	M=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
 	\end{equation*}
 	et donc 
 	\begin{align*}
-	E&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
+	M&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
 	&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
 	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
 	\end{align*}
@@ -746,14 +781,12 @@ Dans cette partie nous allons donner une estimation de $E=:\int_{S^{n-1}}||x||d\
 	
 	\noindent Et finalement par le \cref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
-	E\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
+	M\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
 \end{proof}
-
-On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir :
-\begin{equation*}
-k \geq \big[c(\varepsilon)\log n\big]
-\end{equation*}
+\begin{leftbar}
+\noindent On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir $k \geq c(\varepsilon)\log n$ lorsque $B_2^n$ est l'ellipsoïde de John pour $B_{||.||}$, en utilisant la \cref{rem0} quitte à diviser $k$ par $2$, on peut généralisé à toutes les normes et donc conclure la démonstration du théorème de Dvoretzky.
+\end{leftbar}
 \section{Sections presque euclidiennes de $\ell_p^n$}
 \subsection{cas $1\leq p <2$}
 \boxXx{
@@ -768,7 +801,7 @@ k \geq \big[c(\varepsilon)\log n\big]
 	\end{equation*}
 	Et donc 
 	\begin{align*}
-		E&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
+		M&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
 		&=\mathbb{E}\Bigg[\frac{||x||_p}{|x|}\Bigg]\\
 		&=\frac{\mathbb{E}\big[||x||_p\big]}{\mathbb{E}\big[|x|\big]}\geq n^{\frac{1}{p}-\frac{1}{2}}\sqrt{\frac{\pi}{2}}\\
 	\end{align*}
@@ -787,11 +820,11 @@ k \geq \big[c(\varepsilon)\log n\big]
 	\end{equation*}
 	Et donc 
 	\begin{align*}
-	E&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
+	M&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
 	&=\mathbb{E}\Bigg[\frac{||x||_p}{|x|}\Bigg]\\
 	&=\frac{\mathbb{E}\big[||x||_p\big]}{\mathbb{E}\big[|x|\big]}\geq n^{\frac{1}{p}-\frac{1}{2}}\sqrt{\frac{\pi}{2}}\\
 	\end{align*}
-	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{E}{b})^2n=\tilde{c}(\varepsilon)n^{\frac{2}{p}}$. 
+	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{M}{b})^2n=\tilde{c}(\varepsilon)n^{\frac{2}{p}}$. 
 \end{proof}
 Si $p$ n'est pas trop grand par rapport à $n$ on peut amélioré la proposition précédente , en remplaçant $c(\varepsilon)$ par une fonction $c_p(\varepsilon)\underset{p\to\infty}{\sim}\tilde{c}(\varepsilon)p$.
 \newline\boxXx{\begin{proposition}
@@ -799,7 +832,7 @@ Si $p$ n'est pas trop grand par rapport à $n$ on peut amélioré la proposition
 \end{proposition}}
 \begin{proof}
 \begin{equation*}
-	E =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
+	M =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
 \end{equation*}
 Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\lfloor e^p\rfloor$ et divisons $\{1,...,n\}$ en $N=\lceil\frac{n}{m}\rceil$ parties disjointes $I_1,...,I_N$ tel que pour $j<N$, $\text{card}(I_j)=m$, on a 
 	\begin{align*}
@@ -816,7 +849,7 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 	\end{align*}
 	\noindent Car $N\geq 2$ par hypothèse, et finalement :
 	\begin{align*}
-		E &\geq N^{\frac{1}{p}}2^{-\frac{1}{p}} c\sqrt{\log \lfloor e^p\rfloor} n^{-\frac{1}{2}}\\
+		M &\geq N^{\frac{1}{p}}2^{-\frac{1}{p}} c\sqrt{\log \lfloor e^p\rfloor} n^{-\frac{1}{2}}\\
 		& \geq n^{\frac{1}{p}-\frac{1}{2}}C_p
 	\end{align*}
 	Où $C_p =2^{-\frac{1}{p}} c\sqrt{\log \lfloor e^p\rfloor}\underset{p\to\infty}{\sim} c\sqrt{p}$.\\
@@ -830,44 +863,12 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 	Dans le cas contraire si $p\geq \log n$, alors $n^{\frac{2}{p}}\leq e^2$ donc dans ce cas la meilleur estimation est celle donné par le théorème de Dvoretzky.
 \end{rem}
 \newpage
-\begin{appendices}
-	\section{- Vecteurs Gaussiens}
-\boxXx{
-\begin{lemme}\label{gaussind}
-	Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
-\end{lemme}
-}
-\begin{proof}
-	Posons $Y =\frac{g}{|g|}$ et $R = |g|$ alors
-	\begin{equation*}
-		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
-	\end{equation*}
-en passant en coordonnées sphériques
-\begin{align*}
-	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
-	x_2 = & r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
-	x_3 = & r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
-	\vdots\\
-	x_n = & r \cos \theta_1
-\end{align*}
-On a le déterminant suivant : 
-\begin{equation*}
-	dx_1 ... dx_n = r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
-\end{equation*}
-d'où :
-\begin{equation*}
-		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\sin \theta_1 ... \sin \theta_{n-1},...,\cos \theta_1\big)g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
-\end{equation*}
-\begin{equation*}
-\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{\mathbb{R}^{n-1}}f\big(\sin \theta_1 ... \sin \theta_{n-1},...,\cos \theta_1\big)\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} d\theta_1 ... d\theta_{n-1}
-\end{equation*}
-\end{proof}
-\end{appendices}
-\newpage
 \nocite{GP}
 \nocite{VM2}
 \nocite{VMGS}
 \printbibliography
+
+
 \end{document}
 
 
