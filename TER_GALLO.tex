@@ -6,7 +6,7 @@
 \setlength{\topmargin}{0pt}
 \setlength{\headheight}{0pt}
 \setlength{\headsep}{0pt}
-\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\baselinestretch}{1.4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
@@ -52,6 +52,7 @@
 \renewcommand{\appendixtocname}{Annexes}
 \renewcommand{\appendixpagename}{Annexes} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{name=\section,numberless}  
 {\normalfont\large\bfseries}% format
@@ -122,6 +123,7 @@
 
 \tableofcontents\newpage
 \section*{Introduction}\addcontentsline{toc}{section}{Introduction}
+\markboth{Introduction}{}
 Le mémoire suivant suit la série de lectures de Gideon Schetchman , "\textit{Euclidean sections of convex bodies}" \cite{GS1}.\par
 Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes de suites dans les espaces de Banach et le théorème de Dvoretzky-Rogers}" \cite{AG}, inspiré par le lemme de Dvoretzky-Rogers (1950) propose une conjecture à laquelle Aryeh Dvoretzky répondra positivement en 1961, aboutissant au résultat suivant :
 \newline\boxXx{
@@ -148,7 +150,7 @@ Vitali Milman en 1971 donna une nouvelle preuve du théorème de Dvoretzky en ut
 	\end{theoreme}
 }
 La dépendance de $c$ par rapport à $\varepsilon$ donné par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serras démontrée dans ce mémoire. Y.Gordon à montrer en 1988 l'on pouvais prendre $c\sim \varepsilon^2$ avec les même outils que V.Milman dans \cite{YG}, plus récemment en 2006, G.Schechtman à montrer que l'on pouvais prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$  en construisant de manière plus précise le $\theta$-net \cite{GS2} (voir preuve de \textbf{théorème \ref{mtool}}) .
-\begin{notation}
+\newpage\begin{notation}
 	Pour la suite on utiliseras les notations : 
 	\begin{enumerate}
 		\item[-] $|.|_n$ la norme euclidienne sur $\mathbb{R}^n$, ou $|.|$ si il n'y a pas d'ambiguïté sur la dimension.
@@ -162,24 +164,24 @@ La dépendance de $c$ par rapport à $\varepsilon$ donné par V.Milman était $c
 	\includegraphics[scale=0.4]{figure_1.png}
 \end{wrapfigure}
 
-Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, nous pouvons facilement généraliser cela pour $n>2$. Prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
+\noindent Commençons par donner une légère interprétation géométrique du théorème, prenons l'exemple de $K = B_{||.||_\infty}$ dans le cas $n=2$ la distance entre un point situé sur un quart du cercle et le coin le plus proche est $\sqrt{2}-1$, nous pouvons facilement généraliser cela pour $n>2$. Prenons par exemple les points $A =(\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\in S^{n-1}$ et $B = (1,...,1)\in \partial B_\infty^n$ le coin de $B_\infty^n$ le plus proche de $A$, on peut joindre $A$ aux points $e_j\in \partial B_\infty^n\cap S^{n-1}$ de la base canonique pour $1\leq j\leq n$, et on a les distances suivantes :
 \begin{align*}
 |A-e_j|=& \sqrt{2(1-\frac{1}{\sqrt{n}})} \underset{n\to\infty}{\to} \sqrt{2} \\
 |e_i-e_j|=& \sqrt{2} \text{\hspace{2mm} pour $i\neq j$}\\
 |A-B|=& \sqrt{n}-1 \underset{n\to\infty}{\to} \infty\\
 |e_j-B|=& \sqrt{n-1} \underset{n\to\infty}{\to} \infty
 \end{align*}
-Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il\par
+Donc lorsque $n$ est grand, si l'on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formé de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant \par
 \begin{wrapfigure}{l}{0.33\textwidth}
 	\centering
-	%\vspace{-3mm}
+	\vspace{-7mm}
 	\includegraphics[scale=0.4]{figure_2.png}
 \end{wrapfigure}
-\noindent existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
+\noindent pas de $n$, tel que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ tel que pour un certain $r>0$ :
 \begin{equation*}
 r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
-\par Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \; \; ; \; \;\frac{y}{\lambda}\in K \big\}$.
+Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \;  ; \; \frac{y}{\lambda}\in K \big\}$.
 \newline\boxXx{
 \begin{definition}
 	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
@@ -266,13 +268,15 @@ Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui se
 \aliascntresetthe{cor}
 \crefname{cor}{corollaire}{corollaires}
 \crefformat{cor}{\textbf{corollaire #1}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Préliminaire}
-\subsection{Mesures de Haar }
-\boxXx{
+
+\subsection{Mesures de Haar}
+La mesure de Haar est une notion introduite par Alfred Haar en 1933, il démontre que dans tous groupe localement compact a base dénombrable il existe une mesure borélienne invariante par translation à gauche, en 1935 John V.Neumann montre que de plus cette mesure est unique à un coefficient multiplicatif près, son application seras étendu après à tous les groupes localement compact, nous ademetrons le théorème suivant (voir \cite{VMGS}).
+\newline\boxXx{
 	\begin{defft}[Mesures de Haar]
 		Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
 		\begin{equation}\tag{$\star$}
@@ -342,36 +346,32 @@ Montrons quelques propriétés qui seront utiles par la suite.
 Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonctions $1$-Lipschitzienne de $X$ dans $\mathbb{R}$ et notons $m_f$ sa médiane, c'est a dire le réel tel que \begin{equation*}
 	P(f\geq m_f)\geq \frac{1}{2} \hspace{5mm} \& \hspace{5mm} P(f\leq m_f)\geq \frac{1}{2}
 \end{equation*}
-L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à 
-\begin{equation*}
-P\big(|f-m_f|\geq t\big)
-\end{equation*}
-pour $t\geq 0$ .\\
+L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à $P\big(|f-m_f|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ .\\
 Posons $A=\big\{ f\leq m_f \big\}$, il est assez naturelle de s'intéresser à l'ensemble suivant 
-\begin{equation*}\tag{$\star$}
-	A_t =\big\{x\in X \; ; \; d(x,A)\leq t\big\}
-\end{equation*}
-On appelle $A_t$ le $t$-élargissement de $A$, il suit cela : 
 \begin{equation*}
-	x\in A_t \Rightarrow f(x)\leq t+m_f\hspace{5mm}\iff\hspace{5mm} A_t \subset \Bigg\{x\in S^{n-1} \; ; \; f(x)\leq t+m_f\Bigg\}
+	A_\varepsilon =\big\{x\in X \; ; \; d(x,A)\leq \varepsilon\big\}
+\end{equation*}
+On appelle $A_\varepsilon$ le $\varepsilon$-élargissement de $A$, il suit cela : 
+\begin{equation*}
+	x\in A_\varepsilon \Rightarrow f(x)\leq \varepsilon+m_f\hspace{5mm}\iff\hspace{5mm} A_\varepsilon \subset \Bigg\{x\in S^{n-1} \; ; \; f(x)\leq \varepsilon+m_f\Bigg\}
 \end{equation*}
 \begin{align*}
-	P(f>t+m_f)&= 1 - P(f\leq t+m_f)\\
-	&\leq 1 - P(A_t)
+	P(f>\varepsilon+m_f)&= 1 - P(f\leq \varepsilon+m_f)\\
+	&\leq 1 - P(A_\varepsilon)
 \end{align*}
-Cette observation a permis a Milman et Gromov de se ramener a une étude ensembliste du problème, Il introduisent $\alpha$ une fonction dite de concentration, définit comme le plus petit réel tel que:
+Cette observation a permis a Milman et Gromov de se ramener a une étude ensembliste du problème. Ils introduisent $\alpha$ une fonction dite de concentration, définit comme le plus petit réel tel que:
 \begin{equation*}
-\forall A\subset X , \; P(A)\geq \frac{1}{2}\hspace{3mm} \Rightarrow\hspace{3mm} 1-P(A_t)\leq \alpha(t,P)
+\forall A\subset X , \; P(A)\geq \frac{1}{2}\hspace{3mm} \Rightarrow\hspace{3mm} 1-P(A_\varepsilon)\leq \alpha(\varepsilon,P)
 \end{equation*}
 Appliquant ceci au ensemble  $\Big\{f\geq m_f\Big\}$ et $\Big\{f\leq m_f\Big\}$, on trouve facilement :
 \begin{equation*}
-	P(|f-m_f|>t)\leq 2 \alpha(t,P)
+	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\varepsilon,P)
 \end{equation*}
 Considérons maintenant que $f$ est $L$-Lipschitzienne, alors la médiane de $\frac{f}{L}$ est $\frac{m_f}{L}$, donc par homogénéité 
 \begin{equation*}
-	P(|f-m_f|>t)\leq 2 \alpha(\frac{t}{L},P)
+	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\frac{\varepsilon}{L},P)
 \end{equation*}
-L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $t$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple a calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
+L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple a calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
 \newline\boxXx{
 	\begin{theoreme}[Concentration de la mesure sur la sphère]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
@@ -495,7 +495,7 @@ Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat 
 	\end{align*}
 	On a le déterminant suivant : 
 	\begin{equation*}
-	dx_1 ... dx_n = r^{n-1}\sin^{n-2} \theta_1 \sin^{n-3} \theta_2 ... \sin \theta_{n-2} dr d\theta_1 ... d\theta_{n-1}
+	dx_1 ... dx_n = r^{n-1}\prod_{1\leq i\leq n-1}(\sin\theta_i)^{n-1-i} dr d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	d'où :
 	\begin{equation*}
@@ -670,8 +670,8 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 	\end{equation*}
 \end{proof}
 
-\subsection{Début de la démonstration du théorème de Dvoretzky}
-Dans cette partie nous allons montrer un théorème qui seras l'outils principal de la démonstration du théorème de Dvoretzky.
+\subsection{Démonstration du théorème de Dvoretzky}
+La demonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
 
 \boxXx{
 	\begin{theoreme}\label{mtool}
@@ -680,7 +680,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$ et $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} nous allons montrer que le $c(\varepsilon)$ rechercher est $c(\theta(\varepsilon)) =: \frac{\theta^2}{8\log(\frac{3}{\theta})} $, pour alléger les notations on note 
+	Soit $\varepsilon>0$ et $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} nous allons montrer que $c(\theta(\varepsilon)) =: \frac{\theta^2}{8\log(\frac{3}{\theta})} $ convient, pour alléger les notations on note 
 	\begin{enumerate}
 		\item[-] $\eta =: \frac{\theta M}{b}$
 		\item[-] $\kappa(\theta)=:c(\theta)\big(\frac{M}{b}\big)^2n$
@@ -710,8 +710,7 @@ Dans cette partie nous allons montrer un théorème qui seras l'outils principal
 	\end{equation*}
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.\\ 
 \end{proof}
-\subsection{Estimation de $M$}
-Dans cette partie nous allons donner une estimation de $M=:\int_{S^{n-1}}||x||d\mu(x)$, mais avant cela nous avons besoin du lemme suivant :
+Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0}, et le lemme suivant :
 \newline\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
 		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
@@ -790,7 +789,7 @@ Dans cette partie nous allons donner une estimation de $M=:\int_{S^{n-1}}||x||d\
 \section{Sections presque euclidiennes de $\ell_p^n$}
 \subsection{cas $1\leq p <2$}
 \boxXx{
-\begin{proposition}
+\begin{proposition}\label{l10}
 	Soit $1\leq p < 2$, pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tous $n\geq 2$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)n$.
 \end{proposition}
 }
@@ -808,27 +807,9 @@ Dans cette partie nous allons donner une estimation de $M=:\int_{S^{n-1}}||x||d\
 	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{E}{b})^2n=\tilde{c}(\varepsilon)n$. 
 \end{proof}
 \subsection{cas $2 \leq p < \infty$}
-\boxXx{
-\begin{proposition}\label{l11}
-	Soit $2\leq p < \infty$, pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tous $n\geq 2$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)n^{\frac{2}{p}}$.
-\end{proposition}
-}
-\begin{proof}
-	Par l'inégalité de Hölder $||x||_p \leq |x|$, c'est-à-dire $b\leq 1$. Comme pour la proposition qui précède :
-	\begin{equation*}
-	\mathbb{E}\Big[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Big]\geq \big(\sum_{i=1}^{n}\mathbb{E}[|x_i|]^p\big)^{\frac{1}{p}}=n^{\frac{1}{p}}\sqrt{\frac{\pi}{2}}
-	\end{equation*}
-	Et donc 
-	\begin{align*}
-	M&=:\int_{S^{n-1}}||x||_p d\mu(x)\\
-	&=\mathbb{E}\Bigg[\frac{||x||_p}{|x|}\Bigg]\\
-	&=\frac{\mathbb{E}\big[||x||_p\big]}{\mathbb{E}\big[|x|\big]}\geq n^{\frac{1}{p}-\frac{1}{2}}\sqrt{\frac{\pi}{2}}\\
-	\end{align*}
-	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{M}{b})^2n=\tilde{c}(\varepsilon)n^{\frac{2}{p}}$. 
-\end{proof}
-Si $p$ n'est pas trop grand par rapport à $n$ on peut amélioré la proposition précédente , en remplaçant $c(\varepsilon)$ par une fonction $c_p(\varepsilon)\underset{p\to\infty}{\sim}\tilde{c}(\varepsilon)p$.
+On pourrais utiliser la même inégalité que dans la \cref{l10}, cela nous donnerais une estimation de l'ordre de $k\geq c(\varepsilon)n^{\frac{2}{p}}$ (car ici $b\leq 1$), mais il se trouve que l'on peut donner de meilleur estimation en séparant les cas en deux, lorsque $k$ est petit devant $n$ on a la proposition suivante :
 \newline\boxXx{\begin{proposition}
-		Soit $2\leq p$, pour tout $\varepsilon>0$ il existe $c_p(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ avec $p<\log n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour $k\geq c_p(\varepsilon)n^{\frac{2}{p}}$.
+		Pour tout $\varepsilon>0$ et $2\leq p$,  il existe $c_p(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ avec $p<\log n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour $k\geq c_p(\varepsilon)n^{\frac{2}{p}}$.
 \end{proposition}}
 \begin{proof}
 \begin{equation*}
