@@ -865,7 +865,10 @@ Pour la proposition suivante nous aurrons besoin de l'inégalité de Khinchine q
 	\end{equation*}
 	Par l'inégalité de Khinchine (\cref{Khi}) $\exists B_p>0$ tel que :
 	\begin{equation*}
-		k^{\frac{1}{2}} \leq\sum_{i=1}^{n}B_p\big(\sum_{j=1}^{k}a_{i,j}^2\big)^{\frac{1}{2}}
+		\big(\int_{0}^{1}|\sum_{j=1}^{k}a_{i,j}r_j(t)|^pdt\big)^{\frac{1}{p}} \leq B_p\big(\sum_{j=1}^{k}a_{i,j}^2\big)^{\frac{1}{2}}
+	\end{equation*}
+	\begin{equation*}
+		k^{\frac{p}{2}} \leq\sum_{i=1}^{n}B_p^p\big(\sum_{j=1}^{k}a_{i,j}^2\big)^{\frac{p}{2}}
 	\end{equation*}
 	Comme $p>2$ par l'inégalité de Hölder on a 
 	\begin{equation*}
@@ -880,7 +883,7 @@ Pour la proposition suivante nous aurrons besoin de l'inégalité de Khinchine q
 	\end{equation*}
 	et finalement 
 	\begin{equation*}
-		k^{\frac{1}{2}} \leq B_pC n
+		k \leq \big(B_pC\big)^2 n^{\frac{2}{p}}
 	\end{equation*}
 \end{proof}
 \section{Inégalité de Khinchine}
