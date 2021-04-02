@@ -32,6 +32,7 @@
 \newtheorem*{definition}{Défintion}
 \newtheorem*{fait}{Fait}
 \newtheorem*{defft}{Définition \& Théorème}
+\newtheorem*{defprop}{Définition \& Proposition}
 \newtheorem{theoreme}{Théorème}
 \crefformat{theoreme}{\textbf{théorème #1}}
 
@@ -892,16 +893,15 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 	\end{align*}
 	En utilisant la \cref{pK1}.\textbf{ii} on obtient :
 	\begin{equation*}
-		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)= \mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\sum_{j=1}^{i-1}e^{\lambda d_j}\big)e^{\lambda d_i}|\mathcal{F}_{i-1}\Big)\Bigg)= \mathbb{E}\Bigg(\exp\big(\sum_{j=1}^{i-1}e^{\lambda d_j}\big)\mathbb{E}\big(e^{\lambda d_i}|\mathcal{F}_{i-1}\big)\Bigg)
+		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)= 
+		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\sum_{j=1}^{i-1}\lambda d_j\big)e^{\lambda d_i}|\mathcal{F}_{i-1}\Big)\Bigg)= 
+		\mathbb{E}\Bigg(\exp\big(\sum_{j=1}^{i-1}\lambda d_j\big)\mathbb{E}\big(e^{\lambda d_i}|\mathcal{F}_{i-1}\big)\Bigg)
 	\end{equation*}
 	D'où :
 	\begin{equation*}
 		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)\leq \mathbb{E}\Bigg(\exp\big(\sum_{j=1}^{i-1}e^{\lambda d_j}\big)\Bigg)e^{\lambda^2 ||d_i||_{\infty}^2}
 	\end{equation*}
-	d'autres part on a $\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)=\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\big|\{\emptyset,\Omega\}\Bigg)$ la \cref{pK1}.\textbf{i} nous dis donc que :
-	\begin{equation*}
-		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)= \mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)\Big)
-	\end{equation*}
+	d'autres part on a $\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)=\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)\Big)$
 	et donc on a 
 	\begin{equation*}
 		\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)\Big)\leq \mathbb{E}\Bigg(\exp\big(\sum_{j=1}^{i-1}e^{\lambda d_j}\big)\Bigg)e^{\lambda^2 ||d_i||_{\infty}^2}
@@ -944,7 +944,29 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 	\end{equation*}
 \end{notation}
 \boxXx{
-\begin{theoreme}
+\begin{defprop}	On note $r_k\in L^2([0,1])$ définie par:
+	\begin{equation*}
+	r_k(t)=\text{sign}\big(\sin (\pi 2^kt)\big)
+	\end{equation*}
+	les $(r_k)_{k\in\mathbb{N}}$ sont appelées fonctions de Rademacher et elles vérifient les propriétés suivantes :
+	\begin{enumerate}
+		\item[(i)] Pour $p\neq q$, $r_p$ et $r_q$ sont orthogonaux dans $L^2$.
+		\item[(ii)] Pour tous $j\in \mathbb{N}^{*}$, $\int_{0}^{1}r_j d\lambda=0$.
+	\end{enumerate}
+\end{defprop}}
+\begin{proof}
+	(i)	Supposons $p<q$, on a l'égalité suivante :
+	\begin{equation*}
+		\int_{0}^{1}\text{sign}(\sin\pi 2^p t)\text{sign}(\sin \pi 2^q t) dt= \sum_{i=0}^{2^p-1}\int_{i2^{-p}}^{(i+1)2^{-p}} \text{sign}(\sin\pi 2^p t)\text{sign}(\sin \pi 2^q t) dt
+	\end{equation*}
+	Or pour tout $t\in]i2^{-p},(i+1)2^{-p}[$, on a $\text{sign}(\sin\pi 2^p t)=(-1)^i$ et de plus \begin{equation*}
+	\pi 2^q t\in ]i2^{q-p}\pi,(i+1)2^{q-p}\pi[
+	\end{equation*}
+	un intervalle de taille un multiple de $2\pi$, et pour finir $\text{sign}(\sin \pi 2^q t)$ prends les valeurs $1$ et $-1$ sur des intervalles de mêmes longueurs pour  $t\in]i2^{-p},(i+1)2^{-p}[$, donc chaque termes de la somme est nulle.\\
+	(ii) Pour $t\in]0,1[$ on a $\pi2^{j}t\in]0,2^{j}\pi[$ un intervalle de taille un multiple de $2\pi$, donc $sin$ prend des valeurs positives et négative sur des ensembles de même mesure, et donc $\int_{0}^{1}r_j d\lambda=0$.
+\end{proof}
+\boxXx{
+\begin{theoreme}[Inégalité de Khinchine]
 	Pour tous $1\geq p<\infty$, il existe des constantes $0<A_p<B_p$ tel que pour tous $n$ et tous $(a_i)_{i\leq n}\subset \mathbb{R}$  :
 	\begin{equation*}
 		\big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}}\frac{1}{A_p} \leq \Big(\int_{0}^1\big|\sum_{i=1}^{n}a_ir_i(t)\big|^pdt\Big)^{\frac{1}{p}}\leq B_p \big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}}
@@ -997,8 +1019,34 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 		&\leq 2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\\
 		&\leq B_p^p
 	\end{align*}
-	avec $B_p= \big(2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\big)^{\frac{1}{p}}$
-\end{proof}
+	avec $B_p= \big(2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\big)^{\frac{1}{p}}$.\\
+	Donc pour $p\geq 2$ : 
+	\begin{equation*}
+		1 =\big(\int_{0}^{1}|f|^2d\lambda\big)^{\frac{1}{2}}\leq \big(\int_{0}^{1}|f|^pd\lambda\big)^{\frac{1}{p}}\leq B_p
+	\end{equation*}
+	\begin{equation*}
+		\big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}} \leq \big(\int_{0}^{1}|\sum_{i=1}^{n}a_ir_i|^pd\lambda\big)^{\frac{1}{p}}\leq B_p\big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}} 
+	\end{equation*}
+	Pour $p=1$, soit $\theta\in]0,1[$ alors 
+	\begin{equation*}
+		\int_{0}^{1}|f|^{2}d\lambda=\int_{0}^{1}|f|^{2\theta}|f|^{2(1-\theta)}d\lambda\leq\Bigg(\int_{0}^1 |f| d\lambda\Bigg)^{2\theta}\Bigg(\int_{0}^1|f|^{4}d\lambda\Bigg)^{\frac{1-\theta}{2}}
+	\end{equation*}
+	\begin{equation*}
+		1 = \Bigg(\int_{0}^{1}|f|^{2}d\lambda\Bigg)^{\frac{1}{2}}\leq \Bigg(\int_{0}^1 |f| d\lambda\Bigg)^{\theta}B_4^{1-\theta}
+	\end{equation*}
+	Avec $\theta=\frac{1}{3}$ on obtient :
+	\begin{equation*}
+		B_4^{-2} \leq \int_{0}^1 |f| d\lambda
+	\end{equation*}
+	Et pour $1\leq p <2 $ on a finalement :
+	\begin{equation*}
+		B_4^{-2}\leq \int_{0}^1 |f| d\lambda \leq \Big(\int_0^1|f|^pd\lambda \Big)^{\frac{1}{p}}\leq \Big(\int_{0}^{1}|f|^{2}d\lambda\Big)^{\frac{1}{2}}=1
+	\end{equation*}
+	c'est-à-dire 
+	\begin{equation*}
+		B_4^{-2}\big(\sum_{i=1}^{n}a_i^2\big)^{\frac{1}{2}}\leq \Big(\int_0^1|\sum_{i=1}^{n}a_ir_i|^pd\lambda \Big)^{\frac{1}{p}}\leq \big(\sum_{i=1}^{n}a_i^2\big)^{\frac{1}{2}}
+	\end{equation*}
+	\end{proof}
 \newpage
 \nocite{GP}
 \nocite{VM2}
