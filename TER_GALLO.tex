@@ -850,7 +850,7 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 	\int_{A}h dP = \int_{A}f dP
 \end{equation*}
 \begin{notation}
-	Par la suite on note $h = \mathbb{E}(f|\mathcal{G})$
+	Par la suite on note $h = \mathbb{E}(f|\mathcal{G})$ l'espérance conditionnelle de $f$. 
 \end{notation}
 \noindent Donnons quelques propriétés associées :
 \newline\boxXx{
@@ -858,12 +858,38 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 	\begin{enumerate}
 		\item[(i)] Pour toute sous tribus $\mathcal{H}$ de $\mathcal{G}$ on a $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)=\mathbb{E}(f|\mathcal{H})$.
 		\item[(ii)] Pour tous $g\in L^{\infty}(\Omega,\mathcal{F},P)$ , $\mathbb{E}(f.g|\mathcal{G})=g.\mathbb{E}(f|\mathcal{G})$.
+		\item[(iii)] Si $f$ et $\mathcal{G}$ sont indépendant alors $\mathbb{E}(f|\mathcal{G})=\mathbb{E}[f]$.
+		\item[(iv)] Si $f$ est $\mathcal{G}$ mesurable alors $\mathbb{E}(f|\mathcal{G})=f$.
 	\end{enumerate}
 \end{proposition}
 }
 \begin{proof}
-	
-\end{proof}
+	(i) Par définition $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)$ est l'unique fonction de $L^1(\Omega,\mathcal{H},P)$ tel que pour tous $A\in\mathcal{H}\subset\mathcal{G}$ :
+	\begin{equation*}
+		\int_{A}\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)dP = \int_{A}\mathbb{E}(f|\mathcal{G})dP= \int_{A}f dP
+	\end{equation*}
+	Par unicité $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)=\mathbb{E}\Big(f|\mathcal{H}\Big)$.\\
+	(ii) Nous allons le montrer en plusieurs étapes, premièrement si $g=\mathbb{1}_{B}$ pour $B\in\mathcal{F}$ alors pour tous $A\in \mathcal{G}$ 
+	\begin{align*}
+		\int_{A}\mathbb{E}(\mathbb{1}_{B}f|\mathcal{G})dP&=\int_A \mathbb{1}_B f dP\\
+		&=\int_{A\cap B} f dP\\
+		&=\int_{A\cap B} \mathbb{E}(f|\mathcal{G})dP \hspace{5mm} \text{car $A\cap B \subset A\in\mathcal{G}$}\\
+		&=\int_{A} \mathbb{1}_B \mathbb{E}(f|\mathcal{G})dP\\
+	\end{align*}
+	Par unicité $\mathbb{E}(\mathbb{1}_{B}f|\mathcal{G}) = \mathbb{1}_B \mathbb{E}(f|\mathcal{G})$. La linéarité de l'espérance  permet de conclure pour des fonctions en escaliers, or pour toute fonction positive $g$ mesurable il existe une suite de fonctions en escalier $(g_n)_{n\in\mathbb{N}}$ croissante tel que $g=\lim g_n$ presque partout, et donc par le théorème de convergence monotone pour $A\in\mathcal{G}$:
+	\begin{equation*}
+		\int_{A}gfdP=\lim_{n}\int_{A}g_nfdP=\lim_{n}\int_{A}\mathbb{E}(g_n.f|\mathcal{G})dP=\lim_{n}\int_{A}g_n\mathbb{E}(f|\mathcal{G}) dP =\int_{A}g\mathbb{E}(f|\mathcal{G})dP
+	\end{equation*}
+	finalement si $g$ est une fonction mesurable alors on écrit $g = |g|\mathbb{1}_{\big\{g>0\big\}}-|g|\mathbb{1}_{\big\{g<0\big\}}$ et on applique le point précédent à $|g|\mathbb{1}_{\big\{g>0\big\}}$ et $|g|\mathbb{1}_{\big\{g<0\big\}}$.\\
+	(iii)Soit $A\in \mathcal{G}$, 
+	\begin{align*}
+		\int_{A}\mathbb{E}(f|\mathcal{G})dP &= \int_{A}f dP\\
+		&=\mathbb{E}[f]. \mathbb{E}[\mathbb{1}_{A}]\hspace{5mm}\text{par indépendance}\\
+		&=\int_A \mathbb{E}[f] dP
+	\end{align*}
+	L'unicité permet de conclure.\\
+	(iv)  Évident par la définition et l'unicité.
+	\end{proof}
 \boxXx{
 \begin{lemme}\label{lcm}
 	Soit $f\in L^{\infty}(\Omega,\mathcal{F},P)$, $\Big\{\emptyset,\Omega\Big\}= \mathcal{F}_0\subset \mathcal{F}_1 \subset \dots \subset \mathcal{F}_N =\mathcal{F}$, alors pour tous $\varepsilon>0$ :
