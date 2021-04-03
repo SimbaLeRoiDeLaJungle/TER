@@ -286,7 +286,7 @@ La mesure de Haar est une notion introduite par Alfred Haar en 1933, il démontr
 		alors il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$, cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
-Les 2 exemples suivant d'espace métrique vérifie ($\star$) pour $G=O(n)$,
+Les deux exemples suivant d'espace métrique vérifie ($\star$) pour $G=O(n)$,
 \begin{enumerate}
 	\item[(i)] $X=S^{n-1}$ muni de la distance euclidienne
 	\item[(ii)] $X=O(n)$ avec la norme $||T||=\sup_{|x|=1}|Tx|$
@@ -372,7 +372,7 @@ Considérons maintenant que $f$ est $L$-Lipschitzienne, alors la médiane de $\f
 \begin{equation*}
 	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\frac{\varepsilon}{L},P)
 \end{equation*}
-L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple a calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
+L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple à calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
 \newline\boxXx{
 	\begin{theoreme}[Concentration de la mesure sur la sphère]
 		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
@@ -503,7 +503,7 @@ Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat 
 	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i}dr d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	\begin{equation*}
-		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{\mathbb{R}^{n-1}} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i}d\theta_1 ... d\theta_{n-1}
+		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{+}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{]0,\pi[^{n-2}\times ]0,2\pi[} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i}d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	où $\varphi(\theta)=(\sin \theta_1 ... \sin \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2},\dots,\cos \theta_1)$.
 \end{proof} 
@@ -554,7 +554,26 @@ Avant de débuter la démonstration du théorème de Dvoretzky, nous allons avoi
 		\end{enumerate}
 	\end{definition}
 }
-Le petit lemme qui suit nous permet d'approcher les points de la $(n-1)$-sphère par des points tous situé sur un $\theta$-net.
+Montrons maintenant que sur une section de la $(n-1)$-sphère on peut trouver un $\theta$-net de cardinal borné par une quantité qui varie exponentiellement avec la dimension de la section.  
+\newline\boxXx{
+	\begin{lemme}\label{lns}
+		Pour tous $0<\theta<1$ , $V\sev\mathbb{R}^n$ de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
+	\end{lemme}
+}
+\begin{proof}
+		Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
+	\begin{equation*}
+		m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
+	\end{equation*}
+	\begin{equation*}
+		m\leq \frac{\text{Vol}(B_V(0,1+\frac{\theta}{2}))}{\text{Vol}(B_V(x_1,\frac{\theta}{2}))} 
+	\end{equation*}
+	Par homogénéité de la mesure de Lebesgue :
+	\begin{equation*}
+		m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
+	\end{equation*}
+\end{proof}
+Le petit lemme qui suit nous permet d'approcher les points de la $(n-1)$-sphère par des points situé sur un $\theta$-net.
 \newline\boxXx{
 	\begin{lemme}\label{lap}
 		Soient $x\in S^{n-1}$ , A un $\theta$-net pour un $1>\theta>0$, alors il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
@@ -601,7 +620,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 	\end{lemme}
 }
 \begin{proof} 
-	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S(V)=\big\{x\in V \; ;^|x|=1\big\}$ et $x\in S(V)$ par le \cref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
+	Soient $1>\theta>0$, $A$ un $\theta$-net sur $S^{n-1}\cap V$ et $x\in S^{n-1}\cap V$ par le \cref{lap},  il existe $(y_i)_{i\in\mathbb{N}}\subset A$ et $(\beta_i)_{i\in\mathbb{N}}\subset \mathbb{R}^{+}$ tel que 
 	\begin{equation*}
 	x = \sum_{i=0}^{+\infty}y_i \beta_i \text{\hspace{4mm} et \hspace{4mm} $\forall i\in \mathbb{N}$, }\; \beta_i\leq \theta^i
 	\end{equation*}
@@ -652,24 +671,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 	\end{align*}
 	donc pour $\varepsilon\in]0,9^{-1}[$ on peu prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$.
 \end{proof}
-\boxXx{
-	\begin{lemme}\label{lns}
-		Pour tous $0<\theta<1$ , $V\sev\mathbb{R}^n$ de dimension $k>0$, alors il existe un $\theta$-net sur $V\cap S^{n-1}$ de cardinal inférieur à $\big(\frac{3}{\theta}\big)^{k}$.
-	\end{lemme}
-}
-\begin{proof}
-	Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'ou : 
-	\begin{equation*}
-	m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
-	\end{equation*}
-	\begin{equation*}
-	m\leq \frac{\text{Vol}(B_V(0,1+\frac{\theta}{2}))}{\text{Vol}(B_V(x_1,\frac{\theta}{2}))} 
-	\end{equation*}
-	Par homogénéité de la mesure de Lebesgue :
-	\begin{equation*}
-	m\leq\Bigg(\frac{1+\frac{\theta}{2}}{\frac{\theta}{2}}\Bigg)^k=  \Bigg(1+\frac{2}{\theta}\Bigg)^k<\big(\frac{3}{\theta}\big)^k
-	\end{equation*}
-\end{proof}
+
 
 \subsection{Démonstration du théorème de Dvoretzky}
 La demonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
@@ -711,7 +713,7 @@ La demonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cr
 	\end{equation*}
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.\\ 
 \end{proof}
-Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0}, et le lemme suivant :
+Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0} et le lemme suivant :
 \newline\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
 		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ tel que $\forall 1\leq i\leq n$
@@ -844,14 +846,14 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 \begin{rem}
 	Dans le cas contraire si $p\geq \log n$, alors $n^{\frac{2}{p}}\leq e^2$ donc dans ce cas la meilleur estimation est celle donné par le théorème de Dvoretzky.
 \end{rem}
-Pour la proposition suivante nous aurrons besoin de l'inégalité de Khinchine qui est démontrer dans la section suivante.
+Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui est démontrer en annexe.
 \newline\boxXx{
 \begin{proposition}
 	Soit $2<p<\infty$ et $C>0$ on suppose que $\ell_2^k$ s'injecte $C$-continûment dans $\ell_p^n$ pour un $k\in \mathbb{N}$, alors il existe $c>0$ ne dépendant que de $C$ et $p$ tel que $k\leq cn^{\frac{2}{p}}$.  
 \end{proposition}
 }
 \begin{proof}
-	Considérons $T=(a_{i,j})^{i\leq n}_{j\leq k}\subset \mathbb{R}^n$ tel que pour tout $x\in\mathbb{R}^k$
+	Considérons $T=(a_{ij})^{i\leq n}_{j\leq k}\subset \mathbb{R}^n$ tel que pour tout $x\in\mathbb{R}^k$
 	\begin{equation*}
 		|x|\leq \big|\big|Tx\big|\big|_p\leq C |x|
 	\end{equation*}
@@ -859,16 +861,16 @@ Pour la proposition suivante nous aurrons besoin de l'inégalité de Khinchine q
 	\begin{equation*}
 		\forall t\in]0,1[\hspace{1mm},\hspace{3mm}|(r_1(t),...,r_k(t))|\leq \big|\big|T(r_1(t),...,r_k(t))\big|\big|_p\leq C |(r_1(t),...,r_k(t))|
 	\end{equation*} 
-	Or $|(r_1(t),...,r_k(t))|^2=\sum_{i=1}^{k}r_i^2(t)=k$ presque sûrement.
+	Or $|(r_1(t),...,r_k(t))|^2=\sum_{i=1}^{k}r_i^2(t)=k$ presque sûrement. En intégrant entre $0$ et $1$ :
 	\begin{equation*}
-		k^{\frac{p}{2}} \leq\sum_{i=1}^{n} \int_{0}^{1}|\sum_{j=1}^{k}a_{i,j}r_j(t)|^pdt
+		k^{\frac{p}{2}} \leq\sum_{i=1}^{n} \int_{0}^{1}|\sum_{j=1}^{k}a_{ij}r_j(t)|^pdt
 	\end{equation*}
 	Par l'inégalité de Khinchine (\cref{Khi}) $\exists B_p>0$ tel que :
 	\begin{equation*}
-		\big(\int_{0}^{1}|\sum_{j=1}^{k}a_{i,j}r_j(t)|^pdt\big)^{\frac{1}{p}} \leq B_p\big(\sum_{j=1}^{k}a_{i,j}^2\big)^{\frac{1}{2}}
+		\big(\int_{0}^{1}|\sum_{j=1}^{k}a_{ij}r_j(t)|^pdt\big)^{\frac{1}{p}} \leq B_p\big(\sum_{j=1}^{k}a_{ij}^2\big)^{\frac{1}{2}}
 	\end{equation*}
 	\begin{equation*}
-		k^{\frac{p}{2}} \leq\sum_{i=1}^{n}B_p^p\big(\sum_{j=1}^{k}a_{i,j}^2\big)^{\frac{p}{2}}
+		k^{\frac{p}{2}} \leq\sum_{i=1}^{n}B_p^p\big(\sum_{j=1}^{k}a_{ij}^2\big)^{\frac{p}{2}}
 	\end{equation*}
 	Comme $p>2$ par l'inégalité de Hölder on a 
 	\begin{equation*}
@@ -1027,11 +1029,11 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 	\pi 2^q t\in ]i2^{q-p}\pi,(i+1)2^{q-p}\pi[
 	\end{equation*}
 	un intervalle de taille un multiple de $2\pi$, et pour finir $\text{sign}(\sin \pi 2^q t)$ prends les valeurs $1$ et $-1$ sur des intervalles de mêmes longueurs pour  $t\in]i2^{-p},(i+1)2^{-p}[$, donc chaque termes de la somme est nulle.\\
-	(ii) Pour $t\in]0,1[$ on a $\pi2^{j}t\in]0,2^{j}\pi[$ un intervalle de taille un multiple de $2\pi$, donc $sin$ prend des valeurs positives et négative sur des ensembles de même mesure, et donc $\int_{0}^{1}r_j d\lambda=0$.
+	(ii) Pour $t\in]0,1[$ on a $\pi2^{j}t\in]0,2^{j}\pi[$ un intervalle de taille un multiple de $2\pi$, donc $\sin(\pi2^jt)$ prend des valeurs positives et négatives sur des ensembles de mêmes mesures, et donc $\int_{0}^{1}r_j d\lambda=0$.
 \end{proof}
 \boxXx{
 \begin{theoreme}[Inégalité de Khinchine]\label{Khi}
-	Pour tous $1\geq p<\infty$, il existe des constantes $0<A_p<B_p$ tel que pour tous $n$ et tous $(a_i)_{i\leq n}\subset \mathbb{R}$  :
+	Pour tous $1\leq p<\infty$, il existe des constantes $0<A_p<B_p$ tel que pour tous $n$ et tous $(a_i)_{i\leq n}\subset \mathbb{R}$  :
 	\begin{equation*}
 		\big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}}\frac{1}{A_p} \leq \Big(\int_{0}^1\big|\sum_{i=1}^{n}a_ir_i(t)\big|^pdt\Big)^{\frac{1}{p}}\leq B_p \big(\sum_{i=1}^{n}|a_i|^2\big)^{\frac{1}{2}}
 	\end{equation*}
