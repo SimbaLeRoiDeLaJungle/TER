@@ -713,6 +713,9 @@ La demonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cr
 	\end{equation*}
 	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.\\ 
 \end{proof}
+\begin{rem}
+	Pour tout $k\leq c(\varepsilon)\big(\frac{M}{b}\big)^2n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$
+\end{rem}
 Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0} et le lemme suivant :
 \newline\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
@@ -790,10 +793,17 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 \noindent On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir $k \geq c(\varepsilon)\log n$ lorsque $B_2^n$ est l'ellipsoïde de John pour $B_{||.||}$, en utilisant la \cref{rem0} quitte à diviser $k$ par $2$, on peut généralisé à toutes les normes et donc conclure la démonstration du théorème de Dvoretzky.
 \end{leftbar}
 \section{Sections presque euclidiennes de $\ell_p^n$}
+\boxXx{
+	\begin{definition}(Dimension critique)
+		Soit $X=(\mathbb{R}^n,||.||)$ pour $||.||$ une norme sur $\mathbb{R}^n$ , pour $\varepsilon>0$ on note $k(X,\varepsilon)$ le plus grand entier tel que pour tout $k\leq k(X,\varepsilon)$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $X$.
+\end{definition}}
 \subsection{cas $1\leq p <2$}
 \boxXx{
 \begin{proposition}\label{l10}
-	Soit $1\leq p < 2$, pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tous $n\geq 2$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)n$.
+	Soit $1\leq p < 2$, pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\geq 2$, alors
+	\begin{equation*}
+		k(\ell^n_p,\varepsilon)\geq c(\varepsilon)n
+	\end{equation*}
 \end{proposition}
 }
 \begin{proof}
@@ -807,12 +817,15 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 		&=\mathbb{E}\Bigg[\frac{||x||_p}{|x|}\Bigg]\\
 		&=\frac{\mathbb{E}\big[||x||_p\big]}{\mathbb{E}\big[|x|\big]}\geq n^{\frac{1}{p}-\frac{1}{2}}\sqrt{\frac{\pi}{2}}\\
 	\end{align*}
-	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{E}{b})^2n=\tilde{c}(\varepsilon)n$. 
+	Par le \cref{mtool} $\;\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_p$ pour un $k\geq c(\varepsilon)(\frac{M}{b})^2n=\tilde{c}(\varepsilon)n$. 
 \end{proof}
 \subsection{cas $2 \leq p < \infty$}
 On pourrais utiliser la même inégalité que dans la \cref{l10}, cela nous donnerais une estimation de l'ordre de $k\geq c(\varepsilon)n^{\frac{2}{p}}$ (car ici $b\leq 1$), mais il se trouve que l'on peut donner de meilleur estimation en séparant les cas en deux, lorsque $k$ est petit devant $n$ on a la proposition suivante :
 \newline\boxXx{\begin{proposition}
-		Pour tout $\varepsilon>0$ et $2\leq p$,  il existe $c_p(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ avec $p<\log n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour $k\geq c_p(\varepsilon)n^{\frac{2}{p}}$.
+		Pour tout $\varepsilon>0$ et $2\leq p$,  il existe $c_p(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}$ avec $p<\log n$, alors
+		\begin{equation*}
+			k(\ell_p^n,\varepsilon)\geq c_p(\varepsilon)n^{\frac{2}{p}}
+		\end{equation*}
 \end{proposition}}
 \begin{proof}
 \begin{equation*}
@@ -849,17 +862,20 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui est démontrer en annexe.
 \newline\boxXx{
 \begin{proposition}
-	Soit $2<p<\infty$ et $C>0$ on suppose que $\ell_2^k$ s'injecte $C$-continûment dans $\ell_p^n$ pour un $k\in \mathbb{N}$, alors il existe $c>0$ ne dépendant que de $C$ et $p$ tel que $k\leq cn^{\frac{2}{p}}$.  
+	Soit $2<p<\infty$ et $0<\varepsilon<1$, alors il existe $c_p(\varepsilon)>0$ tel que,
+	\begin{equation*}
+		k(\ell^n_p,\varepsilon)\leq c_p(\varepsilon)n^{\frac{2}{p}}
+	\end{equation*}  
 \end{proposition}
 }
 \begin{proof}
 	Considérons $T=(a_{ij})^{i\leq n}_{j\leq k}\subset \mathbb{R}^n$ tel que pour tout $x\in\mathbb{R}^k$
 	\begin{equation*}
-		|x|\leq \big|\big|Tx\big|\big|_p\leq C |x|
+		|x|\leq \big|\big|Tx\big|\big|_p\leq (1+\varepsilon) |x|
 	\end{equation*}
 	Notons $r_i(t)=\text{sign}\big(\sin (\pi 2^it)\big)$ pour $t\in]0,1[$, $i\in\mathbb{N}^*$ (voir section 4 pour les détails).
 	\begin{equation*}
-		\forall t\in]0,1[\hspace{1mm},\hspace{3mm}|(r_1(t),...,r_k(t))|\leq \big|\big|T(r_1(t),...,r_k(t))\big|\big|_p\leq C |(r_1(t),...,r_k(t))|
+		\forall t\in]0,1[\hspace{1mm},\hspace{3mm}|(r_1(t),...,r_k(t))|\leq \big|\big|T(r_1(t),...,r_k(t))\big|\big|_p\leq (1+\varepsilon) |(r_1(t),...,r_k(t))|
 	\end{equation*} 
 	Or $|(r_1(t),...,r_k(t))|^2=\sum_{i=1}^{k}r_i^2(t)=k$ presque sûrement. En intégrant entre $0$ et $1$ :
 	\begin{equation*}
@@ -869,29 +885,39 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 	\begin{equation*}
 		\big(\int_{0}^{1}|\sum_{j=1}^{k}a_{ij}r_j(t)|^pdt\big)^{\frac{1}{p}} \leq B_p\big(\sum_{j=1}^{k}a_{ij}^2\big)^{\frac{1}{2}}
 	\end{equation*}
-	\begin{equation*}
+	\begin{equation*}\tag{$\star$}
 		k^{\frac{p}{2}} \leq\sum_{i=1}^{n}B_p^p\big(\sum_{j=1}^{k}a_{ij}^2\big)^{\frac{p}{2}}
 	\end{equation*}
 	Comme $p>2$ par l'inégalité de Hölder on a 
 	\begin{equation*}
-		|Tx|\leq ||Tx||_p\leq C |x|
+		n^{\frac{1}{p}-\frac{1}{2}}|Tx|\leq ||Tx||_p\leq (1+\varepsilon) |x|
 	\end{equation*}
 	\begin{equation*}
-		\sum_{i=1}^{n}|\sum_{j=1}^{k}a_{ij}x_j|^2\leq C^2 |x|^2
+		\big(\sum_{i=1}^{n}|\sum_{j=1}^{k}a_{ij}x_j|^2\big)^{\frac{1}{2}}\leq (1+\varepsilon) n^{\frac{1}{2}-\frac{1}{p}}|x|
 	\end{equation*}
-	Fixons $1\leq \nu\leq k$, alors pour $x=e_\nu$,
+	Fixons $1\leq \nu\leq n$, alors pour $x=(a_{\nu,j})_{j\leq k}$, on a
 	\begin{equation*}
-		\sum_{i=1}^{n}|a_{i\nu}|^2\leq C^2
+		\sum_{i=1}^{n}\big|\sum_{j=1}^{k}a_{ij}a_{\nu j}\big|^p\geq \big|\sum_{j=1}^{k}a_{\nu j}^2\big|^p
 	\end{equation*}
-	et finalement 
+	et donc :
 	\begin{equation*}
-		k \leq \big(B_pC\big)^2 n^{\frac{2}{p}}
+		\big|\sum_{j=1}^{k}a_{\nu j}^2\big|^p\leq \sum_{i=1}^{n}\big|\sum_{j=1}^{k}a_{ij}a_{\nu j}\big|^p\leq (1+\varepsilon)^p \big|\sum_{j=1}^{k}a_{\nu j}^2\big|^\frac{p}{2}
+	\end{equation*}
+	c'est-à-dire $\big|\sum_{j=1}^{k}a_{\nu j}^2\big|^{\frac{1}{2}}\leq 1+\varepsilon$, et finalement en injectant dans ($\star$) :
+	\begin{equation*}
+		k \leq B_p^2(1+\varepsilon)^2 n^{\frac{2}{p}}
 	\end{equation*}
 \end{proof}
-
+\begin{rem}
+	Dans la démonstration de l'inégalité de Khinchine, on montre que 
+	\begin{equation*}
+		B_p= \big(2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\big)^{\frac{1}{p}}
+	\end{equation*}
+\end{rem}
+\subsection{cas $p=\infty$}
 \boxXx{
 \begin{proposition}
-	Si $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_\infty$ alors $k\leq \frac{C\log(n)}{\log(\frac{1}{c\varepsilon})}$ avec $c,C>0$ des constantes universelles.
+	Soit $0<\varepsilon\leq \frac{1}{32}$, si $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_\infty$ alors $k\leq \frac{C\log(n)}{\log(\frac{1}{c\varepsilon})}$ avec $c,C>0$ des constantes universelles.
 \end{proposition}
 }
 \begin{proof}
@@ -908,7 +934,67 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 	\begin{equation*}
 		|x-a_i|^2=|x|^2+|a_i|^2-2<x,a_i>\leq 2-2(1-\varepsilon)=2\varepsilon
 	\end{equation*}
+	Prenons $1>|x|>1-\sqrt{2\varepsilon}$, alors il existe $i$ tel que $\big|\frac{x}{|x|}-a_i\big|\leq \sqrt{2\varepsilon}$ et donc :
+	\begin{align*}
+		|x-a_i|&\leq \big|x-\frac{x}{|x|}\big|+\big|\frac{x}{|x|}-a_i\big|\\
+		&\leq \big|1-|x|\big|+\sqrt{2\varepsilon}\\
+		&\leq 2\sqrt{2\varepsilon}
+	\end{align*}
+	Donc $\bigcup_{i\leq n}B^k_2(a_i,2\sqrt{2\varepsilon})$ contient $B^k_2\backslash (1-\sqrt{2\varepsilon})B^k_2$.
+	\begin{equation*}
+		n(2\sqrt{2\varepsilon})^k\lambda(B^k_2) \geq	\lambda\big(\bigcup_{i\leq n}B^k_2(a_i,2\sqrt{2\varepsilon})\big)\geq \lambda\big(B^k_2\backslash (1-\sqrt{2\varepsilon})B^k_2\big) =\lambda(B^k_2)-(1-\sqrt{2\varepsilon})^k\lambda(B^k_2)
+	\end{equation*}
+
+	\begin{equation*}
+		n(2\sqrt{2\varepsilon})^k\geq 1-(1-\sqrt{2\varepsilon})^k\geq \sqrt{2\varepsilon}(1-\sqrt{2\varepsilon})^{k-1}
+	\end{equation*}
+	car 
+	\begin{align*}
+		(1-\sqrt{2\varepsilon})^k&=(1-\sqrt{2\varepsilon})^{k-1}-\sqrt{2\varepsilon}(1-\sqrt{2\varepsilon})^{k-1}\\
+		&\leq 1-\sqrt{2\varepsilon}(1-\sqrt{2\varepsilon})^{k-1}
+	\end{align*}
+	Alors pour $\varepsilon<\frac{1}{32}$ on a $\frac{1}{2\sqrt{2\varepsilon}}-\frac{1}{2}>\frac{7}{16\sqrt{2\varepsilon}}$
+	et donc 
+	\begin{align*}
+		n&\geq \frac{1}{2}\big(\frac{1}{2\sqrt{2\varepsilon}}-\frac{1}{2}\big)^{k-1}\\
+		&\geq  \frac{1}{2}\big(\frac{7}{16\sqrt{2\varepsilon}}\big)^{k-1}\\
+		&\geq \frac{1}{2}\big(\frac{7}{16\sqrt{2\varepsilon}}\big)^{\frac{k}{2}}
+		\end{align*}
+		et donc 
+		\begin{equation*}
+			k\leq \frac{2\log n}{\log\big(\frac{7}{16\sqrt{2\varepsilon}}\big)}
+		\end{equation*}
 \end{proof}	
+\boxXx{
+\begin{proposition}
+	Soit $0<\varepsilon<1$, $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_\infty$ pour $k=\big[\frac{\log n}{\log(\frac{3}{\varepsilon})}\big]$
+\end{proposition}
+}
+\begin{proof}
+	Comme $\big(\frac{3}{\varepsilon}\big)^{k}\leq n$ on peut prendre un $\varepsilon$-net sur $S^{k-1}$ de cardinal $n$, donnons nous $\{y_i\}_{i\leq n}$ un tel $\varepsilon$-net et 
+	\begin{equation*}
+		T : \begin{array}{ccc}
+				\mathbb{R}^k& \to &\mathbb{R}^n\\
+				x & \to & (1+\varepsilon)(\langle x,y_i\rangle)_{i\leq n}\\
+			\end{array}
+	\end{equation*}
+	Alors pour tout $x\in S^{k-1}$, il existe $i\leq n$ tel que $|x-y|<\varepsilon$, alors 
+	\begin{align*}
+		\varepsilon^2>|x-y_i|^2&=|x|^2+|y|^2-2\langle x,y_i\rangle \\
+		&=2(1-\langle x,y_i\rangle)
+	\end{align*}
+	\begin{equation*}
+		\langle x,y_i\rangle >1 - \frac{\varepsilon}{2}^2 \geq \frac{1}{1+\varepsilon}
+	\end{equation*}
+	Car $1 - \frac{\varepsilon}{2}^2-\frac{1}{1+\varepsilon}=\frac{\varepsilon}{2(1+\varepsilon)}(1-\varepsilon)(\varepsilon+2)>0$, finalement avec l'inégalité de Cauchy-Schwarz : 
+	\begin{equation*}
+		1\geq  \max_{1\leq j \leq n}|\langle x,y_j\rangle| \geq  |\langle x,x_i\rangle| \geq \frac{1}{1+\varepsilon}
+	\end{equation*}
+	C'est à dire pour tout $x\in S^{k-1}$
+	\begin{equation*}
+		1\leq ||Tx||_\infty \leq 1+\varepsilon
+	\end{equation*} 
+\end{proof}
 \appendix 
 \section{- Inégalité de Khinchine}
 Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tribus de $\mathcal{F}$, pour tous $f\in L^1(\Omega,\mathcal{F},P)$ par le théorème de Randon-Nikodym il existe un unique $h\in L^1(\Omega,\mathcal{G},P)$ tel que pour tous $A\in \mathcal{G}$ on ait 
@@ -1139,7 +1225,6 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tri
 \nocite{VM2}
 \nocite{VMGS}
 \printbibliography
-
 
 \end{document}
 
