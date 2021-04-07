@@ -326,11 +326,11 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{lemme}
 }
 \begin{proof}
-	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors la mesure définie par
+	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors $\omega_x$ définie par
 	\begin{equation*}
 	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
 	\end{equation*}
-	$\omega_x$ vérifie les propriétés suivantes :
+vérifie les propriétés suivantes :
 	\begin{equation*}
 	\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
@@ -372,14 +372,14 @@ Considérons maintenant que $f$ est $L$-Lipschitzienne, alors la médiane de $\f
 \begin{equation*}
 	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\frac{\varepsilon}{L},P)
 \end{equation*}
-L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple à calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant qui seras admis (voir \cite{GS3} ou \cite{VMGS}) .
+L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple à calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant (démontrée dans l'annexe A).
 \newline\boxXx{
 	\begin{theoreme}[Concentration de la mesure sur la sphère]
-		Soit $f:S^{n-1}\to \mathbb{R}$ une fonction Lipschitzienne de constante $L>0$, alors 
+		Pour tout $t>0$ et toute fonction $f$, $L$-Lipschitzienne de $S^{n-1}$ dans $\mathbb{R}$ pour un $L>0$ on a :
 		\begin{equation*}
-		\mu\Big\{x\in S^{n-1}\; ; \; |f(x)-\mathbb{E}[f]|>\varepsilon\Big\}\leq 2e^{-\frac{\varepsilon^2n}{2L^2}}
+			\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2n}{L^2}}
 		\end{equation*}
-		Où $\mathbb{E}[f]=:\int_{S^{n-1}}fd\mu$
+		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $1>\beta>0$ est une constante universelle.
 	\end{theoreme}
 }
 \subsection{Ellipsoïdes}
@@ -674,45 +674,46 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 
 
 \subsection{Démonstration du théorème de Dvoretzky}
-La demonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
-
-\boxXx{
+La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
+\newline\boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$, pour un $k\geq c(\varepsilon).\big(\frac{M}{b}\big)^2n$.\\
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, il existe $V\sev \mathbb{R}^n$ tel que $\dim V \geq c(\varepsilon)(\frac{M}{b})^2 n$ et :
+		\begin{equation*}
+			|x|\frac{M}{\sqrt{1+\varepsilon}}\leq ||x|| \leq M\sqrt{1+\varepsilon}|x|
+		\end{equation*}
 		Où  $M=\int_{S^{n-1}}||x||d\mu(x)$ et $b>0$ le plus petit réel tel que $||.||\leq b |.|$
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$ et $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} nous allons montrer que $c(\theta(\varepsilon)) =: \frac{\theta^2}{8\log(\frac{3}{\theta})} $ convient, pour alléger les notations on note 
-	\begin{enumerate}
-		\item[-] $\eta =: \frac{\theta M}{b}$
-		\item[-] $\kappa(\theta)=:c(\theta)\big(\frac{M}{b}\big)^2n$
-	\end{enumerate}
-	Évacuons un cas trivial, si $\kappa(\theta)<1$ alors $k=1$ convient car toute $1$-section est euclidienne, pour la suite on suppose donc $\kappa(\theta)\geq 1 \iff \frac{\eta^2n}{8}\geq \log(\frac{3}{\theta})$.\\
+	Soit $\varepsilon>0$, $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} et $\beta>0$ tel que pour $f$ $L$-Lipschitzienne, $\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2n}{L^2}}$ donnée par le théorème de concentration de la mesure. Nous allons montrer que $c(\theta(\varepsilon)) =: \frac{\theta^2\beta}{4\log(\frac{3}{\theta})} $ convient, pour alléger les notations on note $\kappa(\theta)=:c(\theta)\big(\frac{M}{b}\big)^2n$.
+	Évacuons un cas trivial, si $\kappa(\theta)<1$ alors $k=1$ convient car toute $1$-section est euclidienne, pour la suite on suppose donc $\kappa(\theta)\geq 1 \iff \frac{\theta^2M^2n\beta}{4b^2}\geq \log(\frac{3}{\theta})$.\\
 	Fixons un $k$ entier tel que $\kappa(\theta)\leq k < 2\kappa(\theta)$ possible car $\kappa(\theta)\geq 1$ et on se donne $A$ un $\theta$-net sur $\text{Vect}(e_1,...,e_k)\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$. On alors :
 	\begin{align*}
-	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq b\eta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>b\eta\big\}\big)& \\
-	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>b\eta\big)& \text{pour un $y\in A$}\\
-	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-M \big|>b\eta\Big) & \text{par le \cref{lhso}}
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>M\theta\big\}\big)& \\
+	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>M\theta\big)& \text{pour un $y\in A$}\\
+	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-M \big|>M\theta\Big) & \text{par le \cref{lhso}}
 	\end{align*} 
 	En appliquant la concentration de la mesure
 	\begin{align*}
-	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq b\eta\big\}\Big)&\geq 1 - |A|2e^{-\frac{\eta^2n}{2}}\\
-	& > 1 - 2 \big(\frac{3}{\theta}\big)^k e^{-\frac{\eta^2n}{2}}\\
-	& > 1 - 2 \exp\big(2\kappa(\theta)\log(\frac{3}{\theta})-\frac{\eta^2n}{2}\big)\\
-	& > 1 -  2 e^{-\frac{\eta^2n}{4}}\\
-	&> 1 - \frac{2}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\eta^2n}{4}\geq 2\log(\frac{3}{\theta})$}
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)&\geq 1 - |A|4 e^{-\frac{\theta^2M^2n\beta}{b^2}}\\
+	& > 1 - 4 \big(\frac{3}{\theta}\big)^k e^{-\frac{\theta^2M^2n\beta}{b^2}}\\
+	& > 1 - 4 \exp\big(2\kappa(\theta)\log(\frac{3}{\theta})-\frac{\theta^2M^2n\beta}{b^2}\big)\\
+	& > 1 -  4 e^{-\frac{\theta^2M^2n\beta}{2b^2}}\\
+	&> 1 - \frac{4}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\theta^2M^2n\beta}{2b^2}\geq 2\log(\frac{3}{\theta})$} 
 	\end{align*}	
-	Donc il existe $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-M \big|\leq b \eta$, c'est à dire 
+	Donc il existe $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-M \big|\leq M\theta$, c'est à dire 
 	\begin{equation*}
-	M(1-\theta)=M-b\eta\leq ||Tx||\leq M+b\eta=M(1+\theta)
+	M(1-\theta)\leq ||Tx||\leq M(1+\theta)
 	\end{equation*}
 	Par le \cref{lsB} pour tous $x\in \text{Vect}(e_1,...,e_k)$
 	\begin{equation*}
 	\frac{1}{\sqrt{1+\varepsilon}}|x| M\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| M
 	\end{equation*}
-	et pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.\\ 
+	Il suffit donc de prendre $V=T\text{Vect}(e_1,...,e_k)$ pour conclure.
 \end{proof}
+\begin{rem}
+	Pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.
+\end{rem}
 \begin{rem}
 	Pour tout $k\leq c(\varepsilon)\big(\frac{M}{b}\big)^2n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$
 \end{rem}
@@ -974,9 +975,9 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 				x & \to & (1+\varepsilon)(\langle x,y_i\rangle)_{i\leq n}\\
 			\end{array}
 	\end{equation*}
-	Alors pour tout $x\in S^{k-1}$, il existe $i\leq n$ tel que $|x-y|<\varepsilon$, alors 
+	Alors pour tout $x\in S^{k-1}$, il existe $i\leq n$ tel que $|x-y_i|<\varepsilon$, alors 
 	\begin{align*}
-		\varepsilon^2>|x-y_i|^2&=|x|^2+|y|^2-2\langle x,y_i\rangle \\
+		\varepsilon^2>|x-y_i|^2&=|x|^2+|y_i|^2-2\langle x,y_i\rangle \\
 		&=2(1-\langle x,y_i\rangle)
 	\end{align*}
 	\begin{equation*}
@@ -984,7 +985,7 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 	\end{equation*}
 	Car $1 - \frac{\varepsilon}{2}^2-\frac{1}{1+\varepsilon}=\frac{\varepsilon}{2(1+\varepsilon)}(1-\varepsilon)(\varepsilon+2)>0$, finalement avec l'inégalité de Cauchy-Schwarz : 
 	\begin{equation*}
-		1\geq  \max_{1\leq j \leq n}|\langle x,y_j\rangle| \geq  |\langle x,x_i\rangle| \geq \frac{1}{1+\varepsilon}
+		1\geq  \max_{1\leq j \leq n}|\langle x,y_j\rangle| \geq  |\langle x,y_i\rangle| \geq \frac{1}{1+\varepsilon}
 	\end{equation*}
 	C'est à dire pour tout $x\in S^{k-1}$
 	\begin{equation*}
@@ -992,6 +993,129 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 	\end{equation*} 
 \end{proof}
 \appendix 
+\section{- Concentration de la mesure} \label{annex:mesure}
+On admet le théorème suivant :
+\newline\boxXx{\begin{theoreme}[Inégalité de Burnn-Minkowsky] 
+		Pour deux compacts $A$,$B$ non vide de $\mathbb{R}^n$ alors :
+		\begin{equation*}
+		\lambda(A+B)^{\frac{1}{n}}\geq \lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}
+		\end{equation*}
+\end{theoreme}}
+
+\boxXx{
+	\begin{theoreme}
+		Soit $A\in \text{Bor}(S^{n-1})$ tel que $\mu(A)\geq \frac{1}{2}$, alors pour tous $t>0$ :
+		\begin{equation*}
+		\mu(A_t)\geq 1-2e^{-\frac{nt^2}{4}}
+		\end{equation*}
+	\end{theoreme}
+}
+\begin{proof}
+	Si $t>2$ alors $A_t=S^{n-1}$, on peut donc supposer $t<2$. Soit $x\in A$ et $y\in A^{c}_t$ alors \begin{align*}
+	\big|\frac{x+y}{2}\big|^2&=\frac{|x|^2}{2}+\frac{|y|^2}{2}-\big|\frac{x-y}{2}\big|^2=1-\frac{|x-y|^2}{4}\\
+	&\leq 1-\frac{t^2}{4}
+	\end{align*}
+	or 
+	\begin{equation*}
+	(1-\frac{t^2}{8})^2 =1-\frac{t^2}{4}+\frac{t^4}{8^2}\geq 1-\frac{t^2}{4}
+	\end{equation*}
+	et donc 
+	\begin{equation*}
+	|\frac{x-y}{2}|\leq 1-\frac{t^2}{8}
+	\end{equation*}
+	Posons \begin{enumerate}
+		\item[-] $\tilde{A}=\big\{ax\;; a\in[0,1], x\in A\big\}$ 
+		\item[-]  $\tilde{B}=\big\{ax\;; a\in[0,1], x\in B\big\}$
+	\end{enumerate} 
+	et donnons nous $X=ax\in \tilde{A}$ et $Y=by\in \tilde{B}$, dans le calcul qui suit le rôle de $a$ et $b$ sont symétrique fixons alors $a\leq b$,
+	\begin{align*}
+	\Big|\frac{X+Y}{2}\Big|&= \Big|\frac{ax+yb}{2}\Big|\\
+	&=b\Big|\frac{\frac{a}{b}x+y}{2}\Big|\\
+	&\leq \Big|\frac{a}{b}\big(\frac{x+y}{2}\big)+\big(1-\frac{a}{b}\big)\frac{y}{2}\Big|\\
+	&\leq \frac{a}{b}\Big|\frac{x+y}{2}\Big|+\big(1-\frac{a}{b}\big)\big|\frac{y}{2}\big|
+	\end{align*}
+	Or pour $t\leq 2$
+	\begin{equation*}
+	1-\frac{t^2}{8}\geq \frac{1}{2} = |\frac{y}{2}|
+	\end{equation*}
+	et donc 
+	\begin{equation*}
+	\Big|\frac{X+Y}{2}\Big|\leq 1-\frac{t^2}{8}
+	\end{equation*}
+	c'est-à-dire,
+	\begin{equation*}
+	\frac{\tilde{A}+\tilde{B}}{2}\subset \big(1-\frac{t^2}{8}\big)B^n_2
+	\end{equation*}
+	Remarquons que $\mu$ peut s'exprimer géométriquement comme $\mu(C)=\frac{\lambda\big(tx \; ; t\in[0,1], x\in C \big)}{\lambda(B^n_2)}$, pour $C$ un borélien de $S^{n-1}$. Donc $\mu(A)=\frac{\lambda(\tilde{A})}{\lambda(B^n_2)}$, par l'inégalité de Brunn-Minkowsky 
+	\begin{equation*}
+	\big(1-\frac{t^2}{8}\big)^{n}\lambda(B^n_2)\geq \lambda\big(\frac{\tilde{A}+\tilde{B}}{2}\big)\geq \sqrt{\lambda(\tilde{A})\lambda(\tilde{B})}=\lambda(B^n_2)\sqrt{\mu(A)\mu(B)}
+	\end{equation*}
+	Or $\sqrt{\mu(A)\mu(B)}\geq\sqrt{\frac{1}{2}(1-\mu(A_t))}$ et finalement :
+	\begin{equation*}
+	\mu(A_t)\geq 1 - 2 \big(1-\frac{t^2}{8}\big)^{2n}\geq 1 - 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+\end{proof}
+\boxXx{
+	\begin{cor}
+		Pour tout $t>0$ et toute fonction $f$, $L$-Lipschitzienne de $S^{n-1}$ dans $\mathbb{R}$ pour un $L>0$ on a :
+		\begin{equation*}
+		\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2}{L^2}}
+		\end{equation*}
+		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $\beta>0$ une constante universelle.
+	\end{cor}
+}
+\begin{proof}
+	Commençons par le montrer pour $L=1$, donnons nous $m_f$ une médiane de $f$ et posons $A=\big\{f\leq m_f\big\}$, alors 
+	\begin{align*}
+	x\in A_t& \Rightarrow \exists y\in A , d(x,y)<t\\
+	&\Rightarrow |f(x)-f(y)|<Lt=t\\
+	&\Rightarrow f(x)-m_f\leq f(x)-f(y)+f(y)-m_f\\
+	&\Rightarrow f(x)\leq m_f + t
+	\end{align*}
+	donc $A_t\subset \Big\{f\leq m_f+t\Big\} \iff \Big\{f> m_f+t\Big\}\subset A_t^c $, 
+	\begin{equation*}
+	\mu\big(f> m_f+t\big)\leq \mu(A_t^c)\leq 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ et on obtient :
+	\begin{equation*}
+	\mu\big(f< m_f-t\big)\leq 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+	Il nous faut maintenant remplacer la médiane par $\mathbb{E}[f]$, on a l'inégalité suivante :
+	\begin{align*}
+	\big|m_f-\int_{S^{n-1}}fd\mu\big|&\leq \int_{S^{n-1}}\big|m_f-f|\big|d\mu\\
+	&\leq\int_{0}^{+\infty}\mu\big(|m_f-f|>t\big)dt\\
+	&\leq\int_{0}^{+\infty} 4 e^{-\frac{t^2n}{4}}dt=4\sqrt{\frac{\pi}{n}}
+	\end{align*}
+	Posons $\alpha = \frac{\sqrt{\log(2)}}{2\sqrt{\pi}+\sqrt{\log(2)}} \Rightarrow 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1 $, si $t>\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors 
+	\begin{align*}
+	\mu\big(f>\mathbb{E}[f]+t\big)&\leq \mu\big(f>m_f-4\sqrt{\frac{\pi}{n}}+t\big)\\
+	&\leq \mu\big(f>m_f+\alpha t\big)\\
+	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	Similairement :
+	\begin{align*}
+	\mu\big(f<\mathbb{E}[f]-t\big)&\leq \mu\big(f<m_f+4\sqrt{\frac{\pi}{n}}-t\big)\\
+	&\leq \mu\big(f>m_f-\alpha t\big)\\
+	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	Si $t\leq\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors  
+	\begin{equation*}
+		2e^{-\alpha^2\frac{t^2n}{4}}\geq 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1
+	\end{equation*}
+	Dans ce cas il n'y a rien a montrer et finalement dans tous les cas on obtient :
+	\begin{align*}
+		\mu\big(f>\mathbb{E}[f]+t\big) \leq 2 e^{-\alpha^2\frac{t^2n}{4}}\\
+		\mu\big(f<\mathbb{E}[f]-t\big)\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	C'est-à-dire : 
+	\begin{equation*}
+		\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4}}\\
+	\end{equation*}
+	Pour $L\neq 1$ il suffit d'appliqué ce qui précède à $\frac{f}{L}$,
+	\begin{equation*}
+		\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4L^2}}\\
+	\end{equation*}
+\end{proof}
 \section{- Inégalité de Khinchine}
 Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tribus de $\mathcal{F}$, pour tous $f\in L^1(\Omega,\mathcal{F},P)$ par le théorème de Randon-Nikodym il existe un unique $h\in L^1(\Omega,\mathcal{G},P)$ tel que pour tous $A\in \mathcal{G}$ on ait 
 \begin{equation*}
