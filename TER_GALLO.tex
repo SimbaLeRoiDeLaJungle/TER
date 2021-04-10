@@ -241,7 +241,7 @@ Donc $y\in T(B_2^k)\Rightarrow \frac{y}{1+\varepsilon}\in K\cap V$ et $\frac{y}{
 \begin{equation*}
 	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 \end{equation*}
-Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $[k/2]$ qui soit un multiple d'une boule euclidienne. 
+Pour conclure nous nous référençons au \textbf{lemme \labelcref{eleb}} qui seras démontrer par la suite qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $[k/2]$ qui soit un multiple de la boule euclidienne. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,13 +344,10 @@ vérifie les propriétés suivantes :
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
 \subsection{Concentration de la mesure}
-Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonctions $1$-Lipschitzienne de $X$ dans $\mathbb{R}$ et notons $m_f$ sa médiane, c'est a dire le réel tel que \begin{equation*}
-	P(f\geq m_f)\geq \frac{1}{2} \hspace{5mm} \& \hspace{5mm} P(f\leq m_f)\geq \frac{1}{2}
-\end{equation*}
-L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à $P\big(|f-m_f|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ .\\
-Pour un ensemble $A\subset X$ et $\varepsilon>0$ on définit son $\varepsilon$-élargissement $A_\varepsilon$ par :
+Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonctions $1$-Lipschitzienne de $X$ dans $\mathbb{R}$, l'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à $P\big(|f-i(f)|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ et $i(f)$ une constante qui dépend de $f$, en pratique $i(f)$ est la médiane de $f$ ou son espérance.\\
+Pour un ensemble $A\subset X$ et $t>0$ on définit son $t$-élargissement $A_t$ par :
 \begin{equation*}
-	A_\varepsilon =\big\{x\in X \; ; \; d(x,A)\leq \varepsilon\big\}
+	A_t =\big\{x\in X \; ; \; d(x,A)\leq t\big\}
 \end{equation*}
 Dans la suite on montre une égalité de concentration sur la sphère.
 \newline\boxXx{
@@ -413,7 +410,7 @@ Le corollaire qui suit est fondamentale dans la démonstrations du théorème de
 		\begin{equation*}
 		\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2}{L^2}}
 		\end{equation*}
-		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $\beta>0$ une constante universelle.
+		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $1>\beta>0$ une constante universelle.
 	\end{cor}
 }
 \begin{proof}
@@ -428,7 +425,7 @@ Le corollaire qui suit est fondamentale dans la démonstrations du théorème de
 	\begin{equation*}
 	\mu\big(f> m_f+t\big)\leq \mu(A_t^c)\leq 2 e^{-\frac{t^2n}{4}}
 	\end{equation*}
-	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ et on obtient :
+	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ on obtient :
 	\begin{equation*}
 	\mu\big(f< m_f-t\big)\leq 2 e^{-\frac{t^2n}{4}}
 	\end{equation*}
@@ -480,7 +477,7 @@ Dans cette partie nous montrons plusieurs propriétés sur les ellipsoïdes, com
 	\begin{proposition}
 		Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormé tel que :
 		\begin{equation*}
-		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{<x,v_i>^2}{\alpha_i^2}< 1\big\}
+		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{\langle x,v_i\rangle ^2}{\alpha_i^2}< 1\big\}
 		\end{equation*}
 	\end{proposition}
 }
@@ -495,26 +492,26 @@ Dans cette partie nous montrons plusieurs propriétés sur les ellipsoïdes, com
 	\end{equation*}
 	Donc les valeurs propre $A^TA$ sont strictement positive, Comme elle est symétrique, elle est donc diagonalisable dans une base orthonormé, donnons nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormé tel que $A^TAv_i = \lambda_i^2 v_i$ pour tous $1\leq i\leq n$ et définissons les quantités suivante :
 	\begin{enumerate}
-		\item[-] $P$ la matrice définie par $Pv_j = \lambda_j v_j$
+		\item[-] $P\in M_n(\mathbb{R})$ la matrice définie par $Pv_j = \lambda_j v_j$
 		\item[-] $u_j=\lambda_j^{-1}Av_j$
 	\end{enumerate}
 	Montrons que les $u_j$ forment une base orthonormée: 
 	\begin{align*}
-	<u_i,u_j> &= \lambda_j^{-1}v_j^TA^T \lambda_i^{-1}Av_i\\
+	\langle u_i,u_j\rangle &= \lambda_j^{-1}v_j^TA^T \lambda_i^{-1}Av_i\\
 	&=\lambda_j^{-1}\lambda_i^{-1}v_j^T(A^T Av_i) \\
 	&= \lambda_j^{-1}\lambda_i^{-1}v_j^T \lambda_i^2 v_i\\
-	&=\frac{\lambda_i}{\lambda_j} <v_j,v_i> = \left\{ \begin{array}{ll} 0 \hspace{1mm}\text{si $i\neq j$} \\ 1 \hspace{1mm}\text{sinon} \end{array} \right.
+	&=\frac{\lambda_i}{\lambda_j} \langle v_j,v_i\rangle = \left\{ \begin{array}{ll} 0 \hspace{1mm}\text{si $i\neq j$} \\ 1 \hspace{1mm}\text{sinon} \end{array} \right.
 	\end{align*}
 	Soit $x = \sum_{i=1}^{n}x_i v_i\in S^{n-1}$  
 	\begin{align*}
 	y=: Ax&= x_1Av_1+...+x_nAv_n \\ 
 	&= x_1 \lambda_1 u_1 + ... + x_n \lambda_n u_n
 	\end{align*}
-	Les composante de $y$ dans la base $\{u_j\}_{j\leq n}$ sont $<y,u_j> = x_j\lambda_j$, donc :
+	Les composante de $y$ dans la base $\{u_j\}_{j\leq n}$ sont $\langle y,u_j\rangle = x_j\lambda_j$, donc :
 	\begin{equation*}
-	\frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = x_1^2+...+x_n^2 =1
+	\frac{\langle y,u_1\rangle ^2}{\lambda_1^2}+...+\frac{\langle y,u_n\rangle ^2}{\lambda_n^2} = x_1^2+...+x_n^2 =1
 	\end{equation*}
-	Et finalement $\partial \mathcal{E} = \big\{y\in\mathbb{R}^n \; ; \; \frac{<y,u_1>^2}{\lambda_1^2}+...+\frac{<y,u_n>^2}{\lambda_n^2} = 1\big\} $.
+	Et finalement $\partial \mathcal{E} = \big\{y\in\mathbb{R}^n \; ; \; \frac{\langle y,u_1\rangle ^2}{\lambda_1^2}+...+\frac{\langle y,u_n\rangle ^2}{\lambda_n^2} = 1\big\} $.
 \end{proof}
 
 \noindent Démontrons maintenant le lemme que nous avons utiliser dans l'introduction :
@@ -547,7 +544,7 @@ Nous admettons le résultat de F.John :
 }
 \begin{leftbar}
 \begin{rem}\label{rem0}
-Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^n)$ (avec $u\in GL(n)$) son ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^n$, supposons que
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^n)$ (avec $u\in GL(n)$) son ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^n$, supposons qu'il existe $W\sev \mathbb{R}^n$ et $r>0$ tel que
 \begin{equation*}
 r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
 \end{equation*}
@@ -574,7 +571,7 @@ Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat 
 	\end{equation*}
 	en passant en coordonnées sphériques
 	\begin{align*}
-	x_1 = & r\sin \theta_1 ... \sin \theta_{n-1}\\
+	x_1 = & r\sin \theta_1 ... \sin \theta_{n-2}\sin \theta_{n-1}\\
 	x_2 = & r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
 	x_3 = & r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
 	\vdots\\
@@ -582,14 +579,14 @@ Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat 
 	\end{align*}
 	On a le déterminant suivant : 
 	\begin{equation*}
-	dx_1 ... dx_n = r^{n-1}\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i} dr d\theta_1 ... d\theta_{n-1}
+	dx_1 ... dx_n = r^{n-1}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i} dr d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	d'où :
 	\begin{equation*}
-	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i}dr d\theta_1 ... d\theta_{n-1}
+	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}dr d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	\begin{equation*}
-		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{+}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{]0,\pi[^{n-2}\times ]0,2\pi[} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}(|\sin\theta_i|)^{n-1-i}d\theta_1 ... d\theta_{n-1}
+		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{+}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{]0,\pi[^{n-2}\times ]0,2\pi[} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
 	où $\varphi(\theta)=(\sin \theta_1 ... \sin \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2},\dots,\cos \theta_1)$.
 \end{proof} 
@@ -626,7 +623,6 @@ Nous aurons besoins de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ po
 	\begin{equation*}
 	\mathbb{E}\big[\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|> \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
 	\end{equation*}
-	avec $c =: 1-e^{-\frac{1}{2}}$ 
 \end{proof}
 
 \section{Démonstration du théorème de Dvoretzky}
@@ -774,10 +770,10 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	Soit $\varepsilon>0$, $\theta=:\theta(\varepsilon)\in\left]0,1\right[$ donné par le \cref{lsB}, $V_0 = \text{Vect}(e_1,...,e_k)$ pour un $k\leq n$ entier que l'on fixeras plus tard et $A$ un $\theta$-net sur $V_0\cap S^{n-1}$ avec $|A|< \big(\frac{3}{\theta}\big)^k$, alors 
 	\begin{align*}
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>M\theta\big\}\big)& \\
-	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>M\theta\big)& \text{pour un $y\in A$}\\
+	& \geq 1-\sum_{y\in A}\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>M\theta\big)\\
 	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-M \big|>M\theta\Big) & \text{par le \cref{lhso}}
 	\end{align*} 
-	En appliquant la concentration de la mesure et en utilisant $|A|\leq \big(\frac{3}{\theta}\big)^k$ ,
+	En appliquant la concentration de la mesure et en utilisant $|A|< \big(\frac{3}{\theta}\big)^k$ ,
 	\begin{equation*}
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)> 1 - 4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\\
 	\end{equation*}
@@ -816,11 +812,11 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 	\end{lemme}
 }
 \begin{proof}
-	$S^{n-1}$ est compact et $||.||$ continue, on peux donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est à dire $||x_1||=1$, supposons que l'on ai $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})\neq \emptyset$ car les $\{x_i\}_{i=1,...,k-1}$ sont orthogonaux deux à deux. On peut donc répéter le procéder pour trouver $x_{k}$ qui maximise $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b\in\mathbb{R}^{*}$ et définissons :
+	$S^{n-1}$ est compact et $||.||$ continue, on peux donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est à dire $||x_1||=1$, supposons que l'on ai $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\backslash \text{Vect}(x_1,...,x_{i-1})\neq \emptyset$ car les $\{x_i\}_{i=1,...,i-1}$ sont orthogonaux deux à deux. On peut donc répéter le procéder pour trouver $x_{k}$ qui maximise $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})\neq \emptyset$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b\in\mathbb{R}^{*}$ et définissons :
 	\begin{equation*}
 	\mathcal{E} = \Big\{\sum_{i=1}^{n}a_ix_i\; ; \; \sum_{i=1}^{k-1}\big(\frac{a_i}{a}\big)^2+ \sum_{i=k}^{n}\big(\frac{b_i}{b}\big)^2\leq 1 \Big\}
 	\end{equation*}
-	Supposons $\sum_{i=1}^{n}a_ix_i\in \mathcal{E}$, alors $\sum_{i=1}^{k-1}a_ix_i\in aB_2^n$ et donc $||\sum_{i=1}^{k-1}a_ix_i||\leq a$.
+	Supposons $\sum_{i=1}^{n}a_ix_i\in \mathcal{E}$, alors $\sum_{i=1}^{k-1}a_ix_i\in aB_2^n$ et donc $||\sum_{i=1}^{k-1}a_ix_i||\leq|\sum_{i=1}^{k-1}a_ix_i|\leq a$.
 	Si $x\in \text{Vect}(x_k,...,x_n)\cap B^n_2$ on a $||x||\leq ||x_k||$ par construction, et donc $\sum_{i=k}^{n}a_ix_i\in bB_2^n \; \Rightarrow \; ||\sum_{i=k}^{n}a_ix_i ||\leq b||x_k||$ , ce qui nous donne la majoration suivante 
 	\begin{equation*}
 	||\sum_{i=1}^{n}a_ix_i||\leq ||\sum_{i=1}^{k-1}a_ix_i||+||\sum_{i=k}^{n}a_ix_i||\leq a + b||x_k||
@@ -1101,11 +1097,11 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\begin{theoreme}[Prékopa-Leindler]
 		Soit $\alpha\in]0,1[$, $f,g,h\in L^{\infty}(\mathbb{R}^n,[0,+\infty))$ tel que pour tout $x,y\in\mathbb{R}^n$,
 		\begin{equation*}
-		h(\alpha x + (1-\alpha)y)\geq f(x)^{\alpha}g(y)^{1-\alpha}
+		h\left(\alpha x + (1-\alpha)y\right)\geq f(x)^{\alpha}g(y)^{1-\alpha}
 		\end{equation*}
 		alors 
 		\begin{equation*}
-		\int_{\mathbb{R}^n}hd\lambda \geq \big(\int_{\mathbb{R}^n}f d\lambda\big)^{\alpha}\big(\int_{\mathbb{R}^n}gd\lambda\big)^{1-\alpha}
+		\int_{\mathbb{R}^n}hd\lambda \geq \left(\int_{\mathbb{R}^n}f d\lambda\right)^{\alpha}\left(\int_{\mathbb{R}^n}gd\lambda\right)^{1-\alpha}
 		\end{equation*}
 \end{theoreme}}
 \begin{proof}
@@ -1113,12 +1109,12 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\begin{align*}
 	\int_{\mathbb{R}}f(x) dx &=\int_{\mathbb{R}^n}\int_{0}^{f(x)}dt dx\\
 	&=\int_{\mathbb{R}}\int_{0}^{||f||_\infty}\mathbb{1}_{\{f(x)>t\}} dt dx\\
-	&=\int_{0}^{1}\lambda\big(x\;;\;f(x)>t\big)dt
+	&=\int_{0}^{1}\lambda\big(x\in\mathbb{R}\;;\;f(x)>t\big)dt
 	\end{align*}
 	et de même pour $g$, posons alors $A(t)=\Big\{x\in\mathbb{R}\;;\;f(x)>t\Big\}$ et $B(t)= \Big\{x\in\mathbb{R}\;;\;g(x)>t\Big\}$, on a alors 
 	\begin{align*}
 	z\in \alpha A(t) + (1-\alpha)B(t) &\Rightarrow z=\alpha x +(1-\alpha)y \; , \; \text{avec $x\in A(t)$ et $y\in B(t)$}\\
-	&\Rightarrow h(x)\geq f(x)^{\alpha}g(y)^{1-\alpha}>t
+	&\Rightarrow h(z)\geq f(x)^{\alpha}g(y)^{1-\alpha}>t
 	\end{align*}
 	et donc $\alpha A(t) + (1-\alpha)B(t)\subset \Big\{x\in\mathbb{R}\;;\;h(x)>t\Big\}$, par le \cref{bm1} ,`
 	\begin{align*}
@@ -1132,7 +1128,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	&\leq \int_{0}^{1}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt\\
 	&\leq \int_{0}^{+\infty}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt=\int_{\mathbb{R}}hd\lambda\\
 	\end{align*}
-	Pour $f,g$ de norme infinie différente de 1, posons $\tilde{f}=\frac{f}{||f||_\infty}$, $\tilde{g}=\frac{g}{||g||_\infty}$ et $\tilde{h}=\frac{h}{||f||_\infty^{\alpha}||g||_\infty^{1-\alpha}}$, on a tous de suite $\tilde{h}(\alpha x + (1-\alpha)y)\geq \tilde{f}^{\alpha}(x)\tilde{g}^{1-\alpha}(y)$ en appliquant ce qui précède on obtient :
+	Pour $f,g$ de norme infinie différente de 1, posons $\tilde{f}=\frac{f}{||f||_\infty}$, $\tilde{g}=\frac{g}{||g||_\infty}$ et $\tilde{h}=\frac{h}{||f||_\infty^{\alpha}||g||_\infty^{1-\alpha}}$, on a tous de suite $\tilde{h}\left(\alpha x + (1-\alpha)y\right)\geq \tilde{f}^{\alpha}(x)\tilde{g}^{1-\alpha}(y)$ en appliquant ce qui précède on obtient :
 	\begin{equation*}
 	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}\leq \int_{\mathbb{R}}hd\lambda
 	\end{equation*}
@@ -1150,11 +1146,11 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\end{equation*}
 	vérifies :
 	\begin{equation*}
-	H(\alpha s + (1-\alpha)t)\geq F(t)^{\alpha}G(s)^{1-\alpha} 
+	H\left(\alpha s + (1-\alpha)t\right)\geq F(t)^{\alpha}G(s)^{1-\alpha} 
 	\end{equation*}
 	Donc par le cas $n=1$, 
 	\begin{equation*}
-	\int_{\mathbb{R}}hd\lambda =\int_{\mathbb{R}}H d\lambda \geq\Big(\int_{\mathbb{R}}Fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}G d\lambda\Big)^{1-\alpha}= \Big(\int_{\mathbb{R}^n}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}^n}g d\lambda\Big)^{1-\alpha}
+	\int_{\mathbb{R}^n}hd\lambda =\int_{\mathbb{R}}H d\lambda \geq\Big(\int_{\mathbb{R}}Fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}G d\lambda\Big)^{1-\alpha}= \Big(\int_{\mathbb{R}^n}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}^n}g d\lambda\Big)^{1-\alpha}
 	\end{equation*}
 	Ce qui permet de conclure la preuve par récurrence.
 \end{proof}
@@ -1182,7 +1178,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 		\end{align*}
 		Appliquons le point (i) aux ensembles $\frac{A}{\lambda(A)^{\frac{1}{n}}}$ et $\frac{B}{\lambda(B)^{\frac{1}{n}}}$ avec $\alpha = \frac{\lambda(A)^\frac{1}{n}}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}$, on obtient 
 		\begin{equation*}
-		\frac{1}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\lambda(A+B)^{\frac{1}{n}}\geq \lambda\big(\frac{A}{\lambda(A)^\frac{1}{n}}\big)^{\alpha/n} \lambda\big(\frac{B}{\lambda(B)^\frac{1}{n}}\big)^{(1-\alpha)/n}=1
+		\frac{1}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\lambda(A+B)^{\frac{1}{n}}\geq \lambda\left(\frac{A}{\lambda(A)^\frac{1}{n}}\right)^{\alpha/n} \lambda\left(\frac{B}{\lambda(B)^\frac{1}{n}}\right)^{(1-\alpha)/n}=1
 		\end{equation*}
 	\end{enumerate}
 \end{proof}
