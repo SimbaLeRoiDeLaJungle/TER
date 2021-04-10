@@ -212,7 +212,7 @@ Soit $x\in \mathbb{R}^k$ tel que $||Tx||=1$, comme $K\cap V$ est $\varepsilon$-e
 \begin{equation*}
 r \leq |Tx|_n \leq (1+\varepsilon)r, \hspace{2mm}\text{pour un $r>0$}
 \end{equation*}
-La borne supérieure est immédiate car  $K\cap V \subset r(1+\varepsilon).(V\cap B^n_2)$, pour la borne inférieure il suffit de remarquer que $(V\cap K)$ est un fermer de $V$ qui contient l'ouvert $r.(V\cap B^n_2)$ de $V$, comme $Tx$ est dans la frontière de $K\cap V$ il n'est pas dans l'intérieur de $K\cap V$ et donc dans aucun ouvert contenu dans $V\cap K$. Remarquons que $|Tx|_n=|x|_k$, donc
+Remarquons que $|Tx|_n=|x|_k$, donc
 \begin{equation*}
 	r \leq |x|_k \leq (1+\varepsilon)r
 \end{equation*}
@@ -237,7 +237,7 @@ Soit $y\in \partial(K\cap V)$, c'est-à-dire $||y||=1$, on sait qu'il existe un 
 \begin{equation*}
 |x|\leq 1 \leq (1+\varepsilon)|x|\; \iff\; \frac{1}{1+\varepsilon}\leq|x|\leq 1
 \end{equation*}
-la convexité et la symétrie centrale de $K\cap V$ implique :
+Donc $y\in T(B_2^k)\Rightarrow \frac{y}{1+\varepsilon}\in K\cap V$ et $\frac{y}{1+\varepsilon}\in K\cap V\Rightarrow y\in T(B_2^k)$ et finalement :
 \begin{equation*}
 	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 \end{equation*}
@@ -348,40 +348,126 @@ Le phénomène de concentration de la mesure a été mis en avant par V.Milman �
 	P(f\geq m_f)\geq \frac{1}{2} \hspace{5mm} \& \hspace{5mm} P(f\leq m_f)\geq \frac{1}{2}
 \end{equation*}
 L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à $P\big(|f-m_f|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ .\\
-Posons $A=\big\{ f\leq m_f \big\}$, il est assez naturelle de s'intéresser à l'ensemble suivant 
+Pour un ensemble $A$ et $\varepsilon>0$ on définit son $\varepsilon$-élargissement $A_\varepsilon$ par :
 \begin{equation*}
 	A_\varepsilon =\big\{x\in X \; ; \; d(x,A)\leq \varepsilon\big\}
 \end{equation*}
-On appelle $A_\varepsilon$ le $\varepsilon$-élargissement de $A$, il suit cela : 
-\begin{equation*}
-	x\in A_\varepsilon \Rightarrow f(x)\leq \varepsilon+m_f\hspace{5mm}\iff\hspace{5mm} A_\varepsilon \subset \Bigg\{x\in S^{n-1} \; ; \; f(x)\leq \varepsilon+m_f\Bigg\}
-\end{equation*}
-\begin{align*}
-	P(f>\varepsilon+m_f)&= 1 - P(f\leq \varepsilon+m_f)\\
-	&\leq 1 - P(A_\varepsilon)
-\end{align*}
-Cette observation a permis a Milman et Gromov de se ramener a une étude ensembliste du problème. Ils introduisent $\alpha$ une fonction dite de concentration, définit comme le plus petit réel tel que:
-\begin{equation*}
-\forall A\subset X , \; P(A)\geq \frac{1}{2}\hspace{3mm} \Rightarrow\hspace{3mm} 1-P(A_\varepsilon)\leq \alpha(\varepsilon,P)
-\end{equation*}
-Appliquant ceci au ensemble  $\Big\{f\geq m_f\Big\}$ et $\Big\{f\leq m_f\Big\}$, on trouve facilement :
-\begin{equation*}
-	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\varepsilon,P)
-\end{equation*}
-Considérons maintenant que $f$ est $L$-Lipschitzienne, alors la médiane de $\frac{f}{L}$ est $\frac{m_f}{L}$, donc par homogénéité 
-\begin{equation*}
-	P(|f-m_f|>\varepsilon)\leq 2 \alpha(\frac{\varepsilon}{L},P)
-\end{equation*}
-L'utilité de cette formulation est que dans certains cas $\alpha$ décroît très vite vers 0 lorsque $\varepsilon$ devient grand. Pour certains espace $X$ il est possible de remplacer la médiane par l'espérance qui est en générale plus simple à calculer, dans le cas ou $X$ est la $(n-1)$-sphère euclidienne on dispose du théorème suivant (démontrée dans l'annexe A).
+Dans la suite on montre une égalité de concentration sur la sphère.
 \newline\boxXx{
-	\begin{theoreme}[Concentration de la mesure sur la sphère]
-		Pour tout $t>0$ et toute fonction $f$, $L$-Lipschitzienne de $S^{n-1}$ dans $\mathbb{R}$ pour un $L>0$ on a :
+	\begin{theoreme}
+		Soit $A\in \text{Bor}(S^{n-1})$ tel que $\mu(A)\geq \frac{1}{2}$, alors pour tous $t>0$ :
 		\begin{equation*}
-			\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2n}{L^2}}
+		\mu(A_t)\geq 1-2e^{-\frac{nt^2}{4}}
 		\end{equation*}
-		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $1>\beta>0$ est une constante universelle.
 	\end{theoreme}
 }
+\begin{proof}
+	Si $t>2$ alors $A_t=S^{n-1}$, on peut donc supposer $t<2$. Soit $x\in A$ et $y\in A^{c}_t$ alors \begin{align*}
+	\big|\frac{x+y}{2}\big|^2&=\frac{|x|^2}{2}+\frac{|y|^2}{2}-\big|\frac{x-y}{2}\big|^2=1-\frac{|x-y|^2}{4}\\
+	&\leq 1-\frac{t^2}{4}
+	\end{align*}
+	or 
+	\begin{equation*}
+	(1-\frac{t^2}{8})^2 =1-\frac{t^2}{4}+\frac{t^4}{8^2}\geq 1-\frac{t^2}{4}
+	\end{equation*}
+	et donc 
+	\begin{equation*}
+	|\frac{x-y}{2}|\leq 1-\frac{t^2}{8}
+	\end{equation*}
+	Posons \begin{enumerate}
+		\item[-] $\tilde{A}=\big\{ax\;; a\in[0,1], x\in A\big\}$ 
+		\item[-]  $\tilde{B}=\big\{ax\;; a\in[0,1], x\in A_t^c\big\}$
+	\end{enumerate} 
+	et donnons nous $X=ax\in \tilde{A}$ et $Y=by\in \tilde{B}$, dans le calcul qui suit le rôle de $a$ et $b$ sont symétrique fixons alors $a\leq b$,
+	\begin{align*}
+	\Big|\frac{X+Y}{2}\Big|&= \Big|\frac{ax+yb}{2}\Big|\\
+	&=b\Big|\frac{\frac{a}{b}x+y}{2}\Big|\\
+	&\leq \Big|\frac{a}{b}\big(\frac{x+y}{2}\big)+\big(1-\frac{a}{b}\big)\frac{y}{2}\Big|\\
+	&\leq \frac{a}{b}\Big|\frac{x+y}{2}\Big|+\big(1-\frac{a}{b}\big)\big|\frac{y}{2}\big|
+	\end{align*}
+	Or pour $t\leq 2$
+	\begin{equation*}
+	1-\frac{t^2}{8}\geq \frac{1}{2} = |\frac{y}{2}|
+	\end{equation*}
+	et donc 
+	\begin{equation*}
+	\Big|\frac{X+Y}{2}\Big|\leq 1-\frac{t^2}{8}
+	\end{equation*}
+	c'est-à-dire,
+	\begin{equation*}
+	\frac{\tilde{A}+\tilde{B}}{2}\subset \big(1-\frac{t^2}{8}\big)B^n_2
+	\end{equation*}
+	Remarquons que $\mu$ peut s'exprimer géométriquement comme $\mu(C)=\frac{\lambda\big(tx \; ; t\in[0,1], x\in C \big)}{\lambda(B^n_2)}$, pour $C$ un borélien de $S^{n-1}$. Donc $\mu(A)=\frac{\lambda(\tilde{A})}{\lambda(B^n_2)}$, par l'inégalité de Brunn-Minkowsky (\cref{bm})
+	\begin{equation*}
+	\big(1-\frac{t^2}{8}\big)^{n}\lambda(B^n_2)\geq \lambda\big(\frac{\tilde{A}+\tilde{B}}{2}\big)\geq \sqrt{\lambda(\tilde{A})\lambda(\tilde{B})}=\lambda(B^n_2)\sqrt{\mu(A)\mu(A_t^c)}
+	\end{equation*}
+	Or $\sqrt{\mu(A)\mu(A_t^c)}\geq\sqrt{\frac{1}{2}(1-\mu(A_t))}$ et finalement :
+	\begin{equation*}
+	\mu(A_t)\geq 1 - 2 \big(1-\frac{t^2}{8}\big)^{2n}\geq 1 - 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+\end{proof}
+Le corollaire qui suit est fondamentale dans la démonstrations du théorème de Dvoretzky.
+\boxXx{
+	\begin{cor}[concentration de la mesure sur la sphère]\label{mco}
+		Pour tout $t>0$ et toute fonction $f$, $L$-Lipschitzienne de $S^{n-1}$ dans $\mathbb{R}$ pour un $L>0$ on a :
+		\begin{equation*}
+		\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2}{L^2}}
+		\end{equation*}
+		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $\beta>0$ une constante universelle.
+	\end{cor}
+}
+\begin{proof}
+	Commençons par le montrer pour $L=1$, donnons nous $m_f$ une médiane de $f$ et posons $A=\big\{f\leq m_f\big\}$, alors 
+	\begin{align*}
+	x\in A_t& \Rightarrow \exists y\in A , d(x,y)<t\\
+	&\Rightarrow |f(x)-f(y)|<Lt=t\\
+	&\Rightarrow f(x)-m_f\leq f(x)-f(y)+f(y)-m_f\\
+	&\Rightarrow f(x)\leq m_f + t
+	\end{align*}
+	donc $A_t\subset \Big\{f\leq m_f+t\Big\} \iff \Big\{f> m_f+t\Big\}\subset A_t^c $, 
+	\begin{equation*}
+	\mu\big(f> m_f+t\big)\leq \mu(A_t^c)\leq 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ et on obtient :
+	\begin{equation*}
+	\mu\big(f< m_f-t\big)\leq 2 e^{-\frac{t^2n}{4}}
+	\end{equation*}
+	Il nous faut maintenant remplacer la médiane par $\mathbb{E}[f]$, on a l'inégalité suivante :
+	\begin{align*}
+	\big|m_f-\int_{S^{n-1}}fd\mu\big|&\leq \int_{S^{n-1}}\big|m_f-f|\big|d\mu\\
+	&\leq\int_{0}^{+\infty}\mu\big(|m_f-f|>t\big)dt\\
+	&\leq\int_{0}^{+\infty} 4 e^{-\frac{t^2n}{4}}dt=4\sqrt{\frac{\pi}{n}}
+	\end{align*}
+	Posons $\alpha = \frac{\sqrt{\log(2)}}{2\sqrt{\pi}+\sqrt{\log(2)}} \Rightarrow 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1 $, si $t>\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors 
+	\begin{align*}
+	\mu\big(f>\mathbb{E}[f]+t\big)&\leq \mu\big(f>m_f-4\sqrt{\frac{\pi}{n}}+t\big)\\
+	&\leq \mu\big(f>m_f+\alpha t\big)\\
+	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	Similairement :
+	\begin{align*}
+	\mu\big(f<\mathbb{E}[f]-t\big)&\leq \mu\big(f<m_f+4\sqrt{\frac{\pi}{n}}-t\big)\\
+	&\leq \mu\big(f>m_f-\alpha t\big)\\
+	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	Si $t\leq\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors  
+	\begin{equation*}
+	2e^{-\alpha^2\frac{t^2n}{4}}\geq 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1
+	\end{equation*}
+	Dans ce cas il n'y a rien a montrer et finalement dans tous les cas on obtient :
+	\begin{align*}
+	\mu\big(f>\mathbb{E}[f]+t\big) \leq 2 e^{-\alpha^2\frac{t^2n}{4}}\\
+	\mu\big(f<\mathbb{E}[f]-t\big)\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+	\end{align*}
+	C'est-à-dire : 
+	\begin{equation*}
+	\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4}}\\
+	\end{equation*}
+	Pour $L\neq 1$ il suffit d'appliqué ce qui précède à $\frac{f}{L}$,
+	\begin{equation*}
+	\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4L^2}}\\
+	\end{equation*}
+\end{proof}
 \subsection{Ellipsoïdes}
 Dans cette partie nous montrons plusieurs propriétés sur les ellipsoïdes, commençons par les définir :
 \newline\boxXx{
@@ -677,7 +763,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
 \newline\boxXx{
 	\begin{theoreme}\label{mtool}
-		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, il existe $V\sev \mathbb{R}^n$ tel que $\dim V \geq c(\varepsilon)(\frac{M}{b})^2 n$ et :
+		Pour tous $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et pour toute norme $||.||$ sur $\;\mathbb{R}^n$, il existe $V\sev \mathbb{R}^n$ tel que $\dim V \geq c(\varepsilon)(\frac{M}{b})^2 n$ et pour tout $x\in V$ :
 		\begin{equation*}
 			|x|\frac{M}{\sqrt{1+\varepsilon}}\leq ||x|| \leq M\sqrt{1+\varepsilon}|x|
 		\end{equation*}
@@ -685,18 +771,24 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$, $1>\theta(\varepsilon)=:\theta>0$ donné par le \cref{lsB} et $\beta>0$ tel que pour $f$ $L$-Lipschitzienne, $\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2n}{L^2}}$ donnée par le théorème de concentration de la mesure. Nous allons montrer que $c(\theta(\varepsilon)) =: \frac{\theta^2\beta}{4\log(\frac{3}{\theta})} $ convient, pour alléger les notations on note $\kappa(\theta)=:c(\theta)\big(\frac{M}{b}\big)^2n$.
-	Évacuons un cas trivial, si $\kappa(\theta)<1$ alors $k=1$ convient car toute $1$-section est euclidienne, pour la suite on suppose donc $\kappa(\theta)\geq 1 \iff \frac{\theta^2M^2n\beta}{4b^2}\geq \log(\frac{3}{\theta})$.\\
-	Fixons un $k$ entier tel que $\kappa(\theta)\leq k < 2\kappa(\theta)$ possible car $\kappa(\theta)\geq 1$ et on se donne $A$ un $\theta$-net sur $\text{Vect}(e_1,...,e_k)\cap S^{n-1}$, avec $|A|\leq(\frac{3}{\theta})^k$. On alors :
+	Soit $\varepsilon>0$, $\theta=:\theta(\varepsilon)\in\left]0,1\right[$ donné par le \cref{lsB}, $V_0 = \text{Vect}(e_1,...,e_k)$ pour un $k\leq n$ entier que l'on fixeras plus tard et $A$ un $\theta$-net sur $V_0\cap S^{n-1}$ avec $|A|< \big(\frac{3}{\theta}\big)^k$, alors 
 	\begin{align*}
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>M\theta\big\}\big)& \\
 	& \geq 1-|A|\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>M\theta\big)& \text{pour un $y\in A$}\\
 	& \geq 1 - |A|\mu\Big(y\in S^{n-1}\; ;\; \big| ||y||-M \big|>M\theta\Big) & \text{par le \cref{lhso}}
 	\end{align*} 
-	En appliquant la concentration de la mesure
+	En appliquant la concentration de la mesure et en utilisant $|A|\leq \big(\frac{3}{\theta}\big)^k$ ,
+	\begin{equation*}
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)> 1 - 4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\\
+	\end{equation*}
+	pour un $\beta\in]0,1[$. \\
+	Donc tant que $4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\leq 1$ on peut trouver $T\in O(n)$ tel que pour tout $x\in A$ :
+	\begin{equation*}\tag{$\star$}
+	\Big| ||Tx||- M \Big|\leq M\theta
+	\end{equation*}
+	Posons alors $c(\theta)=\frac{\theta^2 \beta}{4\log\left(\frac{3}{\theta}\right)}$ et $\kappa(\theta)=c(\theta)\left(\frac{M}{b}\right)^2 n$, on veut donc montrer qu'il existe un $k\geq \kappa(\theta)$ entier pour le quelle on puisse trouver un $T\in O(n)$ qui vérifie ($\star$). Trivialement si $\kappa(\theta)<1$ alors $k=1$ convient car toute 1-section est euclidienne, on suppose donc $\kappa(\theta)\geq 1$ ce qui équivaut à $\frac{\theta^2M^2n\beta}{4b^2}\geq \log(\frac{3}{\theta})$. Fixons $k$ entier tel que $\kappa(\theta)\leq k\leq 2\kappa(\theta)$, possible car $\kappa(\theta)\geq 1$, alors
 	\begin{align*}
-	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)&\geq 1 - |A|4 e^{-\frac{\theta^2M^2n\beta}{b^2}}\\
-	& > 1 - 4 \big(\frac{3}{\theta}\big)^k e^{-\frac{\theta^2M^2n\beta}{b^2}}\\
+	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)
 	& > 1 - 4 \exp\big(2\kappa(\theta)\log(\frac{3}{\theta})-\frac{\theta^2M^2n\beta}{b^2}\big)\\
 	& > 1 -  4 e^{-\frac{\theta^2M^2n\beta}{2b^2}}\\
 	&> 1 - \frac{4}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\theta^2M^2n\beta}{2b^2}\geq 2\log(\frac{3}{\theta})$} 
@@ -705,17 +797,14 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	\begin{equation*}
 	M(1-\theta)\leq ||Tx||\leq M(1+\theta)
 	\end{equation*}
-	Par le \cref{lsB} pour tous $x\in \text{Vect}(e_1,...,e_k)$
+	Par le \cref{lsB} pour tous $x\in V_0$
 	\begin{equation*}
 	\frac{1}{\sqrt{1+\varepsilon}}|x| M\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| M
 	\end{equation*}
-	Il suffit donc de prendre $V=T\text{Vect}(e_1,...,e_k)$ pour conclure.
+	Il suffit donc de prendre $V=TV_0$ pour conclure.
 \end{proof}
 \begin{rem}
 	Pour $\varepsilon<9^{-1}$ on peut prendre $\theta(\varepsilon)=\frac{\varepsilon}{9}$ et donc $c(\varepsilon)=c_0\frac{\varepsilon^2}{\log(\frac{c_1}{\varepsilon})} $ pour $c_0,c_1>0$.
-\end{rem}
-\begin{rem}
-	Pour tout $k\leq c(\varepsilon)\big(\frac{M}{b}\big)^2n$, $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$
 \end{rem}
 Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0} et le lemme suivant :
 \newline\boxXx{
@@ -860,7 +949,7 @@ Par l'inégalité de Hölder on a $||x||_p\leq |x|$, donc $b\leq1$. Posons $m=:\
 \begin{rem}
 	Dans le cas contraire si $p\geq \log n$, alors $n^{\frac{2}{p}}\leq e^2$ donc dans ce cas la meilleur estimation est celle donné par le théorème de Dvoretzky.
 \end{rem}
-Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui est démontrer en annexe.
+Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui est démontrer dans l'annexe B.
 \newline\boxXx{
 \begin{proposition}
 	Soit $2<p<\infty$ et $0<\varepsilon<1$, alors il existe $c_p(\varepsilon)>0$ tel que,
@@ -874,7 +963,7 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 	\begin{equation*}
 		|x|\leq \big|\big|Tx\big|\big|_p\leq (1+\varepsilon) |x|
 	\end{equation*}
-	Notons $r_i(t)=\text{sign}\big(\sin (\pi 2^it)\big)$ pour $t\in]0,1[$, $i\in\mathbb{N}^*$ (voir section 4 pour les détails).
+	Notons $r_i(t)=\text{sign}\big(\sin (\pi 2^it)\big)$ pour $t\in]0,1[$, $i\in\mathbb{N}^*$ (voir annexe B pour les détails).
 	\begin{equation*}
 		\forall t\in]0,1[\hspace{1mm},\hspace{3mm}|(r_1(t),...,r_k(t))|\leq \big|\big|T(r_1(t),...,r_k(t))\big|\big|_p\leq (1+\varepsilon) |(r_1(t),...,r_k(t))|
 	\end{equation*} 
@@ -992,131 +1081,112 @@ Pour la proposition suivante nous allons utiliser l'inégalité de Khinchine qui
 		1\leq ||Tx||_\infty \leq 1+\varepsilon
 	\end{equation*} 
 \end{proof}
-\appendix 
-\section{- Concentration de la mesure} \label{annex:mesure}
-On admet le théorème suivant :
-\newline\boxXx{\begin{theoreme}[Inégalité de Burnn-Minkowsky] 
-		Pour deux compacts $A$,$B$ non vide de $\mathbb{R}^n$ alors :
+\appendix
+\section{- Inégalité de Prékopa-Leindler}
+Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilisé dans la démonstration du \cref{mco}, nous allons pour cela monter une inégalité plus générale, celle de Prékopa-Leindler.
+\newline\boxXx{
+	\begin{lemme}\label{bm1}
+		Soit $A,B$ deux compact non vide de $\mathbb{R}$, alors 
 		\begin{equation*}
-		\lambda(A+B)^{\frac{1}{n}}\geq \lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}
+		\lambda(A+B)\geq \lambda(A)+\lambda(B)
+		\end{equation*}
+\end{lemme}}
+\begin{proof}
+	Comme la mesure de Lebesgue est invariante par translation on peut supposer que $\max\{x\in A\}= 0$ et $\min\{x\in B\}= 0$, alors $A\cup B \subset A+B$ ,
+	\begin{equation*}
+	\lambda(A+B)\geq \lambda(A\cup B)= \lambda(A) + \lambda(B)
+	\end{equation*} 
+\end{proof}
+\boxXx{
+	\begin{theoreme}[Prékopa-Leindler]
+		Soit $\alpha\in]0,1[$, $f,g,h\in L^{\infty}(\mathbb{R}^n,[0,+\infty))$ tel que pour tout $x,y\in\mathbb{R}^n$,
+		\begin{equation*}
+		h(\alpha x + (1-\alpha)y)\geq f(x)^{\alpha}g(y)^{1-\alpha}
+		\end{equation*}
+		alors 
+		\begin{equation*}
+		\int_{\mathbb{R}^n}hd\lambda \geq \big(\int_{\mathbb{R}^n}f d\lambda\big)^{\alpha}\big(\int_{\mathbb{R}^n}gd\lambda\big)^{1-\alpha}
 		\end{equation*}
 \end{theoreme}}
-
-\boxXx{
-	\begin{theoreme}
-		Soit $A\in \text{Bor}(S^{n-1})$ tel que $\mu(A)\geq \frac{1}{2}$, alors pour tous $t>0$ :
-		\begin{equation*}
-		\mu(A_t)\geq 1-2e^{-\frac{nt^2}{4}}
-		\end{equation*}
-	\end{theoreme}
-}
 \begin{proof}
-	Si $t>2$ alors $A_t=S^{n-1}$, on peut donc supposer $t<2$. Soit $x\in A$ et $y\in A^{c}_t$ alors \begin{align*}
-	\big|\frac{x+y}{2}\big|^2&=\frac{|x|^2}{2}+\frac{|y|^2}{2}-\big|\frac{x-y}{2}\big|^2=1-\frac{|x-y|^2}{4}\\
-	&\leq 1-\frac{t^2}{4}
-	\end{align*}
-	or 
-	\begin{equation*}
-	(1-\frac{t^2}{8})^2 =1-\frac{t^2}{4}+\frac{t^4}{8^2}\geq 1-\frac{t^2}{4}
-	\end{equation*}
-	et donc 
-	\begin{equation*}
-	|\frac{x-y}{2}|\leq 1-\frac{t^2}{8}
-	\end{equation*}
-	Posons \begin{enumerate}
-		\item[-] $\tilde{A}=\big\{ax\;; a\in[0,1], x\in A\big\}$ 
-		\item[-]  $\tilde{B}=\big\{ax\;; a\in[0,1], x\in B\big\}$
-	\end{enumerate} 
-	et donnons nous $X=ax\in \tilde{A}$ et $Y=by\in \tilde{B}$, dans le calcul qui suit le rôle de $a$ et $b$ sont symétrique fixons alors $a\leq b$,
+	Commençons par le montrer pour $n=1$ et $f,g$ de norme infinie égale à $1$.
 	\begin{align*}
-	\Big|\frac{X+Y}{2}\Big|&= \Big|\frac{ax+yb}{2}\Big|\\
-	&=b\Big|\frac{\frac{a}{b}x+y}{2}\Big|\\
-	&\leq \Big|\frac{a}{b}\big(\frac{x+y}{2}\big)+\big(1-\frac{a}{b}\big)\frac{y}{2}\Big|\\
-	&\leq \frac{a}{b}\Big|\frac{x+y}{2}\Big|+\big(1-\frac{a}{b}\big)\big|\frac{y}{2}\big|
+	\int_{\mathbb{R}}f(x) dx &=\int_{\mathbb{R}^n}\int_{0}^{f(x)}dt dx\\
+	&=\int_{\mathbb{R}}\int_{0}^{||f||_\infty}\mathbb{1}_{\{f(x)>t\}} dt dx\\
+	&=\int_{0}^{1}\lambda\big(x\;;\;f(x)>t\big)dt
 	\end{align*}
-	Or pour $t\leq 2$
+	et de même pour $g$, posons alors $A(t)=\Big\{x\in\mathbb{R}\;;\;f(x)>t\Big\}$ et $B(t)= \Big\{x\in\mathbb{R}\;;\;g(x)>t\Big\}$, on a alors 
+	\begin{align*}
+	z\in \alpha A(t) + (1-\alpha)B(t) &\Rightarrow z=\alpha x +(1-\alpha)y \; , \; \text{avec $x\in A(t)$ et $y\in B(t)$}\\
+	&\Rightarrow h(x)\geq f(x)^{\alpha}g(y)^{1-\alpha}>t
+	\end{align*}
+	et donc $\alpha A(t) + (1-\alpha)B(t)\subset \Big\{x\in\mathbb{R}\;;\;h(x)>t\Big\}$, par le \cref{bm1} ,`
+	\begin{align*}
+	\alpha\lambda\big(A(t)\big)+(1-\alpha)\lambda(B(t)\big)&\leq \lambda\Big(\alpha A(t) + (1-\alpha)B(t)\Big)\\
+	&\leq \lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)
+	\end{align*}
+	En utilisant la concavité du logarithme on a l'inégalité suivante 
+	\begin{align*}
+	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}&\leq \alpha \int_{\mathbb{R}}fd\lambda +(1-\alpha)\int_{\mathbb{R}}g d\lambda\\
+	&\leq \int_{0}^{1}\alpha\lambda\big(A(t)\big)+(1-\alpha)\lambda\big(B(t)\big)dt\\
+	&\leq \int_{0}^{1}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt\\
+	&\leq \int_{0}^{+\infty}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt=\int_{\mathbb{R}}hd\lambda\\
+	\end{align*}
+	Pour $f,g$ de norme infinie différente de 1, posons $\tilde{f}=\frac{f}{||f||_\infty}$, $\tilde{g}=\frac{g}{||g||_\infty}$ et $\tilde{h}=\frac{h}{||f||_\infty^{\alpha}||g||_\infty^{1-\alpha}}$, on a tous de suite $\tilde{h}(\alpha x + (1-\alpha)y)\geq \tilde{f}^{\alpha}(x)\tilde{g}^{1-\alpha}(y)$ en appliquant ce qui précède on obtient :
 	\begin{equation*}
-	1-\frac{t^2}{8}\geq \frac{1}{2} = |\frac{y}{2}|
+	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}\leq \int_{\mathbb{R}}hd\lambda
 	\end{equation*}
-	et donc 
+	Ce qui fini la preuve pour le cas $n=1$, si $n>1$ supposons que pour tous entier inférieur à $n$ l'inégalité soit montrer et posons $f_t:\begin{array}{ccc}\mathbb{R}^{n-1}&\to&[0,+\infty)\\x&\to&f(t,x)\end{array}$ pour $t\in \mathbb{R}$ et de même pour $g$ et $h$. Pour $t,s\in\mathbb{R}$ et $x,y\in \mathbb{R}^{n-1}$, 
 	\begin{equation*}
-	\Big|\frac{X+Y}{2}\Big|\leq 1-\frac{t^2}{8}
+	h_{s\alpha+(1-\alpha)t}(\alpha x+(1-\alpha)y)\geq f_s(x)^\alpha g_t(y)^{1-\alpha}
 	\end{equation*}
-	c'est-à-dire,
+	donc par hypothèse :
 	\begin{equation*}
-	\frac{\tilde{A}+\tilde{B}}{2}\subset \big(1-\frac{t^2}{8}\big)B^n_2
+	\int_{\mathbb{R}^{n-1}}h_{s\alpha +(1-\alpha)t}d\lambda \geq 		\Big(\int_{\mathbb{R}^{n-1}}f_sd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}^{n-1}}g_t d\lambda\Big)^{1-\alpha}
 	\end{equation*}
-	Remarquons que $\mu$ peut s'exprimer géométriquement comme $\mu(C)=\frac{\lambda\big(tx \; ; t\in[0,1], x\in C \big)}{\lambda(B^n_2)}$, pour $C$ un borélien de $S^{n-1}$. Donc $\mu(A)=\frac{\lambda(\tilde{A})}{\lambda(B^n_2)}$, par l'inégalité de Brunn-Minkowsky 
+	Donc les trois fonction $F,G,H$ définit par 
 	\begin{equation*}
-	\big(1-\frac{t^2}{8}\big)^{n}\lambda(B^n_2)\geq \lambda\big(\frac{\tilde{A}+\tilde{B}}{2}\big)\geq \sqrt{\lambda(\tilde{A})\lambda(\tilde{B})}=\lambda(B^n_2)\sqrt{\mu(A)\mu(B)}
+	F(t)=\int_{\mathbb{R}^{n-1}}f_td\lambda \hspace{2.5mm}\& \hspace{2.5mm}G(t)=\int_{\mathbb{R}^{n-1}}g_td\lambda\hspace{2.5mm} \& \hspace{2.5mm}H(t)=\int_{\mathbb{R}^{n-1}}h_td\lambda 
 	\end{equation*}
-	Or $\sqrt{\mu(A)\mu(B)}\geq\sqrt{\frac{1}{2}(1-\mu(A_t))}$ et finalement :
+	vérifie :
 	\begin{equation*}
-	\mu(A_t)\geq 1 - 2 \big(1-\frac{t^2}{8}\big)^{2n}\geq 1 - 2 e^{-\frac{t^2n}{4}}
+	H(\alpha s + (1-\alpha)t)\geq F(t)^{\alpha}G(s)^{1-\alpha}
 	\end{equation*}
+	Donc par le cas $n=1$, 
+	\begin{equation*}
+	\int_{\mathbb{R}}H d\lambda \geq\Big(\int_{\mathbb{R}}Fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}G d\lambda\Big)^{1-\alpha}
+	\end{equation*}
+	Ce qui permet de conclure la preuve par récurrence.
 \end{proof}
 \boxXx{
-	\begin{cor}
-		Pour tout $t>0$ et toute fonction $f$, $L$-Lipschitzienne de $S^{n-1}$ dans $\mathbb{R}$ pour un $L>0$ on a :
-		\begin{equation*}
-		\mu\big\{|f-\mathbb{E}[f]|>t \big\}\leq 4 e^{-\beta\frac{t^2}{L^2}}
-		\end{equation*}
-		où $\mathbb{E}[f]=\int_{S^{n-1}} f d\mu$ et $\beta>0$ une constante universelle.
-	\end{cor}
-}
+	\begin{cor}[Brunn-Minkowsky]\label{bm}
+		Soit $A,B$ deux compact non vide de $\mathbb{R}^n$ on a 
+		\begin{enumerate}
+			\item[(i)] Pour $\alpha\in]0,1[$, $\lambda\Big(\alpha A+(1-\alpha)B\Big)\geq \lambda(A)^\alpha\lambda(B)^{1-\alpha}$
+			\item[(ii)] $\lambda(A+B)^{\frac{1}{n}}\geq \lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}$
+		\end{enumerate}
+\end{cor}}
 \begin{proof}
-	Commençons par le montrer pour $L=1$, donnons nous $m_f$ une médiane de $f$ et posons $A=\big\{f\leq m_f\big\}$, alors 
-	\begin{align*}
-	x\in A_t& \Rightarrow \exists y\in A , d(x,y)<t\\
-	&\Rightarrow |f(x)-f(y)|<Lt=t\\
-	&\Rightarrow f(x)-m_f\leq f(x)-f(y)+f(y)-m_f\\
-	&\Rightarrow f(x)\leq m_f + t
-	\end{align*}
-	donc $A_t\subset \Big\{f\leq m_f+t\Big\} \iff \Big\{f> m_f+t\Big\}\subset A_t^c $, 
-	\begin{equation*}
-	\mu\big(f> m_f+t\big)\leq \mu(A_t^c)\leq 2 e^{-\frac{t^2n}{4}}
-	\end{equation*}
-	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ et on obtient :
-	\begin{equation*}
-	\mu\big(f< m_f-t\big)\leq 2 e^{-\frac{t^2n}{4}}
-	\end{equation*}
-	Il nous faut maintenant remplacer la médiane par $\mathbb{E}[f]$, on a l'inégalité suivante :
-	\begin{align*}
-	\big|m_f-\int_{S^{n-1}}fd\mu\big|&\leq \int_{S^{n-1}}\big|m_f-f|\big|d\mu\\
-	&\leq\int_{0}^{+\infty}\mu\big(|m_f-f|>t\big)dt\\
-	&\leq\int_{0}^{+\infty} 4 e^{-\frac{t^2n}{4}}dt=4\sqrt{\frac{\pi}{n}}
-	\end{align*}
-	Posons $\alpha = \frac{\sqrt{\log(2)}}{2\sqrt{\pi}+\sqrt{\log(2)}} \Rightarrow 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1 $, si $t>\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors 
-	\begin{align*}
-	\mu\big(f>\mathbb{E}[f]+t\big)&\leq \mu\big(f>m_f-4\sqrt{\frac{\pi}{n}}+t\big)\\
-	&\leq \mu\big(f>m_f+\alpha t\big)\\
-	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
-	\end{align*}
-	Similairement :
-	\begin{align*}
-	\mu\big(f<\mathbb{E}[f]-t\big)&\leq \mu\big(f<m_f+4\sqrt{\frac{\pi}{n}}-t\big)\\
-	&\leq \mu\big(f>m_f-\alpha t\big)\\
-	&\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
-	\end{align*}
-	Si $t\leq\frac{4}{1-\alpha}\sqrt{\frac{\pi}{n}}$ alors  
-	\begin{equation*}
-		2e^{-\alpha^2\frac{t^2n}{4}}\geq 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1
-	\end{equation*}
-	Dans ce cas il n'y a rien a montrer et finalement dans tous les cas on obtient :
-	\begin{align*}
-		\mu\big(f>\mathbb{E}[f]+t\big) \leq 2 e^{-\alpha^2\frac{t^2n}{4}}\\
-		\mu\big(f<\mathbb{E}[f]-t\big)\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
-	\end{align*}
-	C'est-à-dire : 
-	\begin{equation*}
-		\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4}}\\
-	\end{equation*}
-	Pour $L\neq 1$ il suffit d'appliqué ce qui précède à $\frac{f}{L}$,
-	\begin{equation*}
-		\mu\big(|f-\mathbb{E}[f]|>t\big) \leq 4 e^{-\alpha^2\frac{t^2n}{4L^2}}\\
-	\end{equation*}
+	\begin{enumerate}
+		\item[(i)] Prenons $f=\mathbb{1}_A$, $g=\mathbb{1}_B$ et $h=\mathbb{1}_{\alpha A+(1-\alpha)B}$, alors $f,g,h$ vérifie les hypothèses du théorème de Prékopa-Leindler par conséquent ,
+		\begin{equation*}
+		\int_{\mathbb{R}^n}hd\lambda \geq \Big(\int_{\mathbb{R}^n}fd\lambda\Big)^{\alpha} \Big(\int_{\mathbb{R}^n}gd\lambda\Big)^{1-\alpha}
+		\end{equation*}
+		\begin{equation*}
+		\lambda\big(\alpha A+(1-\alpha)B\big) \geq \lambda(A)^{\alpha} \lambda(B)^{1-\alpha}
+		\end{equation*}
+		\item[(ii)] On a
+		\begin{align*}
+		\frac{1}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\lambda(A+B)^{\frac{1}{n}}&=\lambda\Big(\frac{A+B}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\Big)^{\frac{1}{n}}\\
+		&=\lambda\Big(\frac{\lambda(A)^\frac{1}{n}}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\frac{A}{\lambda(A)^\frac{1}{n}}+\frac{\lambda(B)^\frac{1}{n}}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\frac{B}{\lambda(B)^\frac{1}{n}}\Big)^\frac{1}{n}
+		\end{align*}
+		Appliquons le point (i) aux ensembles $\frac{A}{\lambda(A)^{\frac{1}{n}}}$ et $\frac{B}{\lambda(B)^{\frac{1}{n}}}$ avec $\alpha = \frac{\lambda(A)^\frac{1}{n}}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}$, on obtient 
+		\begin{equation*}
+		\frac{1}{\lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}}\lambda(A+B)^{\frac{1}{n}}\geq \lambda\big(\frac{A}{\lambda(A)^\frac{1}{n}}\big)^{\alpha/n} \lambda\big(\frac{B}{\lambda(B)^\frac{1}{n}}\big)^{(1-\alpha)/n}=1
+		\end{equation*}
+	\end{enumerate}
 \end{proof}
-\section{- Inégalité de Khinchine}
+\section{- Martingales \& Inégalité de Khinchine}
 Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous tribus de $\mathcal{F}$, pour tous $f\in L^1(\Omega,\mathcal{F},P)$ par le théorème de Randon-Nikodym il existe un unique $h\in L^1(\Omega,\mathcal{G},P)$ tel que pour tous $A\in \mathcal{G}$ on ait 
 \begin{equation*}
 	\int_{A}h dP = \int_{A}f dP
