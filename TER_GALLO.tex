@@ -95,12 +95,12 @@
 		
 
 		\HRule \\[2cm]
-		
-		\vspace{1cm}
-		\begin{center}
-			\textit{"It soon became clear that an outstanding breakthrough in Geometric Functional Analysis had been achieved."}  \\
-			\footnotesize Vitali Milman à propos du théorème de Dvoretzky dans \textit{Dvoretzky theorem - thirty years later}
-		\end{center}
+		%
+		%\vspace{1cm}
+		%\begin{center}
+		%	\textit{"It soon became clear that an outstanding breakthrough in Geometric Functional Analysis had been achieved."}  \\
+		%	\footnotesize Vitali Milman à propos du théorème de Dvoretzky dans \textit{Dvoretzky theorem - thirty years later}
+		%\end{center}
 
 		
 		\vfill 
@@ -348,7 +348,7 @@ Le phénomène de concentration de la mesure a été mis en avant par V.Milman �
 	P(f\geq m_f)\geq \frac{1}{2} \hspace{5mm} \& \hspace{5mm} P(f\leq m_f)\geq \frac{1}{2}
 \end{equation*}
 L'assertion $f$ est essentiellement constante se traduit par le faite que l'on puisse donner une borne supérieur à $P\big(|f-m_f|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ .\\
-Pour un ensemble $A$ et $\varepsilon>0$ on définit son $\varepsilon$-élargissement $A_\varepsilon$ par :
+Pour un ensemble $A\subset X$ et $\varepsilon>0$ on définit son $\varepsilon$-élargissement $A_\varepsilon$ par :
 \begin{equation*}
 	A_\varepsilon =\big\{x\in X \; ; \; d(x,A)\leq \varepsilon\big\}
 \end{equation*}
@@ -564,7 +564,7 @@ Le \cref{eleb} nous permet de conclure que quitte à diviser la dimension du sou
 Pour la preuve du théorème de Dvoretzky nous aurons besoins de deux résultat sur les variables aléatoires gaussiennes, ce premier combiner avec \cref{lhso} nous seras utile pour calculer des intégrales par rapport à la mesure de Haar sur la $(n-1)$-sphère.
 \newline\boxXx{
 	\begin{lemme}\label{gaussind}
-		Soit $g=(g_1,...,g_n)$ des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendants.
+		Soit $g=(g_1,...,g_n)$ où les $(g_i)_{i\leq n}$ sont des variables aléatoire i.i.d suivant une loi gaussienne, alors 	$\frac{g}{|g|}$ et $|g|$ sont indépendantes.
 	\end{lemme}
 }
 \begin{proof}
@@ -598,9 +598,9 @@ Nous aurons besoins de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ po
 	\begin{lemme}\label{ming}
 		il existe $c>0$ tel que $\forall N>1$ et $\{g_i\}_{1\leq i \leq N}$ des variables aléatoire i.i.d suivant une loi $\mathcal{N}(0,1)$ on ait :
 		\begin{equation*}
-			\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big] \geq c \sqrt{\log N}
+			\mathbb{E}\big[\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|\big] \geq c \sqrt{\log N}
 		\end{equation*}
-		où $\tilde{N} = \Bigg\lceil\frac{N}{2}\Bigg\rceil$ est la partie entière supérieure de $\frac{N}{2}$.
+		où $\Bigg\lceil\frac{N}{2}\Bigg\rceil$ est la partie entière supérieure de $\frac{N}{2}$.
 	\end{lemme}
 }
 \begin{proof}
@@ -613,18 +613,18 @@ Nous aurons besoins de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ po
 	\end{equation*}
 	Donc 
 	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log N}\Big)^{\tilde{N}}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log N}\Big)\Bigg)^{\tilde{N}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|\leq \sqrt{\log N}\Big) = \mathbb{P}\Big(|g_1|\leq \sqrt{\log N}\Big)^{\big\lceil\frac{N}{2}\big\rceil}=\Bigg(1-\mathbb{P}\Big(|g_1|> \sqrt{\log N}\Big)\Bigg)^{\big\lceil\frac{N}{2}\big\rceil}
 	\end{equation*}
 	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|\leq \sqrt{\log N}\Big)\leq \Bigg(1-\frac{1}{N}\Bigg)^{\tilde{N}}\leq e^{-\frac{\tilde{N}}{N}} \leq e^{-\frac{1}{2}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|\leq \sqrt{\log N}\Big)\leq \Bigg(1-\frac{1}{N}\Bigg)^{\big\lceil\frac{N}{2}\big\rceil}\leq e^{-\frac{\big\lceil\frac{N}{2}\big\rceil}{N}} \leq e^{-\frac{1}{2}}
 	\end{equation*}
 	Ce qui équivaut a 
 	\begin{equation*}
-	\mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|>\sqrt{\log N}\Big)\geq 1- e^{-\frac{1}{2}}
+	\mathbb{P}\Big(\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|>\sqrt{\log N}\Big)\geq 1- e^{-\frac{1}{2}}
 	\end{equation*}
 	Par l'inégalité de Markov on a finalement :
 	\begin{equation*}
-	\mathbb{E}\big[\max_{1 \leq i\leq \tilde{N}}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \tilde{N}}|g_i|> \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
+	\mathbb{E}\big[\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|\big]\geq \mathbb{P}\Big(\max_{1 \leq i\leq \big\lceil\frac{N}{2}\big\rceil}|g_i|> \sqrt{\log N}\Big) \sqrt{\log N}\geq (1-e^{-\frac{1}{2}})\sqrt{\log N}
 	\end{equation*}
 	avec $c =: 1-e^{-\frac{1}{2}}$ 
 \end{proof}
@@ -850,7 +850,7 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 	\end{proposition}
 }
 \begin{proof}
-	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \tilde{n}=:\big\lceil\frac{n}{2}\big\rceil$ la partie entière supérieure de $\frac{n}{2}$, $||x_i||\geq e^{-1}\Big(1-\frac{\tilde{n} -1}{n}\Big)\geq e^{-1}\Big(1-\frac{\frac{n}{2}+1 -1}{n}\Big)= (2e)^{-1}$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
+	Par le lemme de Dvoretzky-Rogers il existe une base orthonormé $x_1,...,x_n$ tel que pour $1\leq i \leq \big\lceil\frac{n}{2}\big\rceil$ la partie entière supérieure de $\frac{n}{2}$, $||x_i||\geq e^{-1}\Big(1-\frac{\big\lceil\frac{n}{2}\big\rceil -1}{n}\Big)\geq e^{-1}\Big(1-\frac{\frac{n}{2}+1 -1}{n}\Big)= (2e)^{-1}$. Comme $\mu$ est invariante par composition par une transformation orthogonale on a que  
 	\begin{equation*}
 	M=:\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)= \int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)
 	\end{equation*}
@@ -858,16 +858,16 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 	\begin{align*}
 	M&=\frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n}a_ix_i||d\mu(a)+ \frac{1}{2}\int_{S^{n-1}} ||\sum_{i=1}^{n-1}a_ix_i-a_nx_n||d\mu(a)\\
 	&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
-	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a)	
+	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a)	
 	\end{align*}
 	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
-	\int_{S^{n-1}} \max_{1\leq i \leq \tilde{n}}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big]
+	\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\Big]
 	\end{equation*}
 	
 	\noindent Par le \cref{gaussind} $\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}}(g_1,...,g_n)$ et $(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}$ sont des variables aléatoires indépendantes, on a donc 
 	\begin{equation*}
-	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \tilde{n}}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]
+	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\big]
 	\end{equation*}
 	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
 	\begin{equation*}
@@ -876,7 +876,7 @@ Il ne nous reste plus qu'as donner une borne inférieur à $\frac{M}{b}$, pour c
 	
 	\noindent Et finalement par le \cref{ming}, il existe $K>0$ tel que :
 	\begin{equation*}
-	M\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \tilde{n}}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
+	M\geq \frac{1}{2e\sqrt{n}} \mathbb{E}\big[\max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\big]\geq \frac{K}{2e}\sqrt{\frac{\log n}{n}}
 	\end{equation*}
 \end{proof}
 \begin{leftbar}
@@ -1136,7 +1136,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\begin{equation*}
 	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}\leq \int_{\mathbb{R}}hd\lambda
 	\end{equation*}
-	Ce qui fini la preuve pour le cas $n=1$, si $n>1$ supposons que pour tous entier inférieur à $n$ l'inégalité soit montrer et posons $f_t:\begin{array}{ccc}\mathbb{R}^{n-1}&\to&[0,+\infty)\\x&\to&f(t,x)\end{array}$ pour $t\in \mathbb{R}$ et de même pour $g$ et $h$. Pour $t,s\in\mathbb{R}$ et $x,y\in \mathbb{R}^{n-1}$, 
+	Ce qui fini la preuve pour le cas $n=1$, si $n>1$ supposons que pour $n-1$ l'inégalité soit montrer et montrons le résultat par récurrence. Posons $f_t:\begin{array}{ccc}\mathbb{R}^{n-1}&\to&[0,+\infty)\\x&\to&f(t,x)\end{array}$ pour $t\in \mathbb{R}$ et de même pour $g$ et $h$. Pour $t,s\in\mathbb{R}$ et $x,y\in \mathbb{R}^{n-1}$, 
 	\begin{equation*}
 	h_{s\alpha+(1-\alpha)t}(\alpha x+(1-\alpha)y)\geq f_s(x)^\alpha g_t(y)^{1-\alpha}
 	\end{equation*}
@@ -1146,15 +1146,15 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\end{equation*}
 	Donc les trois fonction $F,G,H$ définit par 
 	\begin{equation*}
-	F(t)=\int_{\mathbb{R}^{n-1}}f_td\lambda \hspace{2.5mm}\& \hspace{2.5mm}G(t)=\int_{\mathbb{R}^{n-1}}g_td\lambda\hspace{2.5mm} \& \hspace{2.5mm}H(t)=\int_{\mathbb{R}^{n-1}}h_td\lambda 
+	F(t)=\int_{\mathbb{R}^{n-1}}f_td\lambda(t) \hspace{2.5mm}\& \hspace{2.5mm}G(t)=\int_{\mathbb{R}^{n-1}}g_td\lambda(t)\hspace{2.5mm} \& \hspace{2.5mm}H(t)=\int_{\mathbb{R}^{n-1}}h_td\lambda(t) 
 	\end{equation*}
-	vérifie :
+	vérifies :
 	\begin{equation*}
-	H(\alpha s + (1-\alpha)t)\geq F(t)^{\alpha}G(s)^{1-\alpha}
+	H(\alpha s + (1-\alpha)t)\geq F(t)^{\alpha}G(s)^{1-\alpha} 
 	\end{equation*}
 	Donc par le cas $n=1$, 
 	\begin{equation*}
-	\int_{\mathbb{R}}H d\lambda \geq\Big(\int_{\mathbb{R}}Fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}G d\lambda\Big)^{1-\alpha}
+	\int_{\mathbb{R}}hd\lambda =\int_{\mathbb{R}}H d\lambda \geq\Big(\int_{\mathbb{R}}Fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}G d\lambda\Big)^{1-\alpha}= \Big(\int_{\mathbb{R}^n}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}^n}g d\lambda\Big)^{1-\alpha}
 	\end{equation*}
 	Ce qui permet de conclure la preuve par récurrence.
 \end{proof}
