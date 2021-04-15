@@ -24,7 +24,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{framed}
 \usepackage[A4]{vmargin}
-\setmarginsrb{2cm}{1.2cm}{2cm}{2cm}{0.5cm}{0.5cm}{0cm}{1cm} 
+\setmarginsrb{2cm}{1.4cm}{2cm}{2cm}{0.5cm}{0.5cm}{0cm}{1cm} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THEOREMES STYLE %%%%%%%%%%%%
 \theoremstyle{definition}
@@ -182,7 +182,7 @@ Donc lorsque $n$ est grand, si on se place sur la $(n-1)$-sphère euclidienne, $
 \begin{equation*}
 r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
-Nous allons maintenant donner une reformulation du théorème de Dvoretzky en terme de norme, en utilisant la relation entre un compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \;  ; \; \frac{y}{\lambda}\in K \big\}$.
+En utilisant la relation entre compact convexe symétrique $K$ et la norme $||y||_K=\inf\big\{\lambda \;  ; \; \frac{y}{\lambda}\in K \big\}$, nous allons donner une reformulation du théorème de Dvoretzky en terme de norme.
 \newline\boxXx{
 \begin{definition}
 	Soit $(X,||.||_X),(Y,||.||_Y)$ deux espaces normés et $C> 0$, on dit que $X$ s'injecte $C$-continûment dans $Y$, si il existe $T\in\mathcal{L}(X,Y)$ tel que pour tout $x\in X$
@@ -194,7 +194,7 @@ Nous allons maintenant donner une reformulation du théorème de Dvoretzky en te
 
 \boxXx{
 	\begin{theoreme}\label{thmr}
-	Pour tout $\varepsilon>0$ il existe $c>0$ telle que pour tout $n\in \mathbb{N}$ et pour toutes normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
+	Pour tout $\varepsilon>0$ il existe $c>0$ telle que pour tout $n\in \mathbb{N}^*$ et pour toutes normes $||.||$ sur $\mathbb{R}^n$ ,  $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $(\mathbb{R}^n,||.||)$ pour un $k\geq c.\log(n)$. 
 	\end{theoreme}
 }
 
@@ -228,20 +228,20 @@ r|x|_k \leq ||\tilde{T}x|| \leq (1+\varepsilon)r|x|_k
 \end{equation*}
 avec $\tilde{T} = r(1+\varepsilon)T$, remarquons que la quantité importante est $||T||.||T^{-1}||=||\tilde{T}||.||\tilde{T}^{-1}||\leq 1+\varepsilon$.\\ 
 (3)$\Rightarrow$(2)\\
-Soit $\varepsilon>0$ , par le théorème 3 il existe $c>0$ telle que pour tous $n\in\mathbb{N}$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($R^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+Soit $\varepsilon>0$ , par le \textbf{théorème 3} il existe $c>0$ tel que pour tout $n\in\mathbb{N}^*$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($\mathbb{R}^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 \begin{equation*}
 \forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 \end{equation*}
 ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
 \begin{enumerate}
 	\item[(i)]Soit $y\in T\left(B_2^k\right)$ et $x\in B_2^k$ tel que $Tx=y$ alors $\frac{||y||}{1+\varepsilon}\leq 1$ donc $\frac{y}{1+\varepsilon}\in K\cap V$, c'est-à-dire $\frac{1}{1+\varepsilon}T\left(B_2^k\right)\subset K\cap V$.
-	\item[(ii)] Soit $y\in K\cap V$ par bijectivité de $T$, il existe $x\in \mathbb{R}^k$ tel que $Tx=y$, alors $1\geq ||y|| \geq |x|$, donc $x\in B_2^k$ c'est-à-dire $K\cap V\subset T\left(B_2^k\right)$.
+	\item[(ii)] Soit $y\in K\cap V$, il existe $x\in \mathbb{R}^k$ tel que $Tx=y$, alors $1\geq ||Tx||=||y|| \geq |x|$, donc $x\in B_2^k$ c'est-à-dire $K\cap V\subset T\left(B_2^k\right)$.
 \end{enumerate} 
 Et donc, `
 \begin{equation*}
 	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 \end{equation*}
-Pour conclure, nous nous référençons au \textbf{lemme \labelcref{eleb}} qui sera démontré par la suite, qui dit que toutes ellipsoïdes de dimension $k$ admet une section de dimension $\lceil k/2\rceil$ qui soit un multiple de la boule euclidienne. 
+Pour conclure, nous nous référençons au \textbf{lemme \labelcref{eleb}} qui sera démontré par la suite, qui dit que tout ellipsoïde de dimension $k$ admet une section de dimension $\lceil k/2\rceil$ qui soit un multiple de la boule euclidienne. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -326,13 +326,13 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{lemme}
 }
 \begin{proof}
-	Soit $M \in O(n)$ et $x\in S^{n-1}$ alors $\omega_x$ définie par
+	Soit $x\in S^{n-1}$ alors $\omega_x$ définie par
 	\begin{equation*}
 	\omega_x(A)= \nu\Big( T\in O(n) \;;\; Tx\in A\Big)
 	\end{equation*}
 vérifie les propriétés suivantes :
 	\begin{equation*}
-	\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
+	\text{$\forall M\in O(n)$ $\forall A \in \text{Bor}(S^{n-1})$}, \hspace{2mm}\omega_x(MA)= \nu\Big( T\in O(n) \;;\; M^{T}Tx\in A\Big)=\nu\Big( T\in O(n) \;;\; Tx\in A\Big)=\omega_x(A)
 	\end{equation*}
 	\begin{equation*}
 	\omega_x(\emptyset)=0
@@ -475,7 +475,7 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 \noindent Donnons une définition alternative d'un l'ellipsoïde.
 \newline\boxXx{
 	\begin{proposition}
-		Pour toute ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormée tels que :
+		Pour tout ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormée tels que :
 		\begin{equation*}
 		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{\langle x,v_i\rangle ^2}{\alpha_i^2}< 1\big\}
 		\end{equation*}
@@ -539,7 +539,7 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 Nous admettons le résultat de F.John : 
 \newline\boxXx{
 	\begin{defft}[Ellipsoïde de John]
-		Tout compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, elle est appelée ellipsoïde de John.
+		Tout compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, il est appelé ellipsoïde de John.
 	\end{defft}
 }
 \begin{leftbar}
@@ -789,11 +789,11 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	& > 1 -  4 e^{-\frac{\theta^2M^2n\beta}{2b^2}}\\
 	&> 1 - \frac{4}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\theta^2M^2n\beta}{2b^2}\geq 2\log(\frac{3}{\theta})$} 
 	\end{align*}	
-	Donc il existe $T\in O(n)$ tel que pour tous $x\in A$ on ait $\big|||Tx||-M \big|\leq M\theta$, c'est à dire 
+	Donc il existe $T\in O(n)$ tel que pour tout $x\in A$, $\big|||Tx||-M \big|\leq M\theta$, c'est-à-dire 
 	\begin{equation*}
 	M(1-\theta)\leq ||Tx||\leq M(1+\theta)
 	\end{equation*}
-	Par le \cref{lsB} pour tous $x\in V_0$
+	Par le \cref{lsB} pour tout $x\in V_0$
 	\begin{equation*}
 	\frac{1}{\sqrt{1+\varepsilon}}|x| M\leq ||Tx||\leq \sqrt{1+\varepsilon}|x| M
 	\end{equation*}
@@ -879,7 +879,7 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 \noindent On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir $k \geq c(\varepsilon)\log n$ lorsque $B_2^n$ est l'ellipsoïde de John pour $B_{||.||}$, en utilisant la \cref{rem0} quitte à diviser $k$ par $2$, on peut généraliser à toutes les normes et donc conclure la démonstration du théorème de Dvoretzky.
 \end{leftbar}
 \section{Sections presque euclidiennes de $\ell_p^n$}
-Dans cette section on applique le \cref{mtool} pour donner une estimation de la dimension critique des espace $\ell_p^n$.
+Dans cette section on applique le \cref{mtool} pour donner une estimation de la dimension critique des espaces $\ell_p^n$.
 \newline\boxXx{
 	\begin{definition}(Dimension critique)
 		Soit $X=(\mathbb{R}^n,||.||)$ pour $||.||$ une norme sur $\mathbb{R}^n$ , pour $\varepsilon>0$ on note $k(X,\varepsilon)$ le plus grand entier tel que $\ell_2^{k(X,\varepsilon)}$ s'injecte $(1+\varepsilon)$-continûment dans $X$.
@@ -961,12 +961,6 @@ Pour la proposition suivante, nous allons utiliser l'inégalité de Khinchine qu
 	k \leq B_p^2(1+\varepsilon)^2 n^{\frac{2}{p}}
 	\end{equation*}
 \end{proof}
-\begin{rem}
-	Dans la démonstration de l'inégalité de Khinchine, on montre que 
-	\begin{equation*}
-	B_p= \big(2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\big)^{\frac{1}{p}}
-	\end{equation*}
-\end{rem}
 \boxXx{\begin{cor}\label{l10}
 		Soit $p\in[1,+\infty[$, pour tout $\varepsilon>0$ il existe $c_p(\varepsilon)>0$ tel que pour tout $n\geq 2$,
 		\begin{equation*}
@@ -1025,14 +1019,14 @@ M &\geq N^{\frac{1}{p}}2^{-\frac{1}{p}} c\sqrt{\log \lfloor e^p\rfloor} n^{-\fra
 & \geq n^{\frac{1}{p}-\frac{1}{2}}C_p
 \end{align*}
 Où $C_p =2^{-\frac{1}{p}} c\sqrt{\log \lfloor e^p\rfloor}\underset{p\to\infty}{\sim} c\sqrt{p}$.\\
-Par le \cref{mtool} $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
+Par le \cref{mtool} $\exists c(\varepsilon)>0$ tel que $\ell_2^k$ s'injecte $(1+\varepsilon)$-continûment dans $\ell_p^n$, pour
 \begin{align*}
-k &\geq c(\varepsilon)\big(\frac{E}{b}\big)^2n\\
+k &\geq c(\varepsilon)\left(\frac{M}{b}\right)^2n\\
 &\geq c_p(\varepsilon)n^{\frac{2}{p}}, \hspace{3mm} \text{avec $c_p(\varepsilon) = c(\varepsilon)C_p^2\underset{p\to\infty}{\sim} \tilde{c}(\varepsilon)p$}
 \end{align*}\end{proof}
 En condensant ce qui précède on obtient le résultat suivant,
 \newline\boxXx{
-	\begin{cor} Soit $\varepsilon>0$,
+	\begin{cor} Soit $0<\varepsilon<1$,
 		\begin{enumerate}
 			\item[-] Pour $1\leq p <2$, $\frac{k(\ell_p^n,\varepsilon)}{n}$ est bornée entre deux constantes qui ne dépendent que de $p$ et $\varepsilon$.
 			\item[-] Pour $2\leq p<\infty$, $\frac{k(\ell_p^n,\varepsilon)}{n^\frac{2}{p}}$ est bornée entre deux constantes qui ne dépendent que de $p$ et $\varepsilon$.
@@ -1087,14 +1081,14 @@ Intéressons nous maintenant au cas $p=\infty$.
 	&\geq  \frac{1}{2}\big(\frac{7}{16\sqrt{2\varepsilon}}\big)^{k-1}\\
 	&\geq \frac{1}{2}\big(\frac{7}{16\sqrt{2\varepsilon}}\big)^{\frac{k}{2}}
 	\end{align*}
-	et donc 
+	et finalement 
 	\begin{equation*}
 	k\leq \frac{2\log n}{\log\big(\frac{7}{16\sqrt{2\varepsilon}}\big)}
 	\end{equation*}
 \end{proof}	
 \boxXx{
 	\begin{proposition}
-		Soit $0<\varepsilon<1$, $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_\infty$ pour $k=\big[\frac{\log n}{\log(\frac{3}{\varepsilon})}\big]$
+		Soit $0<\varepsilon<1$, $\ell^k_2$ s'injecte $(1+\varepsilon)$-continûment dans $\ell^n_\infty$ pour $k=\left\lceil\frac{\log n}{\log(\frac{3}{\varepsilon})}\right\rceil$.
 	\end{proposition}
 }
 \begin{proof}
@@ -1102,10 +1096,10 @@ Intéressons nous maintenant au cas $p=\infty$.
 	\begin{equation*}
 	T : \begin{array}{ccc}
 	\mathbb{R}^k& \to &\mathbb{R}^n\\
-	x & \to & (1+\varepsilon)(\langle x,y_i\rangle)_{i\leq n}\\
+	x & \to & (1+\varepsilon)\left(\langle x,y_i\rangle\right)_{i\leq n}\\
 	\end{array}
 	\end{equation*}
-	Alors, pour tout $x\in S^{k-1}$, il existe $i\leq n$ tel que $|x-y_i|<\varepsilon$, alors 
+	Alors, pour tout $x\in S^{k-1}$ il existe $i\leq n$ tel que $|x-y_i|<\varepsilon$, d'où 
 	\begin{align*}
 	\varepsilon^2>|x-y_i|^2&=|x|^2+|y_i|^2-2\langle x,y_i\rangle \\
 	&=2(1-\langle x,y_i\rangle)
