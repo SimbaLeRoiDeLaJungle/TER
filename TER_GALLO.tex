@@ -643,12 +643,12 @@ Montrons maintenant que sur une section de la $(n-1)$-sphère, on peut trouver u
 	\end{lemme}
 }
 \begin{proof}
-		Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V(0,1+\frac{\theta}{2})$ d'où : 
+		Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V\left(0,1+\frac{\theta}{2}\right)$ en notant $\lambda$ la mesure de Lebesgue sur $V$ on a : 
 	\begin{equation*}
-		m \text{Vol}(B_V(x_1,\frac{\theta}{2}))= \sum_{i=1}^{m}\text{Vol}(B_V(x_i,\frac{\theta}{2}))= \text{Vol}(\cup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2}))\leq \text{Vol}(B_V(0,1+\frac{\theta}{2}))
+		m \lambda\left\{B_V(x_1,\frac{\theta}{2})\right\}= \sum_{i=1}^{m}\lambda\left\{B_V(x_i,\frac{\theta}{2})\right\}= \lambda\left\{\bigcup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2})\right\}\leq \lambda\left\{B_V(0,1+\frac{\theta}{2})\right\}
 	\end{equation*}
 	\begin{equation*}
-		m\leq \frac{\text{Vol}(B_V(0,1+\frac{\theta}{2}))}{\text{Vol}(B_V(x_1,\frac{\theta}{2}))} 
+		m\leq \frac{\lambda\left\{B_V(0,1+\frac{\theta}{2})\right\}}{\lambda\left\{B_V(x_1,\frac{\theta}{2})\right\}} 
 	\end{equation*}
 	Par homogénéité de la mesure de Lebesgue :
 	\begin{equation*}
@@ -805,7 +805,7 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0} et le lemme suivant :
 \newline\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
-		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ telle que pour $2\leq i\leq n$
+		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ telle que pour $1\leq i\leq n$
 		\begin{equation*}
 		e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
 		\end{equation*}
@@ -833,7 +833,7 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 	\begin{equation*}
 	1\geq a^{k-1} \Big(\frac{1-a}{||x_k||}\Big)^{n-k+1} \; \iff \; ||x_k||\geq a^{\frac{k-1}{n-k+1}}(1-a) \geq e^{-1}\Big(1-\frac{k-1}{n}\Big)
 	\end{equation*}
-	car $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)>-1$ (étudier $f(X)=\frac{X}{1-X}\log(X)$).
+	car $\log a^{\frac{k-1}{n-k+1}}= \frac{k-1}{n-k+1}\log\Big(\frac{k-1}{n}\Big)>-1$ (étudier $f(X)=\frac{X}{1-X}\log(X)$). Pour $k=1$ il faut prendre $a=1-e^{-1}$ alors $1\geq \left(\frac{1-a}{||x_1||}\right)^n\Rightarrow ||x_1||\geq e^{-1}$.
 	
 \end{proof}
 
@@ -1393,7 +1393,7 @@ Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preu
 		\mathcal{F}_{n+1}=\text{Bor}([0,1])\\
 		\end{array}
 	\end{equation*}
-	On a alors 
+	Où $\sigma(r_1,\dots,r_k)$ désigne la tribus engendrées par les variables aléatoires $r_1,\dots,r_k$. On a alors 
 	\begin{align*}
 		d_i &= \mathbb{E}(f|\mathcal{F}_i)-\mathbb{E}(f|\mathcal{F}_{i-1})\\
 		&= \sum_{j=1}^{n}\mathbb{E}(b_jr_j|\mathcal{F}_i)-\sum_{j=1}^{n}\mathbb{E}(b_jr_j|\mathcal{F}_{i-1})
@@ -1456,9 +1456,6 @@ Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preu
 		B_4^{-2}\big(\sum_{i=1}^{n}a_i^2\big)^{\frac{1}{2}}\leq \Big(\int_0^1|\sum_{i=1}^{n}a_ir_i|^pd\lambda \Big)^{\frac{1}{p}}\leq \big(\sum_{i=1}^{n}a_i^2\big)^{\frac{1}{2}}
 	\end{equation*}
 	\end{proof}	
-
-\newpage
-
 \nocite{GP}
 \nocite{VM2}
 \nocite{VMGS}
