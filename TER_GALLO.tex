@@ -139,7 +139,7 @@ Dans le papier original de Dvortezky, l'estimation de $k$ était :
 \begin{equation*}
 k(\varepsilon,n)\geq c(\varepsilon)\sqrt{\frac{\log n}{\log \log n}} \hspace{1cm} \text{pour un $c(\varepsilon)>0$}
 \end{equation*} 
-Vitali Milman en 1971 \cite{VM1} donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure , il a de plus, amélioré le théorème en donnant l'estimation de la dépendance en $n$ pour la dimension de $V$:  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
+Vitali Milman en 1971 \cite{VM1} donna une nouvelle preuve du théorème de Dvoretzky en utilisant le phénomène de concentration de la mesure. Il a de plus, amélioré le théorème en donnant l'estimation de la dépendance en $n$ pour la dimension de $V$:  $k(\varepsilon,n)\geq c(\varepsilon).\log(n)$.
 \newline\boxXx{
 	\begin{theoreme}[V. Milman, 1971]\label{thmMil}
 		Pour tout $\varepsilon>0$, il existe une constante $c>0$ telle que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe  $V\sev  \mathbb{R}^n$ tels que :
@@ -149,7 +149,7 @@ Vitali Milman en 1971 \cite{VM1} donna une nouvelle preuve du théorème de Dvor
 		\end{enumerate}
 	\end{theoreme}
 }
-La dépendance de $c$ par rapport à $\varepsilon$ donnée par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serra démontrée dans ce mémoire. Y.Gordon a montré en 1988 que l'on pouvait prendre $c\sim \varepsilon^2$ avec les mêmes outils que V.Milman dans \cite{YG}, plus récemment en 2006, G.Schechtman a montré que l'on pouvait prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$  en construisant de manière plus précise le $\theta$-net \cite{GS2} (voir preuve de \textbf{théorème \ref{mtool}}) .
+La dépendance de $c$ par rapport à $\varepsilon$ donnée par V.Milman était $c \sim \frac{\varepsilon^2}{\log{\frac{1}{\varepsilon}}}$ \cite{VM1}, c'est cette dépendance qui serra démontrée dans ce mémoire. Y.Gordon a montré en 1988 que l'on pouvait prendre $c\sim \varepsilon^2$ avec les mêmes outils que V.Milman dans \cite{YG}. Plus récemment en 2006, G.Schechtman a montré que l'on pouvait prouver le théorème de Dovretzky avec la même preuve que V. Milman pour $c\sim \varepsilon^2$  en construisant de manière plus précise le $\theta$-net \cite{GS2} (voir preuve de \textbf{théorème \ref{mtool}}) .
 \newpage\begin{notation}
 	Pour la suite, on utilisera les notations : 
 	\begin{enumerate}
@@ -208,7 +208,7 @@ T :\begin{array}{ccc}
 \sum_{i=1}^{k}x_i e_i & \to & \sum_{i=1}^{k}x_i v_i
 \end{array}
 \end{equation*}
-Soit $x\in \mathbb{R}^k$ tel que $||Tx||=1$, comme $K\cap V$ est $\varepsilon$-euclidien on a que 
+Soit $x\in \mathbb{R}^k$ tel que $||Tx||=1$, comme $K\cap V$ est $\varepsilon$-euclidien, on a que
 \begin{equation*}
 r \leq |Tx|_n \leq (1+\varepsilon)r, \hspace{2mm}\text{pour un $r>0$}
 \end{equation*}
@@ -228,11 +228,11 @@ r|x|_k \leq ||\tilde{T}x|| \leq (1+\varepsilon)r|x|_k
 \end{equation*}
 avec $\tilde{T} = r(1+\varepsilon)T$, remarquons que la quantité importante est $||T||.||T^{-1}||=||\tilde{T}||.||\tilde{T}^{-1}||\leq 1+\varepsilon$.\\ 
 (3)$\Rightarrow$(2)\\
-Soit $\varepsilon>0$ , par le \textbf{théorème 3} il existe $c>0$ tel que pour tout $n\in\mathbb{N}^*$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($\mathbb{R}^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
+Soit $\varepsilon>0$ par le \textbf{théorème 3}, il existe $c>0$ tel que pour tout $n\in\mathbb{N}^*$ il existe un $k>c.\log(n)$ et $\ell_2^k$ s'injecte ($1+\varepsilon$)-continûment dans ($\mathbb{R}^n,||.||$) pour n’importe quelle norme $||.||$ sur $\mathbb{R}^n$. Considérons un compact convexe symétrique $K\subset \mathbb{R}^n$ et $||y||=\inf\Big\{\lambda>0\; ;\; \frac{y}{\lambda}\in K\Big\}$, alors $\exists T :\ell^{k}_2\to(\mathbb{R}^n,||.||)$ linéaire tel que :
 \begin{equation*}
 \forall x \in \mathbb{R}^k \; , \;\; |x|\leq ||Tx||\leq (1+\varepsilon)|x|
 \end{equation*}
-ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
+Ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors la co-restriction à $V$ de $T$ est bijective.
 \begin{enumerate}
 	\item[(i)]Soit $y\in T\left(B_2^k\right)$ et $x\in B_2^k$ tel que $Tx=y$ alors $\frac{||y||}{1+\varepsilon}\leq 1$ donc $\frac{y}{1+\varepsilon}\in K\cap V$, c'est-à-dire $\frac{1}{1+\varepsilon}T\left(B_2^k\right)\subset K\cap V$.
 	\item[(ii)] Soit $y\in K\cap V$, il existe $x\in \mathbb{R}^k$ tel que $Tx=y$, alors $1\geq ||Tx||=||y|| \geq |x|$, donc $x\in B_2^k$ c'est-à-dire $K\cap V\subset T\left(B_2^k\right)$.
@@ -276,14 +276,14 @@ Pour conclure, nous nous référençons au \textbf{lemme \labelcref{eleb}} qui s
 \section{Préliminaire}
 
 \subsection{Mesures de Haar}
-La mesure de Haar est une notion introduite par Alfred Haar en 1933. Il démontre que dans tout groupe localement compact à base dénombrable, il existe une mesure borélienne invariante par translation à gauche. En 1935 John V.Neumann montre que cette mesure est unique à un coefficient multiplicatif près, nous admettrons le théorème suivant (voir \cite{VMGS}).
+La mesure de Haar est une notion introduite par Alfred Haar en 1933. Il démontre que dans tout groupe localement compact à base dénombrable, il existe une mesure borélienne invariante par translation à gauche. En 1935, John V.Neumann montre que cette mesure est unique à un coefficient multiplicatif près, nous admettrons le théorème suivant (voir \cite{VMGS}).
 \newline\boxXx{
 	\begin{defft}[Mesures de Haar]
 		Soit $(X,d)$ un espace métrique, $G$ un groupe topologique localement compact qui agit sur $X$ et tel que :
 		\begin{equation}\tag{$\star$}
 		\forall x,y\in X \; \; \forall g \in G  \; , \; d(gx,gy)=d(x,y)
 		\end{equation} 
-		alors, il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$. Cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
+		Alors, il existe une unique mesure à un coefficient multiplicatif près, régulière définie sur les boréliens de $X$ qui est invariante sous l'action de $G$. Cette mesure est appelée mesure de Haar de $X$ (où $G$ est sous-entendu).
 	\end{defft}
 }
 Les deux exemples suivants d'espaces métriques vérifient ($\star$) pour $G=O(n)$,
@@ -304,7 +304,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 	\end{lemme}
 }
 \begin{proof}
-	Par unicité de la mesure de Haar , il nous suffit de montrer que pour tous $M\in O(n)$ et $f\in C(S^{n-1})$ :
+	Par unicité de la mesure de Haar, il nous suffit de montrer que pour tout $M\in O(n)$ et $f\in C(S^{n-1})$ :
 	\begin{equation*}
 	\mathbb{E}\Bigg[f\Big(\frac{MY}{|MY|}\Big)\Bigg]=\mathbb{E}\Bigg[f\Big(\frac{Y}{|Y|}\Big)\Bigg]
 	\end{equation*}
@@ -319,7 +319,7 @@ Montrons quelques propriétés qui seront utiles par la suite.
 
 \boxXx{
 	\begin{lemme}\label{lhso}
-		Soit $A\subset S^{n-1}$ un borélien alors pour tous $x\in S^{n-1}$  
+		Soit $A\subset S^{n-1}$ un borélien, alors pour tout $x\in S^{n-1}$  
 		\begin{equation*}
 			\nu\Big( T\in O(n) \;;\; Tx\in A\Big) = \mu\big(A \big)
 		\end{equation*}
@@ -344,15 +344,15 @@ vérifie les propriétés suivantes :
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
 \subsection{Concentration de la mesure}
-Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonctions $1$-Lipschitzienne de $X$ dans $\mathbb{R}$, l'assertion $f$ est essentiellement constante se traduit par le fait que l'on puisse donner une borne supérieure à $P\big(|f-i(f)|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ et $i(f)$ une constante qui dépend de $f$, en pratique $i(f)$ est la médiane de $f$ ou son espérance.\\
-Pour un ensemble $A\subset X$ et $t>0$ on définit son $t$-élargissement $A_t$ par :
+Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonction $1$-Lipschitzienne de $X$ dans $\mathbb{R}$, l'assertion $f$ est essentiellement constante se traduit par le fait que l'on puisse donner une borne supérieure à $P\big(|f-i(f)|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ et $i(f)$ une constante qui dépend de $f$, en pratique $i(f)$ est la médiane de $f$ ou son espérance.\\
+Pour un ensemble $A\subset X$ et $t>0$, on définit son $t$-élargissement $A_t$ par :
 \begin{equation*}
 	A_t =\big\{x\in X \; ; \; d(x,A)\leq t\big\}
 \end{equation*}
 Dans la suite, on montre une égalité de concentration sur la sphère. Pour cette partie on note $\lambda$ la mesure de Lebsgue sur $\mathbb{R}^n$. 
 \newline\boxXx{
 	\begin{theoreme}
-		Soit $A\in \text{Bor}(S^{n-1})$ tel que $\mu(A)\geq \frac{1}{2}$, alors pour tous $t>0$ :
+		Soit $A\in \text{Bor}(S^{n-1})$ tel que $\mu(A)\geq \frac{1}{2}$, alors pour tout $t>0$ :
 		\begin{equation*}
 		\mu(A_t)\geq 1-2e^{-\frac{nt^2}{4}}
 		\end{equation*}
@@ -375,7 +375,7 @@ Dans la suite, on montre une égalité de concentration sur la sphère. Pour cet
 		\item[-] $\tilde{A}=\big\{ax\;; a\in[0,1], x\in A\big\}$ 
 		\item[-]  $\tilde{B}=\big\{ax\;; a\in[0,1], x\in A_t^c\big\}$
 	\end{enumerate} 
-	et donnons nous $X=ax\in \tilde{A}$ et $Y=by\in \tilde{B}$, dans le calcul qui suit, les rôles de $a$ et $b$ sont symétriques, fixons alors $a\leq b$,
+	et donnons nous $X=ax\in \tilde{A}$ et $Y=by\in \tilde{B}$. Dans le calcul qui suit, les rôles de $a$ et $b$ sont symétriques, fixons alors $a\leq b$,
 	\begin{align*}
 	\Big|\frac{X+Y}{2}\Big|&= \Big|\frac{ax+yb}{2}\Big|\\
 	&=b\Big|\frac{\frac{a}{b}x+y}{2}\Big|\\
@@ -425,7 +425,7 @@ Le corollaire qui suit est fondamentale dans la démonstrations du théorème de
 	\begin{equation*}
 	\mu\big(f> m_f+t\big)\leq \mu(A_t^c)\leq 2 e^{-\frac{t^2n}{4}}
 	\end{equation*}
-	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$ on obtient :
+	En appliquant exactement le même procédé avec $A=\Big\{f\geq m_f\Big\}$, on obtient :
 	\begin{equation*}
 	\mu\big(f< m_f-t\big)\leq 2 e^{-\frac{t^2n}{4}}
 	\end{equation*}
@@ -451,10 +451,10 @@ Le corollaire qui suit est fondamentale dans la démonstrations du théorème de
 	\begin{equation*}
 	2e^{-\alpha^2\frac{t^2n}{4}}\geq 2 e^{\frac{-4\pi\alpha^2}{(1-\alpha)^2}}=1
 	\end{equation*}
-	Dans ce cas, il n'y à rien a montrer et finalement dans tous les cas on obtient :
+	Dans ce cas, il n'y à rien à montrer et finalement dans tous les cas on obtient :
 	\begin{align*}
-	\mu\big(f>\mathbb{E}[f]+t\big) \leq 2 e^{-\alpha^2\frac{t^2n}{4}}\\
-	\mu\big(f<\mathbb{E}[f]-t\big)\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
+		\mu\big(f>\mathbb{E}[f]+t\big) \leq 2 e^{-\alpha^2\frac{t^2n}{4}}\\
+		\mu\big(f<\mathbb{E}[f]-t\big)\leq 2 e^{-\alpha^2\frac{t^2n}{4}}
 	\end{align*}
 	C'est-à-dire : 
 	\begin{equation*}
@@ -466,7 +466,7 @@ Le corollaire qui suit est fondamentale dans la démonstrations du théorème de
 	\end{equation*}
 \end{proof}
 \subsection{Ellipsoïdes}
-Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, commençons par les définir :
+Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes. Commençons par les définir :
 \newline\boxXx{
 	\begin{definition}
 		On appelle ellipsoïde de $\mathbb{R}^n$ l'image de la boule unité euclidienne par un élément de $GL(n)$. 
@@ -475,7 +475,7 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 \noindent Donnons une définition alternative d'un l'ellipsoïde.
 \newline\boxXx{
 	\begin{proposition}
-		Pour tout ellipsoïde $\mathcal{E}$ il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormée tels que :
+		Pour tout ellipsoïde $\mathcal{E}$, il existe $\alpha_1,...,\alpha_n>0$ et $v_1,...,v_n$ une base orthonormée tels que :
 		\begin{equation*}
 		\mathcal{E}=\big\{x\in\mathbb{R}^n\; \; ; \; \sum_{i=1}^{n}\frac{\langle x,v_i\rangle ^2}{\alpha_i^2}< 1\big\}
 		\end{equation*}
@@ -490,7 +490,7 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 	\begin{equation*}
 	0< |Av|^2 = v^T \lambda v = \lambda |v|^2
 	\end{equation*}
-	Donc les valeurs propres $A^TA$ sont strictement positives. Comme $A^TA$ est symétrique, elle est donc diagonalisable dans une base orthonormée, donnons-nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormée tels que $A^TAv_i = \lambda_i^2 v_i$ pour tout $1\leq i\leq n$ et définissons les quantités suivantes:
+	Donc les valeurs propres $A^TA$ sont strictement positives. Comme $A^TA$ est symétrique, elle est donc diagonalisable dans une base orthonormée. Donnons-nous $(\lambda_i)_{i\leq n}$ et $(v_i)_{i\leq n}$ une base orthonormée tels que $A^TAv_i = \lambda_i^2 v_i$ pour tout $1\leq i\leq n$ et définissons les quantités suivantes:
 	\begin{enumerate}
 		\item[-] $P\in M_n(\mathbb{R})$ la matrice définie par $Pv_j = \lambda_j v_j$
 		\item[-] $u_j=\lambda_j^{-1}Av_j$
@@ -527,7 +527,7 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 	\begin{equation*}
 	F = \big\{x\in\mathbb{R}^n \hspace{1mm};\hspace{1mm} \forall i\leq \big\lfloor\frac{n}{2}\big\rfloor , \; \sqrt{\lambda-a_i}x_i=\sqrt{a_{n+1-i}-\lambda}x_{n+1-i}\big\}
 	\end{equation*}
-	Alors pour tous $x\in F$ nous avons $\forall i\leq \big\lfloor\frac{n}{2}\big\rfloor$:
+	Alors, pour tout $x\in F$ nous avons $\forall i\leq \big\lfloor\frac{n}{2}\big\rfloor$:
 	\begin{equation*}
 	a_ix_i^2+a_{n+1-i}x_{n+1-i}^2 = \lambda (x_i^2+x_{n+1-i}^2)
 	\end{equation*}
@@ -539,12 +539,12 @@ Dans cette partie, nous montrons plusieurs propriétés sur les ellipsoïdes, co
 Nous admettons le résultat de F.John : 
 \newline\boxXx{
 	\begin{defft}[Ellipsoïde de John]
-		Tout compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximale, il est appelé ellipsoïde de John.
+		Tout compact convexe symétrique d'intérieur non vide contient un unique ellipsoïde de volume maximal, il est appelé ellipsoïde de John.
 	\end{defft}
 }
 \begin{leftbar}
 \begin{rem}\label{rem0}
-Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^n)$ (avec $u\in GL(n)$) son ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^n$, supposons qu'il existe $W\sev \mathbb{R}^n$ et $r>0$ tel que
+Soit $K\subset \mathbb{R}^n$ un compact convexe symétrique et $D=u(B_2^n)$ (avec $u\in GL(n)$) son ellipsoïde de John, notons alors $C=:u^{-1}(K)$ dont l'ellipsoïde de John est $B_2^n$. Supposons qu'il existe $W\sev \mathbb{R}^n$ et $r>0$ tel que
 \begin{equation*}
 r (B_2^n\cap W)\subset C\cap W \subset r(1+\varepsilon)(B_2^n\cap W)
 \end{equation*}
@@ -569,14 +569,17 @@ Pour la preuve du théorème de Dvoretzky, nous aurons besoin de deux résultats
 	\begin{equation*}
 	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\big(\frac{x_1}{|x|},...,\frac{x_n}{|x|}\big)g(|x|) \exp\Big(-\frac{|x|^2}{2}\Big) dx_1...dx_n
 	\end{equation*}
-	en passant en coordonnées sphériques
-	\begin{align*}
-	x_1 = & r\sin \theta_1 ... \sin \theta_{n-2}\sin \theta_{n-1}\\
-	x_2 = & r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
-	x_3 = & r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
-	\vdots\\
-	x_n = & r \cos \theta_1
-	\end{align*}
+	En passant en coordonnées sphériques avec $r\geq 0$, $\theta_i\in]0,\pi[$ pour $1\leq i<n-1$ et $\theta_{n-1}\in]0,2\pi[$, 
+	\begin{equation*}
+	\begin{array}{cc}
+		x_1 =  r\sin \theta_1 ... \sin \theta_{n-2}\sin \theta_{n-1}\\
+		x_2 =  r\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1}\\
+		x_3 =  r\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2}\\
+		\vdots\\
+		x_{n-1}=  r\sin \theta_1 \cos\theta_2\\
+		x_n =  r \cos \theta_1
+	\end{array}
+	\end{equation*}
 	On a le déterminant suivant : 
 	\begin{equation*}
 	dx_1 ... dx_n = r^{n-1}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i} dr d\theta_1 ... d\theta_{n-1}
@@ -627,7 +630,7 @@ Nous aurons besoin de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ pou
 
 \section{Démonstration du théorème de Dvoretzky}
 \subsection{Lemmes d'approximations}
-Avant de débuter la démonstration du théorème de Dvoretzky, nous allons avoir besoin de plusieurs lemmes, et de la définition suivante :
+Avant de débuter la démonstration du théorème de Dvoretzky, nous allons avoir besoin de plusieurs lemmes et de la définition suivante :
 \newline\boxXx{
 	\begin{definition}
 		Soit $(X,d)$ un espace métrique et $\theta>0$, on dit que $A\subset X$ est un $\theta$-net si \begin{enumerate}
@@ -643,7 +646,7 @@ Montrons maintenant que sur une section de la $(n-1)$-sphère, on peut trouver u
 	\end{lemme}
 }
 \begin{proof}
-		Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont donc disjoints deux à deux et toutes contenues dans $B_V\left(0,1+\frac{\theta}{2}\right)$ en notant $\lambda$ la mesure de Lebesgue sur $V$ on a : 
+		Notons $B_V(x,r)=\big\{y\in V\; \; ; \; \; |x-y|< r\big\}$ la boule de centre $x\in V$ et de rayon $r\geq 0$, soit $N=\{x_i\}_{i=1,...,m}$ un sous-ensemble de $V\cap S^{n-1}$ maximal pour la propriété : $x,y\in N$ , $|x-y|\geq \theta$, c'est-à-dire pour tous $x\in V\cap S^{n-1}\backslash N$ il existe $i\leq m$ tel que $|x-x_i|<\theta$, donc $N$ est un $\theta$-net et les $\big\{B_V(x_i,\theta/2)\big\}_{i=1,...,m}$ sont disjoints deux à deux et toutes contenues dans $B_V\left(0,1+\frac{\theta}{2}\right)$ en notant $\lambda$ la mesure de Lebesgue sur $V$ on a : 
 	\begin{equation*}
 		m \lambda\left\{B_V(x_1,\frac{\theta}{2})\right\}= \sum_{i=1}^{m}\lambda\left\{B_V(x_i,\frac{\theta}{2})\right\}= \lambda\left\{\bigcup_{1\leq i \leq m} B_V(x_i,\frac{\theta}{2})\right\}\leq \lambda\left\{B_V(0,1+\frac{\theta}{2})\right\}
 	\end{equation*}
@@ -682,7 +685,7 @@ Le petit lemme qui suit nous permet d'approcher les points de la $(n-1)$-sphère
 	\begin{equation*}
 	|x-S_N| \leq |\lambda_1 ... \lambda_N| |\tilde{x}|\leq \theta^{N} \to 0  \text{\hspace{3mm}avec\hspace{2mm}}  N\to \infty
 	\end{equation*}
-	il ne reste plus qu'à poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et l'on a :
+	il ne reste plus qu'à poser $\beta_0=1$ et pour $i>0$, $\beta_i=\prod_{1 \leq k\leq i}\lambda_k\leq \theta^i$ et on a :
 	\begin{equation*}
 	x = \sum_{i=0}^{+\infty} \beta_i y_i
 	\end{equation*}
@@ -698,7 +701,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 		\begin{equation*}
 		\forall  x \in V, \hspace{5mm} \frac{1}{\sqrt{1+\varepsilon}}|x|\leq \big|\big|Tx\big|\big|\leq \sqrt{1+\varepsilon}|x|
 		\end{equation*}
-		de plus si $\varepsilon\leq \frac{1}{9}$, on peu prendre $\theta=\frac{\varepsilon}{9}$
+		de plus si $\varepsilon\leq \frac{1}{9}$, on peut prendre $\theta=\frac{\varepsilon}{9}$
 	\end{lemme}
 }
 \begin{proof} 
@@ -735,7 +738,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 	\frac{1}{\sqrt{1+\varepsilon}}|x|\leq||Tx||\leq |x|\sqrt{1+\varepsilon}
 	\end{array}
 	\end{equation*}
-	Ce qui finit la première partie de la preuve. Dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$, sachant que $\varepsilon$ va être petit supposons $\theta\leq \frac{1}{3}$ alors
+	Ce qui finit la première partie de la preuve. Dans la suite on suppose $\varepsilon\leq \frac{1}{9}$. On cherche $\theta=:\theta(\varepsilon)\in]0,1[$, tel que $\sqrt{1+\varepsilon}\geq \max\big(\frac{1-\theta}{1-3\theta},\frac{1+\theta}{1-\theta}\big)$. Sachant que $\varepsilon$ va être petit supposons $\theta\leq \frac{1}{3}$ alors
 	\begin{equation*}
 	\frac{1-\theta}{1-3\theta}-\frac{1+\theta}{1-\theta} = \frac{4\theta^2}{(1-3\theta) (1-\theta)}>0
 	\end{equation*}
@@ -756,7 +759,7 @@ Le \textbf{lemme \ref{lsB}} va nous permettre de passer d'un ensemble de grande 
 
 
 \subsection{Démonstration du théorème de Dvoretzky}
-La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrer dans cette partie. Dans un premier temps, nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
+La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \cref{esE} qui sont démontrés dans cette partie. Dans un premier temps, nous donnons un résultat de V.Milman qui est en grande partie la preuve du théorème de Dvoretzky.
 \newline\boxXx{
 	\begin{theoreme}\label{mtool}
 		Pour tout $\varepsilon>0$ il existe $c(\varepsilon)>0$ tel que pour tout $n\in \mathbb{N}^{*}$ et $||.||$ une norme sur $\;\mathbb{R}^n$, il existe $V\sev \mathbb{R}^n$ tels que $\dim V \geq c(\varepsilon)(\frac{M}{b})^2 n$ et pour tout $x\in V$ :
@@ -767,7 +770,7 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	\end{theoreme}
 }
 \begin{proof}
-	Soit $\varepsilon>0$, $\theta=:\theta(\varepsilon)\in\left]0,1\right[$ donné par le \cref{lsB}, $V_0 = \text{Vect}(e_1,...,e_k)$ pour un $k\leq n$ entier que l'on fixeras plus tard et $A$ un $\theta$-net sur $V_0\cap S^{n-1}$ avec $|A|< \big(\frac{3}{\theta}\big)^k$, alors 
+	Soit $\varepsilon>0$, $\theta=:\theta(\varepsilon)\in\left]0,1\right[$ donné par le \cref{lsB}, $V_0 = \text{Vect}(e_1,...,e_k)$ pour un $k\leq n$ entier que l'on fixera plus tard et $A$ un $\theta$-net sur $V_0\cap S^{n-1}$ avec $|A|< \big(\frac{3}{\theta}\big)^k$, alors 
 	\begin{align*}
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)& = 1-\nu\big(\bigcup_{x\in A}\big\{T\in O(n)\; ; \; \big| ||Tx||-M \big|>M\theta\big\}\big)& \\
 	& \geq 1-\sum_{y\in A}\nu\big(T\in O(n)\; ; \; \big| ||Ty||-M \big|>M\theta\big)\\
@@ -778,18 +781,18 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)> 1 - 4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\\
 	\end{equation*}
 	pour un $\beta\in]0,1[$. \\
-	Donc tant que $4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\leq 1$ on peut trouver $T\in O(n)$ tel que pour tout $x\in A$ :
+	Donc tant que $4\big(\frac{3}{\theta}\big)^k e^{-\beta\frac{\theta^2M^2}{b^2}n}\leq 1$, on peut trouver $T\in O(n)$ tel que pour tout $x\in A$ :
 	\begin{equation*}\tag{$\star$}
 	\Big| ||Tx||- M \Big|\leq M\theta
 	\end{equation*}
-	Posons alors $c(\theta)=\frac{\theta^2 \beta}{4\log\left(\frac{3}{\theta}\right)}$ et $\kappa(\theta)=c(\theta)\left(\frac{M}{b}\right)^2 n$, on veut donc montrer qu'il existe un $k\geq \kappa(\theta)$ entier pour le quelle on puisse trouver un $T\in O(n)$ qui vérifie ($\star$). Trivialement si $\kappa(\theta)<1$ alors $k=1$ convient car toute 1-section est euclidienne, on suppose donc $\kappa(\theta)\geq 1$ ce qui équivaut à $\frac{\theta^2M^2n\beta}{4b^2}\geq \log(\frac{3}{\theta})$. Fixons $k$ entier tel que $\kappa(\theta)\leq k\leq 2\kappa(\theta)$, possible car $\kappa(\theta)\geq 1$, alors
+	Posons alors $c(\theta)=\frac{\theta^2 \beta}{4\log\left(\frac{3}{\theta}\right)}$ et $\kappa(\theta)=c(\theta)\left(\frac{M}{b}\right)^2 n$, on veut donc montrer qu'il existe un $k\geq \kappa(\theta)$ entier pour lequel on peut trouver un $T\in O(n)$ qui vérifie ($\star$). Trivialement si $\kappa(\theta)<1$, alors $k=1$ convient car toute 1-section est euclidienne. On suppose donc $\kappa(\theta)\geq 1$ ce qui équivaut à $\frac{\theta^2M^2n\beta}{4b^2}\geq \log(\frac{3}{\theta})$. Fixons $k$ entier tel que $\kappa(\theta)\leq k\leq 2\kappa(\theta)$, possible car $\kappa(\theta)\geq 1$, alors
 	\begin{align*}
 	\nu\Big(\bigcap_{x\in A}\big\{T\in O(n)\; ; \;  \big| ||Tx||-M \big|\leq M\theta\big\}\Big)
 	& > 1 - 4 \exp\big(2\kappa(\theta)\log(\frac{3}{\theta})-\frac{\theta^2M^2n\beta}{b^2}\big)\\
 	& > 1 -  4 e^{-\frac{\theta^2M^2n\beta}{2b^2}}\\
 	&> 1 - \frac{4}{3^2}\theta^2 >0 \hspace{16mm}\text{car $\frac{\theta^2M^2n\beta}{2b^2}\geq 2\log(\frac{3}{\theta})$} 
 	\end{align*}	
-	Donc il existe $T\in O(n)$ tel que pour tout $x\in A$, $\big|||Tx||-M \big|\leq M\theta$, c'est-à-dire 
+	Donc, il existe $T\in O(n)$ tel que pour tout $x\in A$, $\big|||Tx||-M \big|\leq M\theta$, c'est-à-dire 
 	\begin{equation*}
 	M(1-\theta)\leq ||Tx||\leq M(1+\theta)
 	\end{equation*}
@@ -805,14 +808,14 @@ La démonstration du théorème de Dvoretzky repose sur le \cref{mtool} et la \c
 Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour cela nous allons utiliser la \cref{rem0} et le lemme suivant :
 \newline\boxXx{
 	\begin{lemme}[Dvoretzky-Rogers]
-		Soit $||.||$ une norme sur $\mathbb{R}^n$ tel que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ telle que pour $1\leq i\leq n$
+		Soit $||.||$ une norme sur $\mathbb{R}^n$ telle que $B_2^n$ est l'ellipsoïde de John de $B_{||.||}$, alors il existe une base orthonormée $\{x_i\}_{i=1,...,n}$ telle que pour $1\leq i\leq n$
 		\begin{equation*}
 		e^{-1}\big(1-\frac{i-1}{n}\big)\leq ||x_i||\leq 1 
 		\end{equation*}
 	\end{lemme}
 }
 \begin{proof}
-	$S^{n-1}$ est compact et $||.||$ continue, on peut donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est-à-dire $||x_1||=1$, supposons que l'on ait $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\backslash \text{Vect}(x_1,...,x_{i-1})\neq \emptyset$ car les $\{x_i\}_{i=1,...,i-1}$ sont orthogonaux deux à deux. On peut donc répéter le procédé pour trouver $x_{k}$ qui maximise $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})\neq \emptyset$, par récurrence on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b>0$ et définissons :
+	$S^{n-1}$ est compact et $||.||$ continue, on peut donc prendre un $x_1\in S^{n-1}$ qui maximise $||.||$ c'est-à-dire $||x_1||=1$. Supposons que l'on ait $x_1,...,x_{k-1}$ avec $k\leq n$ tel que pour tous $1\leq i\leq k-1$ , $x_i$ maximise $||.||$ sur $S^{n-1}\backslash \text{Vect}(x_1,...,x_{i-1})\neq \emptyset$ car les $\{x_i\}_{i=1,...,i-1}$ sont orthogonaux deux à deux. On peut donc répéter le procédé pour trouver $x_{k}$ qui maximise $S^{n-1}\backslash \text{Vect}(x_1,...,x_{k-1})\neq \emptyset$. Par récurrence, on peut donc avoir $n$ vecteurs avec ses propriétés. Fixons $1\leq k \leq n$, $a,b>0$ et définissons :
 	\begin{equation*}
 	\mathcal{E} = \Big\{\sum_{i=1}^{n}a_ix_i\; ; \; \sum_{i=1}^{k-1}\big(\frac{a_i}{a}\big)^2+ \sum_{i=k}^{n}\big(\frac{b_i}{b}\big)^2\leq 1 \Big\}
 	\end{equation*}
@@ -856,7 +859,7 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 	&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
 	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a)	
 	\end{align*}
-	Soit $(g_1,...,g_n)$ , des variables aléatoire i.i.d de loi $\mathcal{N}(0,1)$ alors 
+	Soit $(g_1,...,g_n)$ , des variables aléatoires i.i.d de loi $\mathcal{N}(0,1)$ alors 
 	\begin{equation*}
 	\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\Big]
 	\end{equation*}
@@ -865,7 +868,7 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 	\begin{equation*}
 	\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\Big] . \mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\Big] = \mathbb{E}\big[\max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\big]
 	\end{equation*}
-	la fonction racine carré est concave, par l'inégalité de Jensen on a donc :
+	la fonction racine carrée est concave par l'inégalité de Jensen, on a donc :
 	\begin{equation*}
 	\mathbb{E}\big[\big(\sum_{i=1}^{n}g_i^2\big)^{\frac{1}{2}}\big]\leq \mathbb{E}\big[\sum_{i=1}^{n}g_i^2\big]^{\frac{1}{2}}= \sqrt{n} \mathbb{E}[g_1^2]^{\frac{1}{2}}=\sqrt{n} 
 	\end{equation*}
@@ -876,10 +879,10 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 	\end{equation*}
 \end{proof}
 \begin{leftbar}
-\noindent On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir $k \geq c(\varepsilon)\log n$ lorsque $B_2^n$ est l'ellipsoïde de John pour $B_{||.||}$, en utilisant la \cref{rem0} quitte à diviser $k$ par $2$, on peut généraliser à toutes les normes et donc conclure la démonstration du théorème de Dvoretzky.
+\noindent On peut donc réunir la \cref{esE} et le \cref{mtool} pour obtenir $k \geq c(\varepsilon)\log n$ lorsque $B_2^n$ est l'ellipsoïde de John pour $B_{||.||}$. En utilisant la \cref{rem0}, quitte à diviser $k$ par $2$, on peut généraliser à toutes les normes et donc conclure la démonstration du théorème de Dvoretzky.
 \end{leftbar}
 \section{Sections presque euclidiennes de $\ell_p^n$}
-Dans cette section on applique le \cref{mtool} pour donner une estimation de la dimension critique des espaces $\ell_p^n$.
+Dans cette section, on applique le \cref{mtool} pour donner une estimation de la dimension critique des espaces $\ell_p^n$.
 \newline\boxXx{
 	\begin{definition}(Dimension critique)
 		Soit $X=(\mathbb{R}^n,||.||)$ pour $||.||$ une norme sur $\mathbb{R}^n$ , pour $\varepsilon>0$ on note $k(X,\varepsilon)$ le plus grand entier tel que $\ell_2^{k(X,\varepsilon)}$ s'injecte $(1+\varepsilon)$-continûment dans $X$.
@@ -970,15 +973,15 @@ Pour la proposition suivante, nous allons utiliser l'inégalité de Khinchine qu
 \begin{proof}
 	Si $p=1$ alors , 
 	\begin{equation*}
-	\mathbb{E}\left(\sum_{i=1}^{n}|x_i|\right)=\frac{n}{\sqrt{2\pi}}
+	\mathbb{E}\left(\sum_{i=1}^{n}|x_i|\right)=n\sqrt{\frac{2}{\pi}}
 	\end{equation*}
 	et donc
 	\begin{equation*}
-		M=:\int_{S^{n-1}}||x||_1 d\mu(x)\geq \sqrt{\frac{n}{2\pi}}
+		M=:\int_{S^{n-1}}||x||_1 d\mu(x)\geq \sqrt{\frac{2n}{\pi}}
 	\end{equation*}
 	par le \cref{mtool} avec $b=\sqrt{n}$,
 	\begin{equation*}
-		k(\ell_p^n,\varepsilon)\geq c(\varepsilon)\left(\frac{\sqrt{\frac{n}{2\pi}}}{\sqrt{n}}\right)^2n =:\tilde{c}(\varepsilon)n
+		k(\ell_p^n,\varepsilon)\geq c(\varepsilon)\left(\frac{\sqrt{\frac{2n}{\pi}}}{\sqrt{n}}\right)^2n =:\tilde{c}(\varepsilon)n
 	\end{equation*}
 	Si $p>2$ posons $1<q< 2$ défini par $\frac{1}{p}+\frac{1}{q}=1$, par le \cref{klplq} on a 
 	\begin{equation*}
@@ -995,8 +998,7 @@ Pour la proposition suivante, nous allons utiliser l'inégalité de Khinchine qu
 	\begin{equation*}
 	k(\ell_p^n,\varepsilon)\geq c(\varepsilon) n^{\frac{2}{p}}
 	\end{equation*}
-
-Ce qui permet déjà de conclure. Lorsque $2<p$ est petit devant $n$ on peut donner une meilleur estimation de la dépendance en $p$ . Supposons $p<\log n$,
+ce qui permet déjà de conclure. Lorsque $2<p$ est petit devant $n$, on peut donner une meilleure estimation de la dépendance en $p$. Supposons $p<\log n$,
 \begin{equation*}
 M =: \int_{S^{n-1}}||x||^p d\mu(x) = \mathbb{E}\Bigg[\frac{\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}}{\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}}\Bigg]= \frac{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^p\big)^{\frac{1}{p}}\Bigg]}{\mathbb{E}\Bigg[\big(\sum_{i=1}^{n}|x_i|^2\big)^{\frac{1}{2}}\Bigg]}
 \end{equation*}
@@ -1024,7 +1026,7 @@ Par le \cref{mtool} $\exists c(\varepsilon)>0$ tel que $\ell_2^k$ s'injecte $(1+
 k &\geq c(\varepsilon)\left(\frac{M}{b}\right)^2n\\
 &\geq c_p(\varepsilon)n^{\frac{2}{p}}, \hspace{3mm} \text{avec $c_p(\varepsilon) = c(\varepsilon)C_p^2\underset{p\to\infty}{\sim} \tilde{c}(\varepsilon)p$}
 \end{align*}\end{proof}
-En condensant ce qui précède on obtient le résultat suivant,
+En condensant ce qui précède, on obtient le résultat suivant,
 \newline\boxXx{
 	\begin{cor} Soit $0<\varepsilon<1$,
 		\begin{enumerate}
@@ -1032,7 +1034,7 @@ En condensant ce qui précède on obtient le résultat suivant,
 			\item[-] Pour $2\leq p<\infty$, $\frac{k(\ell_p^n,\varepsilon)}{n^\frac{2}{p}}$ est bornée entre deux constantes qui ne dépendent que de $p$ et $\varepsilon$.
 		\end{enumerate}
 \end{cor}}
-Intéressons nous maintenant au cas $p=\infty$.
+Intéressons-nous maintenant au cas $p=\infty$.
 \newline\boxXx{
 	\begin{proposition}
 		Soit $0<\varepsilon\leq \frac{1}{32}$, il existe $c,C>0$ des constantes universelles tel que :
@@ -1092,7 +1094,7 @@ Intéressons nous maintenant au cas $p=\infty$.
 	\end{proposition}
 }
 \begin{proof}
-	Comme $\big(\frac{3}{\varepsilon}\big)^{k}\leq n$ on peut prendre un $\varepsilon$-net sur $S^{k-1}$ de cardinal $n$, donnons nous $\{y_i\}_{i\leq n}$ un tel $\varepsilon$-net et 
+	Comme $\big(\frac{3}{\varepsilon}\big)^{k}\leq n$, on peut prendre un $\varepsilon$-net sur $S^{k-1}$ de cardinal $n$. donnons-nous $\{y_i\}_{i\leq n}$ un tel $\varepsilon$-net et 
 	\begin{equation*}
 	T : \begin{array}{ccc}
 	\mathbb{R}^k& \to &\mathbb{R}^n\\
@@ -1118,16 +1120,16 @@ Intéressons nous maintenant au cas $p=\infty$.
 \end{proof}
 \appendix
 \section{- Inégalité de Prékopa-Leindler}
-Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilisé dans la démonstration du \cref{mco}, nous allons pour cela monter une inégalité plus générale, celle de Prékopa-Leindler.
+Le but de cette annexe est de démontrer l'inégalité de Brunn-Minkowsky utilisée dans la démonstration du \cref{mco}. Nous allons pour cela monter une inégalité plus générale, celle de Prékopa-Leindler.
 \newline\boxXx{
 	\begin{lemme}\label{bm1}
-		Soit $A,B$ deux compact non vide de $\mathbb{R}$, alors 
+		Soit $A,B$ deux compacts non vides de $\mathbb{R}$, alors 
 		\begin{equation*}
 		\lambda(A+B)\geq \lambda(A)+\lambda(B)
 		\end{equation*}
 \end{lemme}}
 \begin{proof}
-	Comme la mesure de Lebesgue est invariante par translation on peut supposer que $\max\{x\in A\}= 0$ et $\min\{x\in B\}= 0$, alors $A\cup B \subset A+B$ ,
+	Comme la mesure de Lebesgue est invariante par translation, on peut supposer que $\max A= 0$ et $\min B= 0$, alors $A\cup B \subset A+B$ ,
 	\begin{equation*}
 	\lambda(A+B)\geq \lambda(A\cup B)= \lambda(A) + \lambda(B)
 	\end{equation*} 
@@ -1150,7 +1152,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	&=\int_{\mathbb{R}}\int_{0}^{||f||_\infty}\mathbb{1}_{\{f(x)>t\}} dt dx\\
 	&=\int_{0}^{1}\lambda\big(x\in\mathbb{R}\;;\;f(x)>t\big)dt
 	\end{align*}
-	et de même pour $g$, posons alors $A(t)=\Big\{x\in\mathbb{R}\;;\;f(x)>t\Big\}$ et $B(t)= \Big\{x\in\mathbb{R}\;;\;g(x)>t\Big\}$, on a alors 
+	et de même pour $g$. Posons alors $A(t)=\Big\{x\in\mathbb{R}\;;\;f(x)>t\Big\}$ et $B(t)= \Big\{x\in\mathbb{R}\;;\;g(x)>t\Big\}$, on a alors 
 	\begin{align*}
 	z\in \alpha A(t) + (1-\alpha)B(t) &\Rightarrow z=\alpha x +(1-\alpha)y \; , \; \text{avec $x\in A(t)$ et $y\in B(t)$}\\
 	&\Rightarrow h(z)\geq f(x)^{\alpha}g(y)^{1-\alpha}>t
@@ -1160,18 +1162,18 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\alpha\lambda\big(A(t)\big)+(1-\alpha)\lambda(B(t)\big)&\leq \lambda\Big(\alpha A(t) + (1-\alpha)B(t)\Big)\\
 	&\leq \lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)
 	\end{align*}
-	En utilisant la concavité du logarithme on a l'inégalité suivante 
+	En utilisant la concavité du logarithme, on a l'inégalité suivante 
 	\begin{align*}
 	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}&\leq \alpha \int_{\mathbb{R}}fd\lambda +(1-\alpha)\int_{\mathbb{R}}g d\lambda\\
 	&\leq \int_{0}^{1}\alpha\lambda\big(A(t)\big)+(1-\alpha)\lambda\big(B(t)\big)dt\\
 	&\leq \int_{0}^{1}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt\\
 	&\leq \int_{0}^{+\infty}\lambda\Big(x\in\mathbb{R}\;;\; h(x)>t\Big)dt=\int_{\mathbb{R}}hd\lambda\\
 	\end{align*}
-	Pour $f,g$ de norme infinie différente de 1, posons $\tilde{f}=\frac{f}{||f||_\infty}$, $\tilde{g}=\frac{g}{||g||_\infty}$ et $\tilde{h}=\frac{h}{||f||_\infty^{\alpha}||g||_\infty^{1-\alpha}}$, on a tous de suite $\tilde{h}\left(\alpha x + (1-\alpha)y\right)\geq \tilde{f}^{\alpha}(x)\tilde{g}^{1-\alpha}(y)$ en appliquant ce qui précède on obtient :
+	Pour $f,g$ de norme infinie différente de 1, posons $\tilde{f}=\frac{f}{||f||_\infty}$, $\tilde{g}=\frac{g}{||g||_\infty}$ et $\tilde{h}=\frac{h}{||f||_\infty^{\alpha}||g||_\infty^{1-\alpha}}$, on a tout de suite $\tilde{h}\left(\alpha x + (1-\alpha)y\right)\geq \tilde{f}^{\alpha}(x)\tilde{g}^{1-\alpha}(y)$ en appliquant ce qui précède, on obtient :
 	\begin{equation*}
 	\Big(\int_{\mathbb{R}}fd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}}g d\lambda\Big)^{1-\alpha}\leq \int_{\mathbb{R}}hd\lambda
 	\end{equation*}
-	Ce qui fini la preuve pour le cas $n=1$, si $n>1$ supposons que pour $n-1$ l'inégalité soit montrer et montrons le résultat par récurrence. Posons $f_t:\begin{array}{ccc}\mathbb{R}^{n-1}&\to&[0,+\infty)\\x&\to&f(t,x)\end{array}$ pour $t\in \mathbb{R}$ et de même pour $g$ et $h$. Pour $t,s\in\mathbb{R}$ et $x,y\in \mathbb{R}^{n-1}$, 
+	Ce qui finit la preuve pour le cas $n=1$. Si $n>1$ supposons que pour $n-1$ l'inégalité soit démontrée et montrons le résultat par récurrence. Posons $f_t:\begin{array}{ccc}\mathbb{R}^{n-1}&\to&[0,+\infty)\\x&\to&f(t,x)\end{array}$ pour $t\in \mathbb{R}$ et de même pour $g$ et $h$. Pour $t,s\in\mathbb{R}$ et $x,y\in \mathbb{R}^{n-1}$, 
 	\begin{equation*}
 	h_{s\alpha+(1-\alpha)t}(\alpha x+(1-\alpha)y)\geq f_s(x)^\alpha g_t(y)^{1-\alpha}
 	\end{equation*}
@@ -1179,11 +1181,11 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\begin{equation*}
 	\int_{\mathbb{R}^{n-1}}h_{s\alpha +(1-\alpha)t}d\lambda \geq 		\Big(\int_{\mathbb{R}^{n-1}}f_sd\lambda\Big)^{\alpha}\Big(\int_{\mathbb{R}^{n-1}}g_t d\lambda\Big)^{1-\alpha}
 	\end{equation*}
-	Donc les trois fonction $F,G,H$ définit par 
+	Donc les trois fonctions $F,G,H$ définies par 
 	\begin{equation*}
 	F(t)=\int_{\mathbb{R}^{n-1}}f_td\lambda(t) \hspace{2.5mm}\& \hspace{2.5mm}G(t)=\int_{\mathbb{R}^{n-1}}g_td\lambda(t)\hspace{2.5mm} \& \hspace{2.5mm}H(t)=\int_{\mathbb{R}^{n-1}}h_td\lambda(t) 
 	\end{equation*}
-	vérifies :
+	vérifient :
 	\begin{equation*}
 	H\left(\alpha s + (1-\alpha)t\right)\geq F(t)^{\alpha}G(s)^{1-\alpha} 
 	\end{equation*}
@@ -1195,7 +1197,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 \end{proof}
 \boxXx{
 	\begin{cor}[Brunn-Minkowsky]\label{bm}
-		Soit $A,B$ deux compact non vide de $\mathbb{R}^n$ on a 
+		Soit $A,B$ deux compacts non vides de $\mathbb{R}^n$, on a 
 		\begin{enumerate}
 			\item[(i)] Pour $\alpha\in]0,1[$, $\lambda\Big(\alpha A+(1-\alpha)B\Big)\geq \lambda(A)^\alpha\lambda(B)^{1-\alpha}$
 			\item[(ii)] $\lambda(A+B)^{\frac{1}{n}}\geq \lambda(A)^{\frac{1}{n}}+\lambda(B)^{\frac{1}{n}}$
@@ -1203,7 +1205,7 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 \end{cor}}
 \begin{proof}
 	\begin{enumerate}
-		\item[(i)] Prenons $f=\mathbb{1}_A$, $g=\mathbb{1}_B$ et $h=\mathbb{1}_{\alpha A+(1-\alpha)B}$, alors $f,g,h$ vérifie les hypothèses du théorème de Prékopa-Leindler par conséquent ,
+		\item[(i)] Prenons $f=\mathbb{1}_A$, $g=\mathbb{1}_B$ et $h=\mathbb{1}_{\alpha A+(1-\alpha)B}$, alors $f,g,h$ vérifient les hypothèses du théorème de Prékopa-Leindler. Par conséquent,
 		\begin{equation*}
 		\int_{\mathbb{R}^n}hd\lambda \geq \Big(\int_{\mathbb{R}^n}fd\lambda\Big)^{\alpha} \Big(\int_{\mathbb{R}^n}gd\lambda\Big)^{1-\alpha}
 		\end{equation*}
@@ -1222,21 +1224,21 @@ Le but de cette annexe est de démontré l'inégalité de Brunn-Minkowsky utilis
 	\end{enumerate}
 \end{proof}
 \section{- Martingales \& Inégalité de Khinchine}
-Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous-tribus de $\mathcal{F}$, pour tous $f\in L^1(\Omega,\mathcal{F},P)$ par le théorème de Randon-Nikodym il existe un unique $h\in L^1(\Omega,\mathcal{G},P)$ tel que pour tous $A\in \mathcal{G}$ on ait 
+Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous-tribus de $\mathcal{F}$, pour tout $f\in L^1(\Omega,\mathcal{F},P)$ par le théorème de Randon-Nikodym, il existe un unique $h\in L^1(\Omega,\mathcal{G},P)$ tel que pour tout $A\in \mathcal{G}$ on ait 
 \begin{equation*}
 	\int_{A}h dP = \int_{A}f dP
 \end{equation*}
 \begin{notation}
-	Par la suite on note $h = \mathbb{E}(f|\mathcal{G})$ l'espérance conditionnelle de $f$. 
+	Par la suite, on note $h = \mathbb{E}(f|\mathcal{G})$ l'espérance conditionnelle de $f$. 
 \end{notation}
 \noindent Donnons quelques propriétés associées :
 \newline\boxXx{
 \begin{proposition}\label{pK1}\vphantom{s}
 	\begin{enumerate}
-		\item[(i)] Pour toute sous tribus $\mathcal{H}$ de $\mathcal{G}$ on a $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)=\mathbb{E}(f|\mathcal{H})$.
-		\item[(ii)] Pour tous $g\in L^{\infty}(\Omega,\mathcal{F},P)$ , $\mathbb{E}(f.g|\mathcal{G})=g.\mathbb{E}(f|\mathcal{G})$.
-		\item[(iii)] Si $f$ et $\mathcal{G}$ sont indépendant alors $\mathbb{E}(f|\mathcal{G})=\mathbb{E}[f]$.
-		\item[(iv)] Si $f$ est $\mathcal{G}$ mesurable alors $\mathbb{E}(f|\mathcal{G})=f$.
+		\item[(i)] Pour toute sous-tribus $\mathcal{H}$ de $\mathcal{G}$ on a $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)=\mathbb{E}(f|\mathcal{H})$.
+		\item[(ii)] Pour tout $g\in L^{\infty}(\Omega,\mathcal{F},P)$ , $\mathbb{E}(f.g|\mathcal{G})=g.\mathbb{E}(f|\mathcal{G})$.
+		\item[(iii)] Si $f$ et $\mathcal{G}$ sont indépendantes alors $\mathbb{E}(f|\mathcal{G})=\mathbb{E}[f]$.
+		\item[(iv)] Si $f$ est $\mathcal{G}$-mesurable alors $\mathbb{E}(f|\mathcal{G})=f$.
 	\end{enumerate}
 \end{proposition}
 }
@@ -1246,18 +1248,18 @@ Soit $(\Omega,\mathcal{F},P)$ un espace probabilisé, $\mathcal{G}$ une sous-tri
 		\int_{A}\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)dP = \int_{A}\mathbb{E}(f|\mathcal{G})dP= \int_{A}f dP
 	\end{equation*}
 	Par unicité $\mathbb{E}\Big(\mathbb{E}(f|\mathcal{G})|\mathcal{H}\Big)=\mathbb{E}\Big(f|\mathcal{H}\Big)$.\\
-	(ii) Nous allons le montrer en plusieurs étapes, premièrement si $g=\mathbb{1}_{B}$ pour $B\in\mathcal{F}$ alors pour tous $A\in \mathcal{G}$ 
+	(ii) Nous allons le montrer en plusieurs étapes. Premièrement, si $g=\mathbb{1}_{B}$ pour $B\in\mathcal{F}$, alors pour tout $A\in \mathcal{G}$ 
 	\begin{align*}
 		\int_{A}\mathbb{E}(\mathbb{1}_{B}f|\mathcal{G})dP&=\int_A \mathbb{1}_B f dP\\
 		&=\int_{A\cap B} f dP\\
 		&=\int_{A\cap B} \mathbb{E}(f|\mathcal{G})dP \hspace{5mm} \text{car $A\cap B \subset A\in\mathcal{G}$}\\
 		&=\int_{A} \mathbb{1}_B \mathbb{E}(f|\mathcal{G})dP\\
 	\end{align*}
-	Par unicité $\mathbb{E}(\mathbb{1}_{B}f|\mathcal{G}) = \mathbb{1}_B \mathbb{E}(f|\mathcal{G})$. La linéarité de l'espérance  permet de conclure pour des fonctions en escaliers, or pour toute fonction positive $g$ mesurable, il existe une suite de fonctions en escaliers $(g_n)_{n\in\mathbb{N}}$ croissante telle que $g=\lim g_n$ presque partout, et donc par le théorème de convergence monotone pour $A\in\mathcal{G}$:
+	par unicité $\mathbb{E}(\mathbb{1}_{B}f|\mathcal{G}) = \mathbb{1}_B \mathbb{E}(f|\mathcal{G})$. La linéarité de l'espérance  permet de conclure pour des fonctions en escaliers. Or pour toute fonction positive $g$ mesurable, il existe une suite de fonctions en escaliers $(g_n)_{n\in\mathbb{N}}$ croissante telle que $g=\lim g_n$ presque partout, et donc par le théorème de convergence monotone pour $A\in\mathcal{G}$:
 	\begin{equation*}
 		\int_{A}gfdP=\lim_{n}\int_{A}g_nfdP=\lim_{n}\int_{A}\mathbb{E}(g_n.f|\mathcal{G})dP=\lim_{n}\int_{A}g_n\mathbb{E}(f|\mathcal{G}) dP =\int_{A}g\mathbb{E}(f|\mathcal{G})dP
 	\end{equation*}
-	finalement si $g$ est une fonction mesurable, alors on écrit $g = |g|\mathbb{1}_{\big\{g>0\big\}}-|g|\mathbb{1}_{\big\{g<0\big\}}$ et on applique le point précédent à $|g|\mathbb{1}_{\big\{g>0\big\}}$ et $|g|\mathbb{1}_{\big\{g<0\big\}}$.\\
+	Finalement si $g$ est une fonction mesurable, alors on écrit $g = |g|\mathbb{1}_{\big\{g>0\big\}}-|g|\mathbb{1}_{\big\{g<0\big\}}$ et on applique le point précédent à $|g|\mathbb{1}_{\big\{g>0\big\}}$ et $|g|\mathbb{1}_{\big\{g<0\big\}}$.\\
 	(iii)Soit $A\in \mathcal{G}$, 
 	\begin{align*}
 		\int_{A}\mathbb{E}(f|\mathcal{G})dP &= \int_{A}f dP\\
@@ -1299,7 +1301,7 @@ Démontrons l'inégalité de concentration suivante :
 		&\leq \mathbb{E}\big(e^{\lambda^2 ||d_i||_{\infty}^2}|\mathcal{F}_{i-1}\big)\\
 		&\leq e^{\lambda^2 ||d_i||_{\infty}^2}
 	\end{align*}
-	En utilisant la \cref{pK1}.\textbf{ii} on obtient :
+	En utilisant la \cref{pK1}.\textbf{ii}, on obtient :
 	\begin{equation*}
 		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\lambda\sum_{j=1}^{i}d_j\big)|\mathcal{F}_{i-1}\Big)\Bigg)= 
 		\mathbb{E}\Bigg(\mathbb{E}\Big(\exp\big(\sum_{j=1}^{i-1}\lambda d_j\big)e^{\lambda d_i}|\mathcal{F}_{i-1}\Big)\Bigg)= 
@@ -1322,7 +1324,7 @@ Démontrons l'inégalité de concentration suivante :
 	\begin{equation*}
 		\sum_{i=1}^{N}d_i = \mathbb{E}(f|\mathcal{F})-\mathbb{E}(f|\{\emptyset,\Omega\})=f-\mathbb{E}[f]
 	\end{equation*}
-	Donc pour tous $\lambda>0$,
+	Donc pour tout $\lambda>0$,
 	\begin{align*}
 		P\big(f-\mathbb{E}[f]>\varepsilon\big)&=P\big(\sum_{i=1}^{N}d_i>\varepsilon\big)\\
 		&=P\Big(\exp\big(\lambda\sum_{i=1}^{N}d_i-\varepsilon\lambda\big)>1\Big)\\
@@ -1340,12 +1342,12 @@ Démontrons l'inégalité de concentration suivante :
 	\begin{equation*}
 		P(|f-\mathbb{E}[f]|>\varepsilon)\leq 2\exp\big(\lambda^2 \sum_{i=1}^{N}||d_i||_{\infty}^2\big)e^{-\varepsilon\lambda}
 	\end{equation*}
-	avec $\lambda =\frac{\varepsilon}{2\sum_{i=1}^{N}||d_j||_\infty^2}$ on obtient le résultat recherché :
+	avec $\lambda =\frac{\varepsilon}{2\sum_{i=1}^{N}||d_i||_\infty^2}$ on obtient le résultat recherché :
 	\begin{equation*}
 		P(|f-\mathbb{E}[f]|>\varepsilon)\leq 2\exp\big(- \frac{\varepsilon^2}{4\sum_{i=1}^{N}||d_i||_{\infty}^2}\big)
 	\end{equation*}
 \end{proof}
-Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preuve de la \cref{kmaj}.
+Introduisons maintenant les fonctions de Rademacher déjà utilisées dans la preuve de la \cref{kmaj}.
 \newline\boxXx{
 \begin{defprop}	On note $r_k\in L^2([0,1])$ définie par:
 	\begin{equation*}
@@ -1366,7 +1368,7 @@ Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preu
 	\pi 2^q t\in ]i2^{q-p}\pi,(i+1)2^{q-p}\pi[
 	\end{equation*}
 	un intervalle de taille un multiple de $2\pi$, et pour finir $\text{sign}(\sin \pi 2^q t)$ prend les valeurs $1$ et $-1$ sur des intervalles de mêmes longueurs pour  $t\in]i2^{-p},(i+1)2^{-p}[$, donc chaque terme de la somme est nul.\\
-	(ii) Pour $t\in]0,1[$ on a $\pi2^{j}t\in]0,2^{j}\pi[$ un intervalle de taille un multiple de $2\pi$, donc $\sin(\pi2^jt)$ prend des valeurs positives et négatives sur des ensembles de mêmes mesures, et donc $\int_{0}^{1}r_j d\lambda=0$.
+	(ii) Pour $t\in]0,1[$ on a $\pi2^{j}t\in]0,2^{j}\pi[$ un intervalle de taille un multiple de $2\pi$. Donc $\sin(\pi2^jt)$ prend des valeurs positives et négatives sur des ensembles de mêmes mesures, et donc $\int_{0}^{1}r_j d\lambda=0$ par symétrie.
 \end{proof}
 \boxXx{
 \begin{theoreme}[Inégalité de Khinchine]\label{Khi}
@@ -1376,7 +1378,7 @@ Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preu
 	\end{equation*}
 \end{theoreme}}
 \begin{proof}
-	Soit $(a_i)_{i\leq n}\neq(0,...,0)$, posons $b_i=\frac{a_i}{(\sum_{i=1}^{n}a_i^2)^{\frac{1}{2}}}$ et $f=\sum_{i=1}^{n}b_i r_i$, on veut appliquer le lemme qui précède à $f$. Pour cela, il nous faut définir une suite de sous-tribus de $\text{Bor}([0,1])$, on la construit de la manière suivante :
+	Soit $(a_i)_{i\leq n}\neq(0,...,0)$, posons $b_i=\frac{a_i}{(\sum_{i=1}^{n}a_i^2)^{\frac{1}{2}}}$ et $f=\sum_{i=1}^{n}b_i r_i$, on veut appliquer le lemme qui précède à $f$. Pour cela, il nous faut définir une suite de sous-tribus de $\text{Bor}([0,1])$. On la construit de la manière suivante :
 	\begin{equation*}
 		\begin{array}{lll}
 		\mathcal{F}_0=\big\{\emptyset,[0,1]\big\}\\
@@ -1408,15 +1410,15 @@ Introduisons maintenant les fonctions de Rademacher déjà utiliser dans la preu
 	\begin{equation*}
 		d_{n+1} = \mathbb{E}(f|\mathcal{F})-\mathbb{E}(f|\mathcal{F}_n)= f-f=0
 	\end{equation*}
-	et l'on obtient :
+	et on obtient :
 	\begin{equation*}
 	\sum_{i=1}^{n+1}||d_i||^2_\infty = \sum_{i=1}^{n}|b_i|^2=1
 	\end{equation*}
-	par le \cref{lcm} pour tous $\varepsilon>0$ :
+	par le \cref{lcm} pour tout $\varepsilon>0$ :
 	\begin{equation*}
 		\lambda\big(|f|>\varepsilon\big)\leq 2 \exp\big(-\frac{\varepsilon^2}{4}\big)
 	\end{equation*}
-	Par changement de variable $s^p=t$ on obtient :
+	Par changement de variable $s^p=t$, on obtient :
 	\begin{align*}
 		\int_{0}^{1}|f|^p d\lambda &= \int_{0}^{+\infty}\lambda(|f|^p>t)dt = \int_{0}^{+\infty}p s^{p-1}\lambda(|f|>s)ds \\
 		&\leq 2p\int_{0}^{+\infty}s^{p-1}e^{-\frac{s^2}{4}}ds\\
