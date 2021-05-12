@@ -102,18 +102,16 @@
 		%	\footnotesize Vitali Milman à propos du théorème de Dvoretzky dans \textit{Dvoretzky theorem - thirty years later}
 		%\end{center}
 
-		
-		\vfill 
-		
-		\begin{minipage}{0.4\textwidth}
-			\begin{flushleft} 
+		\begin{minipage}{\textwidth}
+			\begin{center} 
 				Mathieu GALLO \\
-			\end{flushleft}
+			\end{center}
 		\end{minipage}
+		\vfill
 		\begin{minipage}{0.4\textwidth}
-			\begin{flushright} 
+			\begin{center} 
 				\emph{Enseignant :} Omer Friedland\\
-			\end{flushright}
+			\end{center}
 		\end{minipage}
 		
 		\vspace{5mm}		
@@ -131,7 +129,7 @@ Alexandre Grothendieck en 1956 dans son article "\textit{Sur certaines classes d
 		Il existe une fonction $k:]0,1[\times \mathbb{N}\to \mathbb{N}$, telle que $\forall \varepsilon\in]0,1[$, $k(\varepsilon,n)\stackrel{n\to\infty}{\longrightarrow}\infty$ et pour tout $n\in\mathbb{N}$ et tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe $V \sev \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V =k(\varepsilon,n)$
-			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
+			\item[(ii)] $\exists r>0$ tel que , $\; r\cdot(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r\cdot(V\cap B^n_2) $
 		\end{enumerate}
 	\end{theoreme}
 }
@@ -145,7 +143,7 @@ Vitali Milman en 1971 \cite{VM1} donna une nouvelle preuve du théorème de Dvor
 		Pour tout $\varepsilon>0$, il existe une constante $c>0$ telle que pour tout $n\in\mathbb{N}$ et pour tout compact convexe symétrique $K\subset \mathbb{R}^n$, il existe  $V\sev  \mathbb{R}^n$ tels que :
 		\begin{enumerate}
 			\item[(i)] $\dim V \geq c.\log(n)$
-			\item[(ii)] $\exists r>0$ tel que , $\; r.(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r.(V\cap B^n_2) $
+			\item[(ii)] $\exists r>0$ tel que , $\; r\cdot(V\cap B^n_2) \subset V\cap K \subset (1+\varepsilon)r\cdot(V\cap B^n_2) $
 		\end{enumerate}
 	\end{theoreme}
 }
@@ -153,7 +151,7 @@ La dépendance de $c$ par rapport à $\varepsilon$ donnée par V.Milman était $
 \newpage\begin{notation}
 	Pour la suite, on utilisera les notations : 
 	\begin{enumerate}
-		\item[-] $|.|_n$ la norme euclidienne sur $\mathbb{R}^n$, ou $|.|$ si il n'y a pas d'ambiguïté sur la dimension.
+		\item[-] $|.|$ la norme euclidienne sur $\mathbb{R}^n$.
 		\item[-] $S^{n-1} = \big\{x\in \mathbb{R}^n\; ;\; |x|=1\big\}$, la $(n-1)$-sphère euclidienne.
 		\item[-] Pour $||.||$ une norme sur $\mathbb{R}^n$ on note $B_{||.||}=\big\{x\in\mathbb{R}^n\;;\;||x||\leq 1\big\}$ la boule unité fermée.
 	\end{enumerate}
@@ -172,13 +170,13 @@ La dépendance de $c$ par rapport à $\varepsilon$ donnée par V.Milman était $
 |A-B|=& \sqrt{n}-1 \underset{n\to\infty}{\to} \infty\\
 |e_j-B|=& \sqrt{n-1} \underset{n\to\infty}{\to} \infty
 \end{align*}
-Donc lorsque $n$ est grand, si on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formée de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il existe une section $C$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant \par
+Donc lorsque $n$ est grand, si on se place sur la $(n-1)$-sphère euclidienne, $B_\infty^n$ semble être formée de $2^n$ \textit{"piques"} qui sont de plus en plus grands avec $n$. Mais le théorème de Dvoretzky nous affirme qu'il existe une section $F$ de $B_\infty^n$ de dimension supérieure à $c\log n$ où $c$ ne dépendant \par
 \begin{wrapfigure}{l}{0.33\textwidth}
 	\centering
 	\vspace{-7mm}
 	\includegraphics[scale=0.4]{figure_2.png}
 \end{wrapfigure}
-\noindent pas de $n$, telle que $C$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ telle que pour un certain $r>0$ :
+\noindent pas de $n$, telle que $F$ soit arbitrairement proche de la boule euclidienne, c'est-à-dire une section sur laquelle on ne voit pas ces \textit{"piques"}. En terme plus mathématique, pour tout $\varepsilon>0$ il existe $V \sev \mathbb{R}^n$ de dimension plus grande que $c(\varepsilon)\log n$ telle que pour un certain $r>0$ :
 \begin{equation*}
 r.(V\cap B^n_2) \subset V\cap B_\infty^n \subset (1+\varepsilon)r.(V\cap B^n_2)
 \end{equation*}
@@ -199,32 +197,32 @@ En utilisant la relation entre compact convexe symétrique $K$ et la norme $||y|
 }
 
 \noindent Montrons que le \cref{thmMil} et le \cref{thmr} sont équivalents.
-
+\begin{proof}
 \noindent(2)$\Rightarrow$(3)\\
 Posons $K=B_{||.||}$ et appliquons le théorème 2, celui-ci nous procure un sous-espace $V$ de $\mathbb{R}^n$, avec $\dim V := k \geq c.\log(n)$ et $V\cap K$ est $\varepsilon\text{-ecuclidien}$. Donnons-nous une base orthonormée $\{v_j\}_{1\leq j \leq k}$ de $V$ et posons 
 \begin{equation*}
 T :\begin{array}{ccc}
- (\mathbb{R}^k,|.|_k)& \mapsto &(V,||.||) \\
+ (\mathbb{R}^k,|.|)& \mapsto &(V,||.||) \\
 \sum_{i=1}^{k}x_i e_i & \to & \sum_{i=1}^{k}x_i v_i
 \end{array}
 \end{equation*}
 Soit $x\in \mathbb{R}^k$ tel que $||Tx||=1$, comme $K\cap V$ est $\varepsilon$-euclidien, on a que
 \begin{equation*}
-r \leq |Tx|_n \leq (1+\varepsilon)r, \hspace{2mm}\text{pour un $r>0$}
+r \leq |Tx| \leq (1+\varepsilon)r, \hspace{2mm}\text{pour un $r>0$}
 \end{equation*}
-Remarquons que $|Tx|_n=|x|_k$, donc
+Remarquons que $|Tx|=|x|$, donc
 \begin{equation*}
-	r \leq |x|_k \leq (1+\varepsilon)r
+	r \leq |x| \leq (1+\varepsilon)r
 \end{equation*}
-Il suffit d'appliquer cela à $\frac{x}{||Tx||}$ pour $x\neq 0$ 
+Maintenant si $x$ est quelconque, il suffit d'appliquer cela à $\frac{x}{||Tx||}$ pour $x\neq 0$ 
 \begin{equation*}
-	r||Tx|| \leq |x|_k \leq (1+\varepsilon)r||Tx||
-\end{equation*}
-\begin{equation*}
-	\frac{1}{(1+\varepsilon)r}|x|_k \leq ||Tx|| \leq \frac{1}{r} |x|_k
+	r||Tx|| \leq |x| \leq (1+\varepsilon)r||Tx||
 \end{equation*}
 \begin{equation*}
-r|x|_k \leq ||\tilde{T}x|| \leq (1+\varepsilon)r|x|_k
+	\frac{1}{(1+\varepsilon)r}|x| \leq ||Tx|| \leq \frac{1}{r} |x|
+\end{equation*}
+\begin{equation*}
+r|x| \leq ||\tilde{T}x|| \leq (1+\varepsilon)r|x|
 \end{equation*}
 avec $\tilde{T} = r(1+\varepsilon)T$, remarquons que la quantité importante est $||T||.||T^{-1}||=||\tilde{T}||.||\tilde{T}^{-1}||\leq 1+\varepsilon$.\\ 
 (3)$\Rightarrow$(2)\\
@@ -237,12 +235,12 @@ Ceci implique immédiatement que $T$ est injective, notons $V=\text{Im}T$, alors
 	\item[(i)]Soit $y\in T\left(B_2^k\right)$ et $x\in B_2^k$ tel que $Tx=y$ alors $\frac{||y||}{1+\varepsilon}\leq 1$ donc $\frac{y}{1+\varepsilon}\in K\cap V$, c'est-à-dire $\frac{1}{1+\varepsilon}T\left(B_2^k\right)\subset K\cap V$.
 	\item[(ii)] Soit $y\in K\cap V$, il existe $x\in \mathbb{R}^k$ tel que $Tx=y$, alors $1\geq ||Tx||=||y|| \geq |x|$, donc $x\in B_2^k$ c'est-à-dire $K\cap V\subset T\left(B_2^k\right)$.
 \end{enumerate} 
-Et donc, `
+Et donc,
 \begin{equation*}
 	\frac{1}{1+\varepsilon}T(B_2^k)\subset K\cap V \subset T(B_2^k)
 \end{equation*}
 Pour conclure, nous nous référençons au \textbf{lemme \labelcref{eleb}} qui sera démontré par la suite, qui dit que tout ellipsoïde de dimension $k$ admet une section de dimension $\lceil k/2\rceil$ qui soit un multiple de la boule euclidienne. 
-
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \numberwithin{theoreme}{section}
@@ -344,7 +342,7 @@ vérifie les propriétés suivantes :
 	L'unicité de la mesure de Haar nous permet de conclure que $\omega_x  = \mu$, en particulier $\omega_x$ ne dépend pas de $x$.
 \end{proof}
 \subsection{Concentration de la mesure}
-Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonction $1$-Lipschitzienne de $X$ dans $\mathbb{R}$, l'assertion $f$ est essentiellement constante se traduit par le fait que l'on puisse donner une borne supérieure à $P\big(|f-i(f)|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ et $i(f)$ une constante qui dépend de $f$, en pratique $i(f)$ est la médiane de $f$ ou son espérance.\\
+Le phénomène de concentration de la mesure a été mis en avant par V.Milman étandant les travaux de P.Lévy et son inégalité isopérimétrique. On peut formuler la question que cherche à résoudre le théorème comme cela : étant donné $(X,d)$ un espace métrique muni d'une mesure de probabilité $P$, on cherche à regarder où les fonctions $1$-Lipschitziennes sont essentiellement constantes. Considérons $f$ une fonction $1$-Lipschitzienne de $X$ dans $\mathbb{R}$, l'assertion $f$ est essentiellement constante se traduit par le fait que l'on puisse donner une borne supérieure à $P\big(|f-M(f)|\geq \varepsilon\big)$, pour $\varepsilon\geq 0$ et $M(f)$ une constante qui dépend de $f$, en pratique $M(f)$ est la médiane de $f$ ou son espérance.\\
 Pour un ensemble $A\subset X$ et $t>0$, on définit son $t$-élargissement $A_t$ par :
 \begin{equation*}
 	A_t =\big\{x\in X \; ; \; d(x,A)\leq t\big\}
@@ -586,12 +584,26 @@ Pour la preuve du théorème de Dvoretzky, nous aurons besoin de deux résultats
 	\end{equation*}
 	d'où :
 	\begin{equation*}
-	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{n}}f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}dr d\theta_1 ... d\theta_{n-1}
+	\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{+}\times]0,\pi[^{n-2}\times ]0,2\pi[ }f\circ\varphi(\theta)g(r) \exp\Big(-\frac{r^2}{2}\Big)r^{n-1}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i} \frac{dr d\theta_1 ... d\theta_{n-1}}{(2\pi)^\frac{n}{2}}
 	\end{equation*}
 	\begin{equation*}
-		\mathbb{E}\big[f(Y)g(R)\big]=\int_{\mathbb{R}^{+}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{]0,\pi[^{n-2}\times ]0,2\pi[} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1 ... d\theta_{n-1}
+		\mathbb{E}\big[f(Y)g(R)\big]=\frac{1}{(2\pi)^\frac{n}{2}}\int_{\mathbb{R}^{+}}g(r) \exp\Big(-\frac{r^2}{2}\Big) r^{n-1}dr\int_{]0,\pi[^{n-2}\times ]0,2\pi[} f\circ\varphi(\theta)\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1 ... d\theta_{n-1}
 	\end{equation*}
-	où $\varphi(\theta)=(\sin \theta_1 ... \sin \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2},\dots,\cos \theta_1)$.
+	où $\varphi(\theta)=(\sin \theta_1 ... \sin \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-2}\cos \theta_{n-1},\sin \theta_1 ...\sin \theta_{n-3}\cos \theta_{n-2},\dots,\cos \theta_1)$.\\
+	Or \begin{align*}
+		\mathbb{E}[g(R)] &= \int_{\mathbb{R}^n} g\left(\sqrt{\sum_{i=1}^n x_i^2}\right) \exp\left(-\frac{1}{2}\sum_{i=1}^n x_i^2\right)\frac{dx_1\dots dx_n}{(2\pi)^\frac{n}{2}}\\
+		&= \frac{1}{(2\pi)^\frac{n}{2}}\int_{\mathbb{R}^+}r^{n-1} g(r) \exp\left(-\frac{r^2}{2}\right) dr \int_{]0,\pi[^{n-2}\times ]0,2\pi[}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1\dots d\theta_{n-1} 
+		\end{align*} 
+	et \begin{align*}
+		\mathbb{E}[f(Y)] &= \int_{\mathbb{R}^n} f\left(\frac{x_1}{|x|},\dots,\frac{x_1}{|x|}\right) \exp\left(-\frac{|x|}{2}\right) \frac{dx_1\dots dx_n}{(2\pi)^\frac{n}{2}}\\
+		&=  \frac{1}{(2\pi)^\frac{n}{2}}\int_{\mathbb{R}^+}r^{n-1} \exp\left(-\frac{r^2}{2}\right) dr \int_{]0,\pi[^{n-2}\times ]0,2\pi[}f\circ\phi(\theta)\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1\dots d\theta_{n-1} 
+	\end{align*}
+	Pour conclure il suffit de remarquer que :
+	\begin{align*}
+		\mathbb{E}[g(R)]\mathbb{E}[f(Y)] &= (2\pi)^\frac{n}{2}\mathbb{E}[f(Y)g(R)] \left(\frac{1}{(2\pi)^\frac{n}{2}}	\int_{\mathbb{R}^+}r^{n-1} \exp\left(-\frac{r^2}{2}\right) dr \right)\\ &\times \left( \frac{1}{(2\pi)^\frac{n}{2}}\int_{]0,\pi[^{n-2}\times ]0,2\pi[}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1\dots d\theta_{n-1}\right)\\
+		&=  \mathbb{E}[f(Y)g(R)] \frac{1}{(2\pi)^\frac{n}{2}} \int_{\mathbb{R}^n} \exp\left(-\frac{|x|^2}{2}\right) dx_1\dots dx_n = \mathbb{E}[f(Y)g(R)]
+	\end{align*}
+	
 \end{proof} 
 Nous aurons besoin de trouver un minorant pour $\int_{S^{n-1}}||x|| d\mu(x)$ pour une norme $||.||$ sur $\mathbb{R}^n$ et pour cela nous utiliserons le lemme suivant :
 \newline\boxXx{
@@ -859,7 +871,7 @@ Il ne nous reste plus qu'a donner une borne inférieure à $\frac{M}{b}$, pour c
 	&\geq\frac{1}{2}\int_{S^{n-1}} 2\max\Big\{||\sum_{i=1}^{n-1}a_ix_i||,||a_nx_n||\Big\}d\mu(a)\geq ...\geq \int_{S^{n-1}} \max_{1\leq i \leq n}\Big\{|a_i|\;||x_i||\Big\}d\mu(a)\\
 	&\geq \int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}\Big\{|a_i|\;||x_i||\Big\}d\mu(a) \geq (2e)^{-1}\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a)	
 	\end{align*}
-	Soit $(g_1,...,g_n)$ , des variables aléatoires i.i.d de loi $\mathcal{N}(0,1)$ alors 
+	Soit $(g_1,...,g_n)$ , des variables aléatoires i.i.d de loi $\mathcal{N}(0,1)$ alors par le \cref{lhg} :
 	\begin{equation*}
 	\int_{S^{n-1}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|a_i| d\mu(a) =\mathbb{E}\Big[\big(\sum_{i=1}^{n}g_i^2\big)^{-\frac{1}{2}} \max_{1\leq i \leq \big\lceil\frac{n}{2}\big\rceil}|g_i|\Big]
 	\end{equation*}
