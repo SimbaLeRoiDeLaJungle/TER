@@ -598,7 +598,7 @@ Pour la preuve du théorème de Dvoretzky, nous aurons besoin de deux résultats
 		\mathbb{E}[f(Y)] &= \int_{\mathbb{R}^n} f\left(\frac{x_1}{|x|},\dots,\frac{x_1}{|x|}\right) \exp\left(-\frac{|x|}{2}\right) \frac{dx_1\dots dx_n}{(2\pi)^\frac{n}{2}}\\
 		&=  \frac{1}{(2\pi)^\frac{n}{2}}\int_{\mathbb{R}^+}r^{n-1} \exp\left(-\frac{r^2}{2}\right) dr \int_{]0,\pi[^{n-2}\times ]0,2\pi[}f\circ\phi(\theta)\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1\dots d\theta_{n-1} 
 	\end{align*}
-	Pour conclure il suffit de remarquer que :
+	Pour conclure, il suffit de remarquer que :
 	\begin{align*}
 		\mathbb{E}[g(R)]\mathbb{E}[f(Y)] &= (2\pi)^\frac{n}{2}\mathbb{E}[f(Y)g(R)] \left(\frac{1}{(2\pi)^\frac{n}{2}}	\int_{\mathbb{R}^+}r^{n-1} \exp\left(-\frac{r^2}{2}\right) dr \right)\\ &\times \left( \frac{1}{(2\pi)^\frac{n}{2}}\int_{]0,\pi[^{n-2}\times ]0,2\pi[}\prod_{1\leq i\leq n-1}|\sin\theta_i|^{n-1-i}d\theta_1\dots d\theta_{n-1}\right)\\
 		&=  \mathbb{E}[f(Y)g(R)] \frac{1}{(2\pi)^\frac{n}{2}} \int_{\mathbb{R}^n} \exp\left(-\frac{|x|^2}{2}\right) dx_1\dots dx_n = \mathbb{E}[f(Y)g(R)]
